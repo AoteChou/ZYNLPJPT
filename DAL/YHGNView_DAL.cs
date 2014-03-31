@@ -1,24 +1,13 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* YHGNView_DAL.cs
-*
-* 功 能： N/A
-* 类 名： YHGNView_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:32   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
+﻿
 using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -292,6 +281,39 @@ namespace ZYNLPJPT.DAL
 		#endregion  BasicMethod
 		#region  ExtensionMethod
 
+        public MainMenu[] getUserMenu(YH yh)
+        {
+
+            string sql = "select distinct SSML from YHGNView where yhbh='" + yh.YHBH.Trim() + "'";
+
+
+            SqlDataReader reader = DbHelperSQL.ExecuteReader(sql);
+            List<string> ssmls = new List<string>();
+            while (reader.Read())
+            {
+                ssmls.Add((string)reader["ssml"]);
+            }
+            reader.Close();
+
+            List<MainMenu> mainMenus = new List<MainMenu>();
+            foreach (string ssml in ssmls)
+            {
+                string realSql = "select * from YHGNView where yhbh=@yhbh and ssml=@ssml";
+                SqlParameter[] sqlPars = { new SqlParameter("@yhbh",yh.YHBH),
+                                           new SqlParameter("@ssml",ssml)
+                                         };
+                SqlDataReader realReader = DbHelperSQL.ExecuteReader(realSql, sqlPars);
+                List<ItemMenu> itemMenus = new List<ItemMenu>();
+                while (realReader.Read())
+                {
+                    itemMenus.Add(new ItemMenu((string)realReader["gnm"], (string)realReader["gnlj"], (int)realReader["gnbh"]));
+                }
+                realReader.Close();
+                mainMenus.Add(new MainMenu(ssml, itemMenus.ToArray()));
+            }
+            MainMenu[] mainMenuArray = mainMenus.ToArray();
+            return mainMenuArray;
+        }
 		#endregion  ExtensionMethod
 	}
 }
