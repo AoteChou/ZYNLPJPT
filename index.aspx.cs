@@ -17,12 +17,16 @@ namespace ZYNLPJPT
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yh"] == null)
+            if (Session["yh"] == null || this.Session["visitedId"] == null||Request["visitedId"]==null)
             {
                 this.Response.Redirect("Default.htm");
             }
-            else
+            else if (!this.Session["visitedId"].ToString().Equals(Request["visitedId"].ToString()))
             {
+                this.Response.Redirect("Default.htm");
+            }
+            else {
+              
                 menus = new YHGNView_DAL().getUserMenu((YH)Session["yh"]);
             }
         }

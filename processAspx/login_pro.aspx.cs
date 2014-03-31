@@ -19,7 +19,9 @@ namespace ZYNLPJPT.processAspx
             {
                 //登录成功
                 this.Session["yh"] = loginBll.getYH(inputId);
-                Response.Redirect("../index.aspx");
+                string visitedId=new Random().Next().ToString();
+                this.Session["visitedId"] = visitedId;
+                Response.Redirect("../index.aspx?visitedId="+visitedId);
             }
             else
             {
