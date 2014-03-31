@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body{
+	margin:0px;
+	height:100%;
+} 
+#content{
+	text-align: center;
+	margin-top:5%;
+	}
+#ZSDList{
+	
+    text-align: center;
+	
+	}
