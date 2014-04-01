@@ -1,24 +1,10 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* PCJL_DAL.cs
-*
-* 功 能： N/A
-* 类 名： PCJL_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:16   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
+﻿
 using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using System.Collections.Generic;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -361,7 +347,61 @@ namespace ZYNLPJPT.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        /// <summary>
+        /// 获取特定课程下的评测记录数目
+        /// </summary>
+        /// <param name="kcbh">课程编号（数组）</param>
+        /// <returns>评测记录数目（数组）</returns>
+        public int[] getPCJLNumByKCBH(int[] kcbhs)
+        {
 
+            List<int> numList = new List<int>();
+            int num = 0;
+            foreach (int kcbh in kcbhs)
+            {
+                string sqlString = "select count(*) from pcjl where pcjl.stbh in(select stbh from st where kcbh=@kcbh)";
+                SqlParameter[] sqlparameters =
+                {
+                    new SqlParameter("@kcbh",kcbh)
+                           };
+                SqlDataReader sdReader = DbHelperSQL.ExecuteReader(sqlString, sqlparameters);
+                if (sdReader.Read())
+                {
+                    num = (int)(sdReader[0]);
+                }
+                sdReader.Close();
+                numList.Add(num);
+            }
+
+           
+            return numList.ToArray();
+        }
+        /// <summary>
+        /// 获取某个学生特定课程是否还存在上次还未完成的试题
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL getPCJL_Undone(string xsbh, int kcbh)
+        {
+            string sqlString = "select * from pcjl where xsbh=@xsbh and pcfs=-1 and stbh in(select stbh from st where kcbh=@kcbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+            ZYNLPJPT.Model.PCJL pcjl = null;
+
+          
+            DataSet ds= DbHelperSQL.Query(sqlString,sqlparameters);
+            if (ds.Tables[0].Rows.Count>0)
+            {
+                pcjl = DataRowToModel(ds.Tables[0].Rows[0]);
+
+            }
+
+            return pcjl;
+        }
 		#endregion  ExtensionMethod
 	}
 }
