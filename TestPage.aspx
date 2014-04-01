@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>XX课程专业能力测评</title>
+<title><%=this.stzsdviews[0].KCMC%>专业能力测评</title>
 	<link rel="stylesheet" type="text/css" href="Styles/TestPage.css">
 	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
@@ -25,7 +25,7 @@
     	<ol style="color:#777777">
             <%for (int i = 0; i < stzsdviews.Length; i++)
               { %>
-    		<li><%=stzsdviews[i].ZSDMC%>&nbsp<%=stzsdviews[i].ZSDBZ.ToString("p") %></li>
+    		<li><%=stzsdviews[i].ZSDMC%>&nbsp<%=stzsdviews[i].ZSDBZ.ToString("p")%></li>
             <%} %>
     		
     	</ol>
@@ -42,7 +42,7 @@
         
         <div id="p" class="easyui-progressbar" style="margin-top:20px; width:400px" ></div>
         <p id='opMsg'></p>
-        <input type="button"  id="next" name="下一题" style="display:none" value="下一题" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].Kcbh%>'" />
+        <input type="button"  id="next" name="下一题" style="display:none" value="下一题" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>'" />
     </div>
    
     

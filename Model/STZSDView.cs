@@ -1,19 +1,4 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* STZSDView.cs
-*
-* 功 能： N/A
-* 类 名： STZSDView
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:30   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
+﻿
 using System;
 namespace ZYNLPJPT.Model
 {
@@ -41,7 +26,7 @@ namespace ZYNLPJPT.Model
 		private int _kcbh;
 		private DateTime _ctsj;
 		private string _ctr;
-		private int _sfsc;
+		private bool _sfsc;
 		private string _kcmc;
 		/// <summary>
 		/// 
@@ -166,7 +151,7 @@ namespace ZYNLPJPT.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int SFSC
+		public bool SFSC
 		{
 			set{ _sfsc=value;}
 			get{return _sfsc;}

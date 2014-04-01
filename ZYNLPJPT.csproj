@@ -51,6 +51,7 @@
   <ItemGroup>
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="Default.htm" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="processAspx\GetTest.aspx" />
@@ -191,6 +192,13 @@
     <Compile Include="DAL\ZYKCView_DAL.cs" />
     <Compile Include="DAL\ZYKC_DAL.cs" />
     <Compile Include="DAL\ZY_DAL.cs" />
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
