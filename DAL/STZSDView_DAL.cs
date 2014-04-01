@@ -19,6 +19,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
+using System.Collections.Generic;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -399,7 +401,35 @@ namespace ZYNLPJPT.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        /// <summary>
+        /// 通过试题编号获取具体的知识点
+        /// </summary>
+        /// <param name="stbh">试题编号</param>
+        /// <returns>试题知识点数组</returns>
+        public STZSDView[] getbySTBH(int stbh)
+        {
+            string sqlString = "select * from stzsdview where stbh=@stbh";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@stbh",stbh)
+                           };
 
+            STZSDView stzsdview = null;
+
+            List<STZSDView> stzsdList = new List<STZSDView>();
+
+
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                stzsdview = DataRowToModel(row);
+
+                stzsdList.Add(stzsdview);
+
+            }
+            
+            return stzsdList.ToArray();
+        }
 		#endregion  ExtensionMethod
 	}
 }
