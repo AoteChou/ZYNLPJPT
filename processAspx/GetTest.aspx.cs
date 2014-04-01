@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using ZYNLPJPT.BLL;
 using ZYNLPJPT.Model;
 
-namespace ZYNLPJXT.processAspx
+namespace ZYNLPJPT.processAspx
 {
     public partial class GetTest : System.Web.UI.Page
     {

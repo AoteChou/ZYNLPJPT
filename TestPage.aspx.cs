@@ -20,9 +20,12 @@ namespace ZYNLPJPT
             stbh=int.Parse( Request["stbh"]);
             STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
             stzsdviews = stzsdview_dal.getbySTBH(stbh);
-           
             teststate=int.Parse(Request["teststate"]);
+       
 
+            if (stzsdviews.Length == 0) {
+                Response.Redirect("./ErrorPage.aspx?msg='获取试题的过程中出错啦，请关闭窗口重新获取吧~~'");
+            }
                         
         }
     }

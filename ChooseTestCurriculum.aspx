@@ -32,7 +32,7 @@
            
     		
               <%
-              for (int i = 0; i < this.jdkcxsviews.Length; i++)
+              for (int i = 0; i <this.jdkcxsviews.Length; i++)
               {
               Response.Write("<tr >");
               Response.Write("	<td >" + jdkcxsviews[i].KCMC  + "</td>");

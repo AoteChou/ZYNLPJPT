@@ -1,19 +1,4 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* STZSDView_DAL.cs
-*
-* 功 能： N/A
-* 类 名： STZSDView_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:30   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
+﻿
 using System;
 using System.Data;
 using System.Text;
@@ -281,7 +266,7 @@ namespace ZYNLPJPT.DAL
 				}
 				if(row["SFSC"]!=null && row["SFSC"].ToString()!="")
 				{
-					model.SFSC=int.Parse(row["SFSC"].ToString());
+					model.SFSC=bool.Parse(row["SFSC"].ToString());
 				}
 				if(row["KCMC"]!=null)
 				{
@@ -414,7 +399,6 @@ namespace ZYNLPJPT.DAL
                 new SqlParameter("@stbh",stbh)
                            };
 
-            STZSDView stzsdview = null;
 
             List<STZSDView> stzsdList = new List<STZSDView>();
 
@@ -422,9 +406,9 @@ namespace ZYNLPJPT.DAL
             DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
             foreach(DataRow row in ds.Tables[0].Rows)
             {
-                stzsdview = DataRowToModel(row);
+                 
 
-                stzsdList.Add(stzsdview);
+                stzsdList.Add(DataRowToModel(row));
 
             }
             
