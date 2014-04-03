@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TestPage.aspx.cs" Inherits="ZYNLPJPT.TestPage" %>
-
+<%@ Register TagPrefix="Upload" Namespace="Brettle.Web.NeatUpload" Assembly="Brettle.Web.NeatUpload" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,10 +11,11 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+
 </head>
 
 <body class="easyui-layout">
-
+<form id="form1" runat="server">
 
 <div region="center" border="false">
  	<div id="content">
@@ -29,62 +30,61 @@
             <%} %>
     		
     	</ol>
-        <input type="button"  id="download" name="下载题目"  value="下载题目" /><br />
-        <%if (teststate == ZYNLPJPT.Utility.TestState.UNDONETEST)
-        { %>
-        <input type="file" id="upload" name="提交答案"  value="提交答案" />
-        <input type="button"  id="uploadEnsure"  name="上传题目"  value="上传题目" /><br/>
-        <p>您还未完成本题 请完成之后在继续做下一题</p>
-        <% }else { %> 
-        <input type="file" id="upload" style="display:none"   name="提交答案"  value="提交答案" />
-        <input type="button"  id="uploadEnsure" style="display:none" name="上传题目"  value="上传题目" /><br/>
-        <%} %>
-        
-        <div id="p" class="easyui-progressbar" style="margin-top:20px; width:400px" ></div>
-        <p id='opMsg'></p>
+        <asp:Button  runat="server" id="download" Text="下载题目" onclick="download_Click" />
+        <input type="button"  id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'"/><br />
+        <div id="uploadDiv">
+             <Upload:InputFile id="inputFileId" runat="server" />
+            <asp:Button id="submitButtonId" runat="server" Text="上传题目" OnClientClick="return getPhotoExt(document.getElementById('inputFileId'))"  /><br />
+            <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="600" Height="50" />
+            <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?"> </Upload:UnloadConfirmer>
+        </div>
+       
+         <p id='opMsg'></p><br/>
         <input type="button"  id="next" name="下一题" style="display:none" value="下一题" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>'" />
     </div>
    
     
 </div>
+</form>
+
 <script type="text/javascript">
+   
+  function getPhotoExt(obj) {
+      photoExt = obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase(); //获得文件后缀名
+      console.log(photoExt);
+      <%if(sfzdyj){
+      Response.Write("自动阅卷");
+      } %>
+      if (photoExt != '.doc' && photoExt != '.docx' ) {
+          alert("请上传word文档!");
+          return false;
+      }else{
+          $('#opMsg').text('正在上传...请勿关闭本窗口...');
+          return true;
+      }
+
+  }
 
 
-    $(function () {
-        $('#p').hide();
-        $('#mytable').datagrid({
-            pagination: true,
-            //data:[{code:'1',price:'2',name:'dd'}],
-            //url:'data.json',
-            singleSelect: true
-        });
+
+$(function () {
+
+    <%if (teststate == ZYNLPJPT.Utility.TestState.UNDONETEST)
+      { %>
+       
+       $('#opMsg').text('您上次还未完成本题 请完成之后在继续做下一题');
+    <%}else{ %>
+       $('#uploadDiv').hide();
+     <%} %>
+
         $('#download').click(function () {
-            $('#upload').css('display', 'inline');
-            $('#uploadEnsure').css('display', 'inline');
-            //$('#p').css('display','inline-block');
+             $('#uploadDiv').show();
+             
         });
-        var progressValue = 0;
-        var temp = 0;
-        $('#uploadEnsure').click(function () {
-            $('#p').css('display', 'inline-block');
-            $('#p').show();
-            while (progressValue <= 100) {
-                $('#p').progressbar({
-                    value: progressValue
-                });
-                progressValue++;
-            }
-            if (progressValue > 100) {
-                $('#opMsg').text('已经成功提交答案，请做下一题~');
-                $('#next').show();
-            }
-
-
-
-
-
-        });
-    });
+      
+       
+        
+});
 
 </script>
 

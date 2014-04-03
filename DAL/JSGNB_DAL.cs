@@ -89,7 +89,7 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update JSGNB set ");
-#warning 系统发现缺少更新的字段，请手工确认如此更新是否正确！ 
+
 			strSql.Append("JSBH=@JSBH,");
 			strSql.Append("GNBH=@GNBH");
 			strSql.Append(" where JSBH=@JSBH and GNBH=@GNBH ");
