@@ -1,16 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChooseTestCurriculum.aspx.cs" Inherits="ZYNLPJPT.ChooseTestCurriculum" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChooseUploadCurriculum.aspx.cs" Inherits="ZYNLPJPT.ChooseUploadCurriculum" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head  runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>选择测试课程</title>
+<head runat="server">
+    <title>选择上传试题的课程</title>
 	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
 </head>
+
 
 <body class="easyui-layout">
 
@@ -43,7 +43,7 @@
               Response.Write("  <td >"+testNum_done+"</td>");
               Response.Write("  <td >" + testNum_undone[i] + "</td>");
               Response.Write("  <td >"+jdkcxsviews[i].KCJJ+"</td>");
-              Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.location.href='processAspx/GetTest.aspx?kcbh="+jdkcxsviews[i].KCBH+"'\" >进入测试</a></td>");
+              Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" >上传试题</a></td>");
               Response.Write("</tr>");
                  
               } %>

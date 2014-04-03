@@ -34,7 +34,7 @@
         <input type="button"  id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'"/><br />
         <div id="uploadDiv">
              <Upload:InputFile id="inputFileId" runat="server" />
-            <asp:Button id="submitButtonId" runat="server" Text="上传题目" OnClientClick="return getPhotoExt(document.getElementById('inputFileId'))"  /><br />
+            <asp:Button id="submitButtonId" runat="server" Text="上传题目" OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  /><br />
             <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="600" Height="50" />
             <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?"> </Upload:UnloadConfirmer>
         </div>
@@ -48,15 +48,58 @@
 </form>
 
 <script type="text/javascript">
-   
-  function getPhotoExt(obj) {
-      photoExt = obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase(); //获得文件后缀名
-      console.log(photoExt);
-      <%if(sfzdyj){
-      Response.Write("自动阅卷");
-      } %>
-      if (photoExt != '.doc' && photoExt != '.docx' ) {
-          alert("请上传word文档!");
+
+ function compare(var1, var2) {
+   var array = var1.split(",")
+    for (x in array) {
+        if (array[x] == var2) {
+            return true;
+        }
+    }
+    return false;
+  }
+
+function loadXML(filePath) {
+    var xmlDoc = '';
+    if (window.ActiveXObject) { // IE     
+        var activeXNameList = new Array("MSXML2.DOMDocument.6.0", "MSXML2.DOMDocument.5.0", "MSXML2.DOMDocument.4.0", "MSXML2.DOMDocument.3.0", "MSXML2.DOMDocument", "Microsoft.XMLDOM", "MSXML.DOMDocument");
+        for (var h = 0; h < activeXNameList.length; h++) {
+            try {
+         xmlDoc = new ActiveXObject(activeXNameList[h]);
+             } catch (e) {
+                 continue;
+             }
+             if (xmlDoc) break;
+         }
+     } else if (document.implementation && document.implementation.createDocument) { //非 IE  
+         xmlDoc = document.implementation.createDocument("", "", null);
+     } else {
+         alert('can not create XML DOM object, update your browser please...');
+     }
+     xmlDoc.async = false;  //同步,防止后面程序处理时遇到文件还没加载完成出现的错误,故同步等XML文件加载完再做后面处理  
+     xmlDoc.load(filePath); //加载XML
+     return xmlDoc
+     
+ }
+ function getSuffixString(filePath) {
+     var xmlDoc = loadXML(filePath);
+     if (window.ActiveXObject) {
+             var nodeList = xmlDoc.documentElement.getElementsByTagName("typestring") // IE  
+             var num=<%=sfzdyj==true?1:0 %>
+             return nodeList[num].childNodes[0].text
+         } else {
+             var nodeList = xmlDoc.getElementsByTagName("typestring")  // 非IE  
+             var num=<%=sfzdyj==true?1:0 %>
+             return nodeList[num].childNodes[0].nodeValue
+         }
+
+ }
+
+  function getFileExt(obj) {
+      fileExt = obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase(); //获得文件后缀名
+      compString=getSuffixString("./Utility/validatedFileSuffix.xml")
+      if (!compare(compString,fileExt) ) {
+          alert("请上传后缀名为： "+compString+"  的文件!");
           return false;
       }else{
           $('#opMsg').text('正在上传...请勿关闭本窗口...');
@@ -79,7 +122,6 @@ $(function () {
 
         $('#download').click(function () {
              $('#uploadDiv').show();
-             
         });
       
        

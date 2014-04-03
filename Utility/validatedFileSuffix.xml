@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<filetype>
+	<typestring typestringid="zdyj_F" >.doc,.docx</typestring>
+	<typestring typestringid="zdyj_T" >.cpp,.java</typestring>
+</filetype>

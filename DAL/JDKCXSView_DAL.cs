@@ -449,6 +449,36 @@ namespace ZYNLPJPT.DAL
 
             return jdkcxsList.ToArray();
         }
+        /// <summary>
+        /// 获取学生的阶段课程(当下)
+        /// </summary>
+        /// <param name="xsbh">学生编号</param>
+        /// <param name="xqbh">学期编号</param>
+        /// <returns>阶段课程学生视图（数组）</returns>
+        public ZYNLPJPT.Model.JDKCXSView[] getByXSBH(string xsbh,int xqbh)
+        {
+            string sqlString = "select * from jdkcxsview where xsbh=@xsbh and qsxq<=@xqbh and jzxq>=@xqbh";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@xqbh",xqbh)
+                           };
+
+            ZYNLPJPT.Model.JDKCXSView jdkcxsview = null;
+
+            List<ZYNLPJPT.Model.JDKCXSView> jdkcxsList = new List<ZYNLPJPT.Model.JDKCXSView>();
+
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                jdkcxsview = DataRowToModel(row);
+
+                jdkcxsList.Add(jdkcxsview);
+
+            }
+
+            return jdkcxsList.ToArray();
+        }
 		#endregion  ExtensionMethod
 	}
 }

@@ -13,6 +13,7 @@ namespace ZYNLPJPT.processAspx
 {
     public partial class GetTest : System.Web.UI.Page
     {
+        //获取题目 检测是否存在还未完成的题目 否则用出题算法给出一道新题目
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)

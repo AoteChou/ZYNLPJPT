@@ -18,7 +18,7 @@ namespace ZYNLPJPT.BLL
         /// <returns>试题编号</returns>
         public int getSTBH(string xsbh,int kcbh) {
             //获取试题算法
-            int stbh =  2;
+            int stbh =  3;
 
             return stbh;
         }
