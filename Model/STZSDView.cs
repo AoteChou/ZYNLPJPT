@@ -28,6 +28,7 @@ namespace ZYNLPJPT.Model
 		private string _ctr;
 		private bool _sfsc;
 		private string _kcmc;
+        private bool _sfzdyj;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -164,6 +165,14 @@ namespace ZYNLPJPT.Model
 			set{ _kcmc=value;}
 			get{return _kcmc;}
 		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool SFZDYJ
+        {
+            set { _sfzdyj = value; }
+            get { return _sfzdyj; }
+        }
 		#endregion Model
 
 	}

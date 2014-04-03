@@ -16,84 +16,43 @@ namespace ZYNLPJPT.DAL
 		{}
 		#region  BasicMethod
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public int GetMaxId()
-		{
-		return DbHelperSQL.GetMaxID("PCJLBH", "PCJL"); 
-		}
+        /// <summary>
+        /// 得到最大ID
+        /// </summary>
+        public int GetMaxId()
+        {
+            return DbHelperSQL.GetMaxID("PCJLBH", "PCJL");
+        }
 
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(int PCJLBH)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from PCJL");
-			strSql.Append(" where PCJLBH=@PCJLBH");
-			SqlParameter[] parameters = {
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int PCJLBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from PCJL");
+            strSql.Append(" where PCJLBH=@PCJLBH");
+            SqlParameter[] parameters = {
 					new SqlParameter("@PCJLBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = PCJLBH;
+            parameters[0].Value = PCJLBH;
 
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
-		}
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
 
 
-		/// <summary>
-		/// 增加一条数据
-		/// </summary>
-		public int Add(ZYNLPJPT.Model.PCJL model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into PCJL(");
-			strSql.Append("STBH,XSBH,XZRQ,SCRQ,PCFS,GTR,XSSTDA)");
-			strSql.Append(" values (");
-			strSql.Append("@STBH,@XSBH,@XZRQ,@SCRQ,@PCFS,@GTR,@XSSTDA)");
-			strSql.Append(";select @@IDENTITY");
-			SqlParameter[] parameters = {
-					new SqlParameter("@STBH", SqlDbType.Int,4),
-					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
-					new SqlParameter("@XZRQ", SqlDbType.DateTime),
-					new SqlParameter("@SCRQ", SqlDbType.DateTime),
-					new SqlParameter("@PCFS", SqlDbType.Int,4),
-					new SqlParameter("@GTR", SqlDbType.VarChar,50),
-					new SqlParameter("@XSSTDA", SqlDbType.VarBinary,-1)};
-			parameters[0].Value = model.STBH;
-			parameters[1].Value = model.XSBH;
-			parameters[2].Value = model.XZRQ;
-			parameters[3].Value = model.SCRQ;
-			parameters[4].Value = model.PCFS;
-			parameters[5].Value = model.GTR;
-			parameters[6].Value = model.XSSTDA;
-
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public bool Update(ZYNLPJPT.Model.PCJL model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update PCJL set ");
-			strSql.Append("STBH=@STBH,");
-			strSql.Append("XSBH=@XSBH,");
-			strSql.Append("XZRQ=@XZRQ,");
-			strSql.Append("SCRQ=@SCRQ,");
-			strSql.Append("PCFS=@PCFS,");
-			strSql.Append("GTR=@GTR,");
-			strSql.Append("XSSTDA=@XSSTDA");
-			strSql.Append(" where PCJLBH=@PCJLBH");
-			SqlParameter[] parameters = {
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public int Add(ZYNLPJPT.Model.PCJL model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into PCJL(");
+            strSql.Append("STBH,XSBH,XZRQ,SCRQ,PCFS,GTR,XSSTDA,HZM)");
+            strSql.Append(" values (");
+            strSql.Append("@STBH,@XSBH,@XZRQ,@SCRQ,@PCFS,@GTR,@XSSTDA,@HZM)");
+            strSql.Append(";select @@IDENTITY");
+            SqlParameter[] parameters = {
 					new SqlParameter("@STBH", SqlDbType.Int,4),
 					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
 					new SqlParameter("@XZRQ", SqlDbType.DateTime),
@@ -101,249 +60,299 @@ namespace ZYNLPJPT.DAL
 					new SqlParameter("@PCFS", SqlDbType.Int,4),
 					new SqlParameter("@GTR", SqlDbType.VarChar,50),
 					new SqlParameter("@XSSTDA", SqlDbType.VarBinary,-1),
+					new SqlParameter("@HZM", SqlDbType.VarChar,50)};
+            parameters[0].Value = model.STBH;
+            parameters[1].Value = model.XSBH;
+            parameters[2].Value = model.XZRQ;
+            parameters[3].Value = model.SCRQ;
+            parameters[4].Value = model.PCFS;
+            parameters[5].Value = model.GTR;
+            parameters[6].Value = model.XSSTDA;
+            parameters[7].Value = model.HZM;
+
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update(ZYNLPJPT.Model.PCJL model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update PCJL set ");
+            strSql.Append("STBH=@STBH,");
+            strSql.Append("XSBH=@XSBH,");
+            strSql.Append("XZRQ=@XZRQ,");
+            strSql.Append("SCRQ=@SCRQ,");
+            strSql.Append("PCFS=@PCFS,");
+            strSql.Append("GTR=@GTR,");
+            strSql.Append("XSSTDA=@XSSTDA,");
+            strSql.Append("HZM=@HZM");
+            strSql.Append(" where PCJLBH=@PCJLBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@STBH", SqlDbType.Int,4),
+					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
+					new SqlParameter("@XZRQ", SqlDbType.DateTime),
+					new SqlParameter("@SCRQ", SqlDbType.DateTime),
+					new SqlParameter("@PCFS", SqlDbType.Int,4),
+					new SqlParameter("@GTR", SqlDbType.VarChar,50),
+					new SqlParameter("@XSSTDA", SqlDbType.VarBinary,-1),
+					new SqlParameter("@HZM", SqlDbType.VarChar,50),
 					new SqlParameter("@PCJLBH", SqlDbType.Int,4)};
-			parameters[0].Value = model.STBH;
-			parameters[1].Value = model.XSBH;
-			parameters[2].Value = model.XZRQ;
-			parameters[3].Value = model.SCRQ;
-			parameters[4].Value = model.PCFS;
-			parameters[5].Value = model.GTR;
-			parameters[6].Value = model.XSSTDA;
-			parameters[7].Value = model.PCJLBH;
+            parameters[0].Value = model.STBH;
+            parameters[1].Value = model.XSBH;
+            parameters[2].Value = model.XZRQ;
+            parameters[3].Value = model.SCRQ;
+            parameters[4].Value = model.PCFS;
+            parameters[5].Value = model.GTR;
+            parameters[6].Value = model.XSSTDA;
+            parameters[7].Value = model.HZM;
+            parameters[8].Value = model.PCJLBH;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int PCJLBH)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from PCJL ");
-			strSql.Append(" where PCJLBH=@PCJLBH");
-			SqlParameter[] parameters = {
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public bool Delete(int PCJLBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from PCJL ");
+            strSql.Append(" where PCJLBH=@PCJLBH");
+            SqlParameter[] parameters = {
 					new SqlParameter("@PCJLBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = PCJLBH;
+            parameters[0].Value = PCJLBH;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 批量删除数据
-		/// </summary>
-		public bool DeleteList(string PCJLBHlist )
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from PCJL ");
-			strSql.Append(" where PCJLBH in ("+PCJLBHlist + ")  ");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// 批量删除数据
+        /// </summary>
+        public bool DeleteList(string PCJLBHlist)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from PCJL ");
+            strSql.Append(" where PCJLBH in (" + PCJLBHlist + ")  ");
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public ZYNLPJPT.Model.PCJL GetModel(int PCJLBH)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA from PCJL ");
-			strSql.Append(" where PCJLBH=@PCJLBH");
-			SqlParameter[] parameters = {
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public ZYNLPJPT.Model.PCJL GetModel(int PCJLBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA,HZM from PCJL ");
+            strSql.Append(" where PCJLBH=@PCJLBH");
+            SqlParameter[] parameters = {
 					new SqlParameter("@PCJLBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = PCJLBH;
+            parameters[0].Value = PCJLBH;
 
-			ZYNLPJPT.Model.PCJL model=new ZYNLPJPT.Model.PCJL();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
-			if(ds.Tables[0].Rows.Count>0)
-			{
-				return DataRowToModel(ds.Tables[0].Rows[0]);
-			}
-			else
-			{
-				return null;
-			}
-		}
+            ZYNLPJPT.Model.PCJL model = new ZYNLPJPT.Model.PCJL();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public ZYNLPJPT.Model.PCJL DataRowToModel(DataRow row)
-		{
-			ZYNLPJPT.Model.PCJL model=new ZYNLPJPT.Model.PCJL();
-			if (row != null)
-			{
-				if(row["STBH"]!=null && row["STBH"].ToString()!="")
-				{
-					model.STBH=int.Parse(row["STBH"].ToString());
-				}
-				if(row["XSBH"]!=null)
-				{
-					model.XSBH=row["XSBH"].ToString();
-				}
-				if(row["XZRQ"]!=null && row["XZRQ"].ToString()!="")
-				{
-					model.XZRQ=DateTime.Parse(row["XZRQ"].ToString());
-				}
-				if(row["SCRQ"]!=null && row["SCRQ"].ToString()!="")
-				{
-					model.SCRQ=DateTime.Parse(row["SCRQ"].ToString());
-				}
-				if(row["PCFS"]!=null && row["PCFS"].ToString()!="")
-				{
-					model.PCFS=int.Parse(row["PCFS"].ToString());
-				}
-				if(row["PCJLBH"]!=null && row["PCJLBH"].ToString()!="")
-				{
-					model.PCJLBH=int.Parse(row["PCJLBH"].ToString());
-				}
-				if(row["GTR"]!=null)
-				{
-					model.GTR=row["GTR"].ToString();
-				}
-				if(row["XSSTDA"]!=null && row["XSSTDA"].ToString()!="")
-				{
-					model.XSSTDA=(byte[])row["XSSTDA"];
-				}
-			}
-			return model;
-		}
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public ZYNLPJPT.Model.PCJL DataRowToModel(DataRow row)
+        {
+            ZYNLPJPT.Model.PCJL model = new ZYNLPJPT.Model.PCJL();
+            if (row != null)
+            {
+                if (row["STBH"] != null && row["STBH"].ToString() != "")
+                {
+                    model.STBH = int.Parse(row["STBH"].ToString());
+                }
+                if (row["XSBH"] != null)
+                {
+                    model.XSBH = row["XSBH"].ToString();
+                }
+                if (row["XZRQ"] != null && row["XZRQ"].ToString() != "")
+                {
+                    model.XZRQ = DateTime.Parse(row["XZRQ"].ToString());
+                }
+                if (row["SCRQ"] != null && row["SCRQ"].ToString() != "")
+                {
+                    model.SCRQ = DateTime.Parse(row["SCRQ"].ToString());
+                }
+                if (row["PCFS"] != null && row["PCFS"].ToString() != "")
+                {
+                    model.PCFS = int.Parse(row["PCFS"].ToString());
+                }
+                if (row["PCJLBH"] != null && row["PCJLBH"].ToString() != "")
+                {
+                    model.PCJLBH = int.Parse(row["PCJLBH"].ToString());
+                }
+                if (row["GTR"] != null)
+                {
+                    model.GTR = row["GTR"].ToString();
+                }
+                if (row["XSSTDA"] != null && row["XSSTDA"].ToString() != "")
+                {
+                    model.XSSTDA = (byte[])row["XSSTDA"];
+                }
+                if (row["HZM"] != null)
+                {
+                    model.HZM = row["HZM"].ToString();
+                }
+            }
+            return model;
+        }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetList(string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA ");
-			strSql.Append(" FROM PCJL ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA,HZM ");
+            strSql.Append(" FROM PCJL ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
-		/// <summary>
-		/// 获得前几行数据
-		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ");
-			if(Top>0)
-			{
-				strSql.Append(" top "+Top.ToString());
-			}
-			strSql.Append(" STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA ");
-			strSql.Append(" FROM PCJL ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			strSql.Append(" order by " + filedOrder);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        /// <summary>
+        /// 获得前几行数据
+        /// </summary>
+        public DataSet GetList(int Top, string strWhere, string filedOrder)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ");
+            if (Top > 0)
+            {
+                strSql.Append(" top " + Top.ToString());
+            }
+            strSql.Append(" STBH,XSBH,XZRQ,SCRQ,PCFS,PCJLBH,GTR,XSSTDA,HZM ");
+            strSql.Append(" FROM PCJL ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            strSql.Append(" order by " + filedOrder);
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
-		/// <summary>
-		/// 获取记录总数
-		/// </summary>
-		public int GetRecordCount(string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM PCJL ");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-			object obj = DbHelperSQL.GetSingle(strSql.ToString());
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("SELECT * FROM ( ");
-			strSql.Append(" SELECT ROW_NUMBER() OVER (");
-			if (!string.IsNullOrEmpty(orderby.Trim()))
-			{
-				strSql.Append("order by T." + orderby );
-			}
-			else
-			{
-				strSql.Append("order by T.PCJLBH desc");
-			}
-			strSql.Append(")AS Row, T.*  from PCJL T ");
-			if (!string.IsNullOrEmpty(strWhere.Trim()))
-			{
-				strSql.Append(" WHERE " + strWhere);
-			}
-			strSql.Append(" ) TT");
-			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        /// <summary>
+        /// 获取记录总数
+        /// </summary>
+        public int GetRecordCount(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) FROM PCJL ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT * FROM ( ");
+            strSql.Append(" SELECT ROW_NUMBER() OVER (");
+            if (!string.IsNullOrEmpty(orderby.Trim()))
+            {
+                strSql.Append("order by T." + orderby);
+            }
+            else
+            {
+                strSql.Append("order by T.PCJLBH desc");
+            }
+            strSql.Append(")AS Row, T.*  from PCJL T ");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+            }
+            strSql.Append(" ) TT");
+            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
-		/*
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		{
-			SqlParameter[] parameters = {
-					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("@PageSize", SqlDbType.Int),
-					new SqlParameter("@PageIndex", SqlDbType.Int),
-					new SqlParameter("@IsReCount", SqlDbType.Bit),
-					new SqlParameter("@OrderType", SqlDbType.Bit),
-					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
-					};
-			parameters[0].Value = "PCJL";
-			parameters[1].Value = "PCJLBH";
-			parameters[2].Value = PageSize;
-			parameters[3].Value = PageIndex;
-			parameters[4].Value = 0;
-			parameters[5].Value = 0;
-			parameters[6].Value = strWhere;	
-			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
-		}*/
+        /*
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+        {
+            SqlParameter[] parameters = {
+                    new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+                    new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+                    new SqlParameter("@PageSize", SqlDbType.Int),
+                    new SqlParameter("@PageIndex", SqlDbType.Int),
+                    new SqlParameter("@IsReCount", SqlDbType.Bit),
+                    new SqlParameter("@OrderType", SqlDbType.Bit),
+                    new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
+                    };
+            parameters[0].Value = "PCJL";
+            parameters[1].Value = "PCJLBH";
+            parameters[2].Value = PageSize;
+            parameters[3].Value = PageIndex;
+            parameters[4].Value = 0;
+            parameters[5].Value = 0;
+            parameters[6].Value = strWhere;	
+            return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
+        }*/
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
@@ -384,7 +393,7 @@ namespace ZYNLPJPT.DAL
         /// <returns></returns>
         public ZYNLPJPT.Model.PCJL getPCJL_Undone(string xsbh, int kcbh)
         {
-            string sqlString = "select * from pcjl where xsbh=@xsbh and pcfs=-1 and stbh in(select stbh from st where kcbh=@kcbh)";
+            string sqlString = "select top 1 * from pcjl where xsbh=@xsbh and xsstda IS NULL and stbh in(select stbh from st where kcbh=@kcbh)";
             SqlParameter[] sqlparameters =
             {
                 new SqlParameter("@xsbh",xsbh),
@@ -401,6 +410,42 @@ namespace ZYNLPJPT.DAL
             }
 
             return pcjl;
+        }
+
+        /// <summary>
+        /// 部分更新（更新条件上传时间以及评测记录编号）
+        /// </summary>
+        /// <param name="scrq">上传时间</param>
+        /// <param name="xsstda">学生试题答案</param>
+        /// <param name="pcjlbh">评测记录编号</param>
+        /// <returns></returns>
+        public bool Update(DateTime scrq,byte[] xsstda,int pcjlbh,string hzm)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update PCJL set ");
+            strSql.Append("SCRQ=@SCRQ,");
+            strSql.Append("XSSTDA=@XSSTDA");
+            strSql.Append(" where PCJLBH=@PCJLBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@SCRQ", SqlDbType.DateTime),
+					new SqlParameter("@XSSTDA", SqlDbType.VarBinary,-1),
+					new SqlParameter("@PCJLBH", SqlDbType.Int,4),
+                    new SqlParameter("@HZM", SqlDbType.VarChar,50)};
+            parameters[0].Value = scrq;
+            parameters[1].Value = xsstda;
+            parameters[2].Value = pcjlbh;
+            parameters[3].Value = hzm;
+          
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 		#endregion  ExtensionMethod
 	}

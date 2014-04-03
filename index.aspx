@@ -32,7 +32,7 @@
                     }
 
                     for (int j = 0; j < menus[i].ItemMenu.Length; j++) {
-                        Response.Write("<li><a href=\"javascript:void(0)\" onclick=\"addTab('" + menus[i].ItemMenu[j].MenuName + "','" + "http://localhost/ZYNLPJPT/" + menus[i].ItemMenu[j].MenuContent + "')\">" + menus[i].ItemMenu[j].MenuName + "</a></li>");
+                        Response.Write("<li><a href=\"javascript:void(0)\" onclick=\"addTab('" + menus[i].ItemMenu[j].MenuName + "','" + "./" + menus[i].ItemMenu[j].MenuContent + "')\">" + menus[i].ItemMenu[j].MenuName + "</a></li>");
                     }
 
                     Response.Write("</div>");
