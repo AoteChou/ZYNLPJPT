@@ -10,6 +10,6 @@
 namespace ZYNLPJPT {
     
     
-    public partial class ChooseTestCurriculum {
+    public partial class ChooseUploadCurriculum {
     }
 }

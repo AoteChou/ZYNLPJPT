@@ -386,6 +386,35 @@ namespace ZYNLPJPT.DAL
             return numList.ToArray();
         }
         /// <summary>
+        /// 获取特定课程下未完成的评测记录数目
+        /// </summary>
+        /// <param name="kcbh">课程编号（数组）</param>
+        /// <returns>评测记录数目（数组）</returns>
+        public int[] getPCJLNumByKCBH_Undone(int[] kcbhs)
+        {
+
+            List<int> numList = new List<int>();
+            int num = 0;
+            foreach (int kcbh in kcbhs)
+            {
+                string sqlString = "select count(*) from pcjl where pcjl.stbh in(select stbh from st where kcbh=@kcbh) and xsstda IS NULL";
+                SqlParameter[] sqlparameters =
+                {
+                    new SqlParameter("@kcbh",kcbh)
+                           };
+                SqlDataReader sdReader = DbHelperSQL.ExecuteReader(sqlString, sqlparameters);
+                if (sdReader.Read())
+                {
+                    num = (int)(sdReader[0]);
+                }
+                sdReader.Close();
+                numList.Add(num);
+            }
+
+
+            return numList.ToArray();
+        }
+        /// <summary>
         /// 获取某个学生特定课程是否还存在上次还未完成的试题
         /// </summary>
         /// <param name="xsbh"></param>

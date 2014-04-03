@@ -21,17 +21,19 @@ namespace ZYNLPJPT
         protected ProgressBar progressBarId;
         private int pcjlbh;
         public bool sfzdyj;
+        private string hzm;
         protected void Page_Load(object sender, EventArgs e)
         {
             stbh=int.Parse( Request["stbh"]);
+            //获取知识点
             STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
             stzsdviews = stzsdview_dal.getbySTBH(stbh);
-
+            //检查是否获取失败
             if (stzsdviews.Length == 0)
             {
                 Response.Redirect("./ErrorPage.aspx?msg='获取试题的过程中出错啦，请关闭窗口重新获取吧~~'");
             }
-
+            
             teststate=int.Parse(Request["teststate"]);
             pcjlbh = int.Parse(Request["pcjlbh"]);
             sfzdyj = stzsdviews[0].SFZDYJ;
@@ -42,19 +44,36 @@ namespace ZYNLPJPT
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
+            
 
+            //上传文件到数据库
             if (IsValid && inputFileId.HasFile)
             {
-                string fileName=inputFileId.FileName;
-                string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/"+DateTime.Now + fileName);
+                
+                /*string fileName = inputFileId.FileName;
+                hzm = fileName.Substring(fileName.LastIndexOf(".") - 1);
+                //检查后缀名
+                string s = ".doc,.docx";
+
+                if (!s.Split(',').ToList<string>().Exists(EqualWithHZM)) {
+                    Response.Write("<script type=\"text/javascript\">alert(\"请上传word文档!\");</script>");
+                    return;
+                }else{
+                    Response.Write("<script type=\"text/javascript\"> $('#opMsg').text('正在上传...请勿关闭本窗口...');</script>");
+                }*/
+
+                /*string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString()+ fileName);
                 inputFileId.MoveTo(path,MoveToOptions.Overwrite);
                 PCJL_DAL pcjl_dal = new PCJL_DAL();
 
                 FileStream filestream=new FileStream(path,FileMode.Open);
                 byte[] tempbyte=new byte[filestream.Length];
                 filestream.Write(tempbyte, 0,tempbyte.Length);
-                string hzm = fileName.Substring(fileName.LastIndexOf(".")-1);
-                pcjl_dal.Update(DateTime.Now,tempbyte,pcjlbh,hzm);
+                bool opResult=pcjl_dal.Update(DateTime.Now,tempbyte,pcjlbh,hzm);*/
+                /* 如果马上删除 会显示被占用 待解决
+                if (opResult) {
+                    File.Delete(path);
+                }*/
             }
         }
 
@@ -76,6 +95,10 @@ namespace ZYNLPJPT
             Response.BinaryWrite(temp);
             //Response.WriteFile(Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/"+fileName));
                
+        }
+        private bool EqualWithHZM(String s)
+        {
+            return s.Equals(hzm);
         }
     }
 }
