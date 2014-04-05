@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using System.Collections.Generic;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -319,6 +320,28 @@ namespace ZYNLPJPT.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        public string[] getYHXMbyYHBH(string[] yhbhs) {
+            List<string> stringList = new List<string>();
+            foreach(string yhbh in yhbhs){
+                if (yhbh == "")
+                {
+                    stringList.Add("");
+                }
+                else {
+                    string sqlString = "select xm from yh where yhbh=@yhbh";
+                    SqlParameter[] sqlparameters = { new SqlParameter("@yhbh", yhbh) };
+                    SqlDataReader sdReader = DbHelperSQL.ExecuteReader(sqlString, sqlparameters);
+                    if (sdReader.Read())
+                    {
+                        stringList.Add((string)(sdReader[0]));
+                    }
+                    sdReader.Close();
+                }
+                
+            }
+
+            return stringList.ToArray();
+        }
 
 		#endregion  ExtensionMethod
 	}

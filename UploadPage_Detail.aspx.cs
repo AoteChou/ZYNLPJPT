@@ -12,18 +12,17 @@ using System.IO;
 
 namespace ZYNLPJPT
 {
-    public partial class TestPage : System.Web.UI.Page
+    public partial class UploadPage_Detail : System.Web.UI.Page
     {
         protected STZSDView[] stzsdviews;
         protected int stbh;
-        protected int teststate;
         protected ProgressBar progressBarId;
         private int pcjlbh;
         public bool sfzdyj;
         private string hzm;
         protected void Page_Load(object sender, EventArgs e)
         {
-            stbh=int.Parse( Request["stbh"]);
+            stbh = int.Parse(Request["stbh"]);
             //获取知识点
             STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
             stzsdviews = stzsdview_dal.getbySTBH(stbh);
@@ -33,23 +32,23 @@ namespace ZYNLPJPT
                 Response.Redirect("./ErrorPage.aspx?msg=获取试题的过程中出错啦，请关闭窗口重新获取吧~~&fh=true");
             }
             
-            teststate=int.Parse(Request["teststate"]);
             pcjlbh = int.Parse(Request["pcjlbh"]);
             sfzdyj = stzsdviews[0].SFZDYJ;
             submitButtonId.Click += new System.EventHandler(this.Button_Clicked);
-            
-            
-                        
+
+
+
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
+
 
             //上传文件到数据库
             if (IsValid && inputFileId.HasFile)
             {
 
                 string fileName = inputFileId.FileName;
-                hzm = fileName.Substring(fileName.LastIndexOf(".") );
+                hzm = fileName.Substring(fileName.LastIndexOf("."));
 
                 string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
                 inputFileId.MoveTo(path, MoveToOptions.Overwrite);
@@ -64,11 +63,11 @@ namespace ZYNLPJPT
                     File.Delete(path);
                 }*/
             }
-            else {
+            else
+            {
                 Response.Write("<script>alert('文件过大或者文件无效')</script>");
             }
         }
 
-       
     }
 }

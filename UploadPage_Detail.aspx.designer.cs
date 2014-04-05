@@ -10,7 +10,7 @@
 namespace ZYNLPJPT {
     
     
-    public partial class TestPage {
+    public partial class UploadPage_Detail {
         
         /// <summary>
         /// form1 控件。
