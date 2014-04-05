@@ -36,10 +36,7 @@
   <ItemGroup>
     <Reference Include="Brettle.Web.NeatUpload, Version=1.3.4034.20191, Culture=neutral, PublicKeyToken=dd134ea1c3727369, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\NeatUploadBinaries-1-3-26\NeatUploadBinaries\bin\Brettle.Web.NeatUpload.dll</HintPath>
-    </Reference>
-    <Reference Include="Hitone.Web.SqlServerUploader">
-      <HintPath>..\NeatUploadBinaries-1-3-26\NeatUploadBinaries\bin\Hitone.Web.SqlServerUploader.dll</HintPath>
+      <HintPath>bin\Brettle.Web.NeatUpload.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -153,6 +150,7 @@
     <Content Include="Styles\icons\undo.png" />
     <Content Include="Styles\TestPage.css" />
     <Content Include="TestPage.aspx" />
+    <Content Include="Utility\validatedFileSuffix.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -307,6 +305,7 @@
     <Compile Include="Utility\ItemMenu.cs" />
     <Compile Include="Utility\MainMenu.cs" />
     <Compile Include="Utility\TestState.cs" />
+    <Compile Include="Utility\XS_Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NeatUpload_Temp\" />
