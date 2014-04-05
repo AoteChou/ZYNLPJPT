@@ -31,7 +31,7 @@ namespace ZYNLPJPT.processAspx
                 int pcjlbh=-1;
                 PCJL_DAL pcjl_dal = new PCJL_DAL();
                 PCJL pcjl = pcjl_dal.getPCJL_Undone(xsbh, kcbh);
-                if (pcjl == null || Request["SFZJT"]!=null)//是否做旧题不是空的话就表示不出以前下的没有做的题目
+                if (pcjl == null || Request["SFZJT"]!=null)//如果没有旧题就做新题  是否做旧题不是空的话就表示不出以前下的没有做的题目
                 {
                    
                     stbh = gettest_bll.getSTBH(xsbh, kcbh);
