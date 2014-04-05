@@ -38,9 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\NeatUploadBinaries-1-3-26\NeatUploadBinaries\bin\Brettle.Web.NeatUpload.dll</HintPath>
     </Reference>
-    <Reference Include="Hitone.Web.SqlServerUploader">
-      <HintPath>..\NeatUploadBinaries-1-3-26\NeatUploadBinaries\bin\Hitone.Web.SqlServerUploader.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -153,6 +150,7 @@
     <Content Include="Styles\icons\undo.png" />
     <Content Include="Styles\TestPage.css" />
     <Content Include="TestPage.aspx" />
+    <Content Include="Utility\validatedFileSuffix.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -274,6 +272,48 @@
     <Compile Include="Model\ZYEJZBView.cs" />
     <Compile Include="Model\ZYKC.cs" />
     <Compile Include="Model\ZYKCView.cs" />
+    <Compile Include="NeatUpload\Model\BJ.cs" />
+    <Compile Include="NeatUpload\Model\CPJD.cs" />
+    <Compile Include="NeatUpload\Model\CT.cs" />
+    <Compile Include="NeatUpload\Model\CTView.cs" />
+    <Compile Include="NeatUpload\Model\EJZB.cs" />
+    <Compile Include="NeatUpload\Model\GND.cs" />
+    <Compile Include="NeatUpload\Model\JDKC.cs" />
+    <Compile Include="NeatUpload\Model\JDKCView.cs" />
+    <Compile Include="NeatUpload\Model\JDKCXS.cs" />
+    <Compile Include="NeatUpload\Model\JDKCXSView.cs" />
+    <Compile Include="NeatUpload\Model\JS.cs" />
+    <Compile Include="NeatUpload\Model\JS2.cs" />
+    <Compile Include="NeatUpload\Model\JSGNB.cs" />
+    <Compile Include="NeatUpload\Model\JSNJZYKC.cs" />
+    <Compile Include="NeatUpload\Model\KC.cs" />
+    <Compile Include="NeatUpload\Model\KCXZ.cs" />
+    <Compile Include="NeatUpload\Model\KCZSDY.cs" />
+    <Compile Include="NeatUpload\Model\NJ.cs" />
+    <Compile Include="NeatUpload\Model\NJZYKC.cs" />
+    <Compile Include="NeatUpload\Model\PCJL.cs" />
+    <Compile Include="NeatUpload\Model\ST.cs" />
+    <Compile Include="NeatUpload\Model\STZSDB.cs" />
+    <Compile Include="NeatUpload\Model\STZSDView.cs" />
+    <Compile Include="NeatUpload\Model\XK.cs" />
+    <Compile Include="NeatUpload\Model\XS.cs" />
+    <Compile Include="NeatUpload\Model\XSKCB.cs" />
+    <Compile Include="NeatUpload\Model\XSKCView.cs" />
+    <Compile Include="NeatUpload\Model\XY.cs" />
+    <Compile Include="NeatUpload\Model\YH.cs" />
+    <Compile Include="NeatUpload\Model\YHGNB.cs" />
+    <Compile Include="NeatUpload\Model\YHGNView.cs" />
+    <Compile Include="NeatUpload\Model\YHJSB.cs" />
+    <Compile Include="NeatUpload\Model\YHJSView.cs" />
+    <Compile Include="NeatUpload\Model\YJZB.cs" />
+    <Compile Include="NeatUpload\Model\ZSD.cs" />
+    <Compile Include="NeatUpload\Model\ZSDY.cs" />
+    <Compile Include="NeatUpload\Model\ZSLY.cs" />
+    <Compile Include="NeatUpload\Model\ZY.cs" />
+    <Compile Include="NeatUpload\Model\ZYEJZB.cs" />
+    <Compile Include="NeatUpload\Model\ZYEJZBView.cs" />
+    <Compile Include="NeatUpload\Model\ZYKC.cs" />
+    <Compile Include="NeatUpload\Model\ZYKCView.cs" />
     <Compile Include="processAspx\GetTest.aspx.cs">
       <DependentUpon>GetTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +347,7 @@
     <Compile Include="Utility\ItemMenu.cs" />
     <Compile Include="Utility\MainMenu.cs" />
     <Compile Include="Utility\TestState.cs" />
+    <Compile Include="Utility\XS_Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NeatUpload_Temp\" />
