@@ -415,6 +415,35 @@ namespace ZYNLPJPT.DAL
             return numList.ToArray();
         }
         /// <summary>
+        /// 获取特定课程下已完成的评测记录数目
+        /// </summary>
+        /// <param name="kcbh">课程编号（数组）</param>
+        /// <returns>评测记录数目（数组）</returns>
+        public int[] getPCJLNumByKCBH_Done(int[] kcbhs)
+        {
+
+            List<int> numList = new List<int>();
+            int num = 0;
+            foreach (int kcbh in kcbhs)
+            {
+                string sqlString = "select count(*) from pcjl where pcjl.stbh in(select stbh from st where kcbh=@kcbh) and xsstda IS NOT NULL";
+                SqlParameter[] sqlparameters =
+                {
+                    new SqlParameter("@kcbh",kcbh)
+                           };
+                SqlDataReader sdReader = DbHelperSQL.ExecuteReader(sqlString, sqlparameters);
+                if (sdReader.Read())
+                {
+                    num = (int)(sdReader[0]);
+                }
+                sdReader.Close();
+                numList.Add(num);
+            }
+
+
+            return numList.ToArray();
+        }
+        /// <summary>
         /// 获取某个学生特定课程是否还存在上次还未完成的试题
         /// </summary>
         /// <param name="xsbh"></param>
@@ -440,7 +469,54 @@ namespace ZYNLPJPT.DAL
 
             return pcjl;
         }
+        /// <summary>
+        /// 获取某个学生特定课程是所有未完成的试题
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJL_Undone_ALL(string xsbh, int kcbh)
+        {
+            string sqlString = "select * from pcjl where xsbh=@xsbh and xsstda IS NULL and stbh in(select stbh from st where kcbh=@kcbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
 
+            List<ZYNLPJPT.Model.PCJL> pcjlList=new List<Model.PCJL>();
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
+        /// <summary>
+        /// 获取某个学生特定课程下所有有分数的试题
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJLWithMark_ALL(string xsbh, int kcbh)
+        {
+            string sqlString = "select * from pcjl where xsbh=@xsbh and pcfs IS NOT NULL and stbh in(select stbh from st where kcbh=@kcbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+
+            List<ZYNLPJPT.Model.PCJL> pcjlList = new List<Model.PCJL>();
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
         /// <summary>
         /// 部分更新（更新条件上传时间以及评测记录编号）
         /// </summary>
@@ -453,7 +529,8 @@ namespace ZYNLPJPT.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update PCJL set ");
             strSql.Append("SCRQ=@SCRQ,");
-            strSql.Append("XSSTDA=@XSSTDA");
+            strSql.Append("XSSTDA=@XSSTDA,");
+            strSql.Append("HZM=@HZM");
             strSql.Append(" where PCJLBH=@PCJLBH");
             SqlParameter[] parameters = {
 					new SqlParameter("@SCRQ", SqlDbType.DateTime),
