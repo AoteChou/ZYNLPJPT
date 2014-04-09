@@ -58,6 +58,7 @@
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="ckctr.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="pzctr.aspx" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
       <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckctr.aspx.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctr.aspx.designer.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="Model\JSRoleYHView.cs" />
