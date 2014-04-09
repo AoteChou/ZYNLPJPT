@@ -59,11 +59,18 @@ namespace ZYNLPJPT
                     int length = zykcViews.Length;
                     this.zykcViewsWrapper.CtTea=new string[length];
                     for (int i = 0; i < length; i++) {
-                        this.zykcViewsWrapper.CtTea[i] = "出题人为：\n";
+                        this.zykcViewsWrapper.CtTea[i] = "出题人为：<br/><br/>";
                         string[] result = new CTView_DAL().getTeaNames(zykcViews[i].KCBH, zykcViews[i].ZYBH);
                         for (int j = 0; j < result.Length; j++) {
-                            zykcViewsWrapper.CtTea[i] += result[j] + "\n";
+                            if (result[result.Length - 1] == "暂无" || j == (result.Length-1))
+                            {
+                                zykcViewsWrapper.CtTea[i] += result[j];
+                            }
+                            else {
+                                zykcViewsWrapper.CtTea[i] += result[j] + ", ";
+                            }
                         }
+                        zykcViewsWrapper.CtTea[i] += "<br/>";
                     }
 
                 }

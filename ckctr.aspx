@@ -9,6 +9,13 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        function showTeas(data) {
+            $.messager.alert('出题人', data, 'info');
+            //alert(data);
+        }
+    </script>
 </head>
 <body class="easyui-layout">         
 <div region="north" border="true" style="height:40px;">
@@ -52,7 +59,8 @@
                        Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"><span title=\"" + this.zykcViewsWrapper.CtTea[i].Trim() + "\" class=\"easyui-tooltip\" >查看出题人</span></a></td>");
+                       //Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" return showTeas('" + this.zykcViewsWrapper.CtTea[i].Trim() + "')\" >查看出题人</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>
@@ -69,6 +77,9 @@
             singleSelect: true,
         });
     });
+
+
+
 </script>
 </body>
 </html>
