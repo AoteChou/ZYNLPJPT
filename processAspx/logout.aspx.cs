@@ -12,6 +12,7 @@ namespace ZYNLPJPT.processAspx
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Session["yh"] = null;
+            this.Session["visitedId"] = null;
             this.Response.Redirect("../Default.htm");
         }
     }

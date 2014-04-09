@@ -19,7 +19,7 @@
          	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆   2013/3/3 12:00:21  <a href="processAspx/logout.aspx">退出</a></h3>
     </div>
 
-	<div data-options="region:'west',split:true,noheader:true" style="width:300px">
+	<div data-options="region:'west',split:true,noheader:true" style="width:200px">
     	    <div id="aa" class="easyui-accordion" data-options="fit:'true',border:'false'">
             <%  for (int i = 0; i < this.menus.Length; i++) {
 

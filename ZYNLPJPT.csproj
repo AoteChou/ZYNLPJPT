@@ -58,6 +58,9 @@
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="processAspx\addCtr.aspx" />
+    <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="pzctr.aspx" />
     <Content Include="Default.htm" />
     <Content Include="processAspx\DownloadMyAnswer.aspx" />
     <Content Include="ErrorPage.aspx" />
@@ -194,6 +197,29 @@
     </Compile>
     <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
       <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\JSRoleYHView_DAL.cs" />
+    <Compile Include="Model\JSRoleYHView.cs" />
+    <Compile Include="processAspx\addCtr.aspx.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addCtr.aspx.designer.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.designer.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzctr.aspx.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzctr.aspx.designer.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\BJ_DAL.cs" />
     <Compile Include="DAL\CPJD_DAL.cs" />

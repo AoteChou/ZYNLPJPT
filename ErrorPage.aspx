@@ -10,9 +10,20 @@
 <body>
     <form id="form1" runat="server">
     <div>
+    <hr />
+    <% if (fh == true)
+       { %>
     <span id="second"></span>秒之后自动返回，或者直接点击<a href="javascript:void(0)" onclick="history.back(-1)">返回</a>
+    <%}
+       else
+       { %>
+       <span id="Span1"></span>若要返回，请直接点击<a href="javascript:void(0)" onclick="history.back(-1)">返回</a>
+    <%} %>
     </div>
     </form>
+
+    <% if (fh == true)
+       { %>
 <script type="text/javascript">
     function timedown(time) {
         if (time == 'undefined')
@@ -32,7 +43,7 @@
        timedown(10)
     
     });
-
 </script>
+<%} %>
 </body>
 </html>

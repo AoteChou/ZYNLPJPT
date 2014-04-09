@@ -53,10 +53,7 @@
             
     	</tbody>
    	</table>     
-</div>
-
- 
-                
+</div>                
 <script type="text/javascript">
     $(function () {
         $('#mytable').datagrid({
@@ -66,9 +63,6 @@
             singleSelect: true
         });
     });
-
 </script>
-
 </body>
-
 </html>
