@@ -73,6 +73,7 @@
     <Content Include="processAspx\changeEjzbProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="pzctr.aspx" />
     <Content Include="Default.htm" />
     <Content Include="processAspx\DownloadMyAnswer.aspx" />
@@ -96,6 +97,7 @@
     <Content Include="processAspx\GetTest.aspx" />
     <Content Include="processAspx\login_pro.aspx" />
     <Content Include="processAspx\logout.aspx" />
+    <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -255,9 +257,11 @@
     </Compile>
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
+    <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\NLZBView.cs" />
+    <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
     <Compile Include="processAspx\addCtr.aspx.cs">
       <DependentUpon>addCtr.aspx</DependentUpon>
@@ -321,6 +325,13 @@
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.designer.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="pzctr.aspx.cs">
       <DependentUpon>pzctr.aspx</DependentUpon>
@@ -466,6 +477,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pzzyejzb.aspx.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzzyejzb.aspx.designer.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ResultPage.aspx.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

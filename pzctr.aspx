@@ -9,6 +9,7 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body class="easyui-layout">         
 <div region="north" border="true" style="height:40px;">
@@ -26,8 +27,7 @@
 <div region="center" border="false">
  
  <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
-
-</div>
+ </div>
 
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
