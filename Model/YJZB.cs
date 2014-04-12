@@ -13,6 +13,7 @@ namespace ZYNLPJPT.Model
         #region Model
         private int _yjzbbh;
         private string _yjzbmc;
+        private string _bz;
         private int _xkbh;
         /// <summary>
         /// 
@@ -29,6 +30,14 @@ namespace ZYNLPJPT.Model
         {
             set { _yjzbmc = value; }
             get { return _yjzbmc; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string BZ
+        {
+            set { _bz = value; }
+            get { return _bz; }
         }
         /// <summary>
         /// 
