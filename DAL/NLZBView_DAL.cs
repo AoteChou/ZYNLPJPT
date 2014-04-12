@@ -3,6 +3,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT.DAL
 {
@@ -200,6 +201,27 @@ namespace ZYNLPJPT.DAL
                 results[i] = ds.Tables[0].Rows[i]["EJZBMC"].ToString();
             }
             return results;
+        }
+
+        public NLZBView[] getArrayByXkbh(int xkbh) {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XKBH,YJZBBH,EJZBBH,YJZBMC,EJZBMC ");
+            strSql.Append(" FROM NLZBView ");
+            strSql.Append(" where xkbh=" + xkbh);
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            NLZBView[] nlzbViews = new NLZBView[length];
+            for (int i = 0; i < length; i++) {
+                nlzbViews[i] = new NLZBView();
+                DataRow dr = ds.Tables[0].Rows[i];
+                nlzbViews[i].XKBH = int.Parse(dr["xkbh"].ToString());
+                nlzbViews[i].YJZBBH = int.Parse(dr["yjzbbh"].ToString());
+                nlzbViews[i].EJZBBH = int.Parse(dr["ejzbbh"].ToString());
+                nlzbViews[i].YJZBMC = dr["yjzbmc"].ToString();
+                nlzbViews[i].EJZBMC = dr["ejzbmc"].ToString();
+            }
+
+            return nlzbViews;
         }
 
 		/// <summary>

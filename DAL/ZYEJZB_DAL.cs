@@ -84,6 +84,28 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool AddList(ZYNLPJPT.Model.ZYEJZB[] models)
+        {
+            StringBuilder strSql = new StringBuilder();
+            for (int i = 0; i < models.Length; i++) {
+                strSql.Append("insert into ZYEJZB(");
+                strSql.Append("EJZBBH,ZYBH,NLYQ)");
+                strSql.Append(" values (");
+                strSql.Append(models[i].EJZBBH+","+models[i].ZYBH+","+models[i].NLYQ);
+                strSql.Append(");");
+            }
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -138,6 +160,29 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public bool Delete( int ZYBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from ZYEJZB ");
+            strSql.Append(" where ZYBH=@ZYBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZYBH", SqlDbType.Int,4)			
+                    };
+            parameters[0].Value = ZYBH;
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		/// <summary>
 		/// 得到一个对象实体
