@@ -24,6 +24,8 @@ namespace ZYNLPJPT
             }
             else if (!this.Session["visitedId"].ToString().Equals(Request["visitedId"].ToString()))
             {
+                this.Session["visitedId"] = null;
+                this.Session["yh"]=null;
                 this.Response.Redirect("Default.htm");
             }
             else {

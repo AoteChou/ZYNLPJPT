@@ -667,7 +667,6 @@ namespace ZYNLPJPT.Utility
 
         #endregion
 
-
     }
 
 }

@@ -53,11 +53,33 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addcpjd.aspx" />
+    <Content Include="addEjzb.aspx" />
+    <Content Include="addYjzb.aspx" />
+    <Content Include="addZsd.aspx" />
+    <Content Include="addZsdy.aspx" />
+    <Content Include="addZsly.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="cancel.png" />
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="ckctr.aspx" />
+    <Content Include="processAspx\addCtr.aspx" />
+    <Content Include="processAspx\addEjzbProc.aspx" />
+    <Content Include="processAspx\addYjzbProc.aspx" />
+    <Content Include="processAspx\addZsdProc.aspx" />
+    <Content Include="processAspx\addZsdyProc.aspx" />
+    <Content Include="processAspx\addZslyProc.aspx" />
+    <Content Include="processAspx\addZyEjzb.aspx" />
+    <Content Include="processAspx\changeEjzbProc.aspx" />
+    <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\pzEjzbProc.aspx" />
+    <Content Include="pzjdkc.aspx" />
+    <Content Include="pzjsgt.aspx" />
+    <Content Include="pzkczsdy.aspx" />
+    <Content Include="pzctr.aspx" />
     <Content Include="Default.htm" />
     <Content Include="processAspx\DownloadMyAnswer.aspx" />
     <Content Include="ErrorPage.aspx" />
@@ -80,6 +102,7 @@
     <Content Include="processAspx\GetTest.aspx" />
     <Content Include="processAspx\login_pro.aspx" />
     <Content Include="processAspx\logout.aspx" />
+    <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -158,6 +181,7 @@
     <Content Include="TeacherIndex.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="UploadPage.aspx" />
+    <Content Include="Utility\validatedFileSuffix.xml" />
     <Content Include="UploadPage_Detail.aspx" />
     <Content Include="Utility\validatedFileSuffix.xml" />
     <Content Include="Web.config">
@@ -172,6 +196,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\GetTestCourse_BLL.cs" />
+    <Compile Include="addcpjd.aspx.cs">
+      <DependentUpon>addcpjd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addcpjd.aspx.designer.cs">
+      <DependentUpon>addcpjd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addEjzb.aspx.cs">
+      <DependentUpon>addEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addEjzb.aspx.designer.cs">
+      <DependentUpon>addEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addYjzb.aspx.cs">
+      <DependentUpon>addYjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYjzb.aspx.designer.cs">
+      <DependentUpon>addYjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsd.aspx.cs">
+      <DependentUpon>addZsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsd.aspx.designer.cs">
+      <DependentUpon>addZsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsdy.aspx.cs">
+      <DependentUpon>addZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsdy.aspx.designer.cs">
+      <DependentUpon>addZsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsly.aspx.cs">
+      <DependentUpon>addZsly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsly.aspx.designer.cs">
+      <DependentUpon>addZsly.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
@@ -195,6 +261,126 @@
     </Compile>
     <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
       <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckctr.aspx.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctr.aspx.designer.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\JSRoleYHView_DAL.cs" />
+    <Compile Include="DAL\NLZBView_DAL.cs" />
+    <Compile Include="DAL\XyXkZyView_DAL.cs" />
+    <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="Model\JSRoleYHView.cs" />
+    <Compile Include="Model\NLZBView.cs" />
+    <Compile Include="Model\XyXkZyView.cs" />
+    <Compile Include="Model\ZSTXView.cs" />
+    <Compile Include="processAspx\addCtr.aspx.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addCtr.aspx.designer.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addEjzbProc.aspx.cs">
+      <DependentUpon>addEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addEjzbProc.aspx.designer.cs">
+      <DependentUpon>addEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYjzbProc.aspx.cs">
+      <DependentUpon>addYjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYjzbProc.aspx.designer.cs">
+      <DependentUpon>addYjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZsdProc.aspx.cs">
+      <DependentUpon>addZsdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZsdProc.aspx.designer.cs">
+      <DependentUpon>addZsdProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZsdyProc.aspx.cs">
+      <DependentUpon>addZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZsdyProc.aspx.designer.cs">
+      <DependentUpon>addZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZslyProc.aspx.cs">
+      <DependentUpon>addZslyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZslyProc.aspx.designer.cs">
+      <DependentUpon>addZslyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZyEjzb.aspx.cs">
+      <DependentUpon>addZyEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZyEjzb.aspx.designer.cs">
+      <DependentUpon>addZyEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeEjzbProc.aspx.cs">
+      <DependentUpon>changeEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeEjzbProc.aspx.designer.cs">
+      <DependentUpon>changeEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeZsdyProc.aspx.cs">
+      <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
+      <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.designer.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.designer.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzjdkc.aspx.cs">
+      <DependentUpon>pzjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzjdkc.aspx.designer.cs">
+      <DependentUpon>pzjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzjsgt.aspx.cs">
+      <DependentUpon>pzjsgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzjsgt.aspx.designer.cs">
+      <DependentUpon>pzjsgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzkczsdy.aspx.cs">
+      <DependentUpon>pzkczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzkczsdy.aspx.designer.cs">
+      <DependentUpon>pzkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzctr.aspx.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzctr.aspx.designer.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\BJ_DAL.cs" />
     <Compile Include="DAL\CPJD_DAL.cs" />
@@ -333,6 +519,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pzzyejzb.aspx.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzzyejzb.aspx.designer.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ResultPage.aspx.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

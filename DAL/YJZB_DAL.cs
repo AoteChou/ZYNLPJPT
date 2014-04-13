@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+
 namespace ZYNLPJPT.DAL
 {
     /// <summary>
@@ -47,15 +48,17 @@ namespace ZYNLPJPT.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into YJZB(");
-            strSql.Append("YJZBMC,XKBH)");
+            strSql.Append("YJZBMC,BZ,XKBH)");
             strSql.Append(" values (");
-            strSql.Append("@YJZBMC,@XKBH)");
+            strSql.Append("@YJZBMC,@BZ,@XKBH)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50),
+					new SqlParameter("@BZ", SqlDbType.Text),
 					new SqlParameter("@XKBH", SqlDbType.Int,4)};
             parameters[0].Value = model.YJZBMC;
-            parameters[1].Value = model.XKBH;
+            parameters[1].Value = model.BZ;
+            parameters[2].Value = model.XKBH;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -75,15 +78,18 @@ namespace ZYNLPJPT.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update YJZB set ");
             strSql.Append("YJZBMC=@YJZBMC,");
+            strSql.Append("BZ=@BZ,");
             strSql.Append("XKBH=@XKBH");
             strSql.Append(" where YJZBBH=@YJZBBH");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50),
+					new SqlParameter("@BZ", SqlDbType.Text),
 					new SqlParameter("@XKBH", SqlDbType.Int,4),
 					new SqlParameter("@YJZBBH", SqlDbType.Int,4)};
             parameters[0].Value = model.YJZBMC;
-            parameters[1].Value = model.XKBH;
-            parameters[2].Value = model.YJZBBH;
+            parameters[1].Value = model.BZ;
+            parameters[2].Value = model.XKBH;
+            parameters[3].Value = model.YJZBBH;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -147,12 +153,38 @@ namespace ZYNLPJPT.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 YJZBBH,YJZBMC,XKBH from YJZB ");
+            strSql.Append("select  top 1 YJZBBH,YJZBMC,BZ,XKBH from YJZB ");
             strSql.Append(" where YJZBBH=@YJZBBH");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBBH", SqlDbType.Int,4)
 			};
             parameters[0].Value = YJZBBH;
+
+            ZYNLPJPT.Model.YJZB model = new ZYNLPJPT.Model.YJZB();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public ZYNLPJPT.Model.YJZB GetModel(string yjzbName)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select top 1 YJZBBH,YJZBMC,BZ,XKBH from YJZB ");
+            strSql.Append(" where YJZBMC=@YJZBMC");
+            SqlParameter[] parameters = {
+					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = yjzbName;
 
             ZYNLPJPT.Model.YJZB model = new ZYNLPJPT.Model.YJZB();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
@@ -183,6 +215,10 @@ namespace ZYNLPJPT.DAL
                 {
                     model.YJZBMC = row["YJZBMC"].ToString();
                 }
+                if (row["BZ"] != null)
+                {
+                    model.BZ = row["BZ"].ToString();
+                }
                 if (row["XKBH"] != null && row["XKBH"].ToString() != "")
                 {
                     model.XKBH = int.Parse(row["XKBH"].ToString());
@@ -197,13 +233,25 @@ namespace ZYNLPJPT.DAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select YJZBBH,YJZBMC,XKBH ");
+            strSql.Append("select YJZBBH,YJZBMC,BZ,XKBH ");
             strSql.Append(" FROM YJZB ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
             return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        public string[] getArrayByXkbh(int xkbh) {
+
+            string sql = "select YJZBMC from YJZB where xkbh=" + xkbh;
+            DataSet ds = DbHelperSQL.Query(sql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] results=new string[length];
+            for (int i = 0; i < length; i++) { 
+                results[i]=ds.Tables[0].Rows[i]["YJZBMC"].ToString();
+            }
+            return results;
         }
 
         /// <summary>
@@ -217,7 +265,7 @@ namespace ZYNLPJPT.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" YJZBBH,YJZBMC,XKBH ");
+            strSql.Append(" YJZBBH,YJZBMC,BZ,XKBH ");
             strSql.Append(" FROM YJZB ");
             if (strWhere.Trim() != "")
             {
@@ -305,3 +353,4 @@ namespace ZYNLPJPT.DAL
         #endregion  ExtensionMethod
     }
 }
+

@@ -171,6 +171,29 @@ namespace ZYNLPJPT.DAL
             }
         }
 
+        public ZYNLPJPT.Model.ZSLY GetModel(string zslyName)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ZSLYBH,ZSLYMC,BZ,XKBH from ZSLY ");
+            strSql.Append(" where zslymc=@zslymc");
+            SqlParameter[] parameters = {
+					new SqlParameter("@zslymc", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = zslyName;
+
+            ZYNLPJPT.Model.ZSLY model = new ZYNLPJPT.Model.ZSLY();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// 得到一个对象实体
@@ -213,6 +236,20 @@ namespace ZYNLPJPT.DAL
                 strSql.Append(" where " + strWhere);
             }
             return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        public string[] getArrayByXkbh(int xkbh)
+        {
+
+            string sql = "select ZSLYMC from ZSLY where xkbh=" + xkbh;
+            DataSet ds = DbHelperSQL.Query(sql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] results = new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                results[i] = ds.Tables[0].Rows[i]["ZSLYMC"].ToString();
+            }
+            return results;
         }
 
         /// <summary>

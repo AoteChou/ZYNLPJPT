@@ -1,24 +1,10 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* ZYKCView_DAL.cs
-*
-* 功 能： N/A
-* 类 名： ZYKCView_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:35   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -256,8 +242,77 @@ namespace ZYNLPJPT.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
+
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public string[] GetArrayWithAllZyms(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select distinct ZYM,ZYBH  ");
+            strSql.Append(" FROM ZYKCView ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            strSql.Append("order by ZYBH");
+            DataSet dataset = DbHelperSQL.Query(strSql.ToString());
+            int length = dataset.Tables[0].Rows.Count;
+            string[] allZyms = new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                allZyms[i] = dataset.Tables[0].Rows[i]["ZYM"].ToString();
+            }
+            return allZyms;
+        }
+
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public ZYKCView[] GetArray(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select KCJJ,KCMC,XKBH,ZYM,ZYFZR,KCBH,ZYBH,KCXZBH,KKXQ,LLXF,SJXF,KCXZMC,XKMC ");
+            strSql.Append(" FROM ZYKCView ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            strSql.Append("order by ZYBH");
+            DataSet dataset=DbHelperSQL.Query(strSql.ToString());
+            int length = dataset.Tables[0].Rows.Count;
+            ZYKCView[] zykcViews = new ZYKCView[length];
+            for (int i = 0; i < length; i++) {
+                zykcViews[i] = new ZYKCView();
+                zykcViews[i].ZYBH = int.Parse(dataset.Tables[0].Rows[i]["ZYBH"].ToString());
+                zykcViews[i].KCBH = int.Parse(dataset.Tables[0].Rows[i]["KCBH"].ToString());
+                zykcViews[i].XKBH = int.Parse(dataset.Tables[0].Rows[i]["XKBH"].ToString());
+                zykcViews[i].KCMC = dataset.Tables[0].Rows[i]["KCMC"].ToString();
+                zykcViews[i].ZYM=dataset.Tables[0].Rows[i]["ZYM"].ToString();
+
+                string zyfzr = dataset.Tables[0].Rows[i]["ZYFZR"].ToString().Trim();
+                if (zyfzr == null || zyfzr == "null" || zyfzr == "")
+                {
+                    zykcViews[i].ZYFZR = "暂无";
+                }
+                else {
+                    zykcViews[i].ZYFZR = zyfzr;
+                }
+                zykcViews[i].KCXZBH = int.Parse(dataset.Tables[0].Rows[i]["KCXZBH"].ToString());
+                zykcViews[i].KKXQ = int.Parse(dataset.Tables[0].Rows[i]["KKXQ"].ToString());
+                zykcViews[i].LLXF = decimal.Parse(dataset.Tables[0].Rows[i]["LLXF"].ToString());
+                zykcViews[i].SJXF = decimal.Parse(dataset.Tables[0].Rows[i]["SJXF"].ToString());
+                zykcViews[i].KCXZMC=dataset.Tables[0].Rows[i]["KCXZMC"].ToString();
+                zykcViews[i].KCJJ = "";
+                zykcViews[i].XKMC=dataset.Tables[0].Rows[i]["XKMC"].ToString();
+            }
+            return zykcViews;
+        }
 
 		/// <summary>
 		/// 获得前几行数据
@@ -326,6 +381,63 @@ namespace ZYNLPJPT.DAL
 			strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        public ZYKCView[] GetListByPageWithArray(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT * FROM ( ");
+            strSql.Append(" SELECT ROW_NUMBER() OVER (");
+            if (!string.IsNullOrEmpty(orderby.Trim()))
+            {
+                strSql.Append("order by T." + orderby);
+            }
+            else
+            {
+                strSql.Append("order by T.ZYBH desc");
+            }
+            strSql.Append(")AS Row, T.*  from ZYKCView T ");
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                strSql.Append(" WHERE " + strWhere);
+            }
+            strSql.Append(" ) TT");
+            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+
+           DataSet dataset = DbHelperSQL.Query(strSql.ToString());
+           int length = dataset.Tables[0].Rows.Count;
+           ZYKCView[] zykcViews = new ZYKCView[length];
+           for (int i = 0; i < length; i++)
+           {
+               zykcViews[i] = new ZYKCView();
+               zykcViews[i].ZYBH = int.Parse(dataset.Tables[0].Rows[i]["ZYBH"].ToString());
+               zykcViews[i].KCBH = int.Parse(dataset.Tables[0].Rows[i]["KCBH"].ToString());
+               zykcViews[i].XKBH = int.Parse(dataset.Tables[0].Rows[i]["XKBH"].ToString());
+               zykcViews[i].KCMC = dataset.Tables[0].Rows[i]["KCMC"].ToString();
+               zykcViews[i].ZYM = dataset.Tables[0].Rows[i]["ZYM"].ToString();
+
+               string zyfzr = dataset.Tables[0].Rows[i]["ZYFZR"].ToString().Trim();
+               if (zyfzr == null || zyfzr == "null" || zyfzr == "")
+               {
+                   zykcViews[i].ZYFZR = "暂无";
+               }
+               else
+               {
+                   zykcViews[i].ZYFZR = zyfzr;
+               }
+               zykcViews[i].KCXZBH = int.Parse(dataset.Tables[0].Rows[i]["KCXZBH"].ToString());
+               zykcViews[i].KKXQ = int.Parse(dataset.Tables[0].Rows[i]["KKXQ"].ToString());
+               zykcViews[i].LLXF = decimal.Parse(dataset.Tables[0].Rows[i]["LLXF"].ToString());
+               zykcViews[i].SJXF = decimal.Parse(dataset.Tables[0].Rows[i]["SJXF"].ToString());
+               zykcViews[i].KCXZMC = dataset.Tables[0].Rows[i]["KCXZMC"].ToString();
+               zykcViews[i].KCJJ = "";
+               zykcViews[i].XKMC = dataset.Tables[0].Rows[i]["XKMC"].ToString();
+           }
+           return zykcViews;
+        }
+
 
 		/*
 		/// <summary>

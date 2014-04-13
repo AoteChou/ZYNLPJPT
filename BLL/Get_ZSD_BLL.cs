@@ -7,5 +7,6 @@ namespace ZYNLPJPT.BLL
 {
     public class Get_ZSD_BLL
     {
+
     }
 }

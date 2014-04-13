@@ -65,17 +65,17 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ZSD(");
-			strSql.Append("ZSDYBH,ZSDBH,ZSDMC,BZ)");
+			strSql.Append("ZSDYBH,ZSLYBH,ZSDMC,BZ)");
 			strSql.Append(" values (");
-			strSql.Append("@ZSDYBH,@ZSDBH,@ZSDMC,@BZ)");
+			strSql.Append("@ZSDYBH,@ZSLYBH,@ZSDMC,@BZ)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
 					new SqlParameter("@ZSDMC", SqlDbType.VarChar,50),
 					new SqlParameter("@BZ", SqlDbType.Text)};
 			parameters[0].Value = model.ZSDYBH;
-			parameters[1].Value = model.ZSDBH;
+            parameters[1].Value = model.ZSLYBH;
 			parameters[2].Value = model.ZSDMC;
 			parameters[3].Value = model.BZ;
 
