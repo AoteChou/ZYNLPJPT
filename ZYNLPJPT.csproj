@@ -155,6 +155,7 @@
     <Content Include="Styles\icons\tip.png" />
     <Content Include="Styles\icons\undo.png" />
     <Content Include="Styles\TestPage.css" />
+    <Content Include="TeacherIndex.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="UploadPage.aspx" />
     <Content Include="UploadPage_Detail.aspx" />
@@ -170,6 +171,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\GetTestCourse_BLL.cs" />
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
@@ -337,6 +339,13 @@
     </Compile>
     <Compile Include="ResultPage.aspx.designer.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherIndex.aspx.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherIndex.aspx.designer.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
