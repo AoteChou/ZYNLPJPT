@@ -11,28 +11,22 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
-        function getSelections(zybh) {
-            var flag = true;
-            var ejzbbh = [];
-            var nlzbz = [];
+        function getSelections(kcbh) {
+            var zslybh = [];
+            var zsdybh = [];
             var rows = $('#mytable').datagrid('getSelections');
             for (var i = 0; i < rows.length; i++) {
                 var row = rows[i];
-                ejzbbh[i] = row.ejzbbh;
-                nlzbz[i] = row.nlzbz;
-                if (nlzbz < 0) {
-                    $.messager.alert('警告', '选择项的指标值不能小于零，请修改!');
-                    flag = false;
-                    break;
-                }
+                zslybh[i] = row.zslybh;
+                zsdybh[i] = row.zsdybh;
             }
-            if (flag) {
-                if (ejzbbh.length > 0) {
-                    $.post("addZyEjzb.aspx", { 'ejzbbh': ejzbbh, 'nlzbz': nlzbz, 'zybh': zybh }, function (result) {
+
+            if (zslybh.length > 0) {
+                $.post("addKcZsdy.aspx", { 'zslybh': zslybh, 'zsdybh': zsdybh, 'kcbh': kcbh }, function (result) {
                         if (result == 'False') {
-                            $.messager.alert('警告', '配置失败，请检查是否存在指标值小于零的行存在');
+                            $.messager.alert('警告', '配置失败，请选择至少一项');
                         } else if (result == 'True') {
-                            $.messager.confirm('信息', '专业能力指标配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
+                            $.messager.confirm('信息', '课程知识单元配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
                                 if (r) {
                                     history.back(-1);
                                 } else {
@@ -44,8 +38,8 @@
                 } else {
                     $.messager.alert('警告', '选择的指标至少为一项，请选择!');
                 }
+
             }
-        }
     </script>
 </head>
 <body class="easyui-layout">
@@ -62,27 +56,27 @@
          <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
     		    <tr>
-    			<th data-options="field:'ck',checkbox:true" width="50"> 此指标与该课程是否关联</th>
-                <th data-options="field:'yjzbbh'" width="10">一级指标编号</th>
-                <th data-options="field:'yjzbmc'" width="50">一级指标名称</th>
-                <th data-options="field:'ejzbbh'" width="10">二级指标编号</th>
-                <th data-options="field:'ejzbmc'" width="50">二级指标名称</th>
-                <th data-options="field:'nlzbz',editor:'numberbox'" width="30">指标在该专业要求值(单击修改)</th>
+    			<th data-options="field:'ck',checkbox:true" width="50">否与该知识单元关联</th>
+                <th data-options="field:'zslybh'" width="12">知识领域编号</th>
+                <th data-options="field:'zslymc',align:'center'" width="50">知识领域名称</th>
+                <th data-options="field:'zsdybh'" width="12">知识单元编号</th>
+                <th data-options="field:'zsdymc',align:'center'" width="50">知识单元名称</th>
+                <th data-options="field:'zsdybz'" width="80">知识单元备注</th>
     		</tr>
     	</thead>
    		<tbody >
-               <%/*
-                   for (int i = 0; i < this.nlzbViews.Length; i++)
+               <%
+                   for (int i = 0; i < this.zsnlViews.Length; i++)
                    {
                        Response.Write("<tr >");
-                       Response.Write("<td><</td>");
-                       Response.Write("	<td >" + nlzbViews[i].YJZBBH+ "</td>");
-                       Response.Write("	<td >" + nlzbViews[i].YJZBMC + "</td>");
-                       Response.Write("  <td >" + nlzbViews[i].EJZBBH + "</td>");
-                       Response.Write("  <td >" + nlzbViews[i].EJZBMC + "</td>");
-                       Response.Write("	<td >" + 5 + "</td>");
+                       Response.Write("<td></td>");
+                       Response.Write("	<td >" + zsnlViews[i].ZSLYBH+ "</td>");
+                       Response.Write("	<td >" + zsnlViews[i].ZSLYMC + "</td>");
+                       Response.Write("  <td >" + zsnlViews[i].ZSDYBH + "</td>");
+                       Response.Write("  <td >" + zsnlViews[i].ZSDYMC + "</td>");
+                       Response.Write("	<td >" + zsnlViews[i].BZ+ "</td>");
                        Response.Write("</tr>");
-                   }*/ 
+                   } 
                    %>
     	</tbody>
    	</table>     

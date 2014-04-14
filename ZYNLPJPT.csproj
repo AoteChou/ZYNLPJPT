@@ -67,6 +67,7 @@
     <Content Include="ckctr.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
+    <Content Include="processAspx\addKcZsdy.aspx" />
     <Content Include="processAspx\addYjzbProc.aspx" />
     <Content Include="processAspx\addZsdProc.aspx" />
     <Content Include="processAspx\addZsdyProc.aspx" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="processAspx\addEjzbProc.aspx.designer.cs">
       <DependentUpon>addEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addKcZsdy.aspx.cs">
+      <DependentUpon>addKcZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addKcZsdy.aspx.designer.cs">
+      <DependentUpon>addKcZsdy.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addYjzbProc.aspx.cs">
       <DependentUpon>addYjzbProc.aspx</DependentUpon>

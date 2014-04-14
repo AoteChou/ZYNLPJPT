@@ -1,24 +1,9 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* KCZSDY_DAL.cs
-*
-* 功 能： N/A
-* 类 名： KCZSDY_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:14   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -86,6 +71,28 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool addArray(ZYNLPJPT.Model.KCZSDY[] models)
+        {
+            StringBuilder strSql = new StringBuilder();
+            for (int i = 0; i < models.Length; i++) {
+                strSql.Append("insert into KCZSDY(");
+                strSql.Append("KCBH,ZSLYBH,ZSDYBH)");
+                strSql.Append(" values (");
+                strSql.Append(models[i].KCBH+","+models[i].ZSLYBH+","+models[i].ZSDYBH);
+                strSql.Append(");");
+            }
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -145,6 +152,27 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool Delete(int KCBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from KCZSDY ");
+            strSql.Append(" where KCBH=@KCBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@KCBH", SqlDbType.Int,4),
+						};
+            parameters[0].Value = KCBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		/// <summary>
 		/// 得到一个对象实体
