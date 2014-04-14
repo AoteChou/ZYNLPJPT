@@ -186,6 +186,29 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public ZYNLPJPT.Model.ZY GetModel(string zym)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 ZYBH,XKBH,ZYM,ZYFZR from ZY ");
+            strSql.Append(" where zym=@zym");
+            SqlParameter[] parameters = {
+					new SqlParameter("@zym", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = zym;
+
+            ZYNLPJPT.Model.ZY model = new ZYNLPJPT.Model.ZY();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -229,6 +252,22 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        public string[] getArrayByXkbh(int xkbh) {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ZYBH,XKBH,ZYM,ZYFZR ");
+            strSql.Append(" FROM ZY ");
+            strSql.Append(" where xkbh="+xkbh);
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] results=new string[length];
+            for (int i = 0; i < length; i++) { 
+                DataRow row=ds.Tables[0].Rows[i];
+                results[i]=row["zym"].ToString().Trim();
+            }
+            return results;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

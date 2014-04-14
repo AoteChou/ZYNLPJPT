@@ -13,7 +13,6 @@
     <script type="text/javascript">
         function showTeas(data) {
             $.messager.alert('出题人', data, 'info');
-            //alert(data);
         }
     </script>
 </head>
@@ -70,16 +69,11 @@
     $(function () {
         $('#mytable').datagrid({
             pagination: false,
-            //data:[{code:'1',price:'2',name:'dd'}],
             pageList: [30],
             pageSize: 30,
-            //url: 'processAspx/ctrData.aspx',
             singleSelect: true,
         });
     });
-
-
-
 </script>
 </body>
 </html>

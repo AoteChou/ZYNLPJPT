@@ -177,6 +177,29 @@ namespace ZYNLPJPT.DAL
 		}
 
 
+        public ZYNLPJPT.Model.NJ GetModel(string njName)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 NJBH,NJMC from NJ ");
+            strSql.Append(" where njmc=@njmc");
+            SqlParameter[] parameters = {
+					new SqlParameter("@njmc", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value =njName;
+
+            ZYNLPJPT.Model.NJ model = new ZYNLPJPT.Model.NJ();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
@@ -211,6 +234,21 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        public string[] getArray()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select NJBH,NJMC ");
+            strSql.Append(" FROM NJ ");
+            DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] results=new string[length];
+            for (int i = 0; i < length; i++) {
+                DataRow row = ds.Tables[0].Rows[i];
+                results[i]=row["njmc"].ToString();
+            }
+            return results;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

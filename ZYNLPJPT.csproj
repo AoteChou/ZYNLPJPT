@@ -65,6 +65,7 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
     <Content Include="processAspx\addKcZsdy.aspx" />
@@ -75,6 +76,7 @@
     <Content Include="processAspx\addZyEjzb.aspx" />
     <Content Include="processAspx\changeEjzbProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
@@ -281,6 +283,13 @@
     <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
+    <Compile Include="processAspx\addCpjdProc.aspx.cs">
+      <DependentUpon>addCpjdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addCpjdProc.aspx.designer.cs">
+      <DependentUpon>addCpjdProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\addCtr.aspx.cs">
       <DependentUpon>addCtr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -350,6 +359,13 @@
     </Compile>
     <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
       <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\cpjdData.aspx.cs">
+      <DependentUpon>cpjdData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\cpjdData.aspx.designer.cs">
+      <DependentUpon>cpjdData.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
