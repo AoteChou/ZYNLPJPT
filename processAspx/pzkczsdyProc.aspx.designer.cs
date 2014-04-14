@@ -10,6 +10,6 @@
 namespace ZYNLPJPT.processAspx {
     
     
-    public partial class pzkczsdy {
+    public partial class pzkczsdyProc {
     }
 }

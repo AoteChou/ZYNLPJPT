@@ -76,6 +76,7 @@
     <Content Include="processAspx\changeZsdyProc.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
+    <Content Include="processAspx\pzkczsdyProc.aspx" />
     <Content Include="pzjdkc.aspx" />
     <Content Include="pzjsgt.aspx" />
     <Content Include="pzkczsdy.aspx" />
@@ -268,12 +269,16 @@
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
+    <Compile Include="DAL\KCDetailView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
+    <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
     <Compile Include="Model\JSRoleYHView.cs" />
+    <Compile Include="Model\KCDetailView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
+    <Compile Include="Model\ZSNLView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
     <Compile Include="processAspx\addCtr.aspx.cs">
       <DependentUpon>addCtr.aspx</DependentUpon>
@@ -351,6 +356,13 @@
     </Compile>
     <Compile Include="processAspx\pzEjzbProc.aspx.designer.cs">
       <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\pzkczsdyProc.aspx.cs">
+      <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\pzkczsdyProc.aspx.designer.cs">
+      <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="pzjdkc.aspx.cs">
       <DependentUpon>pzjdkc.aspx</DependentUpon>

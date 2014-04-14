@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pzEjzbProc.aspx.cs" Inherits="ZYNLPJPT.processAspx.pzEjzbProc" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pzkczsdyProc.aspx.cs" Inherits="ZYNLPJPT.processAspx.pzkczsdyProc" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>配置专业二级指标</title>
+    <title>配置课程知识单元</title>
     <link rel="Stylesheet" type="text/css" href="../Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="../Styles/icon.css" /> 
     <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
@@ -28,10 +28,10 @@
             }
             if (flag) {
                 if (ejzbbh.length > 0) {
-                    $.post("addZyEjzb.aspx", { 'ejzbbh': ejzbbh,'nlzbz':nlzbz,'zybh': zybh }, function (result) {
+                    $.post("addZyEjzb.aspx", { 'ejzbbh': ejzbbh, 'nlzbz': nlzbz, 'zybh': zybh }, function (result) {
                         if (result == 'False') {
                             $.messager.alert('警告', '配置失败，请检查是否存在指标值小于零的行存在');
-                        } else if(result=='True'){
+                        } else if (result == 'True') {
                             $.messager.confirm('信息', '专业能力指标配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
                                 if (r) {
                                     history.back(-1);
@@ -44,9 +44,7 @@
                 } else {
                     $.messager.alert('警告', '选择的指标至少为一项，请选择!');
                 }
-               
             }
-
         }
     </script>
 </head>
@@ -56,7 +54,7 @@
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
-            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=zybh %>)">提交修改</a>
+            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=kcbh %>)">提交修改</a>
         </div>
     </div>
 
@@ -73,7 +71,7 @@
     		</tr>
     	</thead>
    		<tbody >
-               <%
+               <%/*
                    for (int i = 0; i < this.nlzbViews.Length; i++)
                    {
                        Response.Write("<tr >");
@@ -84,59 +82,20 @@
                        Response.Write("  <td >" + nlzbViews[i].EJZBMC + "</td>");
                        Response.Write("	<td >" + 5 + "</td>");
                        Response.Write("</tr>");
-                   } %>
+                   }*/ 
+                   %>
     	</tbody>
    	</table>     
     </div>
         <script type="text/javascript">
-             $(function () {
+            $(function () {
                 $('#mytable').datagrid({
-                 pagination: false,
-                 pageList: [30],
-                 pageSize: 30,
-                 singleSelect: false,
-                 onClickCell: onClickCell
+                    pagination: false,
+                    pageList: [30],
+                    pageSize: 30,
+                    singleSelect: false,
                 });
-         });
-
-         $.extend($.fn.datagrid.methods, {
-             editCell: function (jq, param) {
-                 return jq.each(function () {
-                     var opts = $(this).datagrid('options');
-                     var fields = $(this).datagrid('getColumnFields', true).concat($(this).datagrid('getColumnFields'));
-                     for (var i = 0; i < fields.length; i++) {
-                         var col = $(this).datagrid('getColumnOption', fields[i]);
-                         col.editor1 = col.editor;
-                         if (fields[i] != param.field) {
-                             col.editor = null;
-                         }
-                     }
-                     $(this).datagrid('beginEdit', param.index);
-                     for (var i = 0; i < fields.length; i++) {
-                         var col = $(this).datagrid('getColumnOption', fields[i]);
-                         col.editor = col.editor1;
-                     }
-                 });
-             }
-         });
-
-         var editIndex = undefined;
-         function endEditing() {
-             if (editIndex == undefined) { return true }
-             if ($('#mytable').datagrid('validateRow', editIndex)) {
-                 $('#mytable').datagrid('endEdit', editIndex);
-                 editIndex = undefined;
-                 return true;
-             } else {
-                 return false;
-             }
-         }
-         function onClickCell(index, field) {
-             if (endEditing()) {
-                 $('#mytable').datagrid('selectRow', index).datagrid('editCell', { index: index, field: field });
-                 editIndex = index;
-             }
-         }
+            });
         </script>
     </form>
 </body>

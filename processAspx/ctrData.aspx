@@ -62,7 +62,7 @@
                    for (int i = 0; i < this.jsRoleYhView.Length; i++)
                    {
                        Response.Write("<tr >");
-                       Response.Write("<td><</td>");
+                       Response.Write("<td>true</td>");
                        Response.Write("	<td >" + jsRoleYhView[i].YHBH+ "</td>");
                        Response.Write("	<td >" + jsRoleYhView[i].XM + "</td>");
                        Response.Write("  <td >" + (jsRoleYhView[i].XB == true ? "男" : "女") + "</td>");
