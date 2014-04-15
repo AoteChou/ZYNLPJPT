@@ -30,11 +30,8 @@
     </form>
 </div>
 <div region="center" border="false">
- 
  <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
-
 </div>
-
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
@@ -52,13 +49,11 @@
                    for (int i = 0; i < this.zykcViews.Length; i++)
                    {
                        Response.Write("<tr >");
-                      
                        Response.Write("	<td >" + zykcViews[i].KCMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYM + "</td>");
                        Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       //Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" return showTeas('" + this.zykcViewsWrapper.CtTea[i].Trim() + "')\" >查看出题人</a></td>");
                        Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
                        Response.Write("</tr>");
                    } %>

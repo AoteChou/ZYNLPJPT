@@ -271,12 +271,14 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\CpjdView_DAL.cs" />
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="DAL\KCDetailView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="Model\CpjdView.cs" />
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\KCDetailView.cs" />
     <Compile Include="Model\NLZBView.cs" />

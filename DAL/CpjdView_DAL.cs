@@ -9,104 +9,112 @@ using ZYNLPJPT.Model;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
-	/// 数据访问类:CPJD_DAL
+	/// 数据访问类:CpjdView_DAL
 	/// </summary>
-	public partial class CPJD_DAL
+	public partial class CpjdView_DAL
 	{
-		public CPJD_DAL()
+		public CpjdView_DAL()
 		{}
 		#region  BasicMethod
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public int GetMaxId()
-		{
-		return DbHelperSQL.GetMaxID("NJBH", "CPJD"); 
-		}
-
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(int NJBH,int ZYBH,int JDBH)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from CPJD");
-			strSql.Append(" where NJBH=@NJBH and ZYBH=@ZYBH and JDBH=@JDBH ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@NJBH", SqlDbType.Int,4),
-					new SqlParameter("@ZYBH", SqlDbType.Int,4),
-					new SqlParameter("@JDBH", SqlDbType.Int,4)			};
-			parameters[0].Value = NJBH;
-			parameters[1].Value = ZYBH;
-			parameters[2].Value = JDBH;
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
-		}
 
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(ZYNLPJPT.Model.CPJD model)
+		public bool Add(ZYNLPJPT.Model.CpjdView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into CPJD(");
-			strSql.Append("NJBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ)");
+			strSql.Append("insert into CpjdView(");
+			strSql.Append("NJBH,NJMC,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ,XKBH,ZYM,ZYFZR,XYBH,XKMC)");
 			strSql.Append(" values (");
-			strSql.Append("@NJBH,@ZYBH,@JDMC,@QSXQ,@JZXQ,@CPJDJJ)");
-			strSql.Append(";select @@IDENTITY");
+			strSql.Append("@NJBH,@NJMC,@JDBH,@ZYBH,@JDMC,@QSXQ,@JZXQ,@CPJDJJ,@XKBH,@ZYM,@ZYFZR,@XYBH,@XKMC)");
 			SqlParameter[] parameters = {
 					new SqlParameter("@NJBH", SqlDbType.Int,4),
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50),
+					new SqlParameter("@JDBH", SqlDbType.Int,4),
 					new SqlParameter("@ZYBH", SqlDbType.Int,4),
 					new SqlParameter("@JDMC", SqlDbType.VarChar,50),
 					new SqlParameter("@QSXQ", SqlDbType.Int,4),
 					new SqlParameter("@JZXQ", SqlDbType.Int,4),
-					new SqlParameter("@CPJDJJ", SqlDbType.Text)};
+					new SqlParameter("@CPJDJJ", SqlDbType.Text),
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
+					new SqlParameter("@ZYM", SqlDbType.VarChar,50),
+					new SqlParameter("@ZYFZR", SqlDbType.VarChar,50),
+					new SqlParameter("@XYBH", SqlDbType.Int,4),
+					new SqlParameter("@XKMC", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.NJBH;
-			parameters[1].Value = model.ZYBH;
-			parameters[2].Value = model.JDMC;
-			parameters[3].Value = model.QSXQ;
-			parameters[4].Value = model.JZXQ;
-			parameters[5].Value = model.CPJDJJ;
+			parameters[1].Value = model.NJMC;
+			parameters[2].Value = model.JDBH;
+			parameters[3].Value = model.ZYBH;
+			parameters[4].Value = model.JDMC;
+			parameters[5].Value = model.QSXQ;
+			parameters[6].Value = model.JZXQ;
+			parameters[7].Value = model.CPJDJJ;
+			parameters[8].Value = model.XKBH;
+			parameters[9].Value = model.ZYM;
+			parameters[10].Value = model.ZYFZR;
+			parameters[11].Value = model.XYBH;
+			parameters[12].Value = model.XKMC;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
-				return 0;
+				return true;
 			}
 			else
 			{
-				return Convert.ToInt32(obj);
+				return false;
 			}
 		}
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(ZYNLPJPT.Model.CPJD model)
+		public bool Update(ZYNLPJPT.Model.CpjdView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update CPJD set ");
+			strSql.Append("update CpjdView set ");
+			strSql.Append("NJBH=@NJBH,");
+			strSql.Append("NJMC=@NJMC,");
+			strSql.Append("JDBH=@JDBH,");
+			strSql.Append("ZYBH=@ZYBH,");
 			strSql.Append("JDMC=@JDMC,");
 			strSql.Append("QSXQ=@QSXQ,");
 			strSql.Append("JZXQ=@JZXQ,");
-			strSql.Append("CPJDJJ=@CPJDJJ");
-			strSql.Append(" where JDBH=@JDBH");
+			strSql.Append("CPJDJJ=@CPJDJJ,");
+			strSql.Append("XKBH=@XKBH,");
+			strSql.Append("ZYM=@ZYM,");
+			strSql.Append("ZYFZR=@ZYFZR,");
+			strSql.Append("XYBH=@XYBH,");
+			strSql.Append("XKMC=@XKMC");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
+					new SqlParameter("@NJBH", SqlDbType.Int,4),
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50),
+					new SqlParameter("@JDBH", SqlDbType.Int,4),
+					new SqlParameter("@ZYBH", SqlDbType.Int,4),
 					new SqlParameter("@JDMC", SqlDbType.VarChar,50),
 					new SqlParameter("@QSXQ", SqlDbType.Int,4),
 					new SqlParameter("@JZXQ", SqlDbType.Int,4),
 					new SqlParameter("@CPJDJJ", SqlDbType.Text),
-					new SqlParameter("@NJBH", SqlDbType.Int,4),
-					new SqlParameter("@JDBH", SqlDbType.Int,4),
-					new SqlParameter("@ZYBH", SqlDbType.Int,4)};
-			parameters[0].Value = model.JDMC;
-			parameters[1].Value = model.QSXQ;
-			parameters[2].Value = model.JZXQ;
-			parameters[3].Value = model.CPJDJJ;
-			parameters[4].Value = model.NJBH;
-			parameters[5].Value = model.JDBH;
-			parameters[6].Value = model.ZYBH;
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
+					new SqlParameter("@ZYM", SqlDbType.VarChar,50),
+					new SqlParameter("@ZYFZR", SqlDbType.VarChar,50),
+					new SqlParameter("@XYBH", SqlDbType.Int,4),
+					new SqlParameter("@XKMC", SqlDbType.VarChar,50)};
+			parameters[0].Value = model.NJBH;
+			parameters[1].Value = model.NJMC;
+			parameters[2].Value = model.JDBH;
+			parameters[3].Value = model.ZYBH;
+			parameters[4].Value = model.JDMC;
+			parameters[5].Value = model.QSXQ;
+			parameters[6].Value = model.JZXQ;
+			parameters[7].Value = model.CPJDJJ;
+			parameters[8].Value = model.XKBH;
+			parameters[9].Value = model.ZYM;
+			parameters[10].Value = model.ZYFZR;
+			parameters[11].Value = model.XYBH;
+			parameters[12].Value = model.XKMC;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -122,63 +130,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int JDBH)
+		public bool Delete()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from CPJD ");
-			strSql.Append(" where JDBH=@JDBH");
+			strSql.Append("delete from CpjdView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@JDBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = JDBH;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int NJBH,int ZYBH,int JDBH)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from CPJD ");
-			strSql.Append(" where NJBH=@NJBH and ZYBH=@ZYBH and JDBH=@JDBH ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@NJBH", SqlDbType.Int,4),
-					new SqlParameter("@ZYBH", SqlDbType.Int,4),
-					new SqlParameter("@JDBH", SqlDbType.Int,4)			};
-			parameters[0].Value = NJBH;
-			parameters[1].Value = ZYBH;
-			parameters[2].Value = JDBH;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 批量删除数据
-		/// </summary>
-		public bool DeleteList(string JDBHlist )
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from CPJD ");
-			strSql.Append(" where JDBH in ("+JDBHlist + ")  ");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -193,18 +154,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.CPJD GetModel(int JDBH)
+		public ZYNLPJPT.Model.CpjdView GetModel()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 NJBH,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ from CPJD ");
-			strSql.Append(" where JDBH=@JDBH");
+			strSql.Append("select  top 1 NJBH,NJMC,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ,XKBH,ZYM,ZYFZR,XYBH,XKMC from CpjdView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@JDBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = JDBH;
 
-			ZYNLPJPT.Model.CPJD model=new ZYNLPJPT.Model.CPJD();
+			ZYNLPJPT.Model.CpjdView model=new ZYNLPJPT.Model.CpjdView();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -220,14 +179,18 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.CPJD DataRowToModel(DataRow row)
+		public ZYNLPJPT.Model.CpjdView DataRowToModel(DataRow row)
 		{
-			ZYNLPJPT.Model.CPJD model=new ZYNLPJPT.Model.CPJD();
+			ZYNLPJPT.Model.CpjdView model=new ZYNLPJPT.Model.CpjdView();
 			if (row != null)
 			{
 				if(row["NJBH"]!=null && row["NJBH"].ToString()!="")
 				{
 					model.NJBH=int.Parse(row["NJBH"].ToString());
+				}
+				if(row["NJMC"]!=null)
+				{
+					model.NJMC=row["NJMC"].ToString();
 				}
 				if(row["JDBH"]!=null && row["JDBH"].ToString()!="")
 				{
@@ -253,6 +216,26 @@ namespace ZYNLPJPT.DAL
 				{
 					model.CPJDJJ=row["CPJDJJ"].ToString();
 				}
+				if(row["XKBH"]!=null && row["XKBH"].ToString()!="")
+				{
+					model.XKBH=int.Parse(row["XKBH"].ToString());
+				}
+				if(row["ZYM"]!=null)
+				{
+					model.ZYM=row["ZYM"].ToString();
+				}
+				if(row["ZYFZR"]!=null)
+				{
+					model.ZYFZR=row["ZYFZR"].ToString();
+				}
+				if(row["XYBH"]!=null && row["XYBH"].ToString()!="")
+				{
+					model.XYBH=int.Parse(row["XYBH"].ToString());
+				}
+				if(row["XKMC"]!=null)
+				{
+					model.XKMC=row["XKMC"].ToString();
+				}
 			}
 			return model;
 		}
@@ -263,8 +246,8 @@ namespace ZYNLPJPT.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select NJBH,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ ");
-			strSql.Append(" FROM CPJD ");
+			strSql.Append("select NJBH,NJMC,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ,XKBH,ZYM,ZYFZR,XYBH,XKMC ");
+			strSql.Append(" FROM CpjdView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -272,16 +255,17 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
-        public CpjdView[] getArray(int xkbh,string queryedZym)
+        public CpjdView[] getArray(int xkbh, string queryedZym)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select NJBH,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ ");
-            strSql.Append(" FROM CPJD ");
-            strSql.Append("where xkbh="+xkbh+"and zym='"+queryedZym+"'");
+            strSql.Append("select NJBH,NJMC,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ,XKBH,ZYM,ZYFZR,XYBH,XKMC ");
+            strSql.Append(" FROM CpjdView ");
+            strSql.Append("where xkbh=" + xkbh + "and zym='" + queryedZym + "'");
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             int length = ds.Tables[0].Rows.Count;
-            CpjdView[] cpjdViews=new CpjdView[length];
-            for (int i = 0; i < length; i++) {
+            CpjdView[] cpjdViews = new CpjdView[length];
+            for (int i = 0; i < length; i++)
+            {
                 cpjdViews[i] = new CpjdView();
                 DataRow row = ds.Tables[0].Rows[i];
                 cpjdViews[i].NJBH = int.Parse(row["njbh"].ToString());
@@ -295,16 +279,20 @@ namespace ZYNLPJPT.DAL
                 cpjdViews[i].XYBH = int.Parse(row["xybh"].ToString());
                 cpjdViews[i].QSXQ = int.Parse(row["qsxq"].ToString());
                 cpjdViews[i].JZXQ = int.Parse(row["jzxq"].ToString());
-                if (row["cpjdjj"] == null || row["cpjdjj"].ToString() == null || row["cpjdjj"].ToString() == "" || row["cpjdjj"].ToString() == "null") {
+                if (row["cpjdjj"] == null || row["cpjdjj"].ToString() == null || row["cpjdjj"].ToString() == "" || row["cpjdjj"].ToString() == "null")
+                {
                     cpjdViews[i].CPJDJJ = "暂无";
-                }else{
-                    cpjdViews[i].CPJDJJ=row["cpjdjj"].ToString();
+                }
+                else
+                {
+                    cpjdViews[i].CPJDJJ = row["cpjdjj"].ToString();
                 }
                 if (row["zyfzr"] == null || row["zyfzr"].ToString() == null || row["zyfzr"].ToString() == "null" || row["zyfzr"].ToString() == "")
                 {
                     cpjdViews[i].ZYFZR = "暂无";
                 }
-                else {
+                else
+                {
                     cpjdViews[i].ZYFZR = row["zyfzr"].ToString();
                 }
 
@@ -323,8 +311,8 @@ namespace ZYNLPJPT.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" NJBH,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ ");
-			strSql.Append(" FROM CPJD ");
+			strSql.Append(" NJBH,NJMC,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ,XKBH,ZYM,ZYFZR,XYBH,XKMC ");
+			strSql.Append(" FROM CpjdView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -339,7 +327,7 @@ namespace ZYNLPJPT.DAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM CPJD ");
+			strSql.Append("select count(1) FROM CpjdView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -368,9 +356,9 @@ namespace ZYNLPJPT.DAL
 			}
 			else
 			{
-				strSql.Append("order by T.JDBH desc");
+				strSql.Append("order by T. desc");
 			}
-			strSql.Append(")AS Row, T.*  from CPJD T ");
+			strSql.Append(")AS Row, T.*  from CpjdView T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -395,8 +383,8 @@ namespace ZYNLPJPT.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "CPJD";
-			parameters[1].Value = "JDBH";
+			parameters[0].Value = "CpjdView";
+			parameters[1].Value = "";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;
