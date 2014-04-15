@@ -34,8 +34,11 @@ namespace ZYNLPJPT.processAspx
                     cts[i].KCBH = iKcbh;
                     cts[i].CTR = teaIds[i].Trim();
                 }
-                //删除所有之前的出题人!!!
-                new CT_DAL().AddList(cts);
+                if (new CT_DAL().AddList(cts)) {
+                    Response.Write(true);
+                }else{
+                    Response.Write(false);
+                }
             }
             Response.End();
         }

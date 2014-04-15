@@ -12,17 +12,17 @@
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
         function getSelections(jdbh, zybh, njbh) {
-            var ss = [];
+            var kcbh = [];
             var rows = $('#mytable').datagrid('getSelections');
             for (var i = 0; i < rows.length; i++) {
                 var row = rows[i];
-                ss[i] = row.yhbh;
+                kcbh[i] = row.kcbh;
             }
-            $.post("addCtr.aspx", { 'teaIds': ss, 'kcbh': kcbh, 'zybh': zybh }, function (result) {
+            $.post("addJdKc.aspx", { 'kcbhs': kcbh, 'jdbh': jdbh, 'zybh': zybh,'njbh':njbh }, function (result) {
                 if (result == 'False') {
-                    $.messager.alert('警告', '必须选择至少一位教师,请选择要配置的教师名!');
+                    $.messager.alert('警告', '必须选择至少一门课程,请选择要配置的课程!');
                 } else {
-                    $.messager.confirm('信息', '教师出题配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
+                    $.messager.confirm('信息', '阶段课程配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
                         if (r) {
                             history.back(-1);
                         } else {
@@ -49,11 +49,11 @@
     			<th data-options="field:'ck',checkbox:true" width="50"> 是否为阶段课程</th>
                 <th data-options="field:'kcbh'" width="12"><span class="easyui-tooltip" title="<%=tips %>" >课程编号</span> </th>
                  <th data-options="field:'kcmc',align:'center'" width="50">课程名称</th>
-                 <th data-options="field:'sszy'" width="50">所属专业</th>
-                 <th data-options="field:'ssxk'" width="50">所属学科</th>
+                 <th data-options="field:'sszy',align:'center'" width="55">所属专业</th>
+                 <th data-options="field:'ssxk',align:'center'" width="55">所属学科</th>
                 <th data-options="field:'kcxz'" width="50">课程性质</th>
-                <th data-options="field:'llxf'" width="50">理论学分</th>
-                <th data-options="field:'sjxf'" width="50">实践学分</th>
+                <th data-options="field:'llxf'" width="30">理论学分</th>
+                <th data-options="field:'sjxf'" width="30">实践学分</th>
     		</tr>
     	</thead>
    		<tbody >
@@ -67,6 +67,7 @@
                        Response.Write("  <td >" +this.zykcViews[i].ZYM+ "</td>");
                        Response.Write("  <td >" + this.zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + this.zykcViews[i].KCXZMC + "</td>");
+                       Response.Write("	<td >" + this.zykcViews[i].LLXF + "</td>");
                        Response.Write("	<td >" +this.zykcViews[i].SJXF + "</td>");
                        Response.Write("</tr>");
                    } %>

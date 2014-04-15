@@ -90,6 +90,30 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool addArray(ZYNLPJPT.Model.JDKC[] models)
+        {
+            StringBuilder strSql = new StringBuilder();
+            for (int i = 0; i < models.Length; i++) {
+                strSql.Append("insert into JDKC(");
+                strSql.Append("KCBH,ZYBH,NJBH,JDBH)");
+                strSql.Append(" values (");
+                strSql.Append(models[i].KCBH+","+models[i].ZYBH+","+models[i].NJBH+","+models[i].JDBH);
+                strSql.Append(");");
+            }
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -153,6 +177,31 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool Delete(int ZYBH, int NJBH, int JDBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from JDKC ");
+            strSql.Append(" where  ZYBH=@ZYBH and NJBH=@NJBH and JDBH=@JDBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZYBH", SqlDbType.Int,4),
+					new SqlParameter("@NJBH", SqlDbType.Int,4),
+					new SqlParameter("@JDBH", SqlDbType.Int,4)			};
+            parameters[0].Value = ZYBH;
+            parameters[1].Value = NJBH;
+            parameters[2].Value = JDBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
 		/// <summary>
