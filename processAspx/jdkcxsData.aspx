@@ -47,26 +47,31 @@
                 <div data-options="region:'north',border:false" style=" height:30px;" >
                     请在左侧选择需要改题的教师，右侧选择需要被该教师改题的学生。其中，左侧同时只可以选择一位教师，右侧同时可以选择多位学生。
                 </div>
-                 <div  data-options="region:'west',border:true" style="width:400px;" >
+                 <div  data-options="region:'west',border:true" style="width:450px;" >
                     <table id="jsTable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	                <thead>
     		                <tr>
     			            <th data-options="field:'ck',checkbox:true" width="5"> 是否为改题人</th>
-                            <th data-options="field:'jsbh'" width="20"><span class="easyui-tooltip" title="<%="" %>" >教师编号</span> </th>
-                             <th data-options="field:'xm'" width="20">姓名</th>
+                            <th data-options="field:'jsbh'" width="13"><span class="easyui-tooltip" title="<%="" %>" >教师编号</span> </th>
+                             <th data-options="field:'xm'" width="13">姓名</th>
                              <th data-options="field:'xb'" width="9">性别</th>
                             <th data-options="field:'ssxk'" width="20">所属学科</th>
+                            <th data-options="field:'sfsxkfzr',align:'center'" width="10">学科负责人</th>
     		            </tr>
     	            </thead>
    		            <tbody >
                       <%
-                          /*
-                           for (int i = 0; i < this.jsRoleYhView.Length; i++)
+                           for (int i = 0; i < this.jsTeaDetailViews.Length; i++)
                            {
                                Response.Write("<tr >");
+                               Response.Write("<td></td>");
+                               Response.Write("<td>"+this.jsTeaDetailViews[i].JSBH+"</td>");
+                               Response.Write("<td>" + this.jsTeaDetailViews[i].XM + "</td>");
+                               Response.Write("<td>"+(this.jsTeaDetailViews[i].XB==true?"男":"女")+"</td>");
+                               Response.Write("<td>" + this.jsTeaDetailViews[i].XKMC + "</td>");
+                               Response.Write("<td>" + (this.jsTeaDetailViews[i].SFSXKFZR == true ? "是" : "否") + "</td>");
                                Response.Write("</tr>");
                            }
-                        */
                     %>
     	            </tbody>
                    </table>
@@ -76,14 +81,27 @@
     	                <thead>
     		                <tr>
     			                <th data-options="field:'ck',checkbox:true" width="5"> 选择学生</th>
-                                <th data-options="field:'xsbh'" width="20">学生学号</th>
-                                 <th data-options="field:'xm'" width="20">姓名</th>
-                                 <th data-options="field:'ssbj'" width="20">所属班级</th>
-                                <th data-options="field:'sszy'" width="20">所属专业</th>
-                                <td data-options="field:'ssxk'" width="20">所属学科</td>
+                                <th data-options="field:'xsbh'" width="15">学生学号</th>
+                                 <th data-options="field:'xm'" width="12">姓名</th>
+                                 <th data-options="field:'ssbj'" width="15">所属班级</th>
+                                <th data-options="field:'sszy'" width="15">所属专业</th>
+                                <th data-options="field:'sszy1'" width="15">所属学科</th>
     		                </tr>
     	                </thead>
-   		                <tbody >
+   		                <tbody>
+                            <%
+                               for (int i = 0; i < this.bjXsDetailViews.Length; i++)
+                               {
+                                   Response.Write("<tr >");
+                                   Response.Write("<td></td>");
+                                   Response.Write("<td>"+this.bjXsDetailViews[i].XSBH+"</td>");
+                                   Response.Write("<td>" + this.bjXsDetailViews[i].XM + "</td>");
+                                   Response.Write("<td>" +this.bjXsDetailViews[i].BJMC + "</td>");
+                                   Response.Write("<td>"+this.bjXsDetailViews[i].ZYM+"</td>");
+                                   Response.Write("<td>" + this.bjXsDetailViews[i].XKMC + "</td>");
+                                   Response.Write("</tr>");
+                               }
+                          %>
                         </tbody>
                     </table>
                 </div>

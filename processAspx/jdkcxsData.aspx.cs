@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ZYNLPJPT.DAL;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT.processAspx
 {
@@ -18,6 +20,10 @@ namespace ZYNLPJPT.processAspx
         protected int kcbh;
 
         protected int zybh;
+
+        protected BjXsDetailView[] bjXsDetailViews;
+
+        protected JsTeaDetailView[] jsTeaDetailViews;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +41,10 @@ namespace ZYNLPJPT.processAspx
                     njbh = int.Parse(Request["njbh"].ToString());
                     kcbh = int.Parse(Request["kcbh"].ToString());
                     jdbh = int.Parse(Request["jdbh"].ToString());
-                    zybh = int.Parse(Request["zybh"].ToString());      
+                    zybh = int.Parse(Request["zybh"].ToString());
+
+                    bjXsDetailViews = new BjXsDetailView_DAL().getArray(kcbh,zybh,njbh,jdbh);
+                    jsTeaDetailViews = new JsTeaDetailView_DAL().getArray(kcbh,zybh,njbh,jdbh,xkbh);
                 }
             }
         }
