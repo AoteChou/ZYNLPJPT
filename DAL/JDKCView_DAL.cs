@@ -1,24 +1,11 @@
-﻿/**  版本信息模板在安装目录下，可自行修改。
-* JDKCView_DAL.cs
-*
-* 功 能： N/A
-* 类 名： JDKCView_DAL
-*
-* Ver    变更日期             负责人  变更内容
-* ───────────────────────────────────
-* V0.01  2014/3/31 16:02:28   N/A    初版
-*
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
-*┌──────────────────────────────────┐
-*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
-*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
-*└──────────────────────────────────┘
-*/
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.DAL;
+using ZYNLPJPT.Model;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -321,6 +308,60 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        public JDKCView[] getArrayByNjNameAndXkbh(int xkbh,string njmc)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select JDMC,QSXQ,JZXQ,CPJDJJ,JDBH,NJBH,NJMC,KCJJ,KCMC,XKBH,ZYM,ZYFZR,KCBH,ZYBH,KCXZBH,KKXQ,LLXF,SJXF,KCXZMC ");
+            strSql.Append(" FROM JDKCView  ");
+            strSql.Append(" where xkbh="+xkbh+" and njmc='"+njmc+"'");
+            strSql.Append("order by jdmc");
+            DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            JDKCView[] jdkcViews=new JDKCView[length];
+            for (int i = 0; i < jdkcViews.Length; i++) {
+                jdkcViews[i] = new JDKCView();
+                DataRow row = ds.Tables[0].Rows[i];
+                jdkcViews[i].JDMC = row["jdmc"].ToString();
+                jdkcViews[i].QSXQ = int.Parse(row["qsxq"].ToString());
+                jdkcViews[i].JZXQ = int.Parse(row["jzxq"].ToString());
+                if (row["cpjdjj"] == null || row["cpjdjj"].ToString() == null || row["cpjdjj"].ToString() == "" || row["cpjdjj"].ToString() == "null")
+                {
+                    jdkcViews[i].CPJDJJ = "暂无";
+                }
+                else { 
+                    jdkcViews[i].CPJDJJ=row["cpjdjj"].ToString();
+                }
+                jdkcViews[i].JDBH = int.Parse(row["jdbh"].ToString());
+                jdkcViews[i].NJBH = int.Parse(row["njbh"].ToString());
+                jdkcViews[i].NJMC=row["njmc"].ToString();
+                if (row["kcjj"] == null || row["kcjj"].ToString() == null || row["kcjj"].ToString() == "" || row["kcjj"].ToString() == "null")
+                {
+                    jdkcViews[i].KCJJ = "暂无";
+                }
+                else {
+                    jdkcViews[i].KCJJ = row["kcjj"].ToString();
+                }
+                jdkcViews[i].KCMC = row["kcmc"].ToString();
+                jdkcViews[i].XKBH = int.Parse(row["xkbh"].ToString());
+                jdkcViews[i].ZYM = row["zym"].ToString();
+                if (row["zyfzr"] == null || row["zyfzr"].ToString() == null || row["zyfzr"].ToString() == "" || row["zyfzr"].ToString() == "null")
+                {
+                    jdkcViews[i].ZYFZR = "暂无";
+                }
+                else { 
+                    jdkcViews[i].ZYFZR=row["zyfzr"].ToString();
+                }
+                jdkcViews[i].KCBH = int.Parse(row["kcbh"].ToString());
+                jdkcViews[i].ZYBH = int.Parse(row["zybh"].ToString());
+                jdkcViews[i].KCXZBH = int.Parse(row["kcxzbh"].ToString());
+                jdkcViews[i].KKXQ = int.Parse(row["kkxq"].ToString());
+                jdkcViews[i].LLXF = decimal.Parse(row["llxf"].ToString());
+                jdkcViews[i].SJXF = decimal.Parse(row["sjxf"].ToString());
+                jdkcViews[i].KCXZMC = row["kcxzmc"].ToString();
+            }
+            return jdkcViews;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

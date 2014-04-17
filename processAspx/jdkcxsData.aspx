@@ -1,0 +1,112 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="jdkcxsData.aspx.cs" Inherits="ZYNLPJPT.processAspx.jdkcxsData" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <title>配置出题人</title> 
+    <link rel="Stylesheet" type="text/css" href="../Styles/default/easyui.css" />
+    <link rel="Stylesheet" type="text/css" href="../Styles/icon.css" /> 
+     <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        function getSelections(kcbh, zybh) {
+            var ss = [];
+            var rows = $('#mytable').datagrid('getSelections');
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                ss[i] = row.yhbh;
+            }
+            $.post("addCtr.aspx", { 'teaIds': ss, 'kcbh': kcbh, 'zybh': zybh }, function (result) {
+                if (result == 'False') {
+                    $.messager.alert('警告', '必须选择至少一位教师,请选择要配置的教师名!');
+                } else if (result == 'True') {
+                    $.messager.confirm('信息', '教师出题配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
+                        if (r) {
+                            history.back(-1);
+                        } else {
+                            //do nothing
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+<body class="easyui-layout">
+    <form id="form" action="../Default.htm" method="post">
+         <div region="north" border="true"  >
+            <div style="padding:10px 10px 10px 400px" >
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+                <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%="1" %>,<%="1" %>)">提交修改</a>
+            </div>
+        </div>
+        <div region="center" border="false">
+            <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'north',border:false" style=" height:30px;" >
+                    请在左侧选择需要改题的教师，右侧选择需要被该教师改题的学生。其中，左侧同时只可以选择一位教师，右侧同时可以选择多位学生。
+                </div>
+                 <div  data-options="region:'west',border:true" style="width:400px;" >
+                    <table id="jsTable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+    	                <thead>
+    		                <tr>
+    			            <th data-options="field:'ck',checkbox:true" width="5"> 是否为改题人</th>
+                            <th data-options="field:'jsbh'" width="20"><span class="easyui-tooltip" title="<%="" %>" >教师编号</span> </th>
+                             <th data-options="field:'xm'" width="20">姓名</th>
+                             <th data-options="field:'xb'" width="9">性别</th>
+                            <th data-options="field:'ssxk'" width="20">所属学科</th>
+    		            </tr>
+    	            </thead>
+   		            <tbody >
+                      <%
+                          /*
+                           for (int i = 0; i < this.jsRoleYhView.Length; i++)
+                           {
+                               Response.Write("<tr >");
+                               Response.Write("</tr>");
+                           }
+                        */
+                    %>
+    	            </tbody>
+                   </table>
+                </div> 
+                <div data-options="region:'center',border:true">
+                    <table id="xsTable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+    	                <thead>
+    		                <tr>
+    			                <th data-options="field:'ck',checkbox:true" width="5"> 选择学生</th>
+                                <th data-options="field:'xsbh'" width="20">学生学号</th>
+                                 <th data-options="field:'xm'" width="20">姓名</th>
+                                 <th data-options="field:'ssbj'" width="20">所属班级</th>
+                                <th data-options="field:'sszy'" width="20">所属专业</th>
+                                <td data-options="field:'ssxk'" width="20">所属学科</td>
+    		                </tr>
+    	                </thead>
+   		                <tbody >
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+         <script type="text/javascript">
+             $(function () {
+                $('#jsTable').datagrid({
+                 pagination: false,
+                 pageList: [30],
+                 pageSize: 30,
+                 singleSelect: true,
+                });
+
+                 $('#xsTable').datagrid({
+                 pagination: false,
+                 pageList: [30],
+                 pageSize: 30,
+                 singleSelect: false,
+                });
+            });
+        </script>
+    </form>
+</body>
+</html>
