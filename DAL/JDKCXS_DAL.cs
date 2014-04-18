@@ -98,6 +98,30 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool AddArray(ZYNLPJPT.Model.JDKCXS[] models)
+        {
+            StringBuilder strSql = new StringBuilder();
+            for (int i = 0; i < models.Length; i++) {
+                strSql.Append("insert into JDKCXS(");
+                strSql.Append("KCBH,ZYBH,NJBH,JDBH,XSBH,JSBH)");
+                strSql.Append(" values (");
+                strSql.Append(models[i].KCBH+","+models[i].ZYBH+","+models[i].NJBH+","+models[i].JDBH+",'"+models[i].XSBH+"','"+models[i].JSBH+"'");
+                strSql.Append(");");
+            }
+            
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>

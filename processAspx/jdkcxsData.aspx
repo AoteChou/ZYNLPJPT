@@ -11,26 +11,37 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
-        function getSelections(kcbh, zybh) {
-            var ss = [];
-            var rows = $('#mytable').datagrid('getSelections');
-            for (var i = 0; i < rows.length; i++) {
-                var row = rows[i];
-                ss[i] = row.yhbh;
+        function getSelections(kcbh, zybh, njbh, jdbh) {
+
+            var jsbh = [];
+            var xsbh = [];
+            var jsRows = $('#jsTable').datagrid('getSelections');
+            var xsRows = $('#xsTable').datagrid('getSelections');
+            for (var i = 0; i < jsRows.length; i++) {
+                var jsRow = jsRows[i];
+                jsbh[i] = jsRow.jsbh;
             }
-            $.post("addCtr.aspx", { 'teaIds': ss, 'kcbh': kcbh, 'zybh': zybh }, function (result) {
+            for (var j = 0; j < xsRows.length; j++) {
+                var xsRow = xsRows[j];
+                xsbh[j] = xsRow.xsbh;
+            }
+            if (jsbh.length != 1||xsbh.length<1) {
+                $.messager.alert('信息', '请保证只有一位教师被选中同时有一到多位学生被选中!');
+            } else {
+            $.post("addJdkcxsProc.aspx", { 'jsbh': jsbh[0], 'xsbh': xsbh, 'kcbh': kcbh, 'zybh': zybh, 'njbh': njbh, 'jdbh': jdbh }, function (result) {
                 if (result == 'False') {
-                    $.messager.alert('警告', '必须选择至少一位教师,请选择要配置的教师名!');
+                    $.messager.alert('警告', '请保证只有一位教师被选中同时有一到多位学生被选中!');
                 } else if (result == 'True') {
-                    $.messager.confirm('信息', '教师出题配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
+                    $.messager.confirm('信息', '该教师改题配置成功，单击确认返回上层界面，取消则停留在本界面继续配置!', function (r) {
                         if (r) {
                             history.back(-1);
                         } else {
-                            //do nothing
+                            location.reload();
                         }
                     });
                 }
             });
+            }
         }
     </script>
 </head>
@@ -39,7 +50,7 @@
          <div region="north" border="true"  >
             <div style="padding:10px 10px 10px 400px" >
                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
-                <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%="1" %>,<%="1" %>)">提交修改</a>
+                <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=kcbh %>,<%=zybh %>,<%=njbh %>,<%=jdbh %>)">提交修改</a>
             </div>
         </div>
         <div region="center" border="false">
@@ -61,17 +72,17 @@
     	            </thead>
    		            <tbody >
                       <%
-                           for (int i = 0; i < this.jsTeaDetailViews.Length; i++)
-                           {
-                               Response.Write("<tr >");
-                               Response.Write("<td></td>");
-                               Response.Write("<td>"+this.jsTeaDetailViews[i].JSBH+"</td>");
-                               Response.Write("<td>" + this.jsTeaDetailViews[i].XM + "</td>");
-                               Response.Write("<td>"+(this.jsTeaDetailViews[i].XB==true?"男":"女")+"</td>");
-                               Response.Write("<td>" + this.jsTeaDetailViews[i].XKMC + "</td>");
-                               Response.Write("<td>" + (this.jsTeaDetailViews[i].SFSXKFZR == true ? "是" : "否") + "</td>");
-                               Response.Write("</tr>");
-                           }
+                              for (int i = 0; i < this.jsTeaDetailViews.Length; i++)
+                              {
+                                  Response.Write("<tr >");
+                                  Response.Write("<td></td>");
+                                  Response.Write("<td>" + this.jsTeaDetailViews[i].JSBH + "</td>");
+                                  Response.Write("<td>" + this.jsTeaDetailViews[i].XM + "</td>");
+                                  Response.Write("<td>" + (this.jsTeaDetailViews[i].XB == true ? "男" : "女") + "</td>");
+                                  Response.Write("<td>" + this.jsTeaDetailViews[i].XKMC + "</td>");
+                                  Response.Write("<td>" + (this.jsTeaDetailViews[i].SFSXKFZR == true ? "是" : "否") + "</td>");
+                                  Response.Write("</tr>");
+                              }
                     %>
     	            </tbody>
                    </table>
@@ -90,24 +101,40 @@
     	                </thead>
    		                <tbody>
                             <%
-                               for (int i = 0; i < this.bjXsDetailViews.Length; i++)
-                               {
-                                   Response.Write("<tr >");
-                                   Response.Write("<td></td>");
-                                   Response.Write("<td>"+this.bjXsDetailViews[i].XSBH+"</td>");
-                                   Response.Write("<td>" + this.bjXsDetailViews[i].XM + "</td>");
-                                   Response.Write("<td>" +this.bjXsDetailViews[i].BJMC + "</td>");
-                                   Response.Write("<td>"+this.bjXsDetailViews[i].ZYM+"</td>");
-                                   Response.Write("<td>" + this.bjXsDetailViews[i].XKMC + "</td>");
-                                   Response.Write("</tr>");
-                               }
+                                bool isExistStus = true;
+                                if (this.bjXsDetailViews.Length < 1)
+                                {
+                                    isExistStus = false;
+                                }
+                                    for (int i = 0; i < this.bjXsDetailViews.Length; i++)
+                                    {
+                                        Response.Write("<tr >");
+                                        Response.Write("<td></td>");
+                                        Response.Write("<td>" + this.bjXsDetailViews[i].XSBH + "</td>");
+                                        Response.Write("<td>" + this.bjXsDetailViews[i].XM + "</td>");
+                                        Response.Write("<td>" + this.bjXsDetailViews[i].BJMC + "</td>");
+                                        Response.Write("<td>" + this.bjXsDetailViews[i].ZYM + "</td>");
+                                        Response.Write("<td>" + this.bjXsDetailViews[i].XKMC + "</td>");
+                                        Response.Write("</tr>");
+                                    }
                           %>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
+        <% if (isExistStus == false)
+           { %>
+           <script type="text/javascript">
+               $(function () {
+                   $.messager.show({
+                       title: '通知',
+                       msg: '该阶段课程下所有的学生已经配置有改题教师，请返回上页配置其它改题教师！',
+                       showType: 'show'
+                   });
+               });
+           </script>
+        <%} %>
          <script type="text/javascript">
              $(function () {
                 $('#jsTable').datagrid({
