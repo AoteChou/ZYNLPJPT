@@ -1,9 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -250,6 +251,29 @@ namespace ZYNLPJPT.DAL
                 results[i] = ds.Tables[0].Rows[i]["ZSLYMC"].ToString();
             }
             return results;
+        }
+
+        public ZSLY[] getModelArrayByXkbh(int xkbh)
+        {
+
+            string sql = "select * from ZSLY where xkbh=" + xkbh;
+            DataSet ds = DbHelperSQL.Query(sql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            ZSLY[] zslys=new ZSLY[length];
+            for (int i = 0; i < length; i++)
+            {
+                zslys[i] = new ZSLY();
+                zslys[i].ZSLYMC = ds.Tables[0].Rows[i]["ZSLYMC"].ToString();
+                if(ds.Tables[0].Rows[i]["bz"]==null||ds.Tables[0].Rows[i]["bz"].ToString()==""||ds.Tables[0].Rows[i]["bz"].ToString()=="null"){
+                    zslys[i].BZ = "暂无";
+                }else
+                {
+                    zslys[i].BZ=ds.Tables[0].Rows[i]["bz"].ToString();
+                }
+                zslys[i].ZSLYBH = int.Parse(ds.Tables[0].Rows[i]["zslybh"].ToString());
+                zslys[i].XKBH = int.Parse(ds.Tables[0].Rows[i]["xkbh"].ToString());
+            }
+            return zslys;
         }
 
         /// <summary>

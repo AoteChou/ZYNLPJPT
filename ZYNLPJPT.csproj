@@ -65,6 +65,9 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="ckkczsdy.aspx" />
+    <Content Include="ckZsly.aspx" />
+    <Content Include="ckzyejzb.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
@@ -274,11 +277,33 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckkczsdy.aspx.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckkczsdy.aspx.designer.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckZsly.aspx.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckZsly.aspx.designer.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.designer.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\BjXsDetailView_DAL.cs" />
     <Compile Include="DAL\CpjdView_DAL.cs" />
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="DAL\JsTeaDetailView_DAL.cs" />
     <Compile Include="DAL\KCDetailView_DAL.cs" />
+    <Compile Include="DAL\KCZSDYView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
@@ -288,6 +313,7 @@
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\JsTeaDetailView.cs" />
     <Compile Include="Model\KCDetailView.cs" />
+    <Compile Include="Model\KCZSDYView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
