@@ -309,6 +309,31 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        public string[] getJDKCCs(int njbh,int jdbh,int  zybh){
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select kcmc ");
+            strSql.Append(" FROM jdkcView ");
+            strSql.Append(" where njbh= " + njbh + " and jdbh= " + jdbh+" and zybh="+zybh);
+
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] result;
+            if (length == 0)
+            {
+                result = new string[1];
+                result[0] = "暂无";
+            }
+            else
+            {
+                result = new string[length];
+                for (int i = 0; i < length; i++)
+                {
+                    result[i] = ds.Tables[0].Rows[i]["kcmc"].ToString().Trim();
+                }
+            }
+            return result;
+        }
+
         public JDKCView[] getArrayByNjNameAndXkbh(int xkbh,string njmc)
         {
             StringBuilder strSql = new StringBuilder();

@@ -65,6 +65,8 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="ckjdkc.aspx" />
+    <Content Include="ckjsgt.aspx" />
     <Content Include="ckkczsdy.aspx" />
     <Content Include="ckZsly.aspx" />
     <Content Include="ckzyejzb.aspx" />
@@ -81,6 +83,7 @@
     <Content Include="processAspx\addZyEjzb.aspx" />
     <Content Include="processAspx\changeEjzbProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
@@ -277,6 +280,20 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckjdkc.aspx.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjdkc.aspx.designer.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.designer.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckkczsdy.aspx.cs">
       <DependentUpon>ckkczsdy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,6 +425,13 @@
     </Compile>
     <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
       <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.designer.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\cpjdData.aspx.cs">
       <DependentUpon>cpjdData.aspx</DependentUpon>

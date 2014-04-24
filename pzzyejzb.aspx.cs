@@ -32,7 +32,6 @@ namespace ZYNLPJPT
                 {
                     string queryZym = null;
                     int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    //zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
                     xyXkZyViews = new XyXkZyView_DAL().getArray(xkbh);
                 }
             }

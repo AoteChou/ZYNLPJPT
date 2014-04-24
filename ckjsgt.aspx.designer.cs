@@ -10,6 +10,6 @@
 namespace ZYNLPJPT {
     
     
-    public partial class ckzyejzb {
+    public partial class ckjsgt {
     }
 }

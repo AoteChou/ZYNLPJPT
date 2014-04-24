@@ -40,7 +40,6 @@ namespace ZYNLPJPT
 
                     int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
                     
-                    //allZyms = new ZYKCView_DAL().GetArrayWithAllZyms("xkbh=" + xkbh);
                     allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
 
                     if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")

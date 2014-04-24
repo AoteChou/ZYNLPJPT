@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ZYNLPJPT.Model;
 using ZYNLPJPT.DAL;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT
 {
-    public partial class pzjsgt : System.Web.UI.Page
+    public partial class ckjsgt : System.Web.UI.Page
     {
         protected string[] allNjNames;
 
@@ -23,12 +23,12 @@ namespace ZYNLPJPT
             }
             else
             {
-                 YH yh = (YH)Session["yh"];
+                YH yh = (YH)Session["yh"];
                 //验证用户是否是教师角色,无则没有配置权限
-                YHJSView yhjsView=new YHJSView_DAL().GetModel(yh.YHBH.Trim());
+                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
                 if (yhjsView.JSM.Trim() != "教师")
                 {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有查看改题人的权利&fh=false");
+                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有配置改题人的权利&fh=false");
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace ZYNLPJPT
                         lists.Reverse();
                         allNjNames = lists.ToArray();
                     }
-                    jdkcViews = new JDKCView_DAL().getArrayByNjNameAndXkbh(xkbh,queryNjName);
+                    jdkcViews = new JDKCView_DAL().getArrayByNjNameAndXkbh(xkbh, queryNjName);
                 }
             }
         }
