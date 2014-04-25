@@ -16,7 +16,6 @@
          <div region="north" border="true"  >
             <div style="padding:10px 10px 10px 400px" >
                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
-                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">确认</a>
             </div>
         </div>
         <div region="center" border="false">
