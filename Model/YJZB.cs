@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 namespace ZYNLPJPT.Model
 {
     /// <summary>
@@ -15,6 +14,7 @@ namespace ZYNLPJPT.Model
         private string _yjzbmc;
         private string _bz;
         private int _xkbh;
+        private int _yjzbqz;
         /// <summary>
         /// 
         /// </summary>
@@ -47,8 +47,15 @@ namespace ZYNLPJPT.Model
             set { _xkbh = value; }
             get { return _xkbh; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int YJZBQZ
+        {
+            set { _yjzbqz = value; }
+            get { return _yjzbqz; }
+        }
         #endregion Model
 
     }
 }
-

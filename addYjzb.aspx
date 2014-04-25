@@ -21,6 +21,10 @@
                     <td>一级指标名称:</td>
                     <td><input class="easyui-validatebox textbox" type="text" id="yjzbMc" name="yjzbMc" data-options="required:true"></input></td>
                 </tr>
+                 <tr style=" margin-top:10px;">
+                    <td>一级指标权重值:</td>
+                    <td><input class="easyui-numberbox" type="text" id="sYjzbqz" name="sYjzbqz" data-options="required:true,min:0"></input></td>
+                </tr>
                 <tr style=" margin-top:10px;">
                     <td>一级指标简介:</td>
                     <td><textarea rows="4" id="yjzbJj" name="yjzbJj" cols="1" style="width:152px;"></textarea></td>
@@ -40,7 +44,7 @@
             if ($('#yjzbMc').attr('value') == undefined || $('#yjzbMc').attr('value') == '') {
                 $.messager.alert('结果', '必须填写一级指标名称！', 'info');
             } else {
-                $.post("processAspx/addYjzbProc.aspx", { 'yjzbMc': $('#yjzbMc').attr('value'), 'yjzbJj': $('#yjzbJj').attr('value'), 'xkbh': data }, function (data) {
+                $.post("processAspx/addYjzbProc.aspx", { 'yjzbMc': $('#yjzbMc').attr('value'), 'yjzbJj': $('#yjzbJj').attr('value'), 'sYjzbqz': $('#sYjzbqz').attr('value'), 'xkbh': data }, function (data) {
                     if (data == 'True') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
