@@ -61,34 +61,36 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(ZYNLPJPT.Model.ZSD model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into ZSD(");
-			strSql.Append("ZSDYBH,ZSLYBH,ZSDMC,BZ)");
-			strSql.Append(" values (");
-			strSql.Append("@ZSDYBH,@ZSLYBH,@ZSDMC,@BZ)");
-			strSql.Append(";select @@IDENTITY");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
+        public int Add(ZYNLPJPT.Model.ZSD model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ZSD(");
+            strSql.Append("ZSLYBH,ZSDYBH,ZSDMC,BZ,ZSDQZ)");
+            strSql.Append(" values (");
+            strSql.Append("@ZSLYBH,@ZSDYBH,@ZSDMC,@BZ,@ZSDQZ)");
+            strSql.Append(";select @@IDENTITY");
+            SqlParameter[] parameters = {
 					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
 					new SqlParameter("@ZSDMC", SqlDbType.VarChar,50),
-					new SqlParameter("@BZ", SqlDbType.Text)};
-			parameters[0].Value = model.ZSDYBH;
-            parameters[1].Value = model.ZSLYBH;
-			parameters[2].Value = model.ZSDMC;
-			parameters[3].Value = model.BZ;
+					new SqlParameter("@BZ", SqlDbType.Text),
+					new SqlParameter("@ZSDQZ", SqlDbType.Int,4)};
+            parameters[0].Value = model.ZSLYBH;
+            parameters[1].Value = model.ZSDYBH;
+            parameters[2].Value = model.ZSDMC;
+            parameters[3].Value = model.BZ;
+            parameters[4].Value = model.ZSDQZ;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>

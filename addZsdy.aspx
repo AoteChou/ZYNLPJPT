@@ -49,19 +49,6 @@
     </div>
     </div>
     <script type="text/javascript">
-
-    /*
-        function chooseYjzb(xkbh) {
-            $.post("processAspx/changeEjzbProc.aspx", { 'xkbh': xkbh, 'yjzbName': $('#yjzbName').attr('value') }, function (result) {
-                if (result == 'False') {
-                    //do nothing
-                } else {
-                    $('#ejzbName').html(result);
-                }
-            });
-        }
-      */  
-        
         function submitForm() {
 
             if ($('#zsdyMc').attr('value') == undefined || $('#zsdyMc').attr('value') == '') {
