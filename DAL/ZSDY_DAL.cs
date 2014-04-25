@@ -59,34 +59,36 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(ZYNLPJPT.Model.ZSDY model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into ZSDY(");
-			strSql.Append("ZSLYBH,EJZBBH,ZSDYMC,BZ)");
-			strSql.Append(" values (");
-			strSql.Append("@ZSLYBH,@EJZBBH,@ZSDYMC,@BZ)");
-			strSql.Append(";select @@IDENTITY");
-			SqlParameter[] parameters = {
+        public int Add(ZYNLPJPT.Model.ZSDY model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into ZSDY(");
+            strSql.Append("ZSLYBH,EJZBBH,ZSDYMC,BZ,ZSDYQZ)");
+            strSql.Append(" values (");
+            strSql.Append("@ZSLYBH,@EJZBBH,@ZSDYMC,@BZ,@ZSDYQZ)");
+            strSql.Append(";select @@IDENTITY");
+            SqlParameter[] parameters = {
 					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
 					new SqlParameter("@EJZBBH", SqlDbType.Int,4),
 					new SqlParameter("@ZSDYMC", SqlDbType.VarChar,50),
-					new SqlParameter("@BZ", SqlDbType.Text)};
-			parameters[0].Value = model.ZSLYBH;
-			parameters[1].Value = model.EJZBBH;
-			parameters[2].Value = model.ZSDYMC;
-			parameters[3].Value = model.BZ;
+					new SqlParameter("@BZ", SqlDbType.Text),
+					new SqlParameter("@ZSDYQZ", SqlDbType.Int,4)};
+            parameters[0].Value = model.ZSLYBH;
+            parameters[1].Value = model.EJZBBH;
+            parameters[2].Value = model.ZSDYMC;
+            parameters[3].Value = model.BZ;
+            parameters[4].Value = model.ZSDYQZ;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
-		}
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
