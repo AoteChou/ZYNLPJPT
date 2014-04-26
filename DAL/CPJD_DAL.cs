@@ -1,9 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.DAL;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT.DAL
 {
@@ -270,6 +271,46 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        public CpjdView[] getArray(int xkbh,string queryedZym)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select NJBH,JDBH,ZYBH,JDMC,QSXQ,JZXQ,CPJDJJ ");
+            strSql.Append(" FROM CPJD ");
+            strSql.Append("where xkbh="+xkbh+"and zym='"+queryedZym+"'");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            CpjdView[] cpjdViews=new CpjdView[length];
+            for (int i = 0; i < length; i++) {
+                cpjdViews[i] = new CpjdView();
+                DataRow row = ds.Tables[0].Rows[i];
+                cpjdViews[i].NJBH = int.Parse(row["njbh"].ToString());
+                cpjdViews[i].NJMC = row["njmc"].ToString().Trim();
+                cpjdViews[i].JDBH = int.Parse(row["jdbh"].ToString());
+                cpjdViews[i].JDMC = row["jdmc"].ToString().Trim();
+                cpjdViews[i].ZYBH = int.Parse(row["zybh"].ToString());
+                cpjdViews[i].ZYM = row["zym"].ToString();
+                cpjdViews[i].XKBH = int.Parse(row["xkbh"].ToString());
+                cpjdViews[i].XKMC = row["xkmc"].ToString();
+                cpjdViews[i].XYBH = int.Parse(row["xybh"].ToString());
+                cpjdViews[i].QSXQ = int.Parse(row["qsxq"].ToString());
+                cpjdViews[i].JZXQ = int.Parse(row["jzxq"].ToString());
+                if (row["cpjdjj"] == null || row["cpjdjj"].ToString() == null || row["cpjdjj"].ToString() == "" || row["cpjdjj"].ToString() == "null") {
+                    cpjdViews[i].CPJDJJ = "暂无";
+                }else{
+                    cpjdViews[i].CPJDJJ=row["cpjdjj"].ToString();
+                }
+                if (row["zyfzr"] == null || row["zyfzr"].ToString() == null || row["zyfzr"].ToString() == "null" || row["zyfzr"].ToString() == "")
+                {
+                    cpjdViews[i].ZYFZR = "暂无";
+                }
+                else {
+                    cpjdViews[i].ZYFZR = row["zyfzr"].ToString();
+                }
+
+            }
+            return cpjdViews;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

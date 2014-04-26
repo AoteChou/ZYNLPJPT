@@ -41,6 +41,10 @@
                     <td>知识点名称:</td>
                     <td><input class="easyui-validatebox textbox" type="text" id="zsdMc" name="zsdMc" data-options="required:true"></input></td>
                 </tr>
+                 <tr style=" margin-top:10px;">
+                    <td>知识点权重值:</td>
+                    <td><input class="easyui-numberbox" type="text" id="sZsdQz" name="sZsdQz" data-options="required:true,min:0"></input></td>
+                </tr>
                 <tr>
                     <td>知识单元备注：</td>
                     <td><textarea rows="4" cols="1" id="zsdBz" name="zsdBz" style= "width:152px;" ></textarea></td>
@@ -71,7 +75,7 @@
             if ($('#zsdMc').attr('value') == undefined || $('#zsdMc').attr('value') == '') {
                 $.messager.alert('结果', '必须填写知识点名称！', 'info');
             } else {
-                $.post("processAspx/addZsdProc.aspx", { 'zsdMc': $('#zsdMc').attr('value'), 'zslyName': $('#zslyName').attr('value'), 'zsdyName': $('#zsdyName').attr('value'), 'zsdBz': $('#zsdBz').attr('value') }, function (data) {
+                $.post("processAspx/addZsdProc.aspx", { 'sZsdQz': $('#sZsdQz').attr('value'), 'zsdMc': $('#zsdMc').attr('value'), 'zslyName': $('#zslyName').attr('value'), 'zsdyName': $('#zsdyName').attr('value'), 'zsdBz': $('#zsdBz').attr('value') }, function (data) {
                     if (data == 'True') {
                         document.getElementById('zsdMc').value = '';
                         document.getElementById('zsdBz').value = '';

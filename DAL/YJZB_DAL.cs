@@ -48,17 +48,19 @@ namespace ZYNLPJPT.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into YJZB(");
-            strSql.Append("YJZBMC,BZ,XKBH)");
+            strSql.Append("YJZBMC,BZ,XKBH,YJZBQZ)");
             strSql.Append(" values (");
-            strSql.Append("@YJZBMC,@BZ,@XKBH)");
+            strSql.Append("@YJZBMC,@BZ,@XKBH,@YJZBQZ)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50),
 					new SqlParameter("@BZ", SqlDbType.Text),
-					new SqlParameter("@XKBH", SqlDbType.Int,4)};
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
+					new SqlParameter("@YJZBQZ", SqlDbType.Int,4)};
             parameters[0].Value = model.YJZBMC;
             parameters[1].Value = model.BZ;
             parameters[2].Value = model.XKBH;
+            parameters[3].Value = model.YJZBQZ;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -179,7 +181,7 @@ namespace ZYNLPJPT.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 YJZBBH,YJZBMC,BZ,XKBH from YJZB ");
+            strSql.Append("select top 1 YJZBBH,YJZBMC,BZ,XKBH,YJZBQZ from YJZB ");
             strSql.Append(" where YJZBMC=@YJZBMC");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50)
@@ -222,6 +224,10 @@ namespace ZYNLPJPT.DAL
                 if (row["XKBH"] != null && row["XKBH"].ToString() != "")
                 {
                     model.XKBH = int.Parse(row["XKBH"].ToString());
+                }
+                if (row["YJZBQZ"] != null && row["YJZBQZ"].ToString() != "")
+                {
+                    model.YJZBQZ = int.Parse(row["YJZBQZ"].ToString());
                 }
             }
             return model;

@@ -21,7 +21,7 @@
             $.post("addCtr.aspx", { 'teaIds': ss, 'kcbh': kcbh, 'zybh': zybh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('警告', '必须选择至少一位教师,请选择要配置的教师名!');
-                } else {
+                } else if(result=='True') {
                     $.messager.confirm('信息', '教师出题配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
                         if (r) {
                             history.back(-1);
@@ -36,7 +36,6 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>

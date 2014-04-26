@@ -67,9 +67,16 @@
     <Content Include="ckctr.aspx" />
     <Content Include="getResult_ZSD.aspx" />
     <Content Include="getResult_ZSDY.aspx" />
+    <Content Include="ckjdkc.aspx" />
+    <Content Include="ckjsgt.aspx" />
+    <Content Include="ckkczsdy.aspx" />
+    <Content Include="ckZsly.aspx" />
+    <Content Include="ckzyejzb.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
+    <Content Include="processAspx\addJdKc.aspx" />
+    <Content Include="processAspx\addJdkcxsProc.aspx" />
     <Content Include="processAspx\addKcZsdy.aspx" />
     <Content Include="processAspx\addYjzbProc.aspx" />
     <Content Include="processAspx\addZsdProc.aspx" />
@@ -78,9 +85,11 @@
     <Content Include="processAspx\addZyEjzb.aspx" />
     <Content Include="processAspx\changeEjzbProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\getZSDByXkbh.aspx" />
+    <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\getZSDYbyXkbh.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
@@ -276,8 +285,48 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckjdkc.aspx.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjdkc.aspx.designer.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.designer.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckkczsdy.aspx.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckkczsdy.aspx.designer.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckZsly.aspx.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckZsly.aspx.designer.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.designer.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BjXsDetailView_DAL.cs" />
+    <Compile Include="DAL\CpjdView_DAL.cs" />
+    <Compile Include="DAL\JDKCXSNewView_DAL.cs" />
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
+    <Compile Include="DAL\JsTeaDetailView_DAL.cs" />
     <Compile Include="DAL\KCDetailView_DAL.cs" />
+    <Compile Include="DAL\KCZSDYView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\PCJLZSDView_DAL.cs" />
     <Compile Include="DAL\XKZSTXView_DAL.cs" />
@@ -288,6 +337,9 @@
     <Compile Include="getResult_ZSD.aspx.cs">
       <DependentUpon>getResult_ZSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Model\BjXsDetailView.cs" />
+    <Compile Include="Model\CpjdView.cs" />
+    <Compile Include="Model\JDKCXSNewView.cs" />
     </Compile>
     <Compile Include="getResult_ZSD.aspx.designer.cs">
       <DependentUpon>getResult_ZSD.aspx</DependentUpon>
@@ -300,7 +352,9 @@
       <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\JSRoleYHView.cs" />
+    <Compile Include="Model\JsTeaDetailView.cs" />
     <Compile Include="Model\KCDetailView.cs" />
+    <Compile Include="Model\KCZSDYView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\PCJLZSDView.cs" />
     <Compile Include="Model\XKZSTXView.cs" />
@@ -328,6 +382,20 @@
     </Compile>
     <Compile Include="processAspx\addEjzbProc.aspx.designer.cs">
       <DependentUpon>addEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addJdKc.aspx.cs">
+      <DependentUpon>addJdKc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addJdKc.aspx.designer.cs">
+      <DependentUpon>addJdKc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addJdkcxsProc.aspx.cs">
+      <DependentUpon>addJdkcxsProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addJdkcxsProc.aspx.designer.cs">
+      <DependentUpon>addJdkcxsProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addKcZsdy.aspx.cs">
       <DependentUpon>addKcZsdy.aspx</DependentUpon>
@@ -385,6 +453,13 @@
     <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
       <DependentUpon>changeZsdyProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.designer.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\cpjdData.aspx.cs">
       <DependentUpon>cpjdData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,6 +473,13 @@
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\jdkcxsData.aspx.cs">
+      <DependentUpon>jdkcxsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\jdkcxsData.aspx.designer.cs">
+      <DependentUpon>jdkcxsData.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\getZSDByXkbh.aspx.cs">
       <DependentUpon>getZSDByXkbh.aspx</DependentUpon>

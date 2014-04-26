@@ -16,18 +16,21 @@ namespace ZYNLPJPT.processAspx
             bool result = false;
             string yjzbMc = Request["yjzbMc"] == null ? "" : Request["yjzbMc"].ToString().Trim();
             string sXkbh = Request["xkbh"] == null ? "" : Request["xkbh"].ToString().Trim();
-            if (yjzbMc == null || yjzbMc == "" || sXkbh == null || sXkbh == "")
+            string sYjzbqz = Request["sYjzbqz"] == null ? "" : Request["sYjzbqz"].ToString().Trim();
+            if (yjzbMc == null || yjzbMc == "" || sXkbh == null || sXkbh == ""||sYjzbqz==null||sYjzbqz=="")
             {
                 result = false;
             }
             else
             {
                 string yjzbJj = Request["yjzbJj"] == null ? "" : Request["yjzbJj"].ToString().Trim();
+                int iYjzbqz = int.Parse(sYjzbqz);
                 int iXkbh = int.Parse(sXkbh);
                 YJZB yjzb = new YJZB();
                 yjzb.YJZBMC = yjzbMc;
                 yjzb.BZ = yjzbJj;
                 yjzb.XKBH = iXkbh;
+                yjzb.YJZBQZ = iYjzbqz;
                 int i = new YJZB_DAL().Add(yjzb);
                 if (i == 0)
                 {

@@ -19,6 +19,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -222,6 +223,32 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        public string[] getEJZBCs(int xkbh, int zybh) {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select EJZBMC ");
+            strSql.Append(" FROM ZYEJZBView ");
+            strSql.Append(" where zybh= " + zybh + " and xkbh= " + xkbh);
+
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] result;
+            if (length == 0)
+            {
+                result = new string[1];
+                result[0] = "暂无";
+            }
+            else
+            {
+                result = new string[length];
+                for (int i = 0; i < length; i++)
+                {
+                    result[i] = ds.Tables[0].Rows[i]["EJZBMC"].ToString().Trim();
+                }
+            }
+            return result;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

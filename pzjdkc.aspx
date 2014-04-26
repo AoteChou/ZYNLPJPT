@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pzjdkc.aspx.cs" Inherits="ZYNLPJPT.pzjdkc" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>配置阶段课程</title>
@@ -25,32 +24,36 @@
     </form>
 </div>
 <div region="center" border="false">
- 
  <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
  </div>
-
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
-    			<th data-options="field:'kcmc'" width="50">课程名称</th>
-                <th data-options="field:'zym'" width="50">所属专业</th>
-                 <th data-options="field:'xkmc'" width="50">所属学科</th>
-                <th data-options="field:'kcxzmc'" width="50">课程性质</th>
-                <th data-options="field:'zyfzr'" width="50">专业负责人</th>
-                <th data-options="field:'button'" width="30">配置出题人</th>
+    			<th data-options="field:'njbh'" width="12">年级编号</th>
+                <th data-options="field:'njmc',align:'center'" width="30">年级名称</th>
+                 <th data-options="field:'jdbh'" width="12">阶段编号</th>
+                <th data-options="field:'jdmc',align:'center'" width="40">阶段名称</th>
+                <th data-options="field:'xkmc',align:'center'" width="40">学科名称</th>
+                <th data-options="field:'qsxq',align:'center'" width="30">阶段起始学期</th>
+                <th data-options="field:'jzxq',align:'center'" width="30">阶段截止学期</th>
+                <th data-options="field:'cpjdbz'" width="30">测评阶段备注</th>
+                <th data-options="field:'button',align:'center'" width="50">配置阶段下设课程</th>
     		</tr>
     	</thead>
    		<tbody >
               <%
-                   for (int i = 0; i < this.zykcViews.Length; i++)
+                   for (int i = 0; i < this.cpjdViews.Length; i++)
                    {
                        Response.Write("<tr >");
-                       Response.Write("	<td >" + zykcViews[i].KCMC + "</td>");
-                       Response.Write("	<td >" + zykcViews[i].ZYM + "</td>");
-                       Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
-                       Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
-                       Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/cpjdData.aspx?kcbh=" + zykcViews[i].KCBH + "&zybh=" + zykcViews[i].ZYBH + "&xkbh=" + zykcViews[i].XKBH + "&kcmc=" + zykcViews[i].KCMC.Trim() + "&zym=" + zykcViews[i].ZYM + "&xkmc=" + zykcViews[i].XKMC + "'\" >配置出题人</a></td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].NJBH + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].NJMC+ "</td>");
+                       Response.Write("  <td >" + this.cpjdViews[i].JDBH + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].JDMC + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].XKMC + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].QSXQ + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].JZXQ + "</td>");
+                       Response.Write("	<td >" + this.cpjdViews[i].CPJDJJ + "</td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/cpjdData.aspx?njbh=" + this.cpjdViews[i].NJBH + "&zybh=" + this.cpjdViews[i].ZYBH + "&xkbh=" + this.cpjdViews[i].XKBH + "&jdbh=" + this.cpjdViews[i].JDBH + "&jdmc="+this.cpjdViews[i].JDMC+"&zym="+this.cpjdViews[i].ZYM.Trim()+"'\" >配置阶段下设课程</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>

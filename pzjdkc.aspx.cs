@@ -11,11 +11,9 @@ namespace ZYNLPJPT
 {
     public partial class pzjdkc : System.Web.UI.Page
     {
-        protected ZYKCView[] zykcViews;
+        protected CpjdView[] cpjdViews;
 
         protected string[] allZyms;
-
-        private int pageSize = 30;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +35,7 @@ namespace ZYNLPJPT
                     string queryZym = null;
 
                     int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    allZyms = new ZYKCView_DAL().GetArrayWithAllZyms("xkbh=" + xkbh);
+                    allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
 
                     if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")
                     {
@@ -52,8 +50,8 @@ namespace ZYNLPJPT
                         lists.Reverse();
                         allZyms = lists.ToArray();
                     }
-                    zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
-
+                   // cpjdViews = new CPJD_DAL().getArray(xkbh,queryZym.Trim());
+                    cpjdViews = new CpjdView_DAL().getArray(xkbh, queryZym.Trim());
                 }
 
 

@@ -4,10 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>查看课程出题人</title>
+    <title>查看课程出题人</title>
     <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
-     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
@@ -30,11 +30,8 @@
     </form>
 </div>
 <div region="center" border="false">
- 
  <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
-
 </div>
-
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
@@ -52,13 +49,11 @@
                    for (int i = 0; i < this.zykcViews.Length; i++)
                    {
                        Response.Write("<tr >");
-                      
                        Response.Write("	<td >" + zykcViews[i].KCMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYM + "</td>");
                        Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       //Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" return showTeas('" + this.zykcViewsWrapper.CtTea[i].Trim() + "')\" >查看出题人</a></td>");
                        Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
                        Response.Write("</tr>");
                    } %>
