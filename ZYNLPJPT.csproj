@@ -337,10 +337,11 @@
     <Compile Include="getResult_ZSD.aspx.cs">
       <DependentUpon>getResult_ZSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+	</Compile>
     <Compile Include="Model\BjXsDetailView.cs" />
     <Compile Include="Model\CpjdView.cs" />
     <Compile Include="Model\JDKCXSNewView.cs" />
-    </Compile>
+
     <Compile Include="getResult_ZSD.aspx.designer.cs">
       <DependentUpon>getResult_ZSD.aspx</DependentUpon>
     </Compile>
