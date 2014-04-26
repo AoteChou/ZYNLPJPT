@@ -21,22 +21,39 @@ namespace ZYNLPJPT
         private int pcjlbh;
         public bool sfzdyj;
         private string hzm;
+        protected float finishratio;
         protected void Page_Load(object sender, EventArgs e)
         {
-            stbh=int.Parse( Request["stbh"]);
-            //获取知识点
-            STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
-            stzsdviews = stzsdview_dal.getbySTBH(stbh);
-            //检查是否获取失败
-            if (stzsdviews.Length == 0)
+            if (Session["yh"] == null)
             {
-                Response.Redirect("./ErrorPage.aspx?msg=获取试题的过程中出错啦，请关闭窗口重新获取吧~~&fh=true");
+                this.Response.Redirect("Default.htm");
             }
+            else
+            {
+                stbh = int.Parse(Request["stbh"]);
+                YH yh = (YH)Session["yh"];
+                string xsbh = yh.YHBH;
+                int kcbh = int.Parse(Request["kcbh"]);
+                //获取知识点
+                STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
+                stzsdviews = stzsdview_dal.getbySTBH(stbh);
+                //检查是否获取失败
+                if (stzsdviews.Length == 0)
+                {
+                    Response.Redirect("./ErrorPage.aspx?msg=获取试题的过程中出错啦，请关闭窗口重新获取吧~~&fh=true");
+                }
+
+                teststate = int.Parse(Request["teststate"]);
+                pcjlbh = int.Parse(Request["pcjlbh"]);
+                sfzdyj = stzsdviews[0].SFZDYJ;
+
+                int[] zsd_unfinished= stzsdview_dal.getZSD_Unfinished(kcbh, xsbh);//未完成的知识点数目
+                int zsdcount = stzsdview_dal.getZSDCountbyKCBH(kcbh);//该门课程下的知识点数目总数
+                finishratio = 1-((float)zsd_unfinished.Length / (float)zsdcount);//完成比率
+
+                submitButtonId.Click += new System.EventHandler(this.Button_Clicked);
             
-            teststate=int.Parse(Request["teststate"]);
-            pcjlbh = int.Parse(Request["pcjlbh"]);
-            sfzdyj = stzsdviews[0].SFZDYJ;
-            submitButtonId.Click += new System.EventHandler(this.Button_Clicked);
+            }
             
             
                         

@@ -553,6 +553,29 @@ namespace ZYNLPJPT.DAL
                 return false;
             }
         }
+        /// <summary>
+        /// 获取目前所有试题的最高分其中分数最低的试题
+        /// </summary>
+        /// <param name="xsbh">学生编号</param>
+        /// <param name="kcbh">课程编号</param>
+        /// <returns>评测记录</returns>
+        public ZYNLPJPT.Model.PCJL getPCJLWithLowestMark(string xsbh, int kcbh)
+        {
+            String sqlString ="select top 1 * from(select *, ROW_NUMBER() over(partition by stbh order by pcfs desc) as rowNum from pcjl) ranked where ranked.rowNum <= 1 and  xsbh=@xsbh and pcfs IS NOT NULL  and stbh in(select stbh from st where kcbh=@kcbh)order by ranked.pcfs asc";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+            ZYNLPJPT.Model.PCJL pcjl = new ZYNLPJPT.Model.PCJL();
+            DataSet ds = DbHelperSQL.Query(sqlString , sqlparameters);
+            if(ds.Tables[0].Rows.Count>=0)
+            {
+               pcjl=DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+
+            return pcjl;
+        }
 		#endregion  ExtensionMethod
 	}
 }

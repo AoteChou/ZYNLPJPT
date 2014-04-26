@@ -65,6 +65,8 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="getResult_ZSD.aspx" />
+    <Content Include="getResult_ZSDY.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
@@ -78,6 +80,8 @@
     <Content Include="processAspx\changeZsdyProc.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\getZSDByXkbh.aspx" />
+    <Content Include="processAspx\getZSDYbyXkbh.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
     <Content Include="pzjdkc.aspx" />
@@ -240,6 +244,7 @@
     <Compile Include="addZsly.aspx.designer.cs">
       <DependentUpon>addZsly.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\GetTestResult_BLL.cs" />
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
@@ -274,12 +279,32 @@
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="DAL\KCDetailView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
+    <Compile Include="DAL\PCJLZSDView_DAL.cs" />
+    <Compile Include="DAL\XKZSTXView_DAL.cs" />
+    <Compile Include="DAL\XSBJZYView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="getResult_ZSD.aspx.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSD.aspx.designer.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.designer.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\KCDetailView.cs" />
     <Compile Include="Model\NLZBView.cs" />
+    <Compile Include="Model\PCJLZSDView.cs" />
+    <Compile Include="Model\XKZSTXView.cs" />
+    <Compile Include="Model\XSBJZYView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
@@ -373,6 +398,20 @@
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDByXkbh.aspx.cs">
+      <DependentUpon>getZSDByXkbh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDByXkbh.aspx.designer.cs">
+      <DependentUpon>getZSDByXkbh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDYbyXkbh.aspx.cs">
+      <DependentUpon>getZSDYbyXkbh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDYbyXkbh.aspx.designer.cs">
+      <DependentUpon>getZSDYbyXkbh.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\pzEjzbProc.aspx.cs">
       <DependentUpon>pzEjzbProc.aspx</DependentUpon>
@@ -589,8 +628,10 @@
       <DependentUpon>UploadPage_Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility\DbHelperSQL.cs" />
+    <Compile Include="Utility\FSAndQZ.cs" />
     <Compile Include="Utility\ItemMenu.cs" />
     <Compile Include="Utility\MainMenu.cs" />
+    <Compile Include="Model\ST_Undone.cs" />
     <Compile Include="Utility\TestState.cs" />
     <Compile Include="Utility\XS_Utility.cs" />
   </ItemGroup>

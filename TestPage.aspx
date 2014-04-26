@@ -19,6 +19,7 @@
 
 <div region="center" border="false">
  	<div id="content">
+        <span style="position: relative; top: -5px;">测试进度：</span><div id="p" class="easyui-progressbar" data-options="value:<%=finishratio*100%>" style="width:200px;display: inline-block;"></div><br />
     	<div id="ZSDList" >
         	<h1><%=this.stzsdviews[0].KCMC%>•题<%=stbh %></h1>
         </div>
@@ -30,6 +31,7 @@
             <%} %>
     		
     	</ol>
+        
         <input type="button" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" />
         <input type="button"  id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'"/><br />
         <div id="uploadDiv">
