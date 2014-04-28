@@ -31,7 +31,7 @@ namespace ZYNLPJPT
                 else
                 {
                     int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    xyXkZyViews = new XyXkZyView_DAL().getPZArray(xkbh);
+                    xyXkZyViews = new XyXkZyView_DAL().getArray(xkbh);
                 }
             }
         }

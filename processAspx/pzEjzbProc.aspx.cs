@@ -26,7 +26,7 @@ namespace ZYNLPJPT.processAspx
             else {
                 zybh = int.Parse(Request["zybh"].ToString());
                 xkbh = int.Parse(Request["xkbh"].ToString());
-                nlzbViews = new NLZBView_DAL().getArrayByXkbh(xkbh);
+                nlzbViews = new NLZBView_DAL().getArrayByXkbhAndZybh(xkbh,zybh);
             }
         }
     }
