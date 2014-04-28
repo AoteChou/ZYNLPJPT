@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
 using ZYNLPJPT.Model;
+using ZYNLPJPT.processAspx;
 
 namespace ZYNLPJPT.DAL
 {
@@ -224,7 +225,7 @@ namespace ZYNLPJPT.DAL
             return nlzbViews;
         }
 
-        public NLZBView[] getArrayByXkbhAndZybh(int xkbh,int zybh)
+        public NLZBView[] getArrayNotInZyejzbByXkbhAndZybh(int xkbh,int zybh)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select XKBH,YJZBBH,EJZBBH,YJZBMC,EJZBMC ");
@@ -248,6 +249,35 @@ namespace ZYNLPJPT.DAL
             }
 
             return nlzbViews;
+        }
+
+        public NLZBViewWrapper[] getArrayInZyejzbByXkbhAndZybhForSC(int xkbh, int zybh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" select A.xkbh,A.yjzbbh,A.ejzbbh,A.yjzbmc,A.ejzbmc,B.NLYQ ");
+            strSql.Append(" from NLZBView as A ,zyejzb as B  ");
+            strSql.Append(" where A.xkbh=" + xkbh);
+            strSql.Append(" and  A.ejzbbh  in(");
+            strSql.Append(" select ejzbbh from zyejzb where zybh=" + zybh);
+            strSql.Append(" and B.zybh=zybh");
+            strSql.Append(" and B.ejzbbh=ejzbbh");
+            strSql.Append(" )");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            NLZBViewWrapper[] nlzbViewWrappers=new NLZBViewWrapper[length];
+            for (int i = 0; i < length; i++)
+            {
+                nlzbViewWrappers[i] = new NLZBViewWrapper();
+                DataRow dr = ds.Tables[0].Rows[i];
+                nlzbViewWrappers[i].NlzbView.XKBH = int.Parse(dr["xkbh"].ToString());
+                nlzbViewWrappers[i].NlzbView.YJZBBH = int.Parse(dr["yjzbbh"].ToString());
+                nlzbViewWrappers[i].NlzbView.EJZBBH = int.Parse(dr["ejzbbh"].ToString());
+                nlzbViewWrappers[i].NlzbView.YJZBMC = dr["yjzbmc"].ToString();
+                nlzbViewWrappers[i].NlzbView.EJZBMC = dr["ejzbmc"].ToString();
+                nlzbViewWrappers[i].Nlyq = int.Parse(dr["nlyq"].ToString());
+            }
+
+            return nlzbViewWrappers;
         }
 
 		/// <summary>

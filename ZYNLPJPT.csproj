@@ -87,6 +87,7 @@
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\DelAllZyZjzb.aspx" />
+    <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
@@ -458,6 +459,13 @@
     </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelSingleZyZjzb.aspx.cs">
+      <DependentUpon>DelSingleZyZjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelSingleZyZjzb.aspx.designer.cs">
+      <DependentUpon>DelSingleZyZjzb.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\jdkcxsData.aspx.cs">
       <DependentUpon>jdkcxsData.aspx</DependentUpon>
