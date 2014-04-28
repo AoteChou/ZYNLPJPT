@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;}
+#left{
+	position:absolute;
+	background:white;
+	width:25%;
+	height:100%;
+	}
+#right{
+	position:absolute;
+	left:25%;
+	background:white;
+	width:75%;
+	height:100%
+	}
+#score{
+	font-size:150px;}
+#resultDiv{
+	left: 50px;
+    position: absolute;
+    text-align: center;
+    top: 25%;
+	}
+#sepDiv{
+	margin-top: -250px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 10px;}

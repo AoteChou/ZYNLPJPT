@@ -354,7 +354,7 @@ namespace ZYNLPJPT.DAL
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
         /// <returns></returns>
-        /*public DataSet getZSDYByXkbh(int xkbh, int startIndex, int endIndex)
+        public DataSet getZSDYByXkbh(int xkbh, int startIndex, int endIndex)
         {
 
 
@@ -370,7 +370,31 @@ namespace ZYNLPJPT.DAL
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             return ds;         
            
-        }*/
+        }
+        /// <summary>
+        /// 获取学科下面的知识领域（分页）
+        /// </summary>
+        /// <param name="xkbh"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        public DataSet getZSLYByXkbh(int xkbh, int startIndex, int endIndex)
+        {
+
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT * FROM ( ");
+            strSql.Append(" SELECT ROW_NUMBER() OVER (");
+            strSql.Append("order by T.zslybh asc");
+
+            strSql.Append(")AS Row,T.* from ");
+            strSql.Append("(select distinct zslybh,zslymc from XKZSTXView WHERE xkbh=" + xkbh + ") T");
+            strSql.Append(" ) TT");
+            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            return ds;
+
+        }
         
         /// <summary>
         /// 获取某列distinct的数目

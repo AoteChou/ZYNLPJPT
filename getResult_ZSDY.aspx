@@ -79,17 +79,19 @@
             pagination: true,
             singleSelect: true,
             rownumbers: true,
-            url: 'processAspx/getZSDYByXkbh.aspx',
+            url: 'processAspx/getZSDYByYHBH.aspx',
             queryParams:{
-            xkbh:<%=xkbh %>
+            xsbh:<%=xsbh %>
             },
             method:"post",
             onLoadSuccess:function(data){
-                console.log(data);
                 mergeGridColCells($('#mytable'), 'zslymc');
             },
             onLoadError:function(){
-                console.log("!!!");
+                $.messager.show({
+                    title:'加载失败',
+                    msg:'加载失败，请重试'
+                    });
             }
         });
        

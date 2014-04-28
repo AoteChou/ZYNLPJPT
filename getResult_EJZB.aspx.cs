@@ -8,9 +8,10 @@ using System.Data;
 using ZYNLPJPT.DAL;
 using ZYNLPJPT.Model;
 
+
 namespace ZYNLPJPT
 {
-    public partial class getResult_ZSDY : System.Web.UI.Page
+    public partial class getResult_EJZB : System.Web.UI.Page
     {
         protected string xsbh;
         protected void Page_Load(object sender, EventArgs e)

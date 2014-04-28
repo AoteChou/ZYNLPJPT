@@ -10,6 +10,6 @@
 namespace ZYNLPJPT.processAspx {
     
     
-    public partial class getZSDYbyXK {
+    public partial class getYJZBByYHBH {
     }
 }
