@@ -28,25 +28,22 @@
             }
             if (flag) {
                 if (ejzbbh.length > 0) {
-                    $.post("addZyEjzb.aspx", { 'ejzbbh': ejzbbh,'nlzbz':nlzbz,'zybh': zybh }, function (result) {
+                    $.post("addZyEjzb.aspx", { 'ejzbbh': ejzbbh, 'nlzbz': nlzbz, 'zybh': zybh }, function (result) {
                         if (result == 'False') {
                             $.messager.alert('警告', '配置失败，请检查是否存在指标值小于零的行存在');
-                        } else if(result=='True'){
-                            $.messager.confirm('信息', '专业能力指标配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
-                                if (r) {
-                                    history.back(-1);
-                                } else {
-                                    //do nothing
-                                }
+                        } else if (result == 'True') {
+                            $.messager.alert('信息', '专业能力指标配置成功!', 'info', function () {
+                                window.location = "../pzzyejzb.aspx";    
                             });
                         }
                     });
                 } else {
                     $.messager.alert('警告', '选择的指标至少为一项，请选择!');
                 }
-               
             }
-
+        }
+        function returnUpPage() {
+            window.location = "../pzzyejzb.aspx";
         }
     </script>
 </head>
@@ -55,7 +52,7 @@
 
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnUpPage()">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=zybh %>)">提交修改</a>
         </div>
     </div>

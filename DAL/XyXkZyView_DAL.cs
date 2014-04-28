@@ -237,6 +237,74 @@ namespace ZYNLPJPT.DAL
             return xyXkZyView;
         }
 
+        public XyXkZyView[] getCKArray(int xkbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XYBH,XYMC,XKBH,XKFZR,XKMC,ZYBH,ZYM,ZYFZR ");
+            strSql.Append(" FROM XyXkZyView ");
+            strSql.Append(" where xkbh=" + xkbh);
+            strSql.Append(" and zybh  in(");
+            strSql.Append(" select zybh from zyejzb ");
+            strSql.Append(" )");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            XyXkZyView[] xyXkZyView = new XyXkZyView[length];
+            for (int i = 0; i < length; i++)
+            {
+                xyXkZyView[i] = new XyXkZyView();
+                xyXkZyView[i].XYMC = ds.Tables[0].Rows[i]["XYMC"].ToString();
+                xyXkZyView[i].XYBH = int.Parse(ds.Tables[0].Rows[i]["xybh"].ToString());
+                xyXkZyView[i].XKBH = int.Parse(ds.Tables[0].Rows[i]["xkbh"].ToString());
+                xyXkZyView[i].XKMC = ds.Tables[0].Rows[i]["xkmc"].ToString();
+                string xkfzr = ds.Tables[0].Rows[i]["xkfzr"].ToString();
+                if (xkfzr == null || xkfzr == "null" || xkfzr == "")
+                {
+                    xyXkZyView[i].XKFZR = "暂无";
+                }
+                else
+                {
+                    xyXkZyView[i].XKFZR = xkfzr;
+                }
+                xyXkZyView[i].ZYBH = int.Parse(ds.Tables[0].Rows[i]["zybh"].ToString());
+                xyXkZyView[i].ZYM = ds.Tables[0].Rows[i]["zym"].ToString();
+            }
+            return xyXkZyView;
+        }
+
+        public XyXkZyView[] getPZArray(int xkbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XYBH,XYMC,XKBH,XKFZR,XKMC,ZYBH,ZYM,ZYFZR ");
+            strSql.Append(" FROM XyXkZyView ");
+            strSql.Append(" where xkbh=" + xkbh);
+            strSql.Append(" and zybh not in(");
+            strSql.Append(" select zybh from zyejzb ");
+            strSql.Append(" )");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            XyXkZyView[] xyXkZyView = new XyXkZyView[length];
+            for (int i = 0; i < length; i++)
+            {
+                xyXkZyView[i] = new XyXkZyView();
+                xyXkZyView[i].XYMC = ds.Tables[0].Rows[i]["XYMC"].ToString();
+                xyXkZyView[i].XYBH = int.Parse(ds.Tables[0].Rows[i]["xybh"].ToString());
+                xyXkZyView[i].XKBH = int.Parse(ds.Tables[0].Rows[i]["xkbh"].ToString());
+                xyXkZyView[i].XKMC = ds.Tables[0].Rows[i]["xkmc"].ToString();
+                string xkfzr = ds.Tables[0].Rows[i]["xkfzr"].ToString();
+                if (xkfzr == null || xkfzr == "null" || xkfzr == "")
+                {
+                    xyXkZyView[i].XKFZR = "暂无";
+                }
+                else
+                {
+                    xyXkZyView[i].XKFZR = xkfzr;
+                }
+                xyXkZyView[i].ZYBH = int.Parse(ds.Tables[0].Rows[i]["zybh"].ToString());
+                xyXkZyView[i].ZYM = ds.Tables[0].Rows[i]["zym"].ToString();
+            }
+            return xyXkZyView;
+        }
+
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
