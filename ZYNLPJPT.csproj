@@ -93,6 +93,7 @@
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\getEJZBByYHBH.aspx" />
+    <Content Include="processAspx\DelAllZyZjzb.aspx" />
     <Content Include="processAspx\getYJZBByYHBH.aspx" />
     <Content Include="processAspx\getZSDByYHBH.aspx" />
     <Content Include="processAspx\getZSDYByYHBH.aspx" />
@@ -100,6 +101,7 @@
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
+    <Content Include="processAspx\scEjzbProc.aspx" />
     <Content Include="pzjdkc.aspx" />
     <Content Include="pzjsgt.aspx" />
     <Content Include="pzkczsdy.aspx" />
@@ -134,6 +136,7 @@
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
+    <Content Include="sczyejzb.aspx" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\default.css" />
     <Content Include="Styles\default\accordion.css" />
@@ -520,10 +523,18 @@
     </Compile>
     <Compile Include="processAspx\getEJZBByYHBH.aspx.cs">
       <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
+       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+
+    <Compile Include="processAspx\DelAllZyZjzb.aspx.cs">
+      <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="processAspx\getEJZBByYHBH.aspx.designer.cs">
       <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
+      <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\getYJZBByYHBH.aspx.cs">
       <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
@@ -573,6 +584,13 @@
     </Compile>
     <Compile Include="processAspx\pzkczsdyProc.aspx.designer.cs">
       <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\scEjzbProc.aspx.cs">
+      <DependentUpon>scEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scEjzbProc.aspx.designer.cs">
+      <DependentUpon>scEjzbProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="pzjdkc.aspx.cs">
       <DependentUpon>pzjdkc.aspx</DependentUpon>
@@ -752,6 +770,13 @@
     </Compile>
     <Compile Include="ResultPage.aspx.designer.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sczyejzb.aspx.cs">
+      <DependentUpon>sczyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sczyejzb.aspx.designer.cs">
+      <DependentUpon>sczyejzb.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
