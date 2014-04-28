@@ -56,13 +56,12 @@
     function addTab(title, url) {
         var tab = $('#tabs').tabs('exists', title);
         if (tab) {
-
             //存在的话 打开
-            $('#tabs').tabs('select', title);
-
+            //$('#tabs').tabs('select', title);
+            $('#tabs').tabs('close', title);
+            openTab(title,url);
         } else {
             //不存在的话 新建一个
-
             index++;
             $("#tabs").tabs('add', {
                 title: title,
@@ -70,7 +69,14 @@
                 closable: true
             });
         }
+    }
 
+    function openTab(title,url) {
+        $("#tabs").tabs('add', {
+            title: title,
+            content: "<iframe width='100%' height='100%' style='_border:none;'  class='myIframe' frameborder='0' scrolling='no'  src='" + url + "'></iframe>",
+            closable: true
+        });
     }
 
 </script>

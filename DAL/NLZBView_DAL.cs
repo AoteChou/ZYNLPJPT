@@ -224,6 +224,32 @@ namespace ZYNLPJPT.DAL
             return nlzbViews;
         }
 
+        public NLZBView[] getArrayByXkbhAndZybh(int xkbh,int zybh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XKBH,YJZBBH,EJZBBH,YJZBMC,EJZBMC ");
+            strSql.Append(" FROM NLZBView ");
+            strSql.Append(" where xkbh=" + xkbh);
+            strSql.Append(" and ejzbbh not in( ");
+            strSql.Append(" select ejzbbh from zyejzb where zybh="+zybh);
+            strSql.Append(" )");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            NLZBView[] nlzbViews = new NLZBView[length];
+            for (int i = 0; i < length; i++)
+            {
+                nlzbViews[i] = new NLZBView();
+                DataRow dr = ds.Tables[0].Rows[i];
+                nlzbViews[i].XKBH = int.Parse(dr["xkbh"].ToString());
+                nlzbViews[i].YJZBBH = int.Parse(dr["yjzbbh"].ToString());
+                nlzbViews[i].EJZBBH = int.Parse(dr["ejzbbh"].ToString());
+                nlzbViews[i].YJZBMC = dr["yjzbmc"].ToString();
+                nlzbViews[i].EJZBMC = dr["ejzbmc"].ToString();
+            }
+
+            return nlzbViews;
+        }
+
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>

@@ -41,7 +41,7 @@ namespace ZYNLPJPT.processAspx
                         zyejzbs[i].NLYQ = values[i];
                         zyejzbs[i].ZYBH = iZybh;
                     }
-                        new ZYEJZB_DAL().Delete(iZybh);
+                       // new ZYEJZB_DAL().Delete(iZybh);
                         if (new ZYEJZB_DAL().AddList(zyejzbs))
                         {
                            
