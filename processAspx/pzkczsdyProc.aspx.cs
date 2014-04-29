@@ -24,7 +24,7 @@ namespace ZYNLPJPT.processAspx
             else {
                 int xkbh = int.Parse(Request["xkbh"]);
                 kcbh = int.Parse(Request["kcbh"]);
-                zsnlViews = new ZSNLView_DAL().getArrayByXkbh(xkbh);
+                zsnlViews = new ZSNLView_DAL().getArrayNotInKCZsdyByXkbh(xkbh,kcbh);
             }
         }
     }

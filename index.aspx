@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>学生能力评价系统</title>
+    <title>专业能力评价系统</title>
     <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>

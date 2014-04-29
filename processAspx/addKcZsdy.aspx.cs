@@ -30,8 +30,7 @@ namespace ZYNLPJPT.processAspx
                 int[] iZsdys=new int[length];
                 convertStrToInt(zslybhs,iZslys);
                 convertStrToInt(zsdybhs,iZsdys);
-                new KCZSDY_DAL().Delete(iKcbh);
-                
+
                 KCZSDY[] kszsdys=new  KCZSDY[length];
                 for (int i = 0; i < length; i++) {
                     kszsdys[i] = new KCZSDY();
