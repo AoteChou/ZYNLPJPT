@@ -55,7 +55,8 @@ namespace ZYNLPJPT
                         lists.Reverse();
                         allZyms = lists.ToArray();
                     }
-                    zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
+                    //zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
+                    zykcViews = new ZYKCView_DAL().GetSCAndCKArray(xkbh, queryZym.Trim());
                     zykcViewsWrapper.Zykcview = zykcViews;
                     int length = zykcViews.Length;
                     this.zykcViewsWrapper.CtTea=new string[length];
