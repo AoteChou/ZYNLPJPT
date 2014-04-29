@@ -260,6 +260,38 @@ namespace ZYNLPJPT.DAL
             return zsnlViews;
         }
 
+        public ZSNLView[] getArrayInKCZsdyByXkbh(int xkbh, int kcbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" select ZSLYBH,ZSDYBH,EJZBBH,ZSDYMC,BZ,ZSLYMC,XKBH ");
+            strSql.Append(" FROM ZSNLView ");
+            strSql.Append(" where xkbh=" + xkbh);
+            strSql.Append(" and zsdybh  in( ");
+            strSql.Append(" select zsdybh from  kczsdy where kcbh=" + kcbh);
+            strSql.Append(" )");
+
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            ZSNLView[] zsnlViews = new ZSNLView[length];
+            for (int i = 0; i < length; i++)
+            {
+                zsnlViews[i] = new ZSNLView();
+                DataRow row = ds.Tables[0].Rows[i];
+                zsnlViews[i].ZSLYBH = int.Parse(row["zslybh"].ToString());
+                zsnlViews[i].ZSDYBH = int.Parse(row["zsdybh"].ToString());
+                zsnlViews[i].ZSDYMC = row["zsdymc"].ToString();
+                if (row["bz"] == null || row["bz"].ToString() == null || row["bz"].ToString() == "" || row["bz"].ToString() == "null")
+                {
+                    zsnlViews[i].BZ = "暂无";
+                }
+                else
+                {
+                    zsnlViews[i].BZ = row["bz"].ToString();
+                }
+                zsnlViews[i].ZSLYMC = row["zslymc"].ToString();
+            }
+            return zsnlViews;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

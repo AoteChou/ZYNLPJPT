@@ -31,7 +31,7 @@ namespace ZYNLPJPT
                 else
                 {
                     int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    KCDetailView[] kcDetailViews = new KCDetailView_DAL().getArray(xkbh);
+                    KCDetailView[] kcDetailViews = new KCDetailView_DAL().getSCAndCKArray(xkbh);
                     int length = kcDetailViews.Length;
                     kczsdyWrappers=new KCZSDYWrapper[length];
                     for (int i = 0; i < length; i++)

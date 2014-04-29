@@ -86,7 +86,9 @@
     <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\DelAllKcZsdy.aspx" />
     <Content Include="processAspx\DelAllZyZjzb.aspx" />
+    <Content Include="processAspx\DelSingleKcZsdy.aspx" />
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
@@ -120,6 +122,8 @@
     <Content Include="processAspx\logout.aspx" />
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
+    <Content Include="sckczsdy.aspx" />
+    <Content Include="processAspx\scKcZsdyProc.aspx" />
     <Content Include="Scripts\easyloader.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
@@ -453,12 +457,26 @@
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\DelAllKcZsdy.aspx.cs">
+      <DependentUpon>DelAllKcZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelAllKcZsdy.aspx.designer.cs">
+      <DependentUpon>DelAllKcZsdy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelSingleKcZsdy.aspx.cs">
+      <DependentUpon>DelSingleKcZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelSingleKcZsdy.aspx.designer.cs">
+      <DependentUpon>DelSingleKcZsdy.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\DelSingleZyZjzb.aspx.cs">
       <DependentUpon>DelSingleZyZjzb.aspx</DependentUpon>
@@ -673,6 +691,20 @@
     </Compile>
     <Compile Include="ResultPage.aspx.designer.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sckczsdy.aspx.cs">
+      <DependentUpon>sckczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sckczsdy.aspx.designer.cs">
+      <DependentUpon>sckczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\scKcZsdyProc.aspx.cs">
+      <DependentUpon>scKcZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scKcZsdyProc.aspx.designer.cs">
+      <DependentUpon>scKcZsdyProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="sczyejzb.aspx.cs">
       <DependentUpon>sczyejzb.aspx</DependentUpon>

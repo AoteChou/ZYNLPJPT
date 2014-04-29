@@ -243,6 +243,49 @@ namespace ZYNLPJPT.DAL
             return kcDetailViews;
         }
 
+        public KCDetailView[] getSCAndCKArray(int xkbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" select KCBH,KCMC,KCJJ,KCFZR,KKXK,XKMC,XYBH,XYMC ");
+            strSql.Append(" FROM KCDetailView ");
+            strSql.Append(" where kkxk=" + xkbh);
+            strSql.Append(" and kcbh in(");
+            strSql.Append(" select kcbh from kczsdy");
+            strSql.Append(" )");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            KCDetailView[] kcDetailViews = new KCDetailView[length];
+            for (int i = 0; i < length; i++)
+            {
+                kcDetailViews[i] = new KCDetailView();
+                DataRow row = ds.Tables[0].Rows[i];
+                kcDetailViews[i].KCBH = int.Parse(row["kcbh"].ToString());
+                kcDetailViews[i].KCMC = row["kcmc"].ToString();
+                string kcjj = row["kcjj"].ToString();
+                if (kcjj == null || kcjj == "null" || kcjj == "")
+                {
+                    kcDetailViews[i].KCJJ = "暂无";
+                }
+                else
+                {
+                    kcDetailViews[i].KCJJ = kcjj;
+                }
+                if (row["kcfzr"] == null || row["kcfzr"].ToString() == null || row["kcfzr"] == "" || row["kcfzr"] == "null")
+                {
+                    kcDetailViews[i].KCFZR = "暂无";
+                }
+                else
+                {
+                    kcDetailViews[i].KCFZR = row["kcfzr"].ToString();
+                }
+                kcDetailViews[i].KKXK = int.Parse(row["KKXK"].ToString());
+                kcDetailViews[i].XKMC = row["xkmc"].ToString();
+                kcDetailViews[i].XYBH = int.Parse(row["xybh"].ToString());
+                kcDetailViews[i].XYMC = row["xymc"].ToString();
+            }
+            return kcDetailViews;
+        }
+
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
