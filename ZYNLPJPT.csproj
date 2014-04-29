@@ -122,6 +122,7 @@
     <Content Include="processAspx\logout.aspx" />
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
+    <Content Include="scctr.aspx" />
     <Content Include="sckczsdy.aspx" />
     <Content Include="processAspx\scKcZsdyProc.aspx" />
     <Content Include="Scripts\easyloader.js" />
@@ -691,6 +692,13 @@
     </Compile>
     <Compile Include="ResultPage.aspx.designer.cs">
       <DependentUpon>ResultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="scctr.aspx.cs">
+      <DependentUpon>scctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="scctr.aspx.designer.cs">
+      <DependentUpon>scctr.aspx</DependentUpon>
     </Compile>
     <Compile Include="sckczsdy.aspx.cs">
       <DependentUpon>sckczsdy.aspx</DependentUpon>

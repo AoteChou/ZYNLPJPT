@@ -279,6 +279,61 @@ namespace ZYNLPJPT.DAL
             return jsRoleYHViews;
         }
 
+        public JSRoleYHView[] getArrayNotInCtr(int xkbh,int zybh,int kcbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select YHBH,XM,XB,SFSXKFZR,SFSKCFZR,SSXK,XKMC,XYBH,XYMC ");
+            strSql.Append(" FROM JSRoleYHView ");
+            strSql.Append(" where ssxk="+xkbh);
+            strSql.Append(" and yhbh not in(");
+            strSql.Append(" select ctr from ct where zybh="+zybh);
+            strSql.Append(" and kcbh="+kcbh);
+            strSql.Append(" )");
+            DataSet dataset = DbHelperSQL.Query(strSql.ToString());
+            int length = dataset.Tables[0].Rows.Count;
+            JSRoleYHView[] jsRoleYHViews = new JSRoleYHView[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                jsRoleYHViews[i] = new JSRoleYHView();
+                jsRoleYHViews[i].YHBH = dataset.Tables[0].Rows[i]["YHBH"].ToString();
+                jsRoleYHViews[i].XM = dataset.Tables[0].Rows[i]["XM"].ToString();
+
+                if ((dataset.Tables[0].Rows[i]["XB"].ToString() == "1") || (dataset.Tables[0].Rows[i]["XB"].ToString().ToLower() == "true"))
+                {
+                    jsRoleYHViews[i].XB = true;
+                }
+                else
+                {
+                    jsRoleYHViews[i].XB = false;
+                }
+
+                if ((dataset.Tables[0].Rows[i]["SFSXKFZR"].ToString() == "1") || (dataset.Tables[0].Rows[i]["SFSXKFZR"].ToString().ToLower() == "true"))
+                {
+                    jsRoleYHViews[i].SFSXKFZR = true;
+                }
+                else
+                {
+                    jsRoleYHViews[i].SFSXKFZR = false;
+                }
+
+                if ((dataset.Tables[0].Rows[i]["SFSKCFZR"].ToString() == "1") || (dataset.Tables[0].Rows[i]["SFSKCFZR"].ToString().ToLower() == "true"))
+                {
+                    jsRoleYHViews[i].SFSKCFZR = true;
+                }
+                else
+                {
+                    jsRoleYHViews[i].SFSKCFZR = false;
+                }
+
+                jsRoleYHViews[i].SSXK = int.Parse(dataset.Tables[0].Rows[i]["SSXK"].ToString());
+                jsRoleYHViews[i].XKMC = dataset.Tables[0].Rows[i]["XKMC"].ToString();
+                jsRoleYHViews[i].XYBH = int.Parse(dataset.Tables[0].Rows[i]["XYBH"].ToString());
+                jsRoleYHViews[i].XYMC = dataset.Tables[0].Rows[i]["XYMC"].ToString();
+
+            }
+            return jsRoleYHViews;
+        }
 
 		/// <summary>
 		/// 获得数据列表

@@ -26,7 +26,7 @@ namespace ZYNLPJPT.processAspx
                 string[] teaIds = teaIdstr.Split(',');
                 int iKcbh = int.Parse(kcbh);
                 int iZybh = int.Parse(zybh);
-                new CT_DAL().Delete(iKcbh, iZybh);
+                //new CT_DAL().Delete(iKcbh, iZybh);
                 CT[] cts=new CT[teaIds.Length];
                 for (int i = 0; i < teaIds.Length; i++) {
                     cts[i] = new CT();
