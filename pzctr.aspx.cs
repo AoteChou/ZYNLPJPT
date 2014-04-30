@@ -15,8 +15,6 @@ namespace ZYNLPJPT
 
         protected string[] allZyms;
 
-        private int pageSize = 30;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)

@@ -86,13 +86,16 @@
     <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\DelAllCtr.aspx" />
     <Content Include="processAspx\DelAllKcZsdy.aspx" />
     <Content Include="processAspx\DelAllZyZjzb.aspx" />
+    <Content Include="processAspx\DelSingleCtr.aspx" />
     <Content Include="processAspx\DelSingleKcZsdy.aspx" />
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
+    <Content Include="processAspx\scCtrProc.aspx" />
     <Content Include="processAspx\scEjzbProc.aspx" />
     <Content Include="pzjdkc.aspx" />
     <Content Include="pzjsgt.aspx" />
@@ -458,6 +461,13 @@
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\DelAllCtr.aspx.cs">
+      <DependentUpon>DelAllCtr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelAllCtr.aspx.designer.cs">
+      <DependentUpon>DelAllCtr.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\DelAllKcZsdy.aspx.cs">
       <DependentUpon>DelAllKcZsdy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,6 +481,13 @@
     </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelSingleCtr.aspx.cs">
+      <DependentUpon>DelSingleCtr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelSingleCtr.aspx.designer.cs">
+      <DependentUpon>DelSingleCtr.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\DelSingleKcZsdy.aspx.cs">
       <DependentUpon>DelSingleKcZsdy.aspx</DependentUpon>
@@ -506,6 +523,13 @@
     </Compile>
     <Compile Include="processAspx\pzkczsdyProc.aspx.designer.cs">
       <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\scCtrProc.aspx.cs">
+      <DependentUpon>scCtrProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scCtrProc.aspx.designer.cs">
+      <DependentUpon>scCtrProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\scEjzbProc.aspx.cs">
       <DependentUpon>scEjzbProc.aspx</DependentUpon>

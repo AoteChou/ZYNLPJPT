@@ -48,8 +48,7 @@
                        Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/ctrData.aspx?kcbh=" + zykcViews[i].KCBH+"&zybh="+zykcViews[i].ZYBH+"&xkbh="+zykcViews[i].XKBH +"&kcmc="+ zykcViews[i].KCMC.Trim()+"&zym="+zykcViews[i].ZYM+"&xkmc=" +zykcViews[i].XKMC + "'\" >配置出题人</a></td>");
-                       //Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" $('#ctTea').window('refresh','processAspx.aspx') \" >配置出题人</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/ctrData.aspx?kcbh=" + zykcViews[i].KCBH+"&zybh="+zykcViews[i].ZYBH+"&xkbh="+zykcViews[i].XKBH +"&kcmc="+ zykcViews[i].KCMC.Trim()+"&zym="+zykcViews[i].ZYM+"&xkmc=" +zykcViews[i].XKMC + "'\" >配置出题人</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>

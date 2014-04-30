@@ -151,6 +151,31 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool Delete(int KCBH, int ZYBH,string ctr)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from CT ");
+            strSql.Append(" where KCBH=@KCBH and ZYBH=@ZYBH and CTR=@CTR");
+            SqlParameter[] parameters = {
+					new SqlParameter("@KCBH", SqlDbType.Int,4),
+					new SqlParameter("@ZYBH", SqlDbType.Int,4),
+                    new SqlParameter("@CTR",SqlDbType.VarChar,50)                    };
+            parameters[0].Value = KCBH;
+            parameters[1].Value = ZYBH;
+            parameters[2].Value = ctr;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 		/// <summary>
 		/// 得到一个对象实体
