@@ -11,7 +11,7 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
-        function deleteAllEjzb(zybh, xkbh,ejzbbh) {
+        function deleteSingleEjzb(zybh, xkbh, ejzbbh) {
             $.post("DelSingleZyZjzb.aspx", { 'zybh': zybh, 'xkbh': xkbh, 'ejzbbh': ejzbbh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
@@ -57,7 +57,7 @@
                        Response.Write("  <td >" + NLZBViewWrappers[i].NlzbView.EJZBBH + "</td>");
                        Response.Write("  <td >" + NLZBViewWrappers[i].NlzbView.EJZBMC + "</td>");
                        Response.Write("	<td >" + NLZBViewWrappers[i].Nlyq+ "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"deleteAllEjzb(" + zybh + "," + xkbh +","+NLZBViewWrappers[i].NlzbView.EJZBBH+ ") \" >删除该二级指标</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"deleteSingleEjzb(" + zybh + "," + xkbh +","+NLZBViewWrappers[i].NlzbView.EJZBBH+ ") \" >删除该二级指标</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>
