@@ -46,7 +46,6 @@
                 <th data-options="field:'sfskcfzr'" width="50">是否是课程负责人</th>
                 <th data-options="field:'ssxk'" width="30">所属学科</th>
                  <th data-options="field:'scButton',align:'center'" width="40">删除该出题人</th>
-
     		</tr>
     	</thead>
    		<tbody >

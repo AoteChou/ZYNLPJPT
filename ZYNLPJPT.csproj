@@ -91,9 +91,11 @@
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\DelAllCtr.aspx" />
+    <Content Include="processAspx\DelAllJdkc.aspx" />
     <Content Include="processAspx\DelAllKcZsdy.aspx" />
     <Content Include="processAspx\DelAllZyZjzb.aspx" />
     <Content Include="processAspx\DelSingleCtr.aspx" />
+    <Content Include="processAspx\DelSingleJdkc.aspx" />
     <Content Include="processAspx\DelSingleKcZsdy.aspx" />
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
@@ -130,6 +132,8 @@
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
     <Content Include="scctr.aspx" />
+    <Content Include="scjdkc.aspx" />
+    <Content Include="processAspx\scJdkcProc.aspx" />
     <Content Include="sckczsdy.aspx" />
     <Content Include="processAspx\scKcZsdyProc.aspx" />
     <Content Include="Scripts\easyloader.js" />
@@ -502,6 +506,13 @@
     <Compile Include="processAspx\DelAllCtr.aspx.designer.cs">
       <DependentUpon>DelAllCtr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\DelAllJdkc.aspx.cs">
+      <DependentUpon>DelAllJdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelAllJdkc.aspx.designer.cs">
+      <DependentUpon>DelAllJdkc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\DelAllKcZsdy.aspx.cs">
       <DependentUpon>DelAllKcZsdy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -522,6 +533,13 @@
     </Compile>
     <Compile Include="processAspx\DelSingleCtr.aspx.designer.cs">
       <DependentUpon>DelSingleCtr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelSingleJdkc.aspx.cs">
+      <DependentUpon>DelSingleJdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelSingleJdkc.aspx.designer.cs">
+      <DependentUpon>DelSingleJdkc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\DelSingleKcZsdy.aspx.cs">
       <DependentUpon>DelSingleKcZsdy.aspx</DependentUpon>
@@ -757,6 +775,20 @@
     </Compile>
     <Compile Include="scctr.aspx.designer.cs">
       <DependentUpon>scctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="scjdkc.aspx.cs">
+      <DependentUpon>scjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="scjdkc.aspx.designer.cs">
+      <DependentUpon>scjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\scJdkcProc.aspx.cs">
+      <DependentUpon>scJdkcProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scJdkcProc.aspx.designer.cs">
+      <DependentUpon>scJdkcProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="sckczsdy.aspx.cs">
       <DependentUpon>sckczsdy.aspx</DependentUpon>
