@@ -376,6 +376,151 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        public JDKCXSNewView[] getArray(int xkbh,int njbh,int kcbh,int jdbh,int zybh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XSBH,JSBH,JDMC,QSXQ,JZXQ,CPJDJJ,JDBH,NJBH,NJMC,KCJJ,KCMC,XKBH,ZYM,ZYFZR,KCBH,ZYBH,KCXZBH,KKXQ,LLXF,SJXF,KCXZMC,JSXM,JSXB,XSXM,XSXB ");
+            strSql.Append(" FROM JDKCXSNewView ");
+            strSql.Append(" where xkbh="+xkbh);
+            strSql.Append(" and jdbh="+jdbh);
+            strSql.Append(" and kcbh="+kcbh);
+            strSql.Append(" and njbh="+njbh);
+            strSql.Append(" and zybh="+zybh);
+            DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            JDKCXSNewView[] jdkcxsNewViews=new JDKCXSNewView[length];
+            for (int i = 0; i < length; i++) {
+                jdkcxsNewViews[i] = new JDKCXSNewView();
+                DataRow row = ds.Tables[0].Rows[i];
+
+                if (row["XSBH"] != null)
+                {
+                    jdkcxsNewViews[i].XSBH = row["XSBH"].ToString();
+                }
+                if (row["JSBH"] != null)
+                {
+                    jdkcxsNewViews[i].JSBH = row["JSBH"].ToString();
+                }
+                if (row["JDMC"] != null)
+                {
+                    jdkcxsNewViews[i].JDMC = row["JDMC"].ToString();
+                }
+                if (row["QSXQ"] != null && row["QSXQ"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].QSXQ = int.Parse(row["QSXQ"].ToString());
+                }
+                if (row["JZXQ"] != null && row["JZXQ"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].JZXQ = int.Parse(row["JZXQ"].ToString());
+                }
+                if (row["CPJDJJ"] != null || row["CPJDJJ"].ToString() != "" || row["CPJDJJ"].ToString() != "null")
+                {
+                    jdkcxsNewViews[i].CPJDJJ = row["CPJDJJ"].ToString();
+                }
+                else {
+                    jdkcxsNewViews[i].CPJDJJ = "暂无";
+                }
+                if (row["JDBH"] != null && row["JDBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].JDBH = int.Parse(row["JDBH"].ToString());
+                }
+                if (row["NJBH"] != null && row["NJBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].NJBH = int.Parse(row["NJBH"].ToString());
+                }
+                if (row["NJMC"] != null)
+                {
+                    jdkcxsNewViews[i].NJMC = row["NJMC"].ToString();
+                }
+                if (row["KCJJ"] != null || row["KCJJ"].ToString() != null || row["KCJJ"].ToString() != "" || row["KCJJ"].ToString() != "null")
+                {
+                    jdkcxsNewViews[i].KCJJ = row["KCJJ"].ToString();
+                }
+                else {
+                    jdkcxsNewViews[i].KCJJ = "暂无";
+                }
+                if (row["KCMC"] != null)
+                {
+                    jdkcxsNewViews[i].KCMC = row["KCMC"].ToString();
+                }
+                if (row["XKBH"] != null && row["XKBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].XKBH = int.Parse(row["XKBH"].ToString());
+                }
+                if (row["ZYM"] != null)
+                {
+                    jdkcxsNewViews[i].ZYM = row["ZYM"].ToString();
+                }
+                if (row["ZYFZR"] != null || row["ZYFZR"].ToString() != null || row["ZYFZR"].ToString() != "null" || row["ZYFZR"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].ZYFZR = row["ZYFZR"].ToString();
+                }
+                else {
+                    jdkcxsNewViews[i].ZYFZR = "暂无";
+                }
+                if (row["KCBH"] != null && row["KCBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].KCBH = int.Parse(row["KCBH"].ToString());
+                }
+                if (row["ZYBH"] != null && row["ZYBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].ZYBH = int.Parse(row["ZYBH"].ToString());
+                }
+                if (row["KCXZBH"] != null && row["KCXZBH"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].KCXZBH = int.Parse(row["KCXZBH"].ToString());
+                }
+                if (row["KKXQ"] != null && row["KKXQ"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].KKXQ = int.Parse(row["KKXQ"].ToString());
+                }
+                if (row["LLXF"] != null && row["LLXF"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].LLXF = decimal.Parse(row["LLXF"].ToString());
+                }
+                if (row["SJXF"] != null && row["SJXF"].ToString() != "")
+                {
+                    jdkcxsNewViews[i].SJXF = decimal.Parse(row["SJXF"].ToString());
+                }
+                if (row["KCXZMC"] != null)
+                {
+                    jdkcxsNewViews[i].KCXZMC = row["KCXZMC"].ToString();
+                }
+                if (row["JSXM"] != null)
+                {
+                    jdkcxsNewViews[i].JSXM = row["JSXM"].ToString();
+                }
+                if (row["JSXB"] != null && row["JSXB"].ToString() != "")
+                {
+                    if ((row["JSXB"].ToString() == "1") || (row["JSXB"].ToString().ToLower() == "true"))
+                    {
+                        jdkcxsNewViews[i].JSXB = true;
+                    }
+                    else
+                    {
+                        jdkcxsNewViews[i].JSXB = false;
+                    }
+                }
+                if (row["XSXM"] != null)
+                {
+                    jdkcxsNewViews[i].XSXM = row["XSXM"].ToString();
+                }
+                if (row["XSXB"] != null && row["XSXB"].ToString() != "")
+                {
+                    if ((row["XSXB"].ToString() == "1") || (row["XSXB"].ToString().ToLower() == "true"))
+                    {
+                        jdkcxsNewViews[i].XSXB = true;
+                    }
+                    else
+                    {
+                        jdkcxsNewViews[i].XSXB = false;
+                    }
+                }
+            }
+
+            return jdkcxsNewViews;
+        }
+
         public YH[] getGTTeas(int xkbh,int njbh,int kcbh,int jdbh,int zybh){
 
             StringBuilder strSql = new StringBuilder();

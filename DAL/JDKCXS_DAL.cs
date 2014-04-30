@@ -231,6 +231,33 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool Delete(int KCBH, int ZYBH, int NJBH, int JDBH)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from JDKCXS ");
+            strSql.Append(" where KCBH=@KCBH and ZYBH=@ZYBH and NJBH=@NJBH and JDBH=@JDBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@KCBH", SqlDbType.Int,4),
+					new SqlParameter("@ZYBH", SqlDbType.Int,4),
+					new SqlParameter("@NJBH", SqlDbType.Int,4),
+					new SqlParameter("@JDBH", SqlDbType.Int,4) };
+            parameters[0].Value = KCBH;
+            parameters[1].Value = ZYBH;
+            parameters[2].Value = NJBH;
+            parameters[3].Value = JDBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 		/// <summary>
 		/// 得到一个对象实体
