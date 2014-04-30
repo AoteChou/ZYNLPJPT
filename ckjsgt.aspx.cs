@@ -50,7 +50,7 @@ namespace ZYNLPJPT
                         lists.Reverse();
                         allNjNames = lists.ToArray();
                     }
-                    jdkcViews = new JDKCView_DAL().getArrayByNjNameAndXkbh(xkbh, queryNjName);
+                    jdkcViews = new JDKCView_DAL().getCKAndSCArrayByNjNameAndXkbh(xkbh, queryNjName);
                 }
             }
         }
