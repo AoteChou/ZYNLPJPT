@@ -11,7 +11,7 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
-        function deleteAllEjzb(kcbh, xkbh, zslybh,zsdybh) {
+        function deleteSingleZsdy(kcbh, xkbh, zslybh, zsdybh) {
             $.post("DelSingleKcZsdy.aspx", { 'kcbh': kcbh, 'xkbh': xkbh, 'zslybh': zslybh, 'zsdybh': zsdybh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
@@ -23,7 +23,7 @@
             });
         }
         function returnUpPage() {
-            window.location = "../sczyejzb.aspx";
+            window.location = "../sckczsdy.aspx";
         }
     </script>
 </head>
@@ -32,7 +32,7 @@
 
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnUpPage()">返回上页</a>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
                        Response.Write("  <td >" + zsnlViews[i].ZSDYBH + "</td>");
                        Response.Write("  <td >" + zsnlViews[i].ZSDYMC + "</td>");
                        Response.Write("	<td >" + zsnlViews[i].BZ+ "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"deleteAllEjzb(" + kcbh + "," + xkbh + "," + zsnlViews[i].ZSLYBH + "," + zsnlViews[i].ZSDYBH + ") \" >删除该知识单元</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"deleteSingleZsdy(" + kcbh + "," + xkbh + "," + zsnlViews[i].ZSLYBH + "," + zsnlViews[i].ZSDYBH + ") \" >删除该知识单元</a></td>");
                        Response.Write("</tr>");
                    } 
                    %>
