@@ -44,7 +44,6 @@ namespace ZYNLPJPT.processAspx
                        // new ZYEJZB_DAL().Delete(iZybh);
                         if (new ZYEJZB_DAL().AddList(zyejzbs))
                         {
-                           
                             result = true;
                         }
                         else {
