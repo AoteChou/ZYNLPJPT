@@ -29,7 +29,7 @@ namespace ZYNLPJPT.processAspx
                 int iNjbh = int.Parse(njbh);
                 int[] iKcbhArray=new int[kcbhArray.Length];
                 convertStrToInt(kcbhArray,iKcbhArray);
-                new JDKC_DAL().Delete(iZybh, iNjbh, iJdbh);
+                //new JDKC_DAL().Delete(iZybh, iNjbh, iJdbh);
                 JDKC[] jdkcs=new JDKC[kcbhArray.Length];
                 for (int i = 0; i < jdkcs.Length; i++) {
                     jdkcs[i] = new JDKC();

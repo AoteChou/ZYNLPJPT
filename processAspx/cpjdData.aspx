@@ -22,12 +22,8 @@
                 if (result == 'False') {
                     $.messager.alert('警告', '必须选择至少一门课程,请选择要配置的课程!');
                 } else {
-                    $.messager.confirm('信息', '阶段课程配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
-                        if (r) {
-                            history.back(-1);
-                        } else {
-                            //do nothing
-                        }
+                    $.messager.alert('信息', '阶段课程配置成功!', 'info', function () {
+                        window.location = "../pzjdkc.aspx";
                     });
                 }
             });

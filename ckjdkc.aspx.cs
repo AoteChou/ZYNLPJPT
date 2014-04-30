@@ -75,10 +75,7 @@ namespace ZYNLPJPT
                         }
                         cpjdViewWrappers[i].Jdkcs += "<br/>";
                     }
-
-
                 }
-
             }
         }
     }

@@ -314,6 +314,50 @@ namespace ZYNLPJPT.DAL
             return zykcViews;
         }
 
+        public ZYKCView[] GetArrayNotInJDKC(int xkbh,string zym,int jdbh,int njbh,int zybh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" select KCJJ,KCMC,XKBH,ZYM,ZYFZR,KCBH,ZYBH,KCXZBH,KKXQ,LLXF,SJXF,KCXZMC,XKMC ");
+            strSql.Append(" FROM ZYKCView ");
+            strSql.Append(" where xkbh="+xkbh);
+            strSql.Append(" and zym='"+zym+"'");
+            strSql.Append(" and kcbh not in (select kcbh from jdkc where jdbh="+jdbh);
+            strSql.Append(" and njbh="+njbh);
+            strSql.Append(" and zybh="+zybh);
+            strSql.Append(" )");
+            strSql.Append("order by ZYBH");
+            DataSet dataset = DbHelperSQL.Query(strSql.ToString());
+            int length = dataset.Tables[0].Rows.Count;
+            ZYKCView[] zykcViews = new ZYKCView[length];
+            for (int i = 0; i < length; i++)
+            {
+                zykcViews[i] = new ZYKCView();
+                zykcViews[i].ZYBH = int.Parse(dataset.Tables[0].Rows[i]["ZYBH"].ToString());
+                zykcViews[i].KCBH = int.Parse(dataset.Tables[0].Rows[i]["KCBH"].ToString());
+                zykcViews[i].XKBH = int.Parse(dataset.Tables[0].Rows[i]["XKBH"].ToString());
+                zykcViews[i].KCMC = dataset.Tables[0].Rows[i]["KCMC"].ToString();
+                zykcViews[i].ZYM = dataset.Tables[0].Rows[i]["ZYM"].ToString();
+
+                string zyfzr = dataset.Tables[0].Rows[i]["ZYFZR"].ToString().Trim();
+                if (zyfzr == null || zyfzr == "null" || zyfzr == "")
+                {
+                    zykcViews[i].ZYFZR = "暂无";
+                }
+                else
+                {
+                    zykcViews[i].ZYFZR = zyfzr;
+                }
+                zykcViews[i].KCXZBH = int.Parse(dataset.Tables[0].Rows[i]["KCXZBH"].ToString());
+                zykcViews[i].KKXQ = int.Parse(dataset.Tables[0].Rows[i]["KKXQ"].ToString());
+                zykcViews[i].LLXF = decimal.Parse(dataset.Tables[0].Rows[i]["LLXF"].ToString());
+                zykcViews[i].SJXF = decimal.Parse(dataset.Tables[0].Rows[i]["SJXF"].ToString());
+                zykcViews[i].KCXZMC = dataset.Tables[0].Rows[i]["KCXZMC"].ToString();
+                zykcViews[i].KCJJ = "";
+                zykcViews[i].XKMC = dataset.Tables[0].Rows[i]["XKMC"].ToString();
+            }
+            return zykcViews;
+        }
+
         public ZYKCView[] GetSCAndCKArray(int xkbh,string zym)
         {
             StringBuilder strSql = new StringBuilder();

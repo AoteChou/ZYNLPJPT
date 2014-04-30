@@ -35,7 +35,8 @@ namespace ZYNLPJPT.processAspx
                 njbh = int.Parse(Request["njbh"].ToString());
                 string queryZym = Request["zym"].ToString();
                 int xkbh = int.Parse(Request["xkbh"].ToString());
-                zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
+                //zykcViews = new ZYKCView_DAL().GetArray("xkbh=" + xkbh + " and zym='" + queryZym.Trim() + "'");
+                zykcViews = new ZYKCView_DAL().GetArrayNotInJDKC(xkbh, queryZym, jdbh, njbh, zybh);
             }
         }
     }
