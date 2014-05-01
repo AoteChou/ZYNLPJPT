@@ -18,8 +18,9 @@
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
-    			<th data-options="field:'kcmc',align:'center'" width="15">知识领域名称</th>
-                <th data-options="field:'zym'" width="50">知识领域备注</th>
+                <th data-options="field:'zslybh',align:'center'" width="8">知识领域名称</th>
+    			<th data-options="field:'zslymc',align:'center'" width="15">知识领域名称</th>
+                <th data-options="field:'zslybz'" width="50">知识领域备注</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
     		</tr>
     	</thead>
@@ -27,7 +28,8 @@
               <%
                    for (int i = 0; i < this.zslyDetails.Length; i++)
                    {
-                       Response.Write("<tr >");
+                       Response.Write("<tr>");
+                       Response.Write("	<td >" + zslyDetails[i].Zsly.ZSLYBH + "</td>");
                        Response.Write("	<td >" + zslyDetails[i].Zsly.ZSLYMC + "</td>");
                        Response.Write("	<td >" + zslyDetails[i].Zsly.BZ + "</td>");
                        Response.Write("  <td >" +zslyDetails[i].XkName + "</td>");
