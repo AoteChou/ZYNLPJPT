@@ -74,6 +74,7 @@
     <Content Include="ckjdkc.aspx" />
     <Content Include="ckjsgt.aspx" />
     <Content Include="ckkczsdy.aspx" />
+    <Content Include="cknj.aspx" />
     <Content Include="ckxk.aspx" />
     <Content Include="ckxy.aspx" />
     <Content Include="ckyjzb.aspx" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="ckkczsdy.aspx.designer.cs">
       <DependentUpon>ckkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cknj.aspx.cs">
+      <DependentUpon>cknj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cknj.aspx.designer.cs">
+      <DependentUpon>cknj.aspx</DependentUpon>
     </Compile>
     <Compile Include="ckxk.aspx.cs">
       <DependentUpon>ckxk.aspx</DependentUpon>

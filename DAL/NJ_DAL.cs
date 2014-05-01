@@ -19,6 +19,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -263,6 +264,25 @@ namespace ZYNLPJPT.DAL
                 results[i]=row["njmc"].ToString();
             }
             return results;
+        }
+
+        public ZYNLPJPT.Model.NJ[] getAllObjArray()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select NJBH,NJMC,RXNF ");
+            strSql.Append(" FROM NJ ");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            NJ[] njs = new NJ[length];
+            for (int i = 0; i < length; i++)
+            {
+                njs[i] = new NJ();
+                DataRow row = ds.Tables[0].Rows[i];
+                njs[i].NJBH = int.Parse(row["njbh"].ToString());
+                njs[i].NJMC = row["njmc"].ToString();
+                njs[i].RXNF = DateTime.Parse(row["RXNF"].ToString());
+            }
+            return njs;
         }
 
 		/// <summary>
