@@ -19,6 +19,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -54,6 +55,18 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(string xymc)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from XY");
+            strSql.Append(" where XYMC=@XYMC");
+            SqlParameter[] parameters = {
+					new SqlParameter("@XYMC",SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = xymc;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
 
 		/// <summary>
 		/// 增加一条数据
@@ -211,6 +224,40 @@ namespace ZYNLPJPT.DAL
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        public XY[] getAllArray()
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select XYBH,XYMC ");
+			strSql.Append(" FROM XY ");
+			DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            XY[] xys=new XY[length];
+            for (int i = 0; i < length; i++) {
+                xys[i] = new XY();
+                DataRow row = ds.Tables[0].Rows[i];
+                xys[i].XYBH = int.Parse(row["xybh"].ToString());
+                xys[i].XYMC=row["xymc"].ToString();
+            }
+            return xys;
+		}
+
+        public string[] getAllArrayByStr()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select XYBH,XYMC ");
+            strSql.Append(" FROM XY ");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] xyNames=new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                xyNames[i] = row["xymc"].ToString();
+            }
+            return xyNames;
+        }
 
 		/// <summary>
 		/// 获得前几行数据

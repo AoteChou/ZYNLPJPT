@@ -85,6 +85,8 @@
     <Content Include="processAspx\addJdKc.aspx" />
     <Content Include="processAspx\addJdkcxsProc.aspx" />
     <Content Include="processAspx\addKcZsdy.aspx" />
+    <Content Include="processAspx\addXkProc.aspx" />
+    <Content Include="processAspx\addXyProc.aspx" />
     <Content Include="processAspx\addYjzbProc.aspx" />
     <Content Include="processAspx\addZsdProc.aspx" />
     <Content Include="processAspx\addZsdyProc.aspx" />
@@ -474,6 +476,20 @@
     </Compile>
     <Compile Include="processAspx\addKcZsdy.aspx.designer.cs">
       <DependentUpon>addKcZsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addXkProc.aspx.cs">
+      <DependentUpon>addXkProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addXkProc.aspx.designer.cs">
+      <DependentUpon>addXkProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addXyProc.aspx.cs">
+      <DependentUpon>addXyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addXyProc.aspx.designer.cs">
+      <DependentUpon>addXyProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addYjzbProc.aspx.cs">
       <DependentUpon>addYjzbProc.aspx</DependentUpon>

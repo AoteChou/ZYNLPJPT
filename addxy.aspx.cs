@@ -11,7 +11,10 @@ namespace ZYNLPJPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["yh"] == null)
+            {
+                this.Response.Redirect("Default.htm");
+            }
         }
     }
 }
