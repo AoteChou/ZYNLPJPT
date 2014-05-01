@@ -68,6 +68,7 @@
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="ckbj.aspx" />
     <Content Include="ckcpjd.aspx" />
     <Content Include="ckctr.aspx" />
     <Content Include="ckejzb.aspx" />
@@ -341,6 +342,13 @@
     <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
       <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckbj.aspx.cs">
+      <DependentUpon>ckbj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckbj.aspx.designer.cs">
+      <DependentUpon>ckbj.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckcpjd.aspx.cs">
       <DependentUpon>ckcpjd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -460,6 +468,8 @@
     <Compile Include="DAL\ZSALLView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="DAL\BjDetailView_DAL.cs" />
+    <Compile Include="Model\BjDetailView.cs" />
     <Compile Include="Model\BjXsDetailView.cs" />
     <Compile Include="Model\CpjdView.cs" />
     <Compile Include="Model\JDKCXSNewView.cs" />
