@@ -197,6 +197,32 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        public ZYNLPJPT.Model.XKDetailView[] getAllArray()
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select XKBH,XYBH,XKFZR,XKMC,XYMC ");
+			strSql.Append(" FROM XKDetailView ");
+			DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            XKDetailView[] xkDetailViews=new XKDetailView[length];
+            for (int i = 0; i < length; i++) {
+                xkDetailViews[i] = new XKDetailView();
+                DataRow row = ds.Tables[0].Rows[i];
+                xkDetailViews[i].XYMC=row["xymc"].ToString();
+                xkDetailViews[i].XYBH = int.Parse(row["xybh"].ToString());
+                xkDetailViews[i].XKMC=row["xkmc"].ToString();
+                xkDetailViews[i].XKBH = int.Parse(row["xkbh"].ToString());
+                if (row["xkfzr"] == null || row["xkfzr"].ToString() == "" || row["xkfzr"].ToString() == "null" || row["xkfzr"].ToString() == null)
+                {
+                    xkDetailViews[i].XKFZR = "暂无";
+                }
+                else {
+                    xkDetailViews[i].XKFZR = row["xkfzr"].ToString();
+                }
+            }
+            return xkDetailViews;
+		}
+
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
