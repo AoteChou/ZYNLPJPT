@@ -394,6 +394,7 @@
     <Compile Include="DAL\KCZSDYView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
+    <Compile Include="DAL\ZSALLView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
     <Compile Include="Model\BjXsDetailView.cs" />
@@ -405,6 +406,7 @@
     <Compile Include="Model\KCZSDYView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
+    <Compile Include="Model\ZSALLView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
     <Compile Include="processAspx\addCpjdProc.aspx.cs">
