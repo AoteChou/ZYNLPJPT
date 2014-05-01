@@ -67,11 +67,13 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="ckejzb.aspx" />
     <Content Include="ckjdkc.aspx" />
     <Content Include="ckjsgt.aspx" />
     <Content Include="ckkczsdy.aspx" />
     <Content Include="ckxk.aspx" />
     <Content Include="ckxy.aspx" />
+    <Content Include="ckyjzb.aspx" />
     <Content Include="ckzsd.aspx" />
     <Content Include="ckzsdy.aspx" />
     <Content Include="ckZsly.aspx" />
@@ -322,6 +324,13 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckejzb.aspx.cs">
+      <DependentUpon>ckejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckejzb.aspx.designer.cs">
+      <DependentUpon>ckejzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckjdkc.aspx.cs">
       <DependentUpon>ckjdkc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +365,13 @@
     </Compile>
     <Compile Include="ckxy.aspx.designer.cs">
       <DependentUpon>ckxy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckyjzb.aspx.cs">
+      <DependentUpon>ckyjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckyjzb.aspx.designer.cs">
+      <DependentUpon>ckyjzb.aspx</DependentUpon>
     </Compile>
     <Compile Include="ckzsd.aspx.cs">
       <DependentUpon>ckzsd.aspx</DependentUpon>

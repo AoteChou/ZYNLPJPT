@@ -65,7 +65,6 @@ namespace ZYNLPJPT
             zsly=_zsly;
             xkName=_xkName;
         }
-
     }
 
 }

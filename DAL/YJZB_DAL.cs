@@ -1,9 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT.DAL
 {
@@ -258,6 +258,32 @@ namespace ZYNLPJPT.DAL
                 results[i]=ds.Tables[0].Rows[i]["YJZBMC"].ToString();
             }
             return results;
+        }
+
+        public YJZB[] getObjArrayByXkbh(int xkbh)
+        {
+
+            string sql = "select * from YJZB where xkbh=" + xkbh;
+            DataSet ds = DbHelperSQL.Query(sql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            YJZB[] yjzbs=new YJZB[length];
+            for (int i = 0; i < length; i++)
+            {
+                yjzbs[i] = new YJZB();
+                DataRow row = ds.Tables[0].Rows[i];
+                yjzbs[i].YJZBBH = int.Parse(row["yjzbbh"].ToString());
+                yjzbs[i].YJZBMC = row["yjzbmc"].ToString();
+                yjzbs[i].XKBH = int.Parse(row["xkbh"].ToString());
+                yjzbs[i].YJZBQZ = int.Parse(row["yjzbqz"].ToString());
+                if (row["bz"] == null || row["bz"].ToString() == "" || row["bz"].ToString() == null || row["bz"].ToString() == "null")
+                {
+                    yjzbs[i].BZ = "暂无";
+                }
+                else {
+                    yjzbs[i].BZ = row["bz"].ToString();
+                }
+            }
+            return yjzbs;
         }
 
         /// <summary>

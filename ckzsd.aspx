@@ -24,6 +24,7 @@
     			<th data-options="field:'zsdymc',align:'center'" width="15">知识单元名称</th>
                 <th data-options="field:'zsdbh',align:'center'" width="8">知识点编号</th>
     			<th data-options="field:'zsdmc',align:'center'" width="15">知识点名称</th>
+                 <th data-options="field:'zsdqz',align:'center'" width="8">知识点权重值</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
     		</tr>
     	</thead>
@@ -38,6 +39,7 @@
                       Response.Write("  <td >" + zsAllView[i].ZSDYMC + "</td>");
                       Response.Write("  <td >" + zsAllView[i].ZSDBH + "</td>");
                       Response.Write("  <td >" + zsAllView[i].ZSDMC + "</td>");
+                      Response.Write("  <td >" + zsAllView[i].ZSDQZ + "</td>");
                       Response.Write("  <td >" + zsAllView[i].XKMC + "</td>");
                       Response.Write("</tr>");
                   }
