@@ -72,6 +72,8 @@
     <Content Include="ckkczsdy.aspx" />
     <Content Include="ckxk.aspx" />
     <Content Include="ckxy.aspx" />
+    <Content Include="ckzsd.aspx" />
+    <Content Include="ckzsdy.aspx" />
     <Content Include="ckZsly.aspx" />
     <Content Include="ckzyejzb.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
@@ -354,6 +356,20 @@
     </Compile>
     <Compile Include="ckxy.aspx.designer.cs">
       <DependentUpon>ckxy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckzsd.aspx.cs">
+      <DependentUpon>ckzsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzsd.aspx.designer.cs">
+      <DependentUpon>ckzsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckzsdy.aspx.cs">
+      <DependentUpon>ckzsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzsdy.aspx.designer.cs">
+      <DependentUpon>ckzsdy.aspx</DependentUpon>
     </Compile>
     <Compile Include="ckZsly.aspx.cs">
       <DependentUpon>ckZsly.aspx</DependentUpon>

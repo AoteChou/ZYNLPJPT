@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ckZsly.aspx.cs" Inherits="ZYNLPJPT.ckZsly" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ckzsdy.aspx.cs" Inherits="ZYNLPJPT.ckzsdy" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>查看知识领域</title>
+    <title>查看知识单元</title>
     <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
@@ -20,19 +20,23 @@
     		<tr>
                 <th data-options="field:'zslybh',align:'center'" width="8">知识领域编号</th>
     			<th data-options="field:'zslymc',align:'center'" width="15">知识领域名称</th>
-                <th data-options="field:'zslybz'" width="50">知识领域备注</th>
+                <th data-options="field:'zsdybh',align:'center'" width="8">知识单元编号</th>
+    			<th data-options="field:'zsdymc',align:'center'" width="15">知识单元名称</th>
+                <th data-options="field:'zsdybz'" width="50">知识单元备注</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
     		</tr>
     	</thead>
    		<tbody >
               <%
-                   for (int i = 0; i < this.zslyDetails.Length; i++)
+                  for (int i = 0; i < this.zsnlViewWrappers.Length; i++)
                    {
                        Response.Write("<tr>");
-                       Response.Write("	<td >" + zslyDetails[i].Zsly.ZSLYBH + "</td>");
-                       Response.Write("	<td >" + zslyDetails[i].Zsly.ZSLYMC + "</td>");
-                       Response.Write("	<td >" + zslyDetails[i].Zsly.BZ + "</td>");
-                       Response.Write("  <td >" +zslyDetails[i].XkName + "</td>");
+                       Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSLYBH + "</td>");
+                       Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSLYMC + "</td>");
+                       Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSDYBH + "</td>");
+                       Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.ZSDYMC + "</td>");
+                       Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.BZ + "</td>");
+                       Response.Write("  <td >" + zsnlViewWrappers[i].Xkmc + "</td>");
                        Response.Write("</tr>");
                    }
                    %>
