@@ -66,6 +66,7 @@
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="ckcpjd.aspx" />
     <Content Include="ckctr.aspx" />
     <Content Include="ckejzb.aspx" />
     <Content Include="ckjdkc.aspx" />
@@ -316,6 +317,13 @@
     </Compile>
     <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
       <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckcpjd.aspx.cs">
+      <DependentUpon>ckcpjd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckcpjd.aspx.designer.cs">
+      <DependentUpon>ckcpjd.aspx</DependentUpon>
     </Compile>
     <Compile Include="ckctr.aspx.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
