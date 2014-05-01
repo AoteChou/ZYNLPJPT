@@ -255,6 +255,7 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+
         public CpjdView[] getArray(int xkbh, string queryedZym)
         {
             StringBuilder strSql = new StringBuilder();

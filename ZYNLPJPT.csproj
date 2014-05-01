@@ -61,6 +61,7 @@
     <Content Include="addZsd.aspx" />
     <Content Include="addZsdy.aspx" />
     <Content Include="addZsly.aspx" />
+    <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="cancel.png" />
     <Content Include="ChooseResultCurriculum.aspx" />
@@ -78,6 +79,7 @@
     <Content Include="ckzsd.aspx" />
     <Content Include="ckzsdy.aspx" />
     <Content Include="ckZsly.aspx" />
+    <Content Include="ckzy.aspx" />
     <Content Include="ckzyejzb.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
@@ -92,7 +94,9 @@
     <Content Include="processAspx\addZsdyProc.aspx" />
     <Content Include="processAspx\addZslyProc.aspx" />
     <Content Include="processAspx\addZyEjzb.aspx" />
+    <Content Include="processAspx\addZyProc.aspx" />
     <Content Include="processAspx\changeEjzbProc.aspx" />
+    <Content Include="processAspx\changeXkProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
     <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
@@ -296,6 +300,13 @@
     <Compile Include="addZsly.aspx.designer.cs">
       <DependentUpon>addZsly.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addzy.aspx.cs">
+      <DependentUpon>addzy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addzy.aspx.designer.cs">
+      <DependentUpon>addzy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
@@ -404,6 +415,13 @@
     <Compile Include="ckZsly.aspx.designer.cs">
       <DependentUpon>ckZsly.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ckzy.aspx.cs">
+      <DependentUpon>ckzy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzy.aspx.designer.cs">
+      <DependentUpon>ckzy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckzyejzb.aspx.cs">
       <DependentUpon>ckzyejzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +438,7 @@
     <Compile Include="DAL\KCZSDYView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XKDetailView_DAL.cs" />
+    <Compile Include="DAL\XYXKZYDetailView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSALLView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
@@ -433,6 +452,7 @@
     <Compile Include="Model\KCZSDYView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XKDetailView.cs" />
+    <Compile Include="Model\XYXKZYDetailView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSALLView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
@@ -528,12 +548,26 @@
     <Compile Include="processAspx\addZyEjzb.aspx.designer.cs">
       <DependentUpon>addZyEjzb.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\addZyProc.aspx.cs">
+      <DependentUpon>addZyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZyProc.aspx.designer.cs">
+      <DependentUpon>addZyProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\changeEjzbProc.aspx.cs">
       <DependentUpon>changeEjzbProc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="processAspx\changeEjzbProc.aspx.designer.cs">
       <DependentUpon>changeEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeXkProc.aspx.cs">
+      <DependentUpon>changeXkProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeXkProc.aspx.designer.cs">
+      <DependentUpon>changeXkProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\changeZsdyProc.aspx.cs">
       <DependentUpon>changeZsdyProc.aspx</DependentUpon>

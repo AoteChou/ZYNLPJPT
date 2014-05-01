@@ -36,7 +36,14 @@ namespace ZYNLPJPT
                 {
                     xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
                     zslyNames = new ZSLY_DAL().getArrayByXkbh(xkbh);
-                    zsdyNames = new ZSTXView_DAL().getArrayByXkbhAndYjzb(xkbh, zslyNames[0]);
+                    if (zslyNames.Length > 0)
+                    {
+                        zsdyNames = new ZSTXView_DAL().getArrayByXkbhAndYjzb(xkbh, zslyNames[0]);
+                    }
+                    else { 
+                        zsdyNames=new string[0];
+                    }
+                    
                 }
             }            
         }
