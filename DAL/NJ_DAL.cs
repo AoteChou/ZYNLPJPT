@@ -54,6 +54,19 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(string njmc)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from NJ");
+            strSql.Append(" where NJMC=@NJMC");
+            SqlParameter[] parameters = {
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = njmc;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
 		/// <summary>
 		/// 增加一条数据
@@ -62,13 +75,15 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into NJ(");
-			strSql.Append("NJMC)");
+			strSql.Append("NJMC,RXNF)");
 			strSql.Append(" values (");
-			strSql.Append("@NJMC)");
+			strSql.Append("@NJMC,@RXNF)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@NJMC", SqlDbType.VarChar,50)};
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50),
+                    new SqlParameter("@RXNF",SqlDbType.DateTime)                    };
 			parameters[0].Value = model.NJMC;
+            parameters[1].Value = model.RXNF;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
