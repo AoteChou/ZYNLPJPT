@@ -1,71 +1,59 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* XKDetailView_DAL.cs
+*
+* 功 能： N/A
+* 类 名： XKDetailView_DAL
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2014/5/1 20:19:17   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
+using ZYNLPJPT.Model;
 using ZYNLPJPT.Utility;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
-	/// 数据访问类:XK_DAL
+	/// 数据访问类:XKDetailView_DAL
 	/// </summary>
-	public partial class XK_DAL
+	public partial class XKDetailView_DAL
 	{
-		public XK_DAL()
+		public XKDetailView_DAL()
 		{}
 		#region  BasicMethod
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public int GetMaxId()
-		{
-		return DbHelperSQL.GetMaxID("XKBH", "XK"); 
-		}
 
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(int XKBH)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from XK");
-			strSql.Append(" where XKBH=@XKBH ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@XKBH", SqlDbType.Int,4)			};
-			parameters[0].Value = XKBH;
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
-		}
-
-        public bool Exists(string XKMC)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) from XK");
-            strSql.Append(" where XKMC=@XKMC ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@XKMC", SqlDbType.VarChar,50)			};
-            parameters[0].Value = XKMC;
-
-            return DbHelperSQL.Exists(strSql.ToString(), parameters);
-        }
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(ZYNLPJPT.Model.XK model)
+		public bool Add(ZYNLPJPT.Model.XKDetailView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into XK(");
-			strSql.Append("XYBH,XKMC,XKFZR)");
+			strSql.Append("insert into XKDetailView(");
+			strSql.Append("XKBH,XYBH,XKFZR,XKMC,XYMC)");
 			strSql.Append(" values (");
-			strSql.Append("@XYBH,@XKMC,@XKFZR)");
+			strSql.Append("@XKBH,@XYBH,@XKFZR,@XKMC,@XYMC)");
 			SqlParameter[] parameters = {
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
 					new SqlParameter("@XYBH", SqlDbType.Int,4),
+					new SqlParameter("@XKFZR", SqlDbType.VarChar,50),
 					new SqlParameter("@XKMC", SqlDbType.VarChar,50),
-					new SqlParameter("@XKFZR", SqlDbType.VarChar,50)};
-			parameters[0].Value = model.XYBH;
-			parameters[1].Value = model.XKMC;
+					new SqlParameter("@XYMC", SqlDbType.VarChar,50)};
+			parameters[0].Value = model.XKBH;
+			parameters[1].Value = model.XYBH;
 			parameters[2].Value = model.XKFZR;
+			parameters[3].Value = model.XKMC;
+			parameters[4].Value = model.XYMC;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -80,23 +68,27 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(ZYNLPJPT.Model.XK model)
+		public bool Update(ZYNLPJPT.Model.XKDetailView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update XK set ");
+			strSql.Append("update XKDetailView set ");
+			strSql.Append("XKBH=@XKBH,");
 			strSql.Append("XYBH=@XYBH,");
+			strSql.Append("XKFZR=@XKFZR,");
 			strSql.Append("XKMC=@XKMC,");
-			strSql.Append("XKFZR=@XKFZR");
-			strSql.Append(" where XKBH=@XKBH ");
+			strSql.Append("XYMC=@XYMC");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
 					new SqlParameter("@XYBH", SqlDbType.Int,4),
-					new SqlParameter("@XKMC", SqlDbType.VarChar,50),
 					new SqlParameter("@XKFZR", SqlDbType.VarChar,50),
-					new SqlParameter("@XKBH", SqlDbType.Int,4)};
-			parameters[0].Value = model.XYBH;
-			parameters[1].Value = model.XKMC;
+					new SqlParameter("@XKMC", SqlDbType.VarChar,50),
+					new SqlParameter("@XYMC", SqlDbType.VarChar,50)};
+			parameters[0].Value = model.XKBH;
+			parameters[1].Value = model.XYBH;
 			parameters[2].Value = model.XKFZR;
-			parameters[3].Value = model.XKBH;
+			parameters[3].Value = model.XKMC;
+			parameters[4].Value = model.XYMC;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -112,35 +104,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int XKBH)
+		public bool Delete()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from XK ");
-			strSql.Append(" where XKBH=@XKBH ");
+			strSql.Append("delete from XKDetailView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@XKBH", SqlDbType.Int,4)			};
-			parameters[0].Value = XKBH;
+			};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 批量删除数据
-		/// </summary>
-		public bool DeleteList(string XKBHlist )
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from XK ");
-			strSql.Append(" where XKBH in ("+XKBHlist + ")  ");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -155,17 +128,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.XK GetModel(int XKBH)
+		public ZYNLPJPT.Model.XKDetailView GetModel()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 XKBH,XYBH,XKMC,XKFZR from XK ");
-			strSql.Append(" where XKBH=@XKBH ");
+			strSql.Append("select  top 1 XKBH,XYBH,XKFZR,XKMC,XYMC from XKDetailView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@XKBH", SqlDbType.Int,4)			};
-			parameters[0].Value = XKBH;
+			};
 
-			ZYNLPJPT.Model.XK model=new ZYNLPJPT.Model.XK();
+			ZYNLPJPT.Model.XKDetailView model=new ZYNLPJPT.Model.XKDetailView();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -181,9 +153,9 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.XK DataRowToModel(DataRow row)
+		public ZYNLPJPT.Model.XKDetailView DataRowToModel(DataRow row)
 		{
-			ZYNLPJPT.Model.XK model=new ZYNLPJPT.Model.XK();
+			ZYNLPJPT.Model.XKDetailView model=new ZYNLPJPT.Model.XKDetailView();
 			if (row != null)
 			{
 				if(row["XKBH"]!=null && row["XKBH"].ToString()!="")
@@ -194,13 +166,17 @@ namespace ZYNLPJPT.DAL
 				{
 					model.XYBH=int.Parse(row["XYBH"].ToString());
 				}
+				if(row["XKFZR"]!=null)
+				{
+					model.XKFZR=row["XKFZR"].ToString();
+				}
 				if(row["XKMC"]!=null)
 				{
 					model.XKMC=row["XKMC"].ToString();
 				}
-				if(row["XKFZR"]!=null)
+				if(row["XYMC"]!=null)
 				{
-					model.XKFZR=row["XKFZR"].ToString();
+					model.XYMC=row["XYMC"].ToString();
 				}
 			}
 			return model;
@@ -212,8 +188,8 @@ namespace ZYNLPJPT.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select XKBH,XYBH,XKMC,XKFZR ");
-			strSql.Append(" FROM XK ");
+			strSql.Append("select XKBH,XYBH,XKFZR,XKMC,XYMC ");
+			strSql.Append(" FROM XKDetailView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -232,8 +208,8 @@ namespace ZYNLPJPT.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" XKBH,XYBH,XKMC,XKFZR ");
-			strSql.Append(" FROM XK ");
+			strSql.Append(" XKBH,XYBH,XKFZR,XKMC,XYMC ");
+			strSql.Append(" FROM XKDetailView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -248,7 +224,7 @@ namespace ZYNLPJPT.DAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM XK ");
+			strSql.Append("select count(1) FROM XKDetailView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -277,9 +253,9 @@ namespace ZYNLPJPT.DAL
 			}
 			else
 			{
-				strSql.Append("order by T.XKBH desc");
+				strSql.Append("order by T. desc");
 			}
-			strSql.Append(")AS Row, T.*  from XK T ");
+			strSql.Append(")AS Row, T.*  from XKDetailView T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -304,8 +280,8 @@ namespace ZYNLPJPT.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "XK";
-			parameters[1].Value = "XKBH";
+			parameters[0].Value = "XKDetailView";
+			parameters[1].Value = "";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

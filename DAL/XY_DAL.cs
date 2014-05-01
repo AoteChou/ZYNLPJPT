@@ -189,6 +189,28 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public ZYNLPJPT.Model.XY GetModelByXymc(string xymc)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 XYBH,XYMC from XY ");
+            strSql.Append(" where XYMC=@XYMC");
+            SqlParameter[] parameters = {
+					new SqlParameter("@XYMC", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = xymc;
+
+            ZYNLPJPT.Model.XY model = new ZYNLPJPT.Model.XY();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 		/// <summary>
 		/// 得到一个对象实体

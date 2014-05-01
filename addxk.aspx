@@ -11,6 +11,7 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
+<body>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
     <div class="easyui-panel" title="添加学科信息" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
@@ -46,11 +47,13 @@
             } else {
                 $.post("processAspx/addXkProc.aspx", { 'xkMc': $('#xkMc').attr('value'), 'xyName': $('#xyName').attr('value') }, function (data) {
                     if (data == 'True') {
-                        $('#ff').form('clear');
+                        document.getElementById('xkMc').value = '';
+//                        $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
 
                     } else if (data == 'False') {
-                        $('#ff').form('clear');
+                        document.getElementById('xkMc').value = '';
+//                        $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，已经存在该学科信息！', 'info');
 
                     }
@@ -58,7 +61,8 @@
             }
         }
         function clearForm() {
-            $('#ff').form('clear');
+            document.getElementById('xkMc').value = '';
+//            $('#ff').form('clear');
         }
     </script>
 </body>

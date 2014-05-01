@@ -14,31 +14,33 @@ namespace ZYNLPJPT.processAspx
         protected void Page_Load(object sender, EventArgs e)
         {
             bool result = false;
-            string xyMc = Request["xyMc"] == null ? "" : Request["xyMc"].ToString().Trim();
-            string xkmc = Request["xkmc"] == null ? "" : Request["xkmc"].ToString().Trim();
+            string xyMc = Request["xyName"] == null ? "" : Request["xyName"].ToString().Trim();
+            string xkmc = Request["xkMc"] == null ? "" : Request["xkMc"].ToString().Trim();
             if (xyMc == null || xyMc == ""||xkmc==null||xkmc=="")
             {
                 result = false;
             }
             else
             {
-                XY xy = new XY();
-                xy.XYMC = xyMc.Trim();
-                XY_DAL xyDal = new XY_DAL();
-                if (xyDal.Exists(xyMc))
+                XY xy = new XY_DAL().GetModelByXymc(xyMc);
+                XK_DAL xkDal = new XK_DAL();
+                if (xkDal.Exists(xkmc))
                 {
                     result = false;
                 }
                 else
                 {
-                    int i = xyDal.Add(xy);
-                    if (i == 0)
+                    XK xk = new XK();
+                    xk.XKFZR = null;
+                    xk.XKMC = xkmc;
+                    xk.XYBH = xy.XYBH;
+                    if (xkDal.Add(xk))
                     {
-                        result = false;
+                        result = true;
                     }
                     else
                     {
-                        result = true;
+                        result = false;
                     }
                 }
             }
