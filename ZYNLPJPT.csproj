@@ -119,6 +119,7 @@
     <Content Include="processAspx\DelSingleJdkc.aspx" />
     <Content Include="processAspx\DelSingleKcZsdy.aspx" />
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
+    <Content Include="processAspx\DelZsdyToEjzb.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
@@ -165,6 +166,7 @@
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
     <Content Include="scxk.aspx" />
     <Content Include="scxy.aspx" />
+    <Content Include="scZsdyToEjzb.aspx" />
     <Content Include="sczyejzb.aspx" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\default.css" />
@@ -733,6 +735,13 @@
     <Compile Include="processAspx\DelSingleZyZjzb.aspx.designer.cs">
       <DependentUpon>DelSingleZyZjzb.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\DelZsdyToEjzb.aspx.cs">
+      <DependentUpon>DelZsdyToEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelZsdyToEjzb.aspx.designer.cs">
+      <DependentUpon>DelZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\jdkcxsData.aspx.cs">
       <DependentUpon>jdkcxsData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1009,6 +1018,13 @@
     </Compile>
     <Compile Include="scxy.aspx.designer.cs">
       <DependentUpon>scxy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="scZsdyToEjzb.aspx.cs">
+      <DependentUpon>scZsdyToEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="scZsdyToEjzb.aspx.designer.cs">
+      <DependentUpon>scZsdyToEjzb.aspx</DependentUpon>
     </Compile>
     <Compile Include="sczyejzb.aspx.cs">
       <DependentUpon>sczyejzb.aspx</DependentUpon>

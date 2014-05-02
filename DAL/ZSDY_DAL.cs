@@ -19,6 +19,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -122,6 +123,32 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool UpdateEJZBBH(ZSDY model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append(" update ZSDY set ");
+            strSql.Append(" EJZBBH=@EJZBBH");
+            strSql.Append(" where ZSDYBH=@ZSDYBH and ZSLYBH=@ZSLYBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@EJZBBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
+                    new SqlParameter("@ZSLYBH", SqlDbType.Int,4)
+					};
+            parameters[0].Value = model.EJZBBH;
+            parameters[1].Value = model.ZSDYBH;
+            parameters[2].Value = model.ZSLYBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		/// <summary>
 		/// 删除一条数据
