@@ -260,6 +260,39 @@ namespace ZYNLPJPT.DAL
             return zsnlViewsWrapper;
         }
 
+        public ZsnlViewWrapper[] getPZArrayByXkbhForWrapper(int xkbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select A.ZSLYBH,A.ZSDYBH,A.EJZBBH,A.ZSDYMC,A.BZ,A.ZSLYMC,A.XKBH,xk.xkmc ");
+            strSql.Append(" FROM ZSNLView as A,xk ");
+            strSql.Append(" where A.xkbh=" + xkbh);
+            strSql.Append(" and A.xkbh=xk.xkbh and  A.ejzbbh is null");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            ZsnlViewWrapper[] zsnlViewsWrapper = new ZsnlViewWrapper[length];
+            for (int i = 0; i < length; i++)
+            {
+                zsnlViewsWrapper[i] = new ZsnlViewWrapper();
+                zsnlViewsWrapper[i].ZsnlView = new ZSNLView();
+                DataRow row = ds.Tables[0].Rows[i];
+                zsnlViewsWrapper[i].ZsnlView.ZSLYBH = int.Parse(row["zslybh"].ToString());
+                zsnlViewsWrapper[i].ZsnlView.ZSDYBH = int.Parse(row["zsdybh"].ToString());
+                zsnlViewsWrapper[i].ZsnlView.ZSDYMC = row["zsdymc"].ToString();
+                if (row["bz"] == null || row["bz"].ToString() == null || row["bz"].ToString() == "" || row["bz"].ToString() == "null")
+                {
+                    zsnlViewsWrapper[i].ZsnlView.BZ = "暂无";
+                }
+                else
+                {
+                    zsnlViewsWrapper[i].ZsnlView.BZ = row["bz"].ToString();
+                }
+                zsnlViewsWrapper[i].ZsnlView.ZSLYMC = row["zslymc"].ToString();
+                zsnlViewsWrapper[i].ZsnlView.XKBH = int.Parse(row["xkbh"].ToString());
+                zsnlViewsWrapper[i].Xkmc = row["xkmc"].ToString();
+            }
+            return zsnlViewsWrapper;
+        }
+
         public ZsnlViewWrapperForPzEjzb[] getArrayByXkbhForPzEjzbWrapper(int xkbh)
         {
             StringBuilder strSql = new StringBuilder();

@@ -68,6 +68,7 @@
     <Content Include="cancel.png" />
     <Content Include="ckZsdyToEjzb.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
+    <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
@@ -126,6 +127,7 @@
     <Content Include="processAspx\scCtrProc.aspx" />
     <Content Include="processAspx\scEjzbProc.aspx" />
     <Content Include="processAspx\scjdkcxsProc.aspx" />
+    <Content Include="processAspx\zsdyToEjzbData.aspx" />
     <Content Include="pzjdkc.aspx" />
     <Content Include="pzjsgt.aspx" />
     <Content Include="pzkczsdy.aspx" />
@@ -152,6 +154,7 @@
     <Content Include="processAspx\GetTest.aspx" />
     <Content Include="processAspx\login_pro.aspx" />
     <Content Include="processAspx\logout.aspx" />
+    <Content Include="pzZsdyToEjzb.aspx" />
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
     <Content Include="scctr.aspx" />
@@ -347,6 +350,13 @@
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.designer.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZsdyToEjzbProc.aspx.cs">
+      <DependentUpon>addZsdyToEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZsdyToEjzbProc.aspx.designer.cs">
+      <DependentUpon>addZsdyToEjzbProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\changeZyProc.aspx.cs">
       <DependentUpon>changeZyProc.aspx</DependentUpon>
@@ -784,6 +794,13 @@
     <Compile Include="processAspx\scjdkcxsProc.aspx.designer.cs">
       <DependentUpon>scjdkcxsProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\zsdyToEjzbData.aspx.cs">
+      <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\zsdyToEjzbData.aspx.designer.cs">
+      <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pzjdkc.aspx.cs">
       <DependentUpon>pzjdkc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -949,6 +966,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pzZsdyToEjzb.aspx.cs">
+      <DependentUpon>pzZsdyToEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzZsdyToEjzb.aspx.designer.cs">
+      <DependentUpon>pzZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pzzyejzb.aspx.cs">
       <DependentUpon>pzzyejzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
