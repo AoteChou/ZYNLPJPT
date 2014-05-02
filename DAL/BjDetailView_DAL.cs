@@ -31,7 +31,30 @@ namespace ZYNLPJPT.DAL
 		{}
 		#region  BasicMethod
 
+        public bool Exists(string bjmc,string xymc,string xkmc,string zymc,string njmc)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from BjDetailView");
+            strSql.Append(" where BJMC=@BJMC");
+            strSql.Append(" and XYMC=@XYMC");
+            strSql.Append(" and XKMC=@XKMC");
+            strSql.Append(" and ZYM=@ZYMC");
+            strSql.Append(" and NJMC=@NJMC");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@BJMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@XYMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@XKMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@ZYMC",SqlDbType.VarChar,50),
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = bjmc;
+            parameters[1].Value = xymc;
+            parameters[2].Value = xkmc;
+            parameters[3].Value = zymc;
+            parameters[4].Value = njmc;
 
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
 
 		/// <summary>
 		/// 增加一条数据

@@ -52,7 +52,6 @@
                     } else if (data == 'False') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，一级指标名称不能为空或者存在该一级指标名称！', 'info');
-                        
                     }
                 });
             }

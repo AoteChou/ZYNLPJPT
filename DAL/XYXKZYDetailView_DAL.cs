@@ -223,6 +223,22 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        public string[] getStrArray(string xymc,string xkmc)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ZYM ");
+            strSql.Append(" FROM XYXKZYDetailView ");
+            strSql.Append(" where XYMC='"+xymc+"' and xkmc='"+xkmc+"'");
+            DataSet ds=DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] result=new string[length];
+            for (int i = 0; i < length; i++) {
+                DataRow row = ds.Tables[0].Rows[i];
+                result[i] = row["ZYM"].ToString() ;
+            }
+            return result;
+        }
+
         public ZYNLPJPT.Model.XYXKZYDetailView[] getArrayByXyMc(string xymc)
         {
             StringBuilder strSql = new StringBuilder();

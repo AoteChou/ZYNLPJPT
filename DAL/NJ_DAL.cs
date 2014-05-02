@@ -197,7 +197,7 @@ namespace ZYNLPJPT.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 NJBH,NJMC from NJ ");
+            strSql.Append("select  top 1 NJBH,NJMC,RXNF from NJ ");
             strSql.Append(" where njmc=@njmc");
             SqlParameter[] parameters = {
 					new SqlParameter("@njmc", SqlDbType.VarChar,50)
@@ -221,19 +221,23 @@ namespace ZYNLPJPT.DAL
 		/// </summary>
 		public ZYNLPJPT.Model.NJ DataRowToModel(DataRow row)
 		{
-			ZYNLPJPT.Model.NJ model=new ZYNLPJPT.Model.NJ();
-			if (row != null)
-			{
-				if(row["NJBH"]!=null && row["NJBH"].ToString()!="")
-				{
-					model.NJBH=int.Parse(row["NJBH"].ToString());
-				}
-				if(row["NJMC"]!=null)
-				{
-					model.NJMC=row["NJMC"].ToString();
-				}
-			}
-			return model;
+            ZYNLPJPT.Model.NJ model = new ZYNLPJPT.Model.NJ();
+            if (row != null)
+            {
+                if (row["NJBH"] != null && row["NJBH"].ToString() != "")
+                {
+                    model.NJBH = int.Parse(row["NJBH"].ToString());
+                }
+                if (row["NJMC"] != null)
+                {
+                    model.NJMC = row["NJMC"].ToString();
+                }
+                if (row["RXNF"] != null && row["RXNF"].ToString() != "")
+                {
+                    model.RXNF = DateTime.Parse(row["RXNF"].ToString());
+                }
+            }
+            return model;
 		}
 
 		/// <summary>

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addbj.aspx" />
     <Content Include="addcpjd.aspx" />
     <Content Include="addEjzb.aspx" />
     <Content Include="addnj.aspx" />
@@ -65,6 +66,8 @@
     <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="cancel.png" />
+    <Content Include="processAspx\addBjProc.aspx" />
+    <Content Include="processAspx\changeZyProc.aspx" />
     <Content Include="ChooseResultCurriculum.aspx" />
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
@@ -248,6 +251,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addbj.aspx.cs">
+      <DependentUpon>addbj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addbj.aspx.designer.cs">
+      <DependentUpon>addbj.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addcpjd.aspx.cs">
       <DependentUpon>addcpjd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,6 +331,20 @@
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="processAspx\addBjProc.aspx.cs">
+      <DependentUpon>addBjProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addBjProc.aspx.designer.cs">
+      <DependentUpon>addBjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeZyProc.aspx.cs">
+      <DependentUpon>changeZyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeZyProc.aspx.designer.cs">
+      <DependentUpon>changeZyProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChooseResultCurriculum.aspx.cs">
       <DependentUpon>ChooseResultCurriculum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
