@@ -96,18 +96,18 @@
             } else if (jzxq < qsxq) {
                 $.messager.alert('结果', '起始学期不能大于截止学期，请重新选择！', 'info');
             } else {
-                $.post("xgCpjdProc.aspx", {'zybh':zybh,'jdbh':jdbh,'njbh':njbh,'njName': $('#njName').attr('value'), 'zyName': $('#zyName').attr('value'), 'jdMc': $('#jdMc').attr('value'), 'qsxq': $('#qsxq').attr('value'), 'jzxq': $('#jzxq').attr('value'), 'cpjdJj': $('#cpjdJj').attr('value') }, function (data) {
-                    if (data == 'True') {
-                        document.getElementById('jdMc').value = '';
-                        document.getElementById('cpjdJj').value = '';
-                        $.messager.alert('结果', '修改成功！', 'info');
-                    } else if (data == 'False') {
-                        document.getElementById('jdMc').value = '';
-                        document.getElementById('cpjdJj').value = '';
-                        $.messager.alert('结果', '修改失败！', 'info');
+            $.post("xgCpjdProc.aspx", { 'zybh': zybh, 'jdbh': jdbh, 'njbh': njbh, 'njName': $('#njName').attr('value'), 'zyName': $('#zyName').attr('value'), 'jdMc': $('#jdMc').attr('value'), 'qsxq': $('#qsxq').attr('value'), 'jzxq': $('#jzxq').attr('value'), 'cpjdJj': $('#cpjdJj').attr('value') }, function (data) {
+                if (data == 'True') {
+                    $.messager.alert('结果', '修改成功！', 'info', function () {
+                        window.location = "../xgcpjd.aspx";
+                    });
+                } else if (data == 'False') {
+                    $.messager.alert('结果', '修改失败！', 'info', function () {
+                        window.location = "../xgcpjd.aspx";
+                    });
 
-                    }
-                });
+                }
+            });
             }
         }
         function retutnToUpPage() {
