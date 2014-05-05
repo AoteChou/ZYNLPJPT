@@ -22,9 +22,6 @@
                     <td>修改前数据:</td>
                     <td>
                         <div style=" width:152px">
-                             年级名称:<%=njmc %><br />
-                             阶段名称:<%=jdmc %><br />
-                             专业名称:<%=zymc %><br />
                              起始学期:<%=qsxq %><br />
                              截止学期:<%=jzxq %><br />
                         </div>
@@ -32,23 +29,11 @@
                 </tr>
                 <tr style=" margin-top:10px;">
                     <td>年级名称:</td>
-                    <td> 
-                        <select id="njName" name="njName" style="width:152px;" >
-                            <% for (int i = 0; i < this.njNames.Length; i++) {
-                                   Response.Write("<option> "+this.njNames[i]+"</option>");  
-                             } %>
-                        </select>
-                    </td>
+                    <td><input class="easyui-validatebox textbox" type="text" disabled="disabled" id="njName" value="<%=njmc %>" name="njName" data-options="required:true"></input></td>
                 </tr>
                 <tr style=" margin-top:10px;">
                     <td>专业名称:</td>
-                    <td> 
-                        <select id="zyName" name="zyName" style="width:152px;" >
-                            <% for (int i = 0; i < this.zyms.Length; i++) {
-                                   Response.Write("<option> "+this.zyms[i]+"</option>");  
-                             } %>
-                        </select>
-                    </td>
+                    <td><input class="easyui-validatebox textbox" type="text"  disabled="disabled" id="zyName" value="<%=zymc %>" name="zyName" data-options="required:true"></input></td>
                 </tr>
                <tr style=" margin-top:10px;">
                     <td>阶段名称:</td>
