@@ -13,11 +13,7 @@ namespace ZYNLPJPT
     {
         protected int xkbh;
 
-       // protected string[] yjzbNames;
-
         protected string[] zslyNames;
-
-        //protected string[] ejzbNames;
 
         protected void Page_Load(object sender, EventArgs e)
         {

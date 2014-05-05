@@ -133,6 +133,8 @@
     <Content Include="processAspx\xgEjzbProc.aspx" />
     <Content Include="processAspx\xgyjzbData.aspx" />
     <Content Include="processAspx\xgYjzbProc.aspx" />
+    <Content Include="processAspx\xgzsdyData.aspx" />
+    <Content Include="processAspx\xgZsdyProc.aspx" />
     <Content Include="processAspx\xgzslyData.aspx" />
     <Content Include="processAspx\xgZslyProc.aspx" />
     <Content Include="processAspx\zsdyToEjzbData.aspx" />
@@ -266,6 +268,8 @@
     <Content Include="xgcpjd.aspx" />
     <Content Include="xgejzb.aspx" />
     <Content Include="xgyjzb.aspx" />
+    <Content Include="xgzsd.aspx" />
+    <Content Include="xgzsdy.aspx" />
     <Content Include="xgzsly.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -848,6 +852,20 @@
     <Compile Include="processAspx\xgYjzbProc.aspx.designer.cs">
       <DependentUpon>xgYjzbProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\xgzsdyData.aspx.cs">
+      <DependentUpon>xgzsdyData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgzsdyData.aspx.designer.cs">
+      <DependentUpon>xgzsdyData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgZsdyProc.aspx.cs">
+      <DependentUpon>xgZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgZsdyProc.aspx.designer.cs">
+      <DependentUpon>xgZsdyProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\xgzslyData.aspx.cs">
       <DependentUpon>xgzslyData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1171,6 +1189,20 @@
     </Compile>
     <Compile Include="xgyjzb.aspx.designer.cs">
       <DependentUpon>xgyjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgzsd.aspx.cs">
+      <DependentUpon>xgzsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgzsd.aspx.designer.cs">
+      <DependentUpon>xgzsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgzsdy.aspx.cs">
+      <DependentUpon>xgzsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgzsdy.aspx.designer.cs">
+      <DependentUpon>xgzsdy.aspx</DependentUpon>
     </Compile>
     <Compile Include="xgzsly.aspx.cs">
       <DependentUpon>xgzsly.aspx</DependentUpon>

@@ -124,6 +124,38 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool UpdateForXG(ZYNLPJPT.Model.ZSDY model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update ZSDY set ");
+            strSql.Append("ZSLYBH=@ZSLYBH,");
+            strSql.Append("ZSDYMC=@ZSDYMC,");
+            strSql.Append("BZ=@BZ,");
+            strSql.Append("ZSDYQZ=@ZSDYQZ");
+            strSql.Append(" where ZSDYBH=@ZSDYBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSDYMC", SqlDbType.VarChar,50),
+					new SqlParameter("@BZ", SqlDbType.Text),
+					new SqlParameter("@ZSDYQZ", SqlDbType.Int,4),
+					new SqlParameter("@ZSDYBH", SqlDbType.Int,4)};
+            parameters[0].Value = model.ZSLYBH;
+            parameters[1].Value = model.ZSDYMC;
+            parameters[2].Value = model.BZ;
+            parameters[3].Value = model.ZSDYQZ;
+            parameters[4].Value = model.ZSDYBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool UpdateEJZBBH(ZSDY model)
         {
             StringBuilder strSql = new StringBuilder();
