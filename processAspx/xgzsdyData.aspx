@@ -36,8 +36,8 @@
             </table>
         </form>
         <div style="text-align:center;padding:5px; margin-top:50px;">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm(<%=zsdybh %>,'<%=zslymc %>')">提交</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">取消</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm(<%=zsdybh %>,'<%=zslymc %>')">修改</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回</a>
         </div>
         </div>    
     </div>
