@@ -127,6 +127,8 @@
     <Content Include="processAspx\scCtrProc.aspx" />
     <Content Include="processAspx\scEjzbProc.aspx" />
     <Content Include="processAspx\scjdkcxsProc.aspx" />
+    <Content Include="processAspx\xgcpjdData.aspx" />
+    <Content Include="processAspx\xgCpjdProc.aspx" />
     <Content Include="processAspx\zsdyToEjzbData.aspx" />
     <Content Include="pzjdkc.aspx" />
     <Content Include="pzjsgt.aspx" />
@@ -255,6 +257,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="xgcpjd.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addbj.aspx.cs">
@@ -794,6 +797,20 @@
     <Compile Include="processAspx\scjdkcxsProc.aspx.designer.cs">
       <DependentUpon>scjdkcxsProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\xgcpjdData.aspx.cs">
+      <DependentUpon>xgcpjdData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgcpjdData.aspx.designer.cs">
+      <DependentUpon>xgcpjdData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgCpjdProc.aspx.cs">
+      <DependentUpon>xgCpjdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgCpjdProc.aspx.designer.cs">
+      <DependentUpon>xgCpjdProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\zsdyToEjzbData.aspx.cs">
       <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1083,6 +1100,13 @@
     <Compile Include="Utility\MainMenu.cs" />
     <Compile Include="Utility\TestState.cs" />
     <Compile Include="Utility\XS_Utility.cs" />
+    <Compile Include="xgcpjd.aspx.cs">
+      <DependentUpon>xgcpjd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgcpjd.aspx.designer.cs">
+      <DependentUpon>xgcpjd.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NeatUpload_Temp\" />

@@ -91,7 +91,7 @@ namespace ZYNLPJPT.DAL
 			strSql.Append("QSXQ=@QSXQ,");
 			strSql.Append("JZXQ=@JZXQ,");
 			strSql.Append("CPJDJJ=@CPJDJJ");
-			strSql.Append(" where JDBH=@JDBH");
+			strSql.Append(" where JDBH=@JDBH and NJBH=@NJBH and ZYBH=@ZYBH");
 			SqlParameter[] parameters = {
 					new SqlParameter("@JDMC", SqlDbType.VarChar,50),
 					new SqlParameter("@QSXQ", SqlDbType.Int,4),
