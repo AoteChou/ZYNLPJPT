@@ -18,7 +18,6 @@ namespace ZYNLPJPT
             if (Session["yh"] == null)
             {
                 this.Response.Redirect("Default.htm");
-
             }
             else
             { 
