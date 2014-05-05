@@ -13,8 +13,6 @@ namespace ZYNLPJPT.processAspx
     {
         protected int xkbh;
 
-        protected string[] zslyNames;
-
         protected int zsdybh;
 
         protected string zslymc;
@@ -38,7 +36,6 @@ namespace ZYNLPJPT.processAspx
                 zsdybh = int.Parse(szsdybh);
                 YH yh = (YH)Session["yh"];
                 xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                zslyNames = new ZSLY_DAL().getArrayByXkbh(xkbh);
             }
         }
     }

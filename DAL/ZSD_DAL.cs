@@ -124,6 +124,36 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool UpdateNotIncludeBZ(ZYNLPJPT.Model.ZSD model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update ZSD set ");
+            strSql.Append("ZSDMC=@ZSDMC,");
+            strSql.Append("ZSDQZ=@ZSDQZ");
+            strSql.Append(" where ZSLYBH=@ZSLYBH and ZSDYBH=@ZSDYBH and ZSDBH=@ZSDBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZSDMC", SqlDbType.VarChar,50),
+					new SqlParameter("@ZSDQZ",SqlDbType.Int,4),
+					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
+					new SqlParameter("@ZSDBH", SqlDbType.Int,4)};
+            parameters[0].Value = model.ZSDMC;
+            parameters[1].Value = model.ZSDQZ;
+            parameters[2].Value = model.ZSLYBH;
+            parameters[3].Value = model.ZSDYBH;
+            parameters[4].Value = model.ZSDBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>

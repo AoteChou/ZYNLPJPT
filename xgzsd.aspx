@@ -26,7 +26,7 @@
     			<th data-options="field:'zsdmc',align:'center'" width="15">知识点名称</th>
                  <th data-options="field:'zsdqz',align:'center'" width="8">知识点权重值</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
-
+                <th data-options="field:'button',align:'center'" width="20">修改知识点</th>
     		</tr>
     	</thead>
    		<tbody >
@@ -42,6 +42,7 @@
                       Response.Write("  <td >" + zsAllView[i].ZSDMC + "</td>");
                       Response.Write("  <td >" + zsAllView[i].ZSDQZ + "</td>");
                       Response.Write("  <td >" + zsAllView[i].XKMC + "</td>");
+                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgzsdData.aspx?zsdbh=" + zsAllView[i].ZSDBH + "&zsdmc=" + zsAllView[i].ZSDMC + "&zslybh=" + zsAllView[i].ZSLYBH+"&zslymc="+zsAllView[i].ZSLYMC+"&zsdybh="+zsAllView[i].ZSDYBH+"&zsdymc="+zsAllView[i].ZSDYMC + "&zsdqz=" + zsAllView[i].ZSDQZ + "'\" >修改知识点</a></td>");
                       Response.Write("</tr>");
                   }
                    %>
