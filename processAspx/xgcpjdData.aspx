@@ -76,7 +76,7 @@
                 </tr>
                  <tr style=" margin-top:10px;">
                     <td>测评阶段简介:</td>
-                    <td><textarea rows="4" id="cpjdJj" name="cpjdJj" cols="1"  style="width:152px;"></textarea></td>
+                    <td><textarea rows="4" id="cpjdJj" name="cpjdJj" cols="1"  style="width:152px;"><%=bz %></textarea></td>
                 </tr>
             </table>
         </form>

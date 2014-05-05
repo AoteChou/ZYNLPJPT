@@ -33,6 +33,8 @@ namespace ZYNLPJPT.processAspx
 
         protected string jzxq;
 
+        protected string bz;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
@@ -49,6 +51,7 @@ namespace ZYNLPJPT.processAspx
                 zymc = Request["zymc"] == null ? "" : Request["zymc"].ToString();
                 qsxq = Request["qsxq"] == null ? "" : Request["qsxq"].ToString();
                 jzxq = Request["jzxq"] == null ? "" : Request["jzxq"].ToString();
+                bz = Request["bz"] == null ? "" : (Request["bz"].ToString() == "暂无" ? "" : Request["bz"].ToString());
                 njbh = int.Parse(snjbh);
                 zybh = int.Parse(szybh);
                 jdbh = int.Parse(sjdbh);

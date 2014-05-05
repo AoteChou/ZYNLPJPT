@@ -32,7 +32,7 @@ namespace ZYNLPJPT.processAspx
                 string syjzbbh = Request["yjzbbh"] == null ? "" : Request["yjzbbh"].ToString();
                 yjzbmc = Request["yjzbmc"] == null ? "" : Request["yjzbmc"].ToString();
                 string syjzbqz = Request["yjzbqz"] == null ? "" : Request["yjzbqz"].ToString();
-                yjzbbz = Request["bz"] == null ? "" : Request["bz"].ToString();
+                yjzbbz = Request["bz"] == null ? "" : (Request["bz"].ToString() == "暂无" ? "" : Request["bz"].ToString());
                 yjzbbh = int.Parse(syjzbbh);
                 yjzbqz = int.Parse(syjzbqz);
                 YH yh = (YH)Session["yh"];

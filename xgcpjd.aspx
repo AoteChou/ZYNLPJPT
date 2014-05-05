@@ -54,7 +54,7 @@
                        Response.Write("	<td >" + this.cpjdViews[i].QSXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViews[i].JZXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViews[i].CPJDJJ + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgcpjdData.aspx?njbh=" + cpjdViews[i].NJBH +"&njmc="+cpjdViews[i].NJMC+ "&jdbh=" + cpjdViews[i].JDBH + "&zybh=" + cpjdViews[i].ZYBH+"&zymc="+cpjdViews[i].ZYM+"&jdmc="+cpjdViews[i].JDMC+"&qsxq="+cpjdViews[i].QSXQ+"&jzxq="+cpjdViews[i].JZXQ+ "'\" >修改测评阶段</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgcpjdData.aspx?njbh=" + cpjdViews[i].NJBH +"&njmc="+cpjdViews[i].NJMC+ "&jdbh=" + cpjdViews[i].JDBH + "&zybh=" + cpjdViews[i].ZYBH+"&zymc="+cpjdViews[i].ZYM+"&jdmc="+cpjdViews[i].JDMC+"&qsxq="+cpjdViews[i].QSXQ+"&jzxq="+cpjdViews[i].JZXQ+"&bz="+cpjdViews[i].CPJDJJ+ "'\" >修改测评阶段</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>
