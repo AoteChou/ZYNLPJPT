@@ -14,7 +14,7 @@
 <body>
 <div>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
-    <div class="easyui-panel" title="修改<%=jdmc %>的数据" style="width:400px;  ">
+    <div class="easyui-panel" title="修改测评阶段" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
         <form id="ff" > 
             <table cellpadding="5">
