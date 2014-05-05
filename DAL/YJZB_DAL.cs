@@ -80,18 +80,19 @@ namespace ZYNLPJPT.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update YJZB set ");
             strSql.Append("YJZBMC=@YJZBMC,");
-            strSql.Append("BZ=@BZ,");
-            strSql.Append("XKBH=@XKBH");
-            strSql.Append(" where YJZBBH=@YJZBBH");
+            strSql.Append("BZ=@BZ,YJZBQZ=@YJZBQZ");
+            strSql.Append(" where YJZBBH=@YJZBBH and XKBH=@XKBH");
             SqlParameter[] parameters = {
 					new SqlParameter("@YJZBMC", SqlDbType.VarChar,50),
 					new SqlParameter("@BZ", SqlDbType.Text),
 					new SqlParameter("@XKBH", SqlDbType.Int,4),
-					new SqlParameter("@YJZBBH", SqlDbType.Int,4)};
+					new SqlParameter("@YJZBBH", SqlDbType.Int,4),
+                    new SqlParameter("@YJZBQZ",SqlDbType.Int,4)};
             parameters[0].Value = model.YJZBMC;
             parameters[1].Value = model.BZ;
             parameters[2].Value = model.XKBH;
             parameters[3].Value = model.YJZBBH;
+            parameters[4].Value = model.YJZBQZ;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)

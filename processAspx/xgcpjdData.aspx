@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
+<div>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
     <div class="easyui-panel" title="修改<%=jdmc %>的数据" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
@@ -84,6 +85,7 @@
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="retutnToUpPage()">返回</a>
         </div>
         </div>    
+    </div>
     </div>
     </div>
     <script type="text/javascript">
