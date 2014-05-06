@@ -27,8 +27,10 @@ namespace ZYNLPJPT.processAspx
         {
             if (Session["yh"] == null)
             {
-                Response.Redirect("../Default.htm");
-            }else{
+                this.Response.Write("<script type='text/javascript'>window.parent.location='../Default.htm';</script>");
+                this.Response.End();
+            }else
+            {
                 xkbh = int.Parse(Request["xkbh"].ToString());
                 njbh = int.Parse(Request["njbh"].ToString());
                 kcbh = int.Parse(Request["kcbh"].ToString());
