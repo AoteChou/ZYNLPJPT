@@ -29,7 +29,8 @@ namespace ZYNLPJPT.processAspx
         {
             if (Session["yh"] == null)
             {
-                Response.Redirect("../Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='../Default.htm';</script>");
+                this.Response.End();
             }
             else {
                 if (Request["xkbh"] == null || Request["xkbh"].ToString() == "" || Request["njbh"] == null || Request["njbh"].ToString() == "" || Request["jdbh"] == null || Request["jdbh"].ToString() == "" || Request["kcbh"] == null || Request["kcbh"].ToString() == "" || Request["zybh"] == null || Request["zybh"].ToString() == "")

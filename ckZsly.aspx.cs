@@ -23,22 +23,13 @@ namespace ZYNLPJPT
             else
             {
                  YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有查看配置权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
-                {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有查看出题人的权利&fh=false");
-                }
-                else
-                {
-                    int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    ZSLY[] zslys = new ZSLY_DAL().getModelArrayByXkbh(xkbh);
-                    XK xk = new XK_DAL().GetModel(xkbh);
-                    int length=zslys.Length;
-                    zslyDetails=new ZSLYDetails[length];
-                    for (int i = 0; i <length; i++) {
-                        zslyDetails[i] = new ZSLYDetails(zslys[i], xk.XKMC);
-                    }
+                int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                ZSLY[] zslys = new ZSLY_DAL().getModelArrayByXkbh(xkbh);
+                XK xk = new XK_DAL().GetModel(xkbh);
+                int length=zslys.Length;
+                zslyDetails=new ZSLYDetails[length];
+                for (int i = 0; i <length; i++) {
+                    zslyDetails[i] = new ZSLYDetails(zslys[i], xk.XKMC);
                 }
             }
         }

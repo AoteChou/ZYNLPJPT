@@ -29,53 +29,41 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有查看配置权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
+                string queryZym = null;
+                int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
+                if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")
                 {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有查看出题人的权利&fh=false");
+                    queryZym = allZyms[0];
                 }
                 else
                 {
-                    string queryZym = null;
-
-                    int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    
-                    allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
-
-                    if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")
-                    {
-                        queryZym = allZyms[0];
-                    }
-                    else
-                    {
-                        queryZym = Request["choosedMajor"].ToString();
-                        List<string> lists = allZyms.ToList();
-                        lists.Remove(queryZym);
-                        lists.Add(queryZym);
-                        lists.Reverse();
-                        allZyms = lists.ToArray();
-                    }
-                    zykcViews = new ZYKCView_DAL().GetSCAndCKArray(xkbh, queryZym.Trim());
-                    zykcViewsWrapper.Zykcview = zykcViews;
-                    int length = zykcViews.Length;
-                    this.zykcViewsWrapper.CtTea=new string[length];
-                    for (int i = 0; i < length; i++) {
-                        this.zykcViewsWrapper.CtTea[i] = "出题人为：<br/><br/>";
-                        string[] result = new CTView_DAL().getTeaNames(zykcViews[i].KCBH, zykcViews[i].ZYBH);
-                        for (int j = 0; j < result.Length; j++) {
-                            if (result[result.Length - 1] == "暂无" || j == (result.Length-1))
-                            {
-                                zykcViewsWrapper.CtTea[i] += result[j];
-                            }
-                            else {
-                                zykcViewsWrapper.CtTea[i] += result[j] + ", ";
-                            }
-                        }
-                        zykcViewsWrapper.CtTea[i] += "<br/>";
-                    }
-
+                    queryZym = Request["choosedMajor"].ToString();
+                    List<string> lists = allZyms.ToList();
+                    lists.Remove(queryZym);
+                    lists.Add(queryZym);
+                    lists.Reverse();
+                    allZyms = lists.ToArray();
                 }
+                zykcViews = new ZYKCView_DAL().GetSCAndCKArray(xkbh, queryZym.Trim());
+                zykcViewsWrapper.Zykcview = zykcViews;
+                int length = zykcViews.Length;
+                this.zykcViewsWrapper.CtTea=new string[length];
+                for (int i = 0; i < length; i++) {
+                    this.zykcViewsWrapper.CtTea[i] = "出题人为：<br/><br/>";
+                    string[] result = new CTView_DAL().getTeaNames(zykcViews[i].KCBH, zykcViews[i].ZYBH);
+                    for (int j = 0; j < result.Length; j++) {
+                        if (result[result.Length - 1] == "暂无" || j == (result.Length-1))
+                        {
+                            zykcViewsWrapper.CtTea[i] += result[j];
+                        }
+                        else {
+                            zykcViewsWrapper.CtTea[i] += result[j] + ", ";
+                        }
+                    }
+                    zykcViewsWrapper.CtTea[i] += "<br/>";
+                }
+
             }
         }
 

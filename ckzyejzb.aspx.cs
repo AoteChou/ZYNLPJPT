@@ -23,40 +23,31 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有配置权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
+                int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                XyXkZyView[] xyXkZyViews = new XyXkZyView_DAL().getCKArray(xkbh);
+                int length = xyXkZyViews.Length;
+                xyXkZyViewWrappers = new XyXkZyViewWrapper[length];
+                for (int i = 0; i < length; i++)
                 {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有查看专业二级指标的权利&fh=false");
-                }
-                else
-                {
-                    int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    XyXkZyView[] xyXkZyViews = new XyXkZyView_DAL().getCKArray(xkbh);
-                    int length = xyXkZyViews.Length;
-                    xyXkZyViewWrappers = new XyXkZyViewWrapper[length];
-                    for (int i = 0; i < length; i++)
+                    xyXkZyViewWrappers[i] = new XyXkZyViewWrapper();
+                    xyXkZyViewWrappers[i].XyXkZyView = xyXkZyViews[i];
+                    int zybh = xyXkZyViewWrappers[i].XyXkZyView.ZYBH;
+                    xyXkZyViewWrappers[i].Ejzbs = "所含二级指标为：<br/><br/>";
+                    string[] result = new ZYEJZBView_DAL().getEJZBCs(xkbh, zybh);
+                    for (int j = 0; j < result.Length; j++)
                     {
-                        xyXkZyViewWrappers[i] = new XyXkZyViewWrapper();
-                        xyXkZyViewWrappers[i].XyXkZyView = xyXkZyViews[i];
-                        int zybh = xyXkZyViewWrappers[i].XyXkZyView.ZYBH;
-                        xyXkZyViewWrappers[i].Ejzbs = "所含二级指标为：<br/><br/>";
-                        string[] result = new ZYEJZBView_DAL().getEJZBCs(xkbh, zybh);
-                        for (int j = 0; j < result.Length; j++)
+                        if (result[result.Length - 1] == "暂无" || j == (result.Length - 1))
                         {
-                            if (result[result.Length - 1] == "暂无" || j == (result.Length - 1))
-                            {
-                                xyXkZyViewWrappers[i].Ejzbs += result[j];
-                            }
-                            else
-                            {
-                                xyXkZyViewWrappers[i].Ejzbs += result[j] + ", ";
-                            }
+                            xyXkZyViewWrappers[i].Ejzbs += result[j];
                         }
-                        xyXkZyViewWrappers[i].Ejzbs += "<br/>";
+                        else
+                        {
+                            xyXkZyViewWrappers[i].Ejzbs += result[j] + ", ";
+                        }
                     }
-
+                    xyXkZyViewWrappers[i].Ejzbs += "<br/>";
                 }
+
             }
         }
     }

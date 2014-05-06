@@ -25,19 +25,8 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有添加知识领域权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
-                {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有添加知识领域的权利&fh=false");
-                }
-                else
-                {
-                    xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                  //  yjzbNames = new YJZB_DAL().getArrayByXkbh(xkbh);
-                    zslyNames = new ZSLY_DAL().getArrayByXkbh(xkbh);
-                    //ejzbNames=new NLZBView_DAL().getArrayByXkbhAndYjzb(xkbh,yjzbNames[0]);
-                }
+                xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                zslyNames = new ZSLY_DAL().getArrayByXkbh(xkbh);
             }            
         }
     }

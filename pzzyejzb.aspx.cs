@@ -23,17 +23,8 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有配置权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
-                {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有配置专业二级指标的权利&fh=false");
-                }
-                else
-                {
-                    int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    xyXkZyViews = new XyXkZyView_DAL().getArray(xkbh);
-                }
+                int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                xyXkZyViews = new XyXkZyView_DAL().getArray(xkbh);
             }
         }
     }

@@ -33,7 +33,6 @@ namespace ZYNLPJPT.processAspx
                 tips = "请选择教师是否为  "+Request["zym"].ToString()+"  专业  "+Request["kcmc"].ToString()+"  课程的出题人。\n 打钩表示为出题人，反之则不是。";
                 int xkbh=int.Parse(Request["xkbh"].ToString());
                 jsRoleYhView = new JSRoleYHView_DAL().getArrayNotInCtr(xkbh, zybh, kcbh);
-                //jsRoleYhView = new JSRoleYHView_DAL().getArray("ssxk="+xkbh);
             }
         }
     }

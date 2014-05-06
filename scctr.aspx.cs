@@ -25,36 +25,23 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                //验证用户是否是教师角色,无则没有配置权限
-                YHJSView yhjsView = new YHJSView_DAL().GetModel(yh.YHBH.Trim());
-                if (yhjsView.JSM.Trim() != "教师")
+                string queryZym = null;
+                int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
+                allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
+                if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")
                 {
-                    Response.Redirect("ErrorPage.aspx?msg=对不起，系统配置出错，你没有配置出题的权利&fh=false");
+                    queryZym = allZyms[0];
                 }
                 else
                 {
-                    string queryZym = null;
-
-                    int xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
-                    //allZyms = new ZYKCView_DAL().GetArrayWithAllZyms("xkbh=" + xkbh);
-                    allZyms = new ZY_DAL().getArrayByXkbh(xkbh);
-
-                    if (Request["choosedMajor"] == null || Request["choosedMajor"].ToString() == "")
-                    {
-                        queryZym = allZyms[0];
-                    }
-                    else
-                    {
-                        queryZym = Request["choosedMajor"].ToString();
-                        List<string> lists = allZyms.ToList();
-                        lists.Remove(queryZym);
-                        lists.Add(queryZym);
-                        lists.Reverse();
-                        allZyms = lists.ToArray();
-                    }
-                    zykcViews = new ZYKCView_DAL().GetSCAndCKArray(xkbh, queryZym.Trim());
-
+                    queryZym = Request["choosedMajor"].ToString();
+                    List<string> lists = allZyms.ToList();
+                    lists.Remove(queryZym);
+                    lists.Add(queryZym);
+                    lists.Reverse();
+                    allZyms = lists.ToArray();
                 }
+                zykcViews = new ZYKCView_DAL().GetSCAndCKArray(xkbh, queryZym.Trim());
             }
         }
     }
