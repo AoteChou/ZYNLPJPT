@@ -59,6 +59,22 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(int ZYBH, int NJBH, int JDBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from JDKC");
+            strSql.Append(" where ZYBH=@ZYBH and NJBH=@NJBH and JDBH=@JDBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZYBH", SqlDbType.Int,4),
+					new SqlParameter("@NJBH", SqlDbType.Int,4),
+					new SqlParameter("@JDBH", SqlDbType.Int,4)			};
+            parameters[0].Value = ZYBH;
+            parameters[1].Value = NJBH;
+            parameters[2].Value = JDBH;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
 		/// <summary>
 		/// 增加一条数据
