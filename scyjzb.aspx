@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="xgyjzb.aspx.cs" Inherits="ZYNLPJPT.xgyjzb" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="scyjzb.aspx.cs" Inherits="ZYNLPJPT.scyjzb" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>修改一级指标</title>
+    <title>删除一级指标</title>
     <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
@@ -13,7 +13,7 @@
 </head>
 <body class="easyui-layout">         
 <div region="center" border="false">
- <div id="ctTea" class="easyui-window" title="修改一级指标" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+ <div id="ctTea" class="easyui-window" title="删除一级指标" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
 </div>
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
@@ -23,7 +23,7 @@
                 <th data-options="field:'yjzbqz',align:'center'" width="8">一级指标重值</th>
                 <th data-options="field:'bz',align:'center'" width="8">一级指标备注</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
-                <th data-options="field:'button',align:'center'" width="20">修改一级指标</th>
+                <th data-options="field:'button',align:'center'" width="20">删除一级指标</th>
     		</tr>
     	</thead>
    		<tbody >
@@ -36,7 +36,7 @@
                       Response.Write("	<td >" + yjzbWrappers[i].Yjzb.YJZBQZ+ "</td>");
                       Response.Write("  <td >" + yjzbWrappers[i].Yjzb.BZ+ "</td>");
                       Response.Write("  <td >" + yjzbWrappers[i].XkName + "</td>");
-                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgyjzbData.aspx?yjzbbh=" + yjzbWrappers[i].Yjzb.YJZBBH + "&yjzbmc=" + yjzbWrappers[i].Yjzb.YJZBMC + "&yjzbqz=" + yjzbWrappers[i].Yjzb.YJZBQZ + "&xkbh=" + yjzbWrappers[i].Yjzb.XKBH+"&bz="+yjzbWrappers[i].Yjzb.BZ + "'\" >修改一级指标</a></td>");
+                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"deleteYjzb(" + yjzbWrappers[i].Yjzb.YJZBBH + "," + yjzbWrappers[i].Yjzb.XKBH + ")\" >删除一级指标</a></td>");
                       Response.Write("</tr>");
                   }
                    %>
@@ -52,6 +52,19 @@
             singleSelect: true,
         });
     });
+
+    function deleteYjzb(yjzbbh, xkbh) {
+            $.post("processAspx/scYjzbProc.aspx", { 'yjzbbh': yjzbbh, 'xkbh': xkbh}, function (result) {
+                if (result == 'False') {
+                    $.messager.alert('信息', '删除失败,该一级指标已被使用!', 'info', function () {
+                        window.location.reload();
+                    });
+                } else if (result == 'True') {
+                    window.location.reload();
+                }
+            });
+        }
 </script>
 </body>
 </html>
+
