@@ -58,7 +58,7 @@
       function deleteZsdy(zsdybh,zslybh, xkbh) {
             $.post("processAspx/scZsdyProc.aspx", { 'zsdybh':zsdybh,'zslybh': zslybh, 'xkbh': xkbh}, function (result) {
                 if (result == 'False') {
-                    $.messager.alert('信息', '删除失败,该知识领域已被使用!', 'info', function () {
+                    $.messager.alert('信息', '删除失败,该知识单元已被使用!', 'info', function () {
                         //window.location.reload();
                     });
                 } else if (result == 'True') {

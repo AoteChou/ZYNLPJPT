@@ -130,6 +130,7 @@
     <Content Include="processAspx\scjdkcxsProc.aspx" />
     <Content Include="processAspx\scSingleYjzbProc.aspx" />
     <Content Include="processAspx\scYjzbProc.aspx" />
+    <Content Include="processAspx\scZsdProc.aspx" />
     <Content Include="processAspx\scZsdyProc.aspx" />
     <Content Include="processAspx\scZslyProc.aspx" />
     <Content Include="processAspx\xgcpjdData.aspx" />
@@ -189,6 +190,7 @@
     <Content Include="scxk.aspx" />
     <Content Include="scxy.aspx" />
     <Content Include="scyjzb.aspx" />
+    <Content Include="sczsd.aspx" />
     <Content Include="sczsdy.aspx" />
     <Content Include="scZsdyToEjzb.aspx" />
     <Content Include="sczsly.aspx" />
@@ -843,6 +845,13 @@
     <Compile Include="processAspx\scYjzbProc.aspx.designer.cs">
       <DependentUpon>scYjzbProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\scZsdProc.aspx.cs">
+      <DependentUpon>scZsdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scZsdProc.aspx.designer.cs">
+      <DependentUpon>scZsdProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\scZsdyProc.aspx.cs">
       <DependentUpon>scZsdyProc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1210,6 +1219,13 @@
     </Compile>
     <Compile Include="scyjzb.aspx.designer.cs">
       <DependentUpon>scyjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sczsd.aspx.cs">
+      <DependentUpon>sczsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sczsd.aspx.designer.cs">
+      <DependentUpon>sczsd.aspx</DependentUpon>
     </Compile>
     <Compile Include="sczsdy.aspx.cs">
       <DependentUpon>sczsdy.aspx</DependentUpon>
