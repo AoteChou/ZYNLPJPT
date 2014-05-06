@@ -54,7 +54,7 @@
                        Response.Write("  <td >" + zykcViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].KCXZMC + "</td>");
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>

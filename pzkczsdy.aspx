@@ -34,7 +34,7 @@
                        Response.Write("  <td >" + this.kcDetailViews[i].KCFZR + "</td>");
                        Response.Write("	<td >" + this.kcDetailViews[i].XKMC + "</td>");
                        Response.Write("	<td >" + this.kcDetailViews[i].XYMC + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/pzkczsdyProc.aspx?kcbh=" + this.kcDetailViews[i].KCBH + "&xkbh=" + this.kcDetailViews[i].KKXK + "'\" >配置课程知识单元</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/pzkczsdyProc.aspx?kcbh=" + this.kcDetailViews[i].KCBH + "&xkbh=" + this.kcDetailViews[i].KKXK + "'\" >配置课程知识单元</a></td>");
                        Response.Write("</tr>");
                    }
                     %>

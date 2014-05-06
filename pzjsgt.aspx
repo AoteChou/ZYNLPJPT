@@ -52,7 +52,7 @@
                        Response.Write("	<td >" + jdkcViews[i].ZYBH + "</td>");
                        Response.Write("	<td >" + jdkcViews[i].ZYM + "</td>");
                        Response.Write("	<td >" + jdkcViews[i].KCXZMC + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/jdkcxsData.aspx?njbh=" + this.jdkcViews[i].NJBH +"&jdbh="+this.jdkcViews[i].JDBH+"&kcbh="+jdkcViews[i].KCBH+"&zybh="+jdkcViews[i].ZYBH+"&xkbh="+jdkcViews[i].XKBH+ "'\" >配置改题人</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/jdkcxsData.aspx?njbh=" + this.jdkcViews[i].NJBH +"&jdbh="+this.jdkcViews[i].JDBH+"&kcbh="+jdkcViews[i].KCBH+"&zybh="+jdkcViews[i].ZYBH+"&xkbh="+jdkcViews[i].XKBH+ "'\" >配置改题人</a></td>");
                        Response.Write("</tr>");
                    }
                  %>

@@ -32,7 +32,7 @@
                        Response.Write("	<td >" + xyXkZyViews[i].XKMC + "</td>");
                        Response.Write("  <td >" + xyXkZyViews[i].XKFZR + "</td>");
                        Response.Write("	<td >" + xyXkZyViews[i].ZYM + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/pzEjzbProc.aspx?zybh=" + xyXkZyViews[i].ZYBH +"&xkbh="+xyXkZyViews[i].XKBH + "'\" >配置专业能力指标</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/pzEjzbProc.aspx?zybh=" + xyXkZyViews[i].ZYBH +"&xkbh="+xyXkZyViews[i].XKBH + "'\" >配置专业能力指标</a></td>");
                        Response.Write("</tr>");
                    }
                     %>

@@ -62,10 +62,6 @@
                     <td>班级名称:</td>
                     <td><input class="easyui-validatebox textbox" type="text" id="BjMc" name="BjMc" data-options="required:true"></input></td>
                 </tr>
-                <%--<tr style=" margin-top:10px;">
-                    <td>班级入学年份:</td>
-                    <td><input class="easyui-datetimebox"  type="text" id="rxnf" name="rxnf" data-options="required:true"></input></td>
-                </tr>--%>
             </table>
         </form>
         <div style="text-align:center;padding:5px; margin-top:50px;">

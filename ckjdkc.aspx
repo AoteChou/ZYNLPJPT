@@ -59,7 +59,7 @@
                        Response.Write("	<td >" + this.cpjdViewWrappers[i].CpjdView.QSXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViewWrappers[i].CpjdView.JZXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViewWrappers[i].CpjdView.CPJDJJ + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showJdkcs('" + this.cpjdViewWrappers[i].Jdkcs.Trim() + "') \" >查看知识单元</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showJdkcs('" + this.cpjdViewWrappers[i].Jdkcs.Trim() + "') \" >查看知识单元</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>

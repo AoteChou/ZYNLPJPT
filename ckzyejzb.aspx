@@ -37,7 +37,7 @@
                        Response.Write("	<td >" + this.xyXkZyViewWrappers[i].XyXkZyView.XKMC + "</td>");
                        Response.Write("  <td >" +this.xyXkZyViewWrappers[i].XyXkZyView.XKFZR + "</td>");
                        Response.Write("	<td >" + this.xyXkZyViewWrappers[i].XyXkZyView.ZYM + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showEjzbs('" + this.xyXkZyViewWrappers[i].Ejzbs.Trim() + "') \" >查看知识单元</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showEjzbs('" + this.xyXkZyViewWrappers[i].Ejzbs.Trim() + "') \" >查看知识单元</a></td>");
                        Response.Write("</tr>");
                    }
               %>

@@ -53,7 +53,7 @@
                        Response.Write("	<td >" + this.cpjdViews[i].QSXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViews[i].JZXQ + "</td>");
                        Response.Write("	<td >" + this.cpjdViews[i].CPJDJJ + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/cpjdData.aspx?njbh=" + this.cpjdViews[i].NJBH + "&zybh=" + this.cpjdViews[i].ZYBH + "&xkbh=" + this.cpjdViews[i].XKBH + "&jdbh=" + this.cpjdViews[i].JDBH + "&jdmc="+this.cpjdViews[i].JDMC+"&zym="+this.cpjdViews[i].ZYM.Trim()+"'\" >配置阶段下设课程</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/cpjdData.aspx?njbh=" + this.cpjdViews[i].NJBH + "&zybh=" + this.cpjdViews[i].ZYBH + "&xkbh=" + this.cpjdViews[i].XKBH + "&jdbh=" + this.cpjdViews[i].JDBH + "&jdmc="+this.cpjdViews[i].JDMC+"&zym="+this.cpjdViews[i].ZYM.Trim()+"'\" >配置阶段下设课程</a></td>");
                        Response.Write("</tr>");
                    } %>
     	</tbody>
