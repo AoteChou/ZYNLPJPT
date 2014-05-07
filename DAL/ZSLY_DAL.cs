@@ -53,6 +53,22 @@ namespace ZYNLPJPT.DAL
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
+        public bool ExistsFoXG(string ZSLYMC,int ZSLYBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from ZSLY");
+            strSql.Append(" where ZSLYMC=@ZSLYMC and ZSLYBH!=@ZSLYBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@ZSLYMC", SqlDbType.VarChar,50),
+                    new SqlParameter("@ZSLYBH",SqlDbType.Int,4)
+
+			};
+            parameters[0].Value = ZSLYMC;
+            parameters[1].Value = ZSLYBH;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
         /// <summary>
         /// 增加一条数据
         /// </summary>

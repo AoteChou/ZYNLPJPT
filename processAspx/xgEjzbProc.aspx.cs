@@ -36,7 +36,7 @@ namespace ZYNLPJPT.processAspx
                     ejzb.YJZBBH = yjzb.YJZBBH;
                     ejzb.EJZBBH = ejzbbh;
                     EJZB_DAL ejzbDal = new EJZB_DAL();
-                    if (ejzbDal.ExistsForAdd(yjzb.YJZBBH, ejzbMc))
+                    if (ejzbDal.ExistsForXG(yjzb.YJZBBH, ejzbMc, ejzbbh))
                     {
                         result = false;
                     }

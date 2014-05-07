@@ -69,6 +69,23 @@ namespace ZYNLPJPT.DAL
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
+        public bool ExistsForXG(int YJZBBH, string EJZBMC,int EJZBBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from EJZB");
+            strSql.Append(" where YJZBBH=@YJZBBH and EJZBMC=@EJZBMC and EJZBBH!=@EJZBBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@YJZBBH", SqlDbType.Int,4),
+                    new SqlParameter("@EJZBMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@EJZBBH",SqlDbType.VarChar,50)
+			};
+            parameters[0].Value = YJZBBH;
+            parameters[1].Value = EJZBMC;
+            parameters[2].Value = EJZBBH;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
         public bool ExistsForYJZBBH(int YJZBBH)
         {
             StringBuilder strSql = new StringBuilder();

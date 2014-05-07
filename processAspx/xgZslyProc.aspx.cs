@@ -33,7 +33,7 @@ namespace ZYNLPJPT.processAspx
                 zsly.XKBH = iXkbh;
                 zsly.ZSLYBH = zslybh;
                 ZSLY_DAL zslyDal = new ZSLY_DAL();
-                if (zslyDal.Exists(zslyMc))
+                if (zslyDal.ExistsFoXG(zslyMc, zslybh))
                 {
                     result = false;
                 }

@@ -44,7 +44,7 @@ namespace ZYNLPJPT.processAspx
                     cpjd.JDMC=jdMc;
                     cpjd.CPJDJJ=cpjdJj;
                     CPJD_DAL cpjdDal = new CPJD_DAL();
-                    if (cpjdDal.Exists(jdMc))
+                    if (cpjdDal.ExistsForXG(jdMc,jdbh))
                     {
                         result = false;
                     }
