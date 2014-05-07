@@ -56,7 +56,7 @@
                     });
                 } else if (data == 'False') {
                     $.messager.alert('结果', '修改失败！', 'info', function () {
-                        window.location = "../xgzsd.aspx";
+                        //do nothing
                      });
                 }
             });

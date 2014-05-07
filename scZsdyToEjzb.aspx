@@ -15,10 +15,10 @@
              $.post("processAspx/DelZsdyToEjzb.aspx", { 'zslybh': zslybh, 'zsdybh': zsdybh }, function (result) {
                  if (result == 'False') {
                      $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
-                         window.location.reload();
+                         //do nothing
                      });
                  } else if (result == 'True') {
-                     window.location.reload();
+                     window.location = "scZsdyToEjzb.aspx";
                  }
              });
          }

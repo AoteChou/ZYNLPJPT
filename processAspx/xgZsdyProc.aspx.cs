@@ -35,13 +35,20 @@ namespace ZYNLPJPT.processAspx
                 zsdy.ZSDYQZ = iZsdyQz;
                 zsdy.BZ = zsdyBz;
                 zsdy.ZSDYBH = zsdybh;
-                if (new ZSDY_DAL().UpdateForXG(zsdy))
-                {
-                    result = true;
-                }
-                else
+                ZSDY_DAL zsdyDal = new ZSDY_DAL();
+                if (zsdyDal.Exists(zsly.ZSLYBH, zsdyMc))
                 {
                     result = false;
+                }
+                else {
+                    if (zsdyDal.UpdateForXG(zsdy))
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
             Response.Write(result);

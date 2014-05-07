@@ -31,13 +31,21 @@ namespace ZYNLPJPT.processAspx
                 zsdy.EJZBBH = null;
                 zsdy.ZSDYQZ = iZsdyQz;
                 zsdy.BZ = zsdyBz;
-                int i= new ZSDY_DAL().Add(zsdy);
-                if (i == 0)
+                ZSDY_DAL zsdyDal = new ZSDY_DAL();
+                if (zsdyDal.Exists(zsly.ZSLYBH, zsdyMc))
                 {
                     result = false;
                 }
                 else {
-                    result = true;
+                    int i = zsdyDal.Add(zsdy);
+                    if (i == 0)
+                    {
+                        result = false;
+                    }
+                    else
+                    {
+                        result = true;
+                    }
                 }
             }
             Response.Write(result);

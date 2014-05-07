@@ -14,11 +14,11 @@
         function deleteAllZsdy(kcbh, xkbh) {
             $.post("processAspx/DelAllKcZsdy.aspx", { 'kcbh': kcbh, 'xkbh': xkbh }, function (result) {
                 if (result == 'False') {
-                    $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
-                        window.location.reload();
+                    $.messager.alert('信息', '删除失败,该课程知识单元已被使用，请先删除关联项!', 'info', function () {
+                        //do nothing
                     });
                 } else if (result == 'True') {
-                    window.location.reload();
+                    window.location = "sckczsdy.aspx";
                 }
             });
         }

@@ -27,13 +27,21 @@ namespace ZYNLPJPT.processAspx
                 zsly.ZSLYMC = zslyMc;
                 zsly.BZ = zslyJj;
                 zsly.XKBH = iXkbh;
-                int i=new ZSLY_DAL().Add(zsly);
-                if (i == 0)
+                ZSLY_DAL zslyDal = new ZSLY_DAL();
+                if (zslyDal.Exists(zslyMc))
                 {
                     result = false;
                 }
                 else {
-                    result = true;
+                    int i = zslyDal.Add(zsly);
+                    if (i == 0)
+                    {
+                        result = false;
+                    }
+                    else
+                    {
+                        result = true;
+                    }
                 }
             }
             Response.Write(result);

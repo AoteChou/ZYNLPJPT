@@ -87,7 +87,5 @@ namespace ZYNLPJPT
             get { return jdkcs; }
             set { jdkcs = value; }
         }
-
     }
-
 }

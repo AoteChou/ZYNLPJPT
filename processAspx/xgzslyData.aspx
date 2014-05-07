@@ -46,8 +46,8 @@
                         window.location = "../xgzsly.aspx";
                     });
                 } else if (data == 'False') {
-                    $.messager.alert('结果', '修改失败!', 'info', function () {
-                        window.location = "../xgzsly.aspx";
+                    $.messager.alert('结果', '修改失败，不能插入相同的知识领域名称!', 'info', function () {
+                        //do nothing
                     });
                 }
             });

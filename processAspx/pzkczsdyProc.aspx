@@ -36,6 +36,9 @@
                 }
 
             }
+            function returnToUpPage() {
+                window.location = "../pzkczsdy.aspx";
+            }
     </script>
 </head>
 <body class="easyui-layout">
@@ -43,7 +46,7 @@
 
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=kcbh %>)">提交修改</a>
         </div>
     </div>

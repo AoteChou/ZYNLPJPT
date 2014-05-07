@@ -34,13 +34,20 @@ namespace ZYNLPJPT.processAspx
                 yjzb.XKBH = iXkbh;
                 yjzb.YJZBQZ = iYjzbqz;
                 yjzb.YJZBBH = yjzbbh;
-                if (new YJZB_DAL().Update(yjzb))
-                {
-                    result = true ;
-                }
-                else
+                YJZB_DAL yjzbDal = new YJZB_DAL();
+                if (yjzbDal.Exists(yjzbMc))
                 {
                     result = false;
+                }
+                else {
+                    if (yjzbDal.Update(yjzb))
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
             Response.Write(result);

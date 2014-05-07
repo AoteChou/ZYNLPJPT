@@ -66,7 +66,7 @@
                         //window.location.reload();
                     });
                 } else if (result == 'True') {
-                    window.location.reload();
+                    window.location="sczsd.aspx";
                 }
             });
         }

@@ -15,7 +15,7 @@
 <div region="north" border="true" style="height:40px;">
 <form action="ckcpjd.aspx" method="post">
     <div id="content" name="content" style="padding:10px 10px 10px 400px">
-        <label for="choosedMajor" style="width:200px;">选择需要设置的专业:</label>
+        <label for="choosedMajor" style="width:200px;">选择需要查看的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length; i++) {
                    Response.Write("<option>"+allZyms[i].ToString().Trim()+"</option>");
@@ -25,7 +25,7 @@
     </form>
 </div>
 <div region="center" border="false">
- <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+ <div id="ctTea" class="easyui-window" title="查看测评阶段" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
  </div>
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>

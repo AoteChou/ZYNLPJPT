@@ -15,7 +15,7 @@
             $.post("DelSingleCtr.aspx", { 'zybh': zybh, 'kcbh':kcbh, 'yhbh': yhbh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
-                        window.location.reload();
+                        //do nothing
                     });
                 } else if (result == 'True') {
                     window.location.reload();

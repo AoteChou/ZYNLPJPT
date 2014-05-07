@@ -57,10 +57,10 @@
             $.post("processAspx/scYjzbProc.aspx", { 'yjzbbh': yjzbbh, 'xkbh': xkbh}, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,该一级指标已被使用!', 'info', function () {
-                        window.location.reload();
+                        //do thing
                     });
                 } else if (result == 'True') {
-                    window.location.reload();
+                    window.location="scyjzb.aspx";
                 }
             });
         }

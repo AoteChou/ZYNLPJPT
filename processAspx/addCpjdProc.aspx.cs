@@ -38,10 +38,18 @@ namespace ZYNLPJPT.processAspx
                     cpjd.JZXQ=iJzxq;
                     cpjd.JDMC=jdMc;
                     cpjd.CPJDJJ=cpjdJj;
-                    if(new CPJD_DAL().Add(cpjd)==0){
-                        result=false;
+                    CPJD_DAL cpjdDal = new CPJD_DAL();
+                    if (cpjdDal.Exists(jdMc)) {
+                        result = false;
                     }else{
-                        result=true;
+                        if (cpjdDal.Add(cpjd) == 0)
+                        {
+                            result = false;
+                        }
+                        else
+                        {
+                            result = true;
+                        }
                     }
                 }
             }

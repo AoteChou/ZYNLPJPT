@@ -12,10 +12,10 @@
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
         function deleteSingleJdkc(zybh, njbh, jdbh, kcbh) {
-            $.post("DelSingleJdkc.aspx", { 'zybh': zybh, 'njbh': njbh, 'jdbh': jdbh,'kcbh':kcbh }, function (result) {
+            $.post("DelSingleJdkc.aspx", { 'zybh': zybh, 'njbh': njbh, 'jdbh': jdbh, 'kcbh': kcbh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,该阶段课程已配置改题人，请先产出改题人，再进行此操作！', 'info', function () {
-                        window.location.reload();
+                        //do nothing
                     });
                 } else if (result == 'True') {
                     window.location.reload();

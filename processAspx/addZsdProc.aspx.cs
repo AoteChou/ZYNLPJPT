@@ -36,13 +36,21 @@ namespace ZYNLPJPT.processAspx
                     zsd.ZSDMC = zsdMc;
                     zsd.ZSDQZ = iZsdyQz;
                     zsd.BZ = Request["zsdBz"] == null ? "" : Request["zsdBz"].ToString().Trim();
-                    int i = new ZSD_DAL().Add(zsd);
-                    if (i == 0)
+                    ZSD_DAL zsdDal = new ZSD_DAL();
+                    if (zsdDal.Exists(zstxView.ZSDYBH, zsdMc, zstxView.ZSLYBH))
                     {
                         result = false;
                     }
                     else {
-                        result = true;
+                        int i = zsdDal.Add(zsd);
+                        if (i == 0)
+                        {
+                            result = false;
+                        }
+                        else
+                        {
+                            result = true;
+                        }
                     }
                 }
             }

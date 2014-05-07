@@ -27,18 +27,28 @@ namespace ZYNLPJPT.processAspx
             {
                 int iZsdyQz = int.Parse(sZsdQz);
                 ZSD zsd = new ZSD();
-                zsd.ZSLYBH = int.Parse(szslybh);
-                zsd.ZSDYBH = int.Parse(szsdybh);
-                zsd.ZSDBH = int.Parse(szsdbh);
+                int zslybh=int.Parse(szslybh);
+                zsd.ZSLYBH = zslybh;
+                int zsdybh=int.Parse(szsdybh);
+                zsd.ZSDYBH = zsdybh;
+                int zsdbh=int.Parse(szsdbh);
+                zsd.ZSDBH = zsdbh;
                 zsd.ZSDMC = zsdMc;
                 zsd.ZSDQZ = iZsdyQz;
-                if (new ZSD_DAL().UpdateNotIncludeBZ(zsd))
-                {
-                    result = true;
-                }
-                else
+                ZSD_DAL zsdDal = new ZSD_DAL();
+                if (zsdDal.Exists(zsdybh, zsdMc, zslybh))
                 {
                     result = false;
+                }
+                else {
+                    if (zsdDal.UpdateNotIncludeBZ(zsd))
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
                 Response.Write(result);
                 Response.End();

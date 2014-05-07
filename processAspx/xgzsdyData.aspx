@@ -13,7 +13,7 @@
 </head>
 <body>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
-    <div class="easyui-panel" title="添加知识单元" style="width:400px;  ">
+    <div class="easyui-panel" title="修改知识单元" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
         <form id="ff" > 
             <table cellpadding="4" >
@@ -54,8 +54,8 @@
                         window.location = "../xgzsdy.aspx";
                     });
                 } else if (data == 'False') {
-                    $.messager.alert('结果', '修改失败！', 'info', function () {
-                        window.location = "../xgzsdy.aspx";
+                    $.messager.alert('结果', '修改失败,不能将该数据修改为已经存在值！', 'info', function () {
+                        //do nothing
                     });
                 }
             });

@@ -50,11 +50,9 @@
                     if (data == 'True') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
-
                     } else if (data == 'False') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，二级指标不能为空或者存在该二级指标！', 'info');
-
                     }
                 });
             }

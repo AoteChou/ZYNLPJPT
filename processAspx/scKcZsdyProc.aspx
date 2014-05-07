@@ -15,7 +15,7 @@
             $.post("DelSingleKcZsdy.aspx", { 'kcbh': kcbh, 'xkbh': xkbh, 'zslybh': zslybh, 'zsdybh': zsdybh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('信息', '删除失败,请重试!', 'info', function () {
-                        window.location.reload();
+                        //do thing
                     });
                 } else if (result == 'True') {
                     window.location.reload();

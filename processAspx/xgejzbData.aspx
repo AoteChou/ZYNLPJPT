@@ -13,27 +13,13 @@
 </head>
 <body>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
-    <div class="easyui-panel" title="添加二级指标" style="width:400px;  ">
+    <div class="easyui-panel" title="修改二级指标" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
         <form id="ff" > 
             <table cellpadding="5">
-             <tr style=" margin-top:10px;">
-                    <td>修改前数据:</td>
-                    <td>
-                        <div style=" width:152px">
-                             一级指标名称:<%=yjzbmc%><br />
-                        </div>
-                    </td>
-                </tr>
                 <tr style=" margin-top:10px;">
                     <td>一级指标名称:</td>
-                    <td> 
-                        <select id="yjzbName" name="yjzbName" style="width:152px;" >
-                            <% for (int i = 0; i < this.yjzbNames.Length; i++) {
-                                   Response.Write("<option> "+this.yjzbNames[i]+"</option>");  
-                             } %>
-                        </select>
-                    </td>
+                  <td><input class="easyui-validatebox textbox" type="text" disabled="disabled" id="yjzbName" value="<%=yjzbmc %>" name="yjzbName" data-options="required:true"></input></td>
                 </tr>
                 <tr style=" margin-top:10px;">
                     <td>二级指标名称:</td>
@@ -61,8 +47,8 @@
                         window.location = "../xgejzb.aspx";
                     });
                 } else if (data == 'False') {
-                    $.messager.alert('结果', '修改失败!', 'info', function () {
-                        window.location = "../xgejzb.aspx";
+                    $.messager.alert('结果', '修改失败,不能插入其他二级指标名称!', 'info', function () {
+                        //do nothing
                     });
                 }
             });

@@ -44,10 +44,9 @@
                     if (data == 'True') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
-
                     } else if (data == 'False') {
                         $('#ff').form('clear');
-                        $.messager.alert('结果', '添加失败，知识领域不能为空或者存在该知识点！', 'info');
+                        $.messager.alert('结果', '添加失败，知识领域不能为空或者存在该知识领域！', 'info');
                        
                     }
                 });

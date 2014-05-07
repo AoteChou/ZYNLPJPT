@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>配置测评阶段</title> 
+   <title>配置阶段课程</title> 
     <link rel="Stylesheet" type="text/css" href="../Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="../Styles/icon.css" /> 
      <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
@@ -21,12 +21,15 @@
             $.post("addJdKc.aspx", { 'kcbhs': kcbh, 'jdbh': jdbh, 'zybh': zybh,'njbh':njbh }, function (result) {
                 if (result == 'False') {
                     $.messager.alert('警告', '必须选择至少一门课程,请选择要配置的课程!');
-                } else {
+                } else if(result=='True'){
                     $.messager.alert('信息', '阶段课程配置成功!', 'info', function () {
                         window.location = "../pzjdkc.aspx";
                     });
                 }
             });
+        }
+        function returnToUpPage() {
+            window.location = "../pzjdkc.aspx";
         }
     </script>
 </head>
@@ -34,7 +37,7 @@
     <form id="form" action="../Default.htm" method="post">
     <div region="north" border="true"  >
         <div style="padding:10px 10px 10px 400px" >
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=jdbh %>,<%=zybh %>,<%=njbh %>)">提交修改</a>
         </div>
     </div>

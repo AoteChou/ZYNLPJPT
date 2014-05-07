@@ -13,7 +13,7 @@
 </head>
 <body>
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
-    <div class="easyui-panel" title="添加知识领域" style="width:400px;  ">
+    <div class="easyui-panel" title="添加一级指标" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
         <form id="ff" > 
             <table cellpadding="5">

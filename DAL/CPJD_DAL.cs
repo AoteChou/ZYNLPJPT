@@ -44,6 +44,18 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(string JDMC)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from CPJD");
+            strSql.Append(" where JDMC=@JDMC ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@JDMC", SqlDbType.VarChar,50)			};
+            parameters[0].Value = JDMC;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
 		/// <summary>
 		/// 增加一条数据
