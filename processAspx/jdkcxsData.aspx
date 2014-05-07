@@ -34,7 +34,7 @@
                 } else if (result == 'True') {
                     $.messager.confirm('信息', '该教师改题配置成功，单击确认返回上层界面，取消则停留在本界面继续配置!', function (r) {
                         if (r) {
-                            history.back(-1);
+                            window.location = "../pzjsgt.aspx";
                         } else {
                             location.reload();
                         }

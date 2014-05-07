@@ -14,7 +14,7 @@
         function deleteSingleGtr(xkbh, njbh, jdbh, kcbh, zybh, jsbh, xsbh) {
             $.post("DelSingleGtr.aspx", { 'xkbh': xkbh, 'njbh': njbh, 'zybh': zybh, 'jdbh': jdbh, 'kcbh': kcbh,'jsbh':jsbh,'xsbh':xsbh }, function (result) {
                 if (result == 'False') {
-                    $.messager.alert('信息', '删除失败,该阶段课程已配置改题人，请先产出改题人，再进行此操作！', 'info', function () {
+                    $.messager.alert('信息', '删除失败,请重新操作！', 'info', function () {
                         window.location.reload();
                     });
                 } else if (result == 'True') {

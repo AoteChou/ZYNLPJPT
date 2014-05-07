@@ -44,7 +44,6 @@ namespace ZYNLPJPT.processAspx
                     kcbh = int.Parse(Request["kcbh"].ToString());
                     jdbh = int.Parse(Request["jdbh"].ToString());
                     zybh = int.Parse(Request["zybh"].ToString());
-
                     bjXsDetailViews = new BjXsDetailView_DAL().getArray(kcbh,zybh,njbh,jdbh);
                     jsTeaDetailViews = new JsTeaDetailView_DAL().getArray(kcbh,zybh,njbh,jdbh,xkbh);
                 }

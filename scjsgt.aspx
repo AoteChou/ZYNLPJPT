@@ -28,7 +28,7 @@
 <div region="north" border="true" style="height:40px;">
 <form action="scjsgt.aspx" method="post">
     <div id="content" name="content" style="padding:10px 10px 10px 400px">
-        <label for="choosedNjName" style="width:200px;">选择需要配置改题人的年级:</label>
+        <label for="choosedNjName" style="width:200px;">选择需要删除改题人的年级:</label>
         <select  id="choosedNjName" name="choosedNjName" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allNjNames.Length; i++) {
                    Response.Write("<option>"+allNjNames[i].ToString().Trim()+"</option>");
@@ -38,7 +38,7 @@
     </form>
 </div>
 <div region="center" border="false">
- <div id="ctTea" class="easyui-window" title="配置出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+ <div id="ctTea" class="easyui-window" title="删除出题人" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
  </div>
   <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>

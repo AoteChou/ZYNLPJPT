@@ -10,12 +10,17 @@
     <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        function returnToUpPage() {
+            window.location = "../ckjsgt.aspx";
+        }
+    </script>
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
          <div region="north" border="true"  >
             <div style="padding:10px 10px 10px 400px" >
-                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="history.back(-1)">返回上页</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回上页</a>
             </div>
         </div>
         <div region="center" border="false">
