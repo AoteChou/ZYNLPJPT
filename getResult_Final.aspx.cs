@@ -17,14 +17,15 @@ namespace ZYNLPJPT
         protected int zybh;
         protected int result;
         protected string xsbh;
-        protected string yjzbCatagories;
+        //protected string yjzbCatagories;
         protected string yjzbData;
         protected string drilldownSeries;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
             {
-                this.Response.Redirect("Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
 
             }
             else
@@ -34,7 +35,7 @@ namespace ZYNLPJPT
                
                 List<ZBMCAndFS> yjzbmcAndFsList=new List<ZBMCAndFS>();
                 result=ZYNLPJPT.BLL.GetTestResult_BLL.getTestResult_Final(xsbh,ref yjzbmcAndFsList);
-                yjzbCatagories = "[";
+                //yjzbCatagories = "[";
                 yjzbData = "[";
                 drilldownSeries = "[";
                 for (int i = 0; i < yjzbmcAndFsList.Count;i++ )
@@ -42,13 +43,13 @@ namespace ZYNLPJPT
                     //Response.Write(yjzbmcAndFsList[i].Zbmc + "  " + yjzbmcAndFsList[i].Fs);
                     if (i == 0)
                     {
-                        yjzbCatagories +=  "'"+yjzbmcAndFsList[i].Zbmc+"'";
-                        yjzbData += "{ y:" + yjzbmcAndFsList[i].Fs + ",drilldown: '"+i+"'}";
+                        //yjzbCatagories +=  "'"+yjzbmcAndFsList[i].Zbmc+"'";
+                        yjzbData += "{ name:'" + yjzbmcAndFsList[i].Zbmc + "',y:" + yjzbmcAndFsList[i].Fs + ",drilldown: '" + i + "'}";
                         drilldownSeries += "{ id: '" + i + "', data: [";
                     }
                     else {
-                        yjzbCatagories += ",'" + yjzbmcAndFsList[i].Zbmc + "'";
-                        yjzbData += "," + "{ y:" + yjzbmcAndFsList[i].Fs + ",drilldown: '" + i + "'}";
+                        //yjzbCatagories += ",'" + yjzbmcAndFsList[i].Zbmc + "'";
+                        yjzbData += "," + "{ name:'" + yjzbmcAndFsList[i].Zbmc + "',y:" + yjzbmcAndFsList[i].Fs + ",drilldown: '" + i + "'}";
                         drilldownSeries += ",{ id: '" + i + "', data: [";
                     }
 
@@ -71,7 +72,7 @@ namespace ZYNLPJPT
                     drilldownSeries += "]}";
                     
                 }
-                yjzbCatagories += "]";
+                //yjzbCatagories += "]";
                 yjzbData += "]";
                 drilldownSeries += "]";
 

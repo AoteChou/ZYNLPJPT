@@ -22,11 +22,13 @@ namespace ZYNLPJPT
         public bool sfzdyj;
         private string hzm;
         protected float finishratio;
+        protected string zsdstring;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
             {
-                this.Response.Redirect("Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
             }
             else
             {
@@ -52,6 +54,17 @@ namespace ZYNLPJPT
                 finishratio = 1-((float)zsd_unfinished.Length / (float)zsdcount);//完成比率
 
                 submitButtonId.Click += new System.EventHandler(this.Button_Clicked);
+                for (int i = 0; i < stzsdviews.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        zsdstring += "['" + stzsdviews[i].ZSDMC + "'," + float.Parse(stzsdviews[i].ZSDBZ.ToString()) + "]";
+                    }
+                    else {
+                        zsdstring += ",['" + stzsdviews[i].ZSDMC + "'," + float.Parse(stzsdviews[i].ZSDBZ.ToString()) + "]";
+                    }
+    		     
+                } 
             
             }
             

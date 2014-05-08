@@ -9,13 +9,14 @@
     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/highcharts.js"></script>
     <script type="text/javascript" src="Scripts/drilldown.js"></script>
+    <script type="text/javascript" src="Scripts/exporting.js"></script>
 </head>
 <body class="easyui-layout">
     <form id="form1" runat="server">
     <div id="left">
         <div id="resultDiv">
             <font id="score"><%=result %></font>
-            <font>分</font><br />
+            <font >分</font><br />
             <font>专业能力综合得分</font>
         </div>
         <div id="sepDiv">
@@ -32,19 +33,28 @@
  <script type="text/javascript">
      $(function () {
             var nowDate = new Date();
-           
+            var datestring=nowDate.toLocaleString()
          $('#container').highcharts({
              chart: {
-                 type: 'column'
+                 type: 'column',
+                 events:{
+                     drilldown:function(e){
+                        this.setTitle ({text:'指标:['+e.point.name +']下属二级指标得分情况'},{text:''});
+                     },
+                     drillup:function(e){
+                        this.setTitle ({text:'一级指标得分情况,'+datestring},{text:'点击获取二级指标得分情况'});
+                     }
+                 }
+                 
              },
              title: {
-                 text: '一级指标得分情况,'+nowDate.toLocaleString()
+                 text: '一级指标得分情况,'+datestring
              },
             subtitle: {
                 text: '点击获取二级指标得分情况'
             },
             xAxis: {
-                 categories: <%=yjzbCatagories%>
+                 type:'category'
             },
              yAxis: {
                  title: {
@@ -52,15 +62,15 @@
                  }
              },
              series: [{
-                 name: '得分',
+                 name: '一级指标得分',
                  colorByPoint: true,
                  data: <%=yjzbData %>
              }],
              tooltip:{
                  formatter: function() {
                     var point = this.point,
-                        s = this.x +'<br/><b>'+ this.y +'分</b><br/>';
-                    if (!point.drilldown) {
+                        s = this.point.name+'<br/><b>'+ this.y +'分</b><br/>';
+                    if (point.drilldown) {
                         s += '<font style="color:#C0C0C0">点击查看二级指标得分情况</font>';
                     } 
                     return s;
@@ -68,7 +78,10 @@
             },
             drilldown: {
                 series: <%=drilldownSeries %>
-            }
+            },
+            exporting:{
+                enabled:true
+            },
          });
      });
  

@@ -22,7 +22,7 @@ namespace ZYNLPJPT.BLL
             STZSDView_DAL stzsdview_dal = new STZSDView_DAL();
             ST_Undone[] st_undoneArray=stzsdview_dal.getST_Undone(kcbh, xsbh);
             ST_DAL st_dal = new ST_DAL();
-            System.Data.DataSet ds = st_dal.GetList("kcbh="+kcbh);
+            System.Data.DataSet ds = st_dal.GetList("kcbh=" + kcbh + " and ST.SFSC = 'false' AND ST.SFZDYJ = 'false' AND ST.TMNR IS NOT NULL");
             System.Data.DataRowCollection allSTofThisKC = ds.Tables[0].Rows;
             if (allSTofThisKC.Count <= 0) { //该课程下没有试题
                 msg = "出错啦 该门课程下还没有试题 请联系管理员~";
@@ -38,7 +38,7 @@ namespace ZYNLPJPT.BLL
                 {
                     int STcount = allSTofThisKC.Count;
                     Random r = new Random();
-                    int randomBH = r.Next(0, STcount + 1);
+                    int randomBH = r.Next(0, STcount);
                     stbh = int.Parse(allSTofThisKC[randomBH]["stbh"].ToString());
 
                 }

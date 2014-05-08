@@ -153,7 +153,7 @@ namespace ZYNLPJPT.BLL
             {
                 ZBMCAndFS zbmcandfs = new ZBMCAndFS(false);
                 zbmcandfs.Zbmc = row["ejzbmc"].ToString();
-                int fs = getTestResult_YJZB(xsbh, int.Parse(row["ejzbbh"].ToString()), zybh);
+                int fs = getTestResult_EJZB(xsbh, int.Parse(row["ejzbbh"].ToString()));
                 zbmcandfs.Fs = fs;
                 ejzbmcandfsList.Add(zbmcandfs);
 

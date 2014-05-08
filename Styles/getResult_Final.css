@@ -16,12 +16,12 @@ body{
 	height:100%
 	}
 #score{
-	font-size:150px;}
+	font-size:130px;}
 #resultDiv{
-	left: 50px;
-    position: absolute;
+	position: absolute;
     text-align: center;
     top: 25%;
+    width: 100%;
 	}
 #sepDiv{
 	margin-top: -250px;

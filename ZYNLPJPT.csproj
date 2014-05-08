@@ -67,6 +67,7 @@
     <Content Include="ckctr.aspx" />
     <Content Include="getResult_EJZB.aspx" />
     <Content Include="getResult_Final.aspx" />
+    <Content Include="getResult_Final_Loading.htm" />
     <Content Include="getResult_YJZB.aspx" />
     <Content Include="getResult_ZSD.aspx" />
     <Content Include="getResult_ZSDY.aspx" />
@@ -94,6 +95,7 @@
     <Content Include="processAspx\ctrData.aspx" />
     <Content Include="processAspx\getEJZBByYHBH.aspx" />
     <Content Include="processAspx\DelAllZyZjzb.aspx" />
+    <Content Include="processAspx\getPCFSByKcbhAndYhbh.aspx" />
     <Content Include="processAspx\getYJZBByYHBH.aspx" />
     <Content Include="processAspx\getZSDByYHBH.aspx" />
     <Content Include="processAspx\getZSDYByYHBH.aspx" />
@@ -130,9 +132,12 @@
     <Content Include="processAspx\logout.aspx" />
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\drilldown.js" />
     <Content Include="Scripts\easyloader.js" />
+    <Content Include="Scripts\exporting.js" />
     <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
@@ -207,6 +212,7 @@
     <Content Include="Styles\icons\sum.png" />
     <Content Include="Styles\icons\tip.png" />
     <Content Include="Styles\icons\undo.png" />
+    <Content Include="Styles\Preloader_2.gif" />
     <Content Include="Styles\TestPage.css" />
     <Content Include="TestPage.aspx" />
     <Content Include="UploadPage.aspx" />
@@ -222,6 +228,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="TestPage_Loading.htm" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addcpjd.aspx.cs">
@@ -523,9 +530,8 @@
     </Compile>
     <Compile Include="processAspx\getEJZBByYHBH.aspx.cs">
       <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
-       <SubType>ASPXCodeBehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-
     <Compile Include="processAspx\DelAllZyZjzb.aspx.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +541,13 @@
     </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.cs">
+      <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.designer.cs">
+      <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\getYJZBByYHBH.aspx.cs">
       <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
@@ -629,7 +642,7 @@
     <Compile Include="DAL\JDKCView_DAL.cs" />
     <Compile Include="DAL\JDKCXSView_DAL.cs" />
     <Compile Include="DAL\JDKCXS_DAL.cs" />
-    <Compile Include="DAL\JDKC_DAL.cs" />
+    <Compile Include="Properties\JDKC_DAL.cs" />
     <Compile Include="DAL\JSGNB_DAL.cs" />
     <Compile Include="DAL\JSNJZYKC_DAL.cs" />
     <Compile Include="DAL\JSRole_DAL.cs" />

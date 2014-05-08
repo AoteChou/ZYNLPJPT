@@ -85,7 +85,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		<table id="progressDisplay" class="ProgressDisplay">
 		<tr>
 		<td>
-			<span id="label" runat="server" class="Label">上&#160传&#160进&#160度&#160:</span>
+			<span id="label" runat="server" class="Label"></span>
 		</td>
 		<td id="barTd" >
 			<div id="statusDiv" runat="server" class="StatusMessage">&#160;
@@ -134,12 +134,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
         <script  type="text/javascript" language="javascript">
             
                 <%if(Status.ToString().Equals("Completed")){
-                   Response.Write("if(window.parent.document.URL.indexOf('TestPage.aspx')!=-1){");
-                   Response.Write(" window.parent.document.getElementById('opMsg').innerHTML= '已经成功提交答案，请做下一题~';");
-                   Response.Write(" window.parent.document.getElementById('next').setAttribute('style','diaplay:inline');"); 
-                   Response.Write(" window.parent.document.getElementById('skip').setAttribute('disabled','true');");        
-                   Response.Write("            }else if(window.parent.document.URL.indexOf('UploadPage_Detail.aspx')!=-1){");
-                   Response.Write(" window.parent.document.getElementById('opMsg').innerHTML= '已经成功提交答案，请关闭窗口，进行其他操作';");
+                   Response.Write("if(window.parent.document.URL.indexOf('TestPage.aspx')!=-1||window.parent.document.URL.indexOf('UploadPage_Detail.aspx')!=-1){"); 
+                   Response.Write(" window.parent.uploadSuccess();");
                    Response.Write("            }");
                 }%>
         </script>

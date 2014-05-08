@@ -11,34 +11,33 @@ namespace ZYNLPJPT
 {
     public partial class ResultPage : System.Web.UI.Page
     {
-        protected PCJL[] pcjls;
-        protected string[] yhxm;
+        protected int kcbh;
+        protected string xsbh;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
             if (Session["yh"] == null)
             {
-                this.Response.Redirect("Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
 
             }
             else
             {
                 YH yh = (YH)Session["yh"];
-                int kcbh = int.Parse(Request["kcbh"]);
-                PCJL_DAL pcjl_dal = new PCJL_DAL();
-                pcjls = pcjl_dal.getPCJLWithMark_ALL(yh.YHBH, kcbh);
-                //检查是否已经全部完成
-                if (pcjls.Length == 0)
-                {
-                    Response.Redirect("./ErrorPage.aspx?msg=亲...该门课程下还没有成绩,请返回&fh=true");
+                kcbh = int.Parse(Request["kcbh"]);
+                xsbh = yh.YHBH;
+                /*int pagenumber = 1;
+                int pagesize = 10;
+                if (Request.QueryString.Get("page") != null) { 
+                    pagenumber = int.Parse(Request["page"]);
                 }
-                string[] gtrbh=new string[pcjls.Length];
-                for (int i = 0; i < pcjls.Length; i++)
+                if (Request.QueryString.Get("rows") != null)
                 {
-                    gtrbh[i] = pcjls[i].GTR;
+                    pagesize = int.Parse(Request["rows"]);
                 }
-              
-                YH_DAL yh_dal=new YH_DAL();
-                yhxm = yh_dal.getYHXMbyYHBH(gtrbh);
+                Response.Write("<script>console.log('" + pagenumber + "   " + pagesize + "')</script>");*/
+
+               
                
                 
             }

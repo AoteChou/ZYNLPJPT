@@ -494,6 +494,25 @@ namespace ZYNLPJPT.DAL
             return pcjlList.ToArray();
         }
         /// <summary>
+        /// 获取某个学生特定课程是所有未完成的试题(分页)
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJL_Undone_ALLByPage(string xsbh, int kcbh,int startIndex, int endIndex)
+        {
+            List<ZYNLPJPT.Model.PCJL> pcjlList=new List<Model.PCJL>();
+            DataSet ds = GetListByPage("xsbh=" + xsbh + " and xsstda IS NULL and stbh in(select stbh from st where kcbh=" + kcbh, "", startIndex, endIndex);
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
+        /// <summary>
         /// 获取某个学生特定课程下所有有分数的试题
         /// </summary>
         /// <param name="xsbh"></param>
@@ -517,6 +536,48 @@ namespace ZYNLPJPT.DAL
 
             return pcjlList.ToArray();
         }
+        /// <summary>
+        /// 获取某个学生特定课程下所有有分数的试题总数
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <returns></returns>
+        public int getPCJLWithMark_ALL_Count(string xsbh, int kcbh)
+        {
+            string sqlString = "select * from pcjl where xsbh=@xsbh and pcfs IS NOT NULL and stbh in(select stbh from st where kcbh=@kcbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+
+            List<ZYNLPJPT.Model.PCJL> pcjlList = new List<Model.PCJL>();
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+
+
+            return ds.Tables[0].Rows.Count;
+        }
+        /// <summary>
+        /// 获取某个学生特定课程下所有有分数的试题（分页）
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJLWithMark_ALLByPage(string xsbh, int kcbh, int startIndex, int endIndex)
+        {
+            List<ZYNLPJPT.Model.PCJL> pcjlList = new List<Model.PCJL>();
+            DataSet ds = GetListByPage("xsbh=" + xsbh + " and pcfs IS NOT NULL and stbh in(select stbh from st where kcbh=" + kcbh+")", "", startIndex, endIndex);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
+        
+       
         /// <summary>
         /// 部分更新（更新条件上传时间以及评测记录编号）
         /// </summary>
