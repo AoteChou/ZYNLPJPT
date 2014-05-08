@@ -1,12 +1,12 @@
 ﻿/**  版本信息模板在安装目录下，可自行修改。
-* ZSD_DAL.cs
+* GTView_DAL.cs
 *
 * 功 能： N/A
-* 类 名： ZSD_DAL
+* 类 名： GTView_DAL
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/3/31 16:02:22   N/A    初版
+* V0.01  2014/4/28 17:41:30   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -18,98 +18,91 @@ using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
-using ZYNLPJPT.Utility;
+using ZYNLPJPT.Utility;//Please add references
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
-	/// 数据访问类:ZSD_DAL
+	/// 数据访问类:GTView_DAL
 	/// </summary>
-	public partial class ZSD_DAL
+	public partial class GTView_DAL
 	{
-		public ZSD_DAL()
+		public GTView_DAL()
 		{}
 		#region  BasicMethod
 
-		/// <summary>
-		/// 得到最大ID
-		/// </summary>
-		public int GetMaxId()
-		{
-		return DbHelperSQL.GetMaxID("ZSDYBH", "ZSD"); 
-		}
-
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(int ZSDYBH,int ZSDBH,int ZSLYBH)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from ZSD");
-			strSql.Append(" where ZSDYBH=@ZSDYBH and ZSDBH=@ZSDBH and ZSLYBH=@ZSLYBH ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4)			};
-			parameters[0].Value = ZSDYBH;
-			parameters[1].Value = ZSDBH;
-			parameters[2].Value = ZSLYBH;
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
-		}
 
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(ZYNLPJPT.Model.ZSD model)
+		public bool Add(ZYNLPJPT.Model.GTView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into ZSD(");
-			strSql.Append("ZSDYBH,ZSLYBH,ZSDMC,BZ)");
+			strSql.Append("insert into GTView(");
+			strSql.Append("PCJLBH,STBH,KCBH,XSBH,XZRQ,SCRQ,GTR,PCFS)");
 			strSql.Append(" values (");
-			strSql.Append("@ZSDYBH,@ZSLYBH,@ZSDMC,@BZ)");
-			strSql.Append(";select @@IDENTITY");
+			strSql.Append("@PCJLBH,@STBH,@KCBH,@XSBH,@XZRQ,@SCRQ,@GTR,@PCFS)");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDMC", SqlDbType.VarChar,50),
-					new SqlParameter("@BZ", SqlDbType.Text)};
-			parameters[0].Value = model.ZSDYBH;
-            parameters[1].Value = model.ZSLYBH;
-			parameters[2].Value = model.ZSDMC;
-			parameters[3].Value = model.BZ;
+					new SqlParameter("@PCJLBH", SqlDbType.Int,4),
+					new SqlParameter("@STBH", SqlDbType.Int,4),
+					new SqlParameter("@KCBH", SqlDbType.Int,4),
+					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
+					new SqlParameter("@XZRQ", SqlDbType.DateTime),
+					new SqlParameter("@SCRQ", SqlDbType.DateTime),
+					new SqlParameter("@GTR", SqlDbType.VarChar,50),
+					new SqlParameter("@PCFS", SqlDbType.Int,4)};
+			parameters[0].Value = model.PCJLBH;
+			parameters[1].Value = model.STBH;
+			parameters[2].Value = model.KCBH;
+			parameters[3].Value = model.XSBH;
+			parameters[4].Value = model.XZRQ;
+			parameters[5].Value = model.SCRQ;
+			parameters[6].Value = model.GTR;
+			parameters[7].Value = model.PCFS;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
-				return 0;
+				return true;
 			}
 			else
 			{
-				return Convert.ToInt32(obj);
+				return false;
 			}
 		}
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(ZYNLPJPT.Model.ZSD model)
+		public bool Update(ZYNLPJPT.Model.GTView model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update ZSD set ");
-			strSql.Append("ZSDMC=@ZSDMC,");
-			strSql.Append("BZ=@BZ");
-			strSql.Append(" where ZSLYBH=@ZSLYBH");
+			strSql.Append("update GTView set ");
+			strSql.Append("PCJLBH=@PCJLBH,");
+			strSql.Append("STBH=@STBH,");
+			strSql.Append("KCBH=@KCBH,");
+			strSql.Append("XSBH=@XSBH,");
+			strSql.Append("XZRQ=@XZRQ,");
+			strSql.Append("SCRQ=@SCRQ,");
+			strSql.Append("GTR=@GTR,");
+			strSql.Append("PCFS=@PCFS");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDMC", SqlDbType.VarChar,50),
-					new SqlParameter("@BZ", SqlDbType.Text),
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDBH", SqlDbType.Int,4)};
-			parameters[0].Value = model.ZSDMC;
-			parameters[1].Value = model.BZ;
-			parameters[2].Value = model.ZSLYBH;
-			parameters[3].Value = model.ZSDYBH;
-			parameters[4].Value = model.ZSDBH;
+					new SqlParameter("@PCJLBH", SqlDbType.Int,4),
+					new SqlParameter("@STBH", SqlDbType.Int,4),
+					new SqlParameter("@KCBH", SqlDbType.Int,4),
+					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
+					new SqlParameter("@XZRQ", SqlDbType.DateTime),
+					new SqlParameter("@SCRQ", SqlDbType.DateTime),
+					new SqlParameter("@GTR", SqlDbType.VarChar,50),
+					new SqlParameter("@PCFS", SqlDbType.Int,4)};
+			parameters[0].Value = model.PCJLBH;
+			parameters[1].Value = model.STBH;
+			parameters[2].Value = model.KCBH;
+			parameters[3].Value = model.XSBH;
+			parameters[4].Value = model.XZRQ;
+			parameters[5].Value = model.SCRQ;
+			parameters[6].Value = model.GTR;
+			parameters[7].Value = model.PCFS;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -125,63 +118,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ZSLYBH)
+		public bool Delete()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from ZSD ");
-			strSql.Append(" where ZSLYBH=@ZSLYBH");
+			strSql.Append("delete from GTView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = ZSLYBH;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int ZSDYBH,int ZSDBH,int ZSLYBH)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from ZSD ");
-			strSql.Append(" where ZSDYBH=@ZSDYBH and ZSDBH=@ZSDBH and ZSLYBH=@ZSLYBH ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDYBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSDBH", SqlDbType.Int,4),
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4)			};
-			parameters[0].Value = ZSDYBH;
-			parameters[1].Value = ZSDBH;
-			parameters[2].Value = ZSLYBH;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		/// <summary>
-		/// 批量删除数据
-		/// </summary>
-		public bool DeleteList(string ZSLYBHlist )
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from ZSD ");
-			strSql.Append(" where ZSLYBH in ("+ZSLYBHlist + ")  ");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -196,18 +142,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.ZSD GetModel(int ZSDBH)
+		public ZYNLPJPT.Model.GTView GetModel()
 		{
-			
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ZSLYBH,ZSDYBH,ZSDBH,ZSDMC,BZ from ZSD ");
-			strSql.Append(" where ZSDBH=@ZSDBH");
+			strSql.Append("select  top 1 PCJLBH,STBH,KCBH,XSBH,XZRQ,SCRQ,GTR,PCFS from GTView ");
+			strSql.Append(" where ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ZSDBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = ZSDBH;
 
-			ZYNLPJPT.Model.ZSD model=new ZYNLPJPT.Model.ZSD();
+			ZYNLPJPT.Model.GTView model=new ZYNLPJPT.Model.GTView();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -223,30 +167,42 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.ZSD DataRowToModel(DataRow row)
+		public ZYNLPJPT.Model.GTView DataRowToModel(DataRow row)
 		{
-			ZYNLPJPT.Model.ZSD model=new ZYNLPJPT.Model.ZSD();
+			ZYNLPJPT.Model.GTView model=new ZYNLPJPT.Model.GTView();
 			if (row != null)
 			{
-				if(row["ZSLYBH"]!=null && row["ZSLYBH"].ToString()!="")
+				if(row["PCJLBH"]!=null && row["PCJLBH"].ToString()!="")
 				{
-					model.ZSLYBH=int.Parse(row["ZSLYBH"].ToString());
+					model.PCJLBH=int.Parse(row["PCJLBH"].ToString());
 				}
-				if(row["ZSDYBH"]!=null && row["ZSDYBH"].ToString()!="")
+				if(row["STBH"]!=null && row["STBH"].ToString()!="")
 				{
-					model.ZSDYBH=int.Parse(row["ZSDYBH"].ToString());
+					model.STBH=int.Parse(row["STBH"].ToString());
 				}
-				if(row["ZSDBH"]!=null && row["ZSDBH"].ToString()!="")
+				if(row["KCBH"]!=null && row["KCBH"].ToString()!="")
 				{
-					model.ZSDBH=int.Parse(row["ZSDBH"].ToString());
+					model.KCBH=int.Parse(row["KCBH"].ToString());
 				}
-				if(row["ZSDMC"]!=null)
+				if(row["XSBH"]!=null)
 				{
-					model.ZSDMC=row["ZSDMC"].ToString();
+					model.XSBH=row["XSBH"].ToString();
 				}
-				if(row["BZ"]!=null)
+				if(row["XZRQ"]!=null && row["XZRQ"].ToString()!="")
 				{
-					model.BZ=row["BZ"].ToString();
+					model.XZRQ=DateTime.Parse(row["XZRQ"].ToString());
+				}
+				if(row["SCRQ"]!=null && row["SCRQ"].ToString()!="")
+				{
+					model.SCRQ=DateTime.Parse(row["SCRQ"].ToString());
+				}
+				if(row["GTR"]!=null)
+				{
+					model.GTR=row["GTR"].ToString();
+				}
+				if(row["PCFS"]!=null && row["PCFS"].ToString()!="")
+				{
+					model.PCFS=int.Parse(row["PCFS"].ToString());
 				}
 			}
 			return model;
@@ -258,8 +214,8 @@ namespace ZYNLPJPT.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ZSLYBH,ZSDYBH,ZSDBH,ZSDMC,BZ ");
-			strSql.Append(" FROM ZSD ");
+			strSql.Append("select PCJLBH,STBH,KCBH,XSBH,XZRQ,SCRQ,GTR,PCFS ");
+			strSql.Append(" FROM GTView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -278,8 +234,8 @@ namespace ZYNLPJPT.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" ZSLYBH,ZSDYBH,ZSDBH,ZSDMC,BZ ");
-			strSql.Append(" FROM ZSD ");
+			strSql.Append(" PCJLBH,STBH,KCBH,XSBH,XZRQ,SCRQ,GTR,PCFS ");
+			strSql.Append(" FROM GTView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -294,7 +250,7 @@ namespace ZYNLPJPT.DAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM ZSD ");
+			strSql.Append("select count(1) FROM GTView ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -323,9 +279,9 @@ namespace ZYNLPJPT.DAL
 			}
 			else
 			{
-				strSql.Append("order by T.ZSLYBH desc");
+				strSql.Append("order by T. desc");
 			}
-			strSql.Append(")AS Row, T.*  from ZSD T ");
+			strSql.Append(")AS Row, T.*  from GTView T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -350,8 +306,8 @@ namespace ZYNLPJPT.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "ZSD";
-			parameters[1].Value = "ZSLYBH";
+			parameters[0].Value = "GTView";
+			parameters[1].Value = "";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;
