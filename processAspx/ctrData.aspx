@@ -11,7 +11,9 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
-        function getSelections(kcbh,zybh) {
+
+        function getSelections(kcbh, zybh)
+          {
             var ss = [];
             var rows = $('#mytable').datagrid('getSelections');
             for (var i = 0; i < rows.length; i++) {
@@ -19,9 +21,14 @@
                 ss[i] = row.yhbh;
             }
             $.post("addCtr.aspx", { 'teaIds': ss, 'kcbh': kcbh, 'zybh': zybh }, function (result) {
-                if (result == 'False') {
+                
+                if (result == 'False') 
+                {
                     $.messager.alert('警告', '必须选择至少一位教师,请选择要配置的教师名!');
-                } else {
+                } 
+                
+                else
+                 {
                     $.messager.confirm('信息', '教师出题配置成功，单击确认返回上层界面，取消则停留在本界面!', function (r) {
                         if (r) {
                             history.back(-1);
@@ -32,6 +39,7 @@
                 }
             });
         }
+
     </script>
 </head>
 <body class="easyui-layout">

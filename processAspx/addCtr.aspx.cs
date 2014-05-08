@@ -14,7 +14,7 @@ namespace ZYNLPJPT.processAspx
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string teaIdstr = Request["teaIds[]"]==null?null:Request["teaIds[]"].ToString().Trim();
+           string teaIdstr = Request["teaIds[]"]==null?null:Request["teaIds[]"].ToString().Trim();
             string kcbh = Request["kcbh"]==null?null:Request["kcbh"].ToString().Trim();
             string zybh = Request["zybh"]==null?null:Request["zybh"].ToString().Trim();
 
@@ -22,6 +22,7 @@ namespace ZYNLPJPT.processAspx
             {
                 Response.Write(false);
             }
+
             else {
                 string[] teaIds = teaIdstr.Split(',');
                 int iKcbh = int.Parse(kcbh);
