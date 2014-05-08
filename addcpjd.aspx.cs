@@ -28,7 +28,7 @@ namespace ZYNLPJPT
                 YH yh = (YH)Session["yh"];
                 xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
                 zyms = new ZY_DAL().getArrayByXkbh(xkbh);
-                njNames = new NJ_DAL().getArray();
+                njNames = new NJ_DAL().getRecentyArray();
             }
         }
     }
