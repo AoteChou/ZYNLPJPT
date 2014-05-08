@@ -19,15 +19,6 @@
         <form id="ff" > 
             <table cellpadding="5">
                 <tr style=" margin-top:10px;">
-                    <td>修改前数据:</td>
-                    <td>
-                        <div style=" width:152px">
-                             起始学期:<%=qsxq %><br />
-                             截止学期:<%=jzxq %><br />
-                        </div>
-                    </td>
-                </tr>
-                <tr style=" margin-top:10px;">
                     <td>年级名称:</td>
                     <td><input class="easyui-validatebox textbox" type="text" disabled="disabled" id="njName" value="<%=njmc %>" name="njName" data-options="required:true"></input></td>
                 </tr>
@@ -43,8 +34,15 @@
                     <td>起始学期：</td>
                     <td>
                         <select id="qsxq" name="qsxq" style="width:152px;">
-                            <% for (int i = 1; i<=12; i++) {
-                                   Response.Write("<option> "+i+"</option>");  
+                            <% 
+                                int iQsxq = int.Parse(qsxq);
+                                Response.Write("<option> " + iQsxq + "</option>");
+                                for (int i = 1; i<=12; i++) {
+                                    if (iQsxq == i)
+                                    {
+                                    }else {
+                                        Response.Write("<option> " + i + "</option>");  
+                                    }
                              } %>
                         </select>
                     </td>
@@ -53,8 +51,16 @@
                     <td>截止学期：</td>
                     <td>
                         <select id="jzxq" name="jzxq" style="width:152px;">
-                            <% for (int i = 1; i<=12; i++) {
-                                   Response.Write("<option> "+i+"</option>");  
+                            <% int iJzxq = int.Parse(jzxq);
+                               Response.Write("<option> " + iJzxq + "</option>");
+                                for (int i = 1; i<=12; i++) {
+                                    if (iJzxq == i)
+                                    {
+                                    }
+                                    else
+                                    {
+                                        Response.Write("<option> " + i + "</option>");
+                                    }
                              } %>
                         </select>
                     </td>
