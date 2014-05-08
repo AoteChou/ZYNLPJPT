@@ -55,6 +55,11 @@
   <ItemGroup>
     <Content Include="addcpjd.aspx" />
     <Content Include="addEjzb.aspx" />
+    <Content Include="addGn.aspx" />
+    <Content Include="addJS.aspx" />
+    <Content Include="addst.aspx" />
+    <Content Include="addYHGn.aspx" />
+    <Content Include="addYHJs.aspx" />
     <Content Include="addYjzb.aspx" />
     <Content Include="addZsd.aspx" />
     <Content Include="addZsdy.aspx" />
@@ -65,8 +70,16 @@
     <Content Include="ChooseTestCurriculum.aspx" />
     <Content Include="ChooseUploadCurriculum.aspx" />
     <Content Include="ckctr.aspx" />
+    <Content Include="ctRecord.aspx" />
+    <Content Include="df.aspx" />
+    <Content Include="JsGn.aspx" />
+    <Content Include="markst.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
+    <Content Include="processAspx\addGnProc.aspx" />
+    <Content Include="processAspx\addJSProc.aspx" />
+    <Content Include="processAspx\addYhGnProc.aspx" />
+    <Content Include="processAspx\addYHJsProc.aspx" />
     <Content Include="processAspx\addYjzbProc.aspx" />
     <Content Include="processAspx\addZsdProc.aspx" />
     <Content Include="processAspx\addZsdyProc.aspx" />
@@ -74,9 +87,19 @@
     <Content Include="processAspx\addZyEjzb.aspx" />
     <Content Include="processAspx\changeEjzbProc.aspx" />
     <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\ct.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="gt.aspx" />
+    <Content Include="processAspx\DelgnProc.aspx" />
+    <Content Include="processAspx\DelyhgnProc.aspx" />
+    <Content Include="processAspx\DelyhjsProc.aspx" />
+    <Content Include="processAspx\gtData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
+    <Content Include="processAspx\Set_st_ZSD.aspx" />
+    <Content Include="processAspx\xgjsData.aspx" />
+    <Content Include="processAspx\uploadst.aspx" />
     <Content Include="pzjdkc.aspx" />
+    <Content Include="pzJsGn.aspx" />
     <Content Include="pzjsgt.aspx" />
     <Content Include="pzkczsdy.aspx" />
     <Content Include="pzctr.aspx" />
@@ -102,6 +125,8 @@
     <Content Include="processAspx\GetTest.aspx" />
     <Content Include="processAspx\login_pro.aspx" />
     <Content Include="processAspx\logout.aspx" />
+    <Content Include="pzYhGn.aspx" />
+    <Content Include="pzYhJs.aspx" />
     <Content Include="pzzyejzb.aspx" />
     <Content Include="ResultPage.aspx" />
     <Content Include="Scripts\easyloader.js" />
@@ -193,8 +218,47 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="xgjs.aspx" />
+    <Content Include="yhgnRecord.aspx" />
+    <Content Include="yhjsRecord.aspx" />
+    <Content Include="zdyj.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addGn.aspx.cs">
+      <DependentUpon>addGn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addGn.aspx.designer.cs">
+      <DependentUpon>addGn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addJS.aspx.cs">
+      <DependentUpon>addJS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addJS.aspx.designer.cs">
+      <DependentUpon>addJS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addst.aspx.cs">
+      <DependentUpon>addst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addst.aspx.designer.cs">
+      <DependentUpon>addst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addYHGn.aspx.cs">
+      <DependentUpon>addYHGn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYHGn.aspx.designer.cs">
+      <DependentUpon>addYHGn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addYHJs.aspx.cs">
+      <DependentUpon>addYHJs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYHJs.aspx.designer.cs">
+      <DependentUpon>addYHJs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\GetTestCourse_BLL.cs" />
     <Compile Include="addcpjd.aspx.cs">
       <DependentUpon>addcpjd.aspx</DependentUpon>
@@ -239,8 +303,13 @@
       <DependentUpon>addZsly.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\GetTest_BLL.cs" />
+    <Compile Include="BLL\Get_ZSD_BLL.cs" />
+    <Compile Include="BLL\gt_BLL.cs" />
+    <Compile Include="BLL\JSGN_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
+    <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="BLL\YHGN_BLL.cs" />
     <Compile Include="ChooseResultCurriculum.aspx.cs">
       <DependentUpon>ChooseResultCurriculum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,10 +338,40 @@
     <Compile Include="ckctr.aspx.designer.cs">
       <DependentUpon>ckctr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ctRecord.aspx.cs">
+      <DependentUpon>ctRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctRecord.aspx.designer.cs">
+      <DependentUpon>ctRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GTView_DAL.cs" />
     <Compile Include="DAL\JSRoleYHView_DAL.cs" />
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="df.aspx.cs">
+      <DependentUpon>df.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="df.aspx.designer.cs">
+      <DependentUpon>df.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JsGn.aspx.cs">
+      <DependentUpon>JsGn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsGn.aspx.designer.cs">
+      <DependentUpon>JsGn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="markst.aspx.cs">
+      <DependentUpon>markst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="markst.aspx.designer.cs">
+      <DependentUpon>markst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GTView.cs" />
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
@@ -290,6 +389,34 @@
     </Compile>
     <Compile Include="processAspx\addEjzbProc.aspx.designer.cs">
       <DependentUpon>addEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addGnProc.aspx.cs">
+      <DependentUpon>addGnProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addGnProc.aspx.designer.cs">
+      <DependentUpon>addGnProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addJSProc.aspx.cs">
+      <DependentUpon>addJSProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addJSProc.aspx.designer.cs">
+      <DependentUpon>addJSProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYhGnProc.aspx.cs">
+      <DependentUpon>addYhGnProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYhGnProc.aspx.designer.cs">
+      <DependentUpon>addYhGnProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYHJsProc.aspx.cs">
+      <DependentUpon>addYHJsProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYHJsProc.aspx.designer.cs">
+      <DependentUpon>addYHJsProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addYjzbProc.aspx.cs">
       <DependentUpon>addYjzbProc.aspx</DependentUpon>
@@ -340,12 +467,54 @@
     <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
       <DependentUpon>changeZsdyProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\ct.aspx.cs">
+      <DependentUpon>ct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ct.aspx.designer.cs">
+      <DependentUpon>ct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\ctrData.aspx.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gt.aspx.cs">
+      <DependentUpon>gt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gt.aspx.designer.cs">
+      <DependentUpon>gt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelgnProc.aspx.cs">
+      <DependentUpon>DelgnProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelgnProc.aspx.designer.cs">
+      <DependentUpon>DelgnProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelyhgnProc.aspx.cs">
+      <DependentUpon>DelyhgnProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelyhgnProc.aspx.designer.cs">
+      <DependentUpon>DelyhgnProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DelyhjsProc.aspx.cs">
+      <DependentUpon>DelyhjsProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelyhjsProc.aspx.designer.cs">
+      <DependentUpon>DelyhjsProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\gtData.aspx.cs">
+      <DependentUpon>gtData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\gtData.aspx.designer.cs">
+      <DependentUpon>gtData.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\pzEjzbProc.aspx.cs">
       <DependentUpon>pzEjzbProc.aspx</DependentUpon>
@@ -354,12 +523,40 @@
     <Compile Include="processAspx\pzEjzbProc.aspx.designer.cs">
       <DependentUpon>pzEjzbProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\Set_st_ZSD.aspx.cs">
+      <DependentUpon>Set_st_ZSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\Set_st_ZSD.aspx.designer.cs">
+      <DependentUpon>Set_st_ZSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgjsData.aspx.cs">
+      <DependentUpon>xgjsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgjsData.aspx.designer.cs">
+      <DependentUpon>xgjsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\uploadst.aspx.cs">
+      <DependentUpon>uploadst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\uploadst.aspx.designer.cs">
+      <DependentUpon>uploadst.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pzjdkc.aspx.cs">
       <DependentUpon>pzjdkc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pzjdkc.aspx.designer.cs">
       <DependentUpon>pzjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzJsGn.aspx.cs">
+      <DependentUpon>pzJsGn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzJsGn.aspx.designer.cs">
+      <DependentUpon>pzJsGn.aspx</DependentUpon>
     </Compile>
     <Compile Include="pzjsgt.aspx.cs">
       <DependentUpon>pzjsgt.aspx</DependentUpon>
@@ -519,6 +716,20 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pzYhGn.aspx.cs">
+      <DependentUpon>pzYhGn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzYhGn.aspx.designer.cs">
+      <DependentUpon>pzYhGn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzYhJs.aspx.cs">
+      <DependentUpon>pzYhJs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzYhJs.aspx.designer.cs">
+      <DependentUpon>pzYhJs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pzzyejzb.aspx.cs">
       <DependentUpon>pzzyejzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -566,6 +777,34 @@
     <Compile Include="Utility\MainMenu.cs" />
     <Compile Include="Utility\TestState.cs" />
     <Compile Include="Utility\XS_Utility.cs" />
+    <Compile Include="xgjs.aspx.cs">
+      <DependentUpon>xgjs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgjs.aspx.designer.cs">
+      <DependentUpon>xgjs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yhgnRecord.aspx.cs">
+      <DependentUpon>yhgnRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yhgnRecord.aspx.designer.cs">
+      <DependentUpon>yhgnRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yhjsRecord.aspx.cs">
+      <DependentUpon>yhjsRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yhjsRecord.aspx.designer.cs">
+      <DependentUpon>yhjsRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zdyj.aspx.cs">
+      <DependentUpon>zdyj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zdyj.aspx.designer.cs">
+      <DependentUpon>zdyj.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NeatUpload_Temp\" />
