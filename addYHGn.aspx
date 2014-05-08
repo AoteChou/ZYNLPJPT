@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>选择功能点新增</title>
-   <link rel="Stylesheet" type="text/css" href="../Styles/default/easyui.css" />
-    <link rel="Stylesheet" type="text/css" href="../Styles/icon.css" /> 
-     <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
+   <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
+    <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
+     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
 
    <script type="text/javascript">
 
