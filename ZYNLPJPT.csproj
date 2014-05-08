@@ -77,6 +77,12 @@
     <Content Include="ckcpjd.aspx" />
     <Content Include="ckctr.aspx" />
     <Content Include="ckejzb.aspx" />
+    <Content Include="getResult_EJZB.aspx" />
+    <Content Include="getResult_Final.aspx" />
+    <Content Include="getResult_Final_Loading.htm" />
+    <Content Include="getResult_YJZB.aspx" />
+    <Content Include="getResult_ZSD.aspx" />
+    <Content Include="getResult_ZSDY.aspx" />
     <Content Include="ckjdkc.aspx" />
     <Content Include="ckjsgt.aspx" />
     <Content Include="ckkczsdy.aspx" />
@@ -89,6 +95,7 @@
     <Content Include="ckZsly.aspx" />
     <Content Include="ckzy.aspx" />
     <Content Include="ckzyejzb.aspx" />
+    <Content Include="getResult_ZSLY.aspx" />
     <Content Include="processAspx\addCpjdProc.aspx" />
     <Content Include="processAspx\addCtr.aspx" />
     <Content Include="processAspx\addEjzbProc.aspx" />
@@ -121,6 +128,13 @@
     <Content Include="processAspx\DelSingleKcZsdy.aspx" />
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\DelZsdyToEjzb.aspx" />
+    <Content Include="processAspx\getEJZBByYHBH.aspx" />
+    <Content Include="processAspx\DelAllZyZjzb.aspx" />
+    <Content Include="processAspx\getPCFSByKcbhAndYhbh.aspx" />
+    <Content Include="processAspx\getYJZBByYHBH.aspx" />
+    <Content Include="processAspx\getZSDByYHBH.aspx" />
+    <Content Include="processAspx\getZSDYByYHBH.aspx" />
+    <Content Include="processAspx\getZSLYByYHBH.aspx" />
     <Content Include="processAspx\jdkcxsData.aspx" />
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
@@ -187,7 +201,12 @@
     <Content Include="scjsgt.aspx" />
     <Content Include="sckczsdy.aspx" />
     <Content Include="processAspx\scKcZsdyProc.aspx" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\drilldown.js" />
     <Content Include="Scripts\easyloader.js" />
+    <Content Include="Scripts\exporting.js" />
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
@@ -247,6 +266,7 @@
     <Content Include="Styles\default\tree.css" />
     <Content Include="Styles\default\validatebox.css" />
     <Content Include="Styles\default\window.css" />
+    <Content Include="Styles\getResult_Final.css" />
     <Content Include="Styles\icon.css" />
     <Content Include="Styles\icons\back.png" />
     <Content Include="Styles\icons\blank.gif" />
@@ -269,6 +289,7 @@
     <Content Include="Styles\icons\sum.png" />
     <Content Include="Styles\icons\tip.png" />
     <Content Include="Styles\icons\undo.png" />
+    <Content Include="Styles\Preloader_2.gif" />
     <Content Include="Styles\TestPage.css" />
     <Content Include="TestPage.aspx" />
     <Content Include="UploadPage.aspx" />
@@ -292,6 +313,7 @@
     <Content Include="xgzsdy.aspx" />
     <Content Include="xgzsly.aspx" />
     <Content Include="xgzy.aspx" />
+    <Content Include="TestPage_Loading.htm" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addbj.aspx.cs">
@@ -371,6 +393,7 @@
     <Compile Include="addzy.aspx.designer.cs">
       <DependentUpon>addzy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\GetTestResult_BLL.cs" />
     <Compile Include="BLL\GetTest_BLL.cs" />
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
@@ -545,15 +568,63 @@
     <Compile Include="DAL\NLZBView_DAL.cs" />
     <Compile Include="DAL\XKDetailView_DAL.cs" />
     <Compile Include="DAL\XYXKZYDetailView_DAL.cs" />
+    <Compile Include="DAL\PCJLZSDView_DAL.cs" />
+    <Compile Include="DAL\XKNLZBView_DAL.cs" />
+    <Compile Include="DAL\XKZSTXView_DAL.cs" />
+    <Compile Include="DAL\XSBJZYView_DAL.cs" />
     <Compile Include="DAL\XyXkZyView_DAL.cs" />
     <Compile Include="DAL\ZSALLView_DAL.cs" />
     <Compile Include="DAL\ZSNLView_DAL.cs" />
+    <Compile Include="DAL\ZSTXQZView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
     <Compile Include="DAL\BjDetailView_DAL.cs" />
     <Compile Include="Model\BjDetailView.cs" />
+    <Compile Include="DAL\ZYNLZBView_DAL.cs" />
+    <Compile Include="getResult_EJZB.aspx.cs">
+      <DependentUpon>getResult_EJZB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_EJZB.aspx.designer.cs">
+      <DependentUpon>getResult_EJZB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_Final.aspx.cs">
+      <DependentUpon>getResult_Final.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_Final.aspx.designer.cs">
+      <DependentUpon>getResult_Final.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_YJZB.aspx.cs">
+      <DependentUpon>getResult_YJZB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_YJZB.aspx.designer.cs">
+      <DependentUpon>getResult_YJZB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_ZSD.aspx.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSLY.aspx.cs">
+      <DependentUpon>getResult_ZSLY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSLY.aspx.designer.cs">
+      <DependentUpon>getResult_ZSLY.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\BjXsDetailView.cs" />
     <Compile Include="Model\CpjdView.cs" />
     <Compile Include="Model\JDKCXSNewView.cs" />
+    <Compile Include="getResult_ZSD.aspx.designer.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.designer.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\JSRoleYHView.cs" />
     <Compile Include="Model\JsTeaDetailView.cs" />
     <Compile Include="Model\KCDetailView.cs" />
@@ -561,10 +632,16 @@
     <Compile Include="Model\NLZBView.cs" />
     <Compile Include="Model\XKDetailView.cs" />
     <Compile Include="Model\XYXKZYDetailView.cs" />
+    <Compile Include="Model\PCJLZSDView.cs" />
+    <Compile Include="Model\XKNLZBView.cs" />
+    <Compile Include="Model\XKZSTXView.cs" />
+    <Compile Include="Model\XSBJZYView.cs" />
     <Compile Include="Model\XyXkZyView.cs" />
     <Compile Include="Model\ZSALLView.cs" />
     <Compile Include="Model\ZSNLView.cs" />
+    <Compile Include="Model\ZSTXQZView.cs" />
     <Compile Include="Model\ZSTXView.cs" />
+    <Compile Include="Model\ZYNLZBView.cs" />
     <Compile Include="processAspx\addCpjdProc.aspx.cs">
       <DependentUpon>addCpjdProc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -740,9 +817,16 @@
     <Compile Include="processAspx\DelAllKcZsdy.aspx.designer.cs">
       <DependentUpon>DelAllKcZsdy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\getEJZBByYHBH.aspx.cs">
+      <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getEJZBByYHBH.aspx.designer.cs">
+      <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
       <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
@@ -788,6 +872,34 @@
     </Compile>
     <Compile Include="processAspx\DelZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>DelZsdyToEjzb.aspx</DependentUpon>
+	</Compile>
+    <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.cs">
+      <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.designer.cs">
+      <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getYJZBByYHBH.aspx.cs">
+      <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getYJZBByYHBH.aspx.designer.cs">
+      <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDYByYHBH.aspx.cs">
+      <DependentUpon>getZSDYByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDYByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSDYByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSLYByYHBH.aspx.cs">
+      <DependentUpon>getZSLYByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSLYByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSLYByYHBH.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\jdkcxsData.aspx.cs">
       <DependentUpon>jdkcxsData.aspx</DependentUpon>
@@ -795,6 +907,13 @@
     </Compile>
     <Compile Include="processAspx\jdkcxsData.aspx.designer.cs">
       <DependentUpon>jdkcxsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDByYHBH.aspx.cs">
+      <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\pzEjzbProc.aspx.cs">
       <DependentUpon>pzEjzbProc.aspx</DependentUpon>
@@ -1029,7 +1148,7 @@
     <Compile Include="DAL\JDKCView_DAL.cs" />
     <Compile Include="DAL\JDKCXSView_DAL.cs" />
     <Compile Include="DAL\JDKCXS_DAL.cs" />
-    <Compile Include="DAL\JDKC_DAL.cs" />
+    <Compile Include="Properties\JDKC_DAL.cs" />
     <Compile Include="DAL\JSGNB_DAL.cs" />
     <Compile Include="DAL\JSNJZYKC_DAL.cs" />
     <Compile Include="DAL\JSRole_DAL.cs" />
@@ -1319,8 +1438,10 @@
       <DependentUpon>UploadPage_Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility\DbHelperSQL.cs" />
+    <Compile Include="Utility\FSAndQZ.cs" />
     <Compile Include="Utility\ItemMenu.cs" />
     <Compile Include="Utility\MainMenu.cs" />
+    <Compile Include="Model\ST_Undone.cs" />
     <Compile Include="Utility\TestState.cs" />
     <Compile Include="Utility\XS_Utility.cs" />
     <Compile Include="xgcpjd.aspx.cs">
@@ -1379,6 +1500,7 @@
     <Compile Include="xgzy.aspx.designer.cs">
       <DependentUpon>xgzy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\ZBMCAndFS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\NeatUpload_Temp\" />

@@ -16,7 +16,7 @@
 
 	<div data-options="region:'north',border:false" style="height:80px;background:#666;padding:10px;overflow:hidden;">
       		<h1 style="color:#ECFEFF;display:inline-block; font-family: '华文细黑','微软雅黑', '造字工房悦黑体验版纤细体', 'Times New Roman'">专业能力评价系统</h1>
-         	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆   2013/3/3 12:00:21  <a href="processAspx/logout.aspx">退出</a></h3>
+         	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆   <span id="time">2013/3/3 12:00:21 </span> <a href="processAspx/logout.aspx">退出</a></h3>
     </div>
 
 	<div data-options="region:'west',split:true,noheader:true" style="width:200px">
@@ -65,7 +65,7 @@
             index++;
             $("#tabs").tabs('add', {
                 title: title,
-                content: "<iframe width='100%' height='100%' style='_border:none;'  class='myIframe' frameborder='0' scrolling='no'  src='" + url + "'></iframe>",
+                content: "<iframe width='100%' height='100%' style='_border:none;'  class='myIframe' frameborder='0' scrolling='no'  src='" + url + "' name='" + title + "'></iframe>",
                 closable: true
             });
         }
@@ -78,6 +78,23 @@
             closable: true
         });
     }
+    function closeTab(title) {
+        $('#tabs').tabs('close', title);
+    }
+
+    function tickTock(time) {
+        var date = new Date().toLocaleString();
+        $("#time").html(date);
+        setTimeout("tickTock()", 1000);
+       
+
+    }
+    $(function () {
+
+        tickTock();
+
+    });
+
 
 </script>
 </body>

@@ -6,42 +6,55 @@
 <head runat="server">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><%=this.stzsdviews[0].KCMC%>专业能力测评</title>
-	<link rel="stylesheet" type="text/css" href="Styles/TestPage.css"/>
+
 	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
+    <link rel="Stylesheet" type="text/css" href="Styles/bootstrap.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="Styles/TestPage.css"/>
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/highcharts.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
 
 </head>
 
-<body class="easyui-layout">
+<body >
 <form id="form1" runat="server">
 
-<div region="center" border="false">
- 	<div id="content">
-    	<div id="ZSDList" >
-        	<h1><%=this.stzsdviews[0].KCMC%>•题<%=stbh %></h1>
+<div id="cc">
+    <div id="left">
+        <div id="kcmc"><h1><%=this.stzsdviews[0].KCMC%></h1></div>
+        <div id="resultDiv">
+            <font style="font-size: 15px;">测试进度</font>
+            <div id="container" style=" height: 300px; width: 100%; margin: 0 auto"></div>
         </div>
-    	<h2 style="color:#888888">涉及的知识点</h2>
-    	<ol style="color:#777777">
-            <%for (int i = 0; i < stzsdviews.Length; i++)
-              { %>
-    		<li><%=stzsdviews[i].ZSDMC%>&nbsp<%=stzsdviews[i].ZSDBZ.ToString("p")%></li>
-            <%} %>
-    		
-    	</ol>
-        <input type="button" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" />
-        <input type="button"  id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'"/><br />
-        <div id="uploadDiv">
-             <Upload:InputFile id="inputFileId" runat="server" />
-            <asp:Button id="submitButtonId" runat="server" Text="上传题目"  OnClientClick="return getFileExt(document.getElementById('inputFileId'))" /><br />
-            <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="600" Height="50" />
-         </div>
-         <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?" EnableViewState="True" Visible="False"> </Upload:UnloadConfirmer>
-         <p id='opMsg'></p><br/>
-        <input type="button"  id="next" name="下一题" style="display:none" value="下一题" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>'" />
+        <div id="sepDiv">
+            <table  style="BORDER-LEFT:#C0C0C0 1px solid;" align=center height=500  borderColor=#C0C0C0 >
+                <tbody><tr><td></td></tr></tbody>
+            </table>
+        </div>
+
     </div>
-   
+    <div id="right">
+        <div id="content">
+            <div id="container1" style=" height:300px; width: 100%; margin: 0 auto;z-index:-1"></div>
+            <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >下载题目</a>
+            <a class="btn" id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'">暂且跳过，以后再做</a><br />
+            <div id="uploadDiv">
+                 <Upload:InputFile id="inputFileId" runat="server"  />
+                
+                <asp:Button id="submitButtonId" class="btn"  runat="server" Text="确认上传"  OnClientClick="return getFileExt(document.getElementById('inputFileId'))" /><br />
+                <font style="position: relative; top: -20px;">上传进度：</font>
+                <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="600" Height="50" />
+             </div>
+             <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?" EnableViewState="True" Visible="False"> </Upload:UnloadConfirmer>
+
+              <p id='opMsg'class="badge badge-info" style="font-size: 13px; padding: 5px 20px; font-weight: normal;"></p>
+              <a class="btn btn-success" id="next" name="下一题" style="display:none" value="下一题" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>'" >下一题</a>
+
+          </div>
+    </div>
+
     
 </div>
 </form>
@@ -104,8 +117,21 @@ function loadXML(filePath) {
       }
 
   }
+
+  function uploadSuccess(){
+    document.getElementById('opMsg').innerHTML= '已经成功提交答案，请做下一题~';
+    document.getElementById('next').setAttribute('style','diaplay:inline'); 
+    document.getElementById('skip').setAttribute('disabled','true');       
+    
+    }
+
+
  $(function () {
   
+        $('input[id=inputFileId]').change(function() {  
+            $('#fileName').val($(this).val());  
+        });  
+
     <% if(!IsPostBack) {
        if (teststate == ZYNLPJPT.Utility.TestState.UNDONETEST)
       { %>
@@ -118,6 +144,68 @@ function loadXML(filePath) {
         $('#download').click(function () {
             $('#uploadDiv').show()
         }); 
+
+      $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '<font style="font-size:110px;font-family: \'华文细黑\',\'微软雅黑\',\'细明体\',\'黑体\';"><%=finishratio*100%></font><span style="font-size:20px;">%</span>',
+            align:'center',
+            verticalAlign: 'middle',
+            y:30
+        },
+        tooltip:function(){
+            return false;
+        },
+        plotOptions: {
+            pie: {
+                dataLabels:{
+                    enabled:false
+                },
+                startAngle:-90,
+                endAngle:90,
+                animation:false
+               }
+        },
+        series: [{
+            type: 'pie',
+            name: '测试进度',
+            innerSize: '99%',
+            data: [
+                 ['',<%=finishratio*100%>],['',<%=100-finishratio*100%>]
+                
+            ]
+        }]
+    });
+
+
+
+    $('#container1').highcharts({  
+        title: {
+            text: '题<%=stbh %>涉及的知识点及其组成'
+        },
+        tooltip: function(){
+            return false;
+        },
+        plotOptions: {
+            pie: {      
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.2f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '知识点分布',
+            data: [<%=zsdstring %>]
+        }]
+    });
+
+       
 });
 
 </script>

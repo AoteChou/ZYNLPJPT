@@ -16,7 +16,7 @@
 <form id="form1" runat="server">
 
 <div region="center" border="false">
-  <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+  <table id="mytable"   fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
     			<th data-options="field:'cpjlbh'" width="50">测评记录编号</th>
@@ -65,15 +65,15 @@
             collapsible: false,
             minimizable: false
         });
-        $('#win').window({
-            onBeforeClose: function () {
-                window.location.reload();
-            }
-        });
+//        $('#win').window({
+//            onBeforeClose: function () {
+//                window.location.reload();
+//            }
+//        });
     }
     $(function () {
         $('#mytable').datagrid({
-            pagination: true,
+            //pagination: true,
             singleSelect: true
         });
         
