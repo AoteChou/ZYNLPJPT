@@ -30,7 +30,7 @@
                 <tr>
                     <td>所属知识单元:</td>
                     <td>
-                        <select id="zsdyName" name="zsdyName" style="width:152px;">
+                        <select id="zsdyName" name="zsdyName" style="width:152px;" onclick="return zsdyName_onclick()">
                             <% for (int i = 0; i < this.zsdyNames.Length; i++) {
                                    Response.Write("<option> "+this.zsdyNames[i]+"</option>");  
                              } %>
@@ -94,6 +94,10 @@
             document.getElementById('zsdMc').value = '';
             document.getElementById('zsdBz').value = '';
         }
+        function zsdyName_onclick() {
+
+        }
+
     </script>
 </body>
 </html>

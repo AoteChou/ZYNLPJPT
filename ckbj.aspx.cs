@@ -26,8 +26,7 @@ namespace ZYNLPJPT
             {
                 YH yh = (YH)Session["yh"];
                 string queryNjName = null;
-                //指定义显示年级的范围，如2010年只显示2010级到2014年级的所有阶段及阶段课程
-                allNjNames = new NJ_DAL().getArray();
+                allNjNames = new NJ_DAL().getRecentyArray();
                 if (Request["choosedNjName"] == null || Request["choosedNjName"].ToString() == "")
                 {
                     queryNjName = allNjNames[0];
