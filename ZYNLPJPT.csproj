@@ -139,6 +139,8 @@
     <Content Include="processAspx\xgEjzbProc.aspx" />
     <Content Include="processAspx\xgnjData.aspx" />
     <Content Include="processAspx\xgNjProc.aspx" />
+    <Content Include="processAspx\xgxyData.aspx" />
+    <Content Include="processAspx\xgXyProc.aspx" />
     <Content Include="processAspx\xgyjzbData.aspx" />
     <Content Include="processAspx\xgYjzbProc.aspx" />
     <Content Include="processAspx\xgzsdData.aspx" />
@@ -190,7 +192,7 @@
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
     <Content Include="scxk.aspx" />
-    <Content Include="scxy.aspx" />
+    <Content Include="xgxy.aspx" />
     <Content Include="scyjzb.aspx" />
     <Content Include="sczsd.aspx" />
     <Content Include="sczsdy.aspx" />
@@ -911,6 +913,20 @@
     <Compile Include="processAspx\xgNjProc.aspx.designer.cs">
       <DependentUpon>xgNjProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\xgxyData.aspx.cs">
+      <DependentUpon>xgxyData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgxyData.aspx.designer.cs">
+      <DependentUpon>xgxyData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgXyProc.aspx.cs">
+      <DependentUpon>xgXyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgXyProc.aspx.designer.cs">
+      <DependentUpon>xgXyProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\xgyjzbData.aspx.cs">
       <DependentUpon>xgyjzbData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1223,12 +1239,12 @@
     <Compile Include="scxk.aspx.designer.cs">
       <DependentUpon>scxk.aspx</DependentUpon>
     </Compile>
-    <Compile Include="scxy.aspx.cs">
-      <DependentUpon>scxy.aspx</DependentUpon>
+    <Compile Include="xgxy.aspx.cs">
+      <DependentUpon>xgxy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="scxy.aspx.designer.cs">
-      <DependentUpon>scxy.aspx</DependentUpon>
+    <Compile Include="xgxy.aspx.designer.cs">
+      <DependentUpon>xgxy.aspx</DependentUpon>
     </Compile>
     <Compile Include="scyjzb.aspx.cs">
       <DependentUpon>scyjzb.aspx</DependentUpon>

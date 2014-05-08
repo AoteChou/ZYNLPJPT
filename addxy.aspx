@@ -31,7 +31,7 @@
     </div>
     </div>
     <script type="text/javascript">
-        function submitForm(data) {
+        function submitForm() {
 
             if ($('#xyMc').attr('value') == undefined || $('#xyMc').attr('value') == '') {
                 $.messager.alert('结果', '必须填写学院名称！', 'info');
