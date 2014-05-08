@@ -14,17 +14,19 @@
     <% if (fh == true)
        { %>
     <span id="second"></span>秒之后自动返回，或者直接点击<a href="javascript:void(0)" onclick="history.back(-1)">返回</a>
-    <%}
-       else
-       { %>
-       <span id="Span1"></span>若要返回，请直接点击<a href="javascript:void(0)" onclick="history.back(-1)">返回</a>
     <%} %>
+    <% if (gb == true)
+       { %>
+    <span id="second2"></span>秒之后自动关闭，或者直接关闭标签
+    <%}%>
+       
     </div>
     </form>
 
-    <% if (fh == true)
-       { %>
+ <% if (fh == true)
+     { %>
 <script type="text/javascript">
+
     function timedown(time) {
         if (time == 'undefined')
             time = 5;
@@ -34,7 +36,9 @@
         if (time >= 0) {
             setTimeout("timedown(" + time + ")", 1000);
         } else { 
+       
         history.back(-1)
+
         } 
 
     }
@@ -44,6 +48,34 @@
     
     });
 </script>
-<%} %>
+<%}else{%>
+
+
+<script type="text/javascript">
+
+    function timedown(time) {
+        if (time == 'undefined')
+            time = 5;
+        $("#second2").html(time);
+
+        time = time - 1;
+        if (time >= 0) {
+            setTimeout("timedown(" + time + ")", 1000);
+        } else {
+
+            var title = self.frameElement.getAttribute("name");
+            window.parent.closeTab(title);
+       
+        } 
+
+    }
+    $(function () {
+
+       timedown(10)
+    
+    });
+</script>
+        
+ <%}%>
 </body>
 </html>

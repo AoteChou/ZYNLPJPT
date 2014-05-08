@@ -18,7 +18,8 @@ namespace ZYNLPJPT
         {
             if (Session["yh"] == null)
             {
-               this.Response.Redirect("Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
 
             }
             else
@@ -30,7 +31,7 @@ namespace ZYNLPJPT
                 //检查是否已经全部完成
                 if (pcjls.Length == 0)
                 {
-                    Response.Redirect("./ErrorPage.aspx?msg=本课程所有的题目都已经上传完毕,请返回&fh=true");
+                    Response.Redirect("./ErrorPage.aspx?msg=本课程所有的题目都已经上传完毕,请关闭窗口&gb=true");
                 }
 
              }
