@@ -191,7 +191,8 @@
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
-    <Content Include="scxk.aspx" />
+    <Content Include="xgbj.aspx" />
+    <Content Include="xgxk.aspx" />
     <Content Include="xgxy.aspx" />
     <Content Include="scyjzb.aspx" />
     <Content Include="sczsd.aspx" />
@@ -290,6 +291,7 @@
     <Content Include="xgzsd.aspx" />
     <Content Include="xgzsdy.aspx" />
     <Content Include="xgzsly.aspx" />
+    <Content Include="xgzy.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addbj.aspx.cs">
@@ -1232,12 +1234,19 @@
     <Compile Include="processAspx\scKcZsdyProc.aspx.designer.cs">
       <DependentUpon>scKcZsdyProc.aspx</DependentUpon>
     </Compile>
-    <Compile Include="scxk.aspx.cs">
-      <DependentUpon>scxk.aspx</DependentUpon>
+    <Compile Include="xgbj.aspx.cs">
+      <DependentUpon>xgbj.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="scxk.aspx.designer.cs">
-      <DependentUpon>scxk.aspx</DependentUpon>
+    <Compile Include="xgbj.aspx.designer.cs">
+      <DependentUpon>xgbj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgxk.aspx.cs">
+      <DependentUpon>xgxk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgxk.aspx.designer.cs">
+      <DependentUpon>xgxk.aspx</DependentUpon>
     </Compile>
     <Compile Include="xgxy.aspx.cs">
       <DependentUpon>xgxy.aspx</DependentUpon>
@@ -1362,6 +1371,13 @@
     </Compile>
     <Compile Include="xgzsly.aspx.designer.cs">
       <DependentUpon>xgzsly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgzy.aspx.cs">
+      <DependentUpon>xgzy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgzy.aspx.designer.cs">
+      <DependentUpon>xgzy.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
