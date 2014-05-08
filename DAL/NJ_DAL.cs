@@ -270,6 +270,25 @@ namespace ZYNLPJPT.DAL
             return results;
         }
 
+        public string[] getRecentyArray()
+        {
+            DateTime now = DateTime.Now;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select NJBH,NJMC ");
+            DateTime preTime=now.AddYears(-5);
+            strSql.Append(" FROM NJ where RXNF<='"+now.Date+"' and RXNF>='"+preTime.Date+"'");
+            DataSet ds = DbHelperSQL.Query(strSql.ToString());
+            int length = ds.Tables[0].Rows.Count;
+            string[] results = new string[length];
+            for (int i = 0; i < length; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                results[i] = row["njmc"].ToString();
+            }
+            return results;
+        }
+
+
         public ZYNLPJPT.Model.NJ[] getAllObjArray()
         {
             StringBuilder strSql = new StringBuilder();
