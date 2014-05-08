@@ -55,6 +55,8 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+
+
         public bool Exists(string njmc)
         {
             StringBuilder strSql = new StringBuilder();
@@ -64,6 +66,21 @@ namespace ZYNLPJPT.DAL
 					new SqlParameter("@NJMC", SqlDbType.VarChar,50)
 			};
             parameters[0].Value = njmc;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
+        public bool Exists(string njmc,int NJBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from NJ");
+            strSql.Append(" where NJMC=@NJMC and NJBH!=@NJBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@NJMC", SqlDbType.VarChar,50),
+                    new SqlParameter("@NJBH",SqlDbType.Int,4)
+			};
+            parameters[0].Value = njmc;
+            parameters[1].Value = NJBH;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -103,13 +120,16 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update NJ set ");
-			strSql.Append("NJMC=@NJMC");
+			strSql.Append("NJMC=@NJMC , RXNF=@RXNF");
 			strSql.Append(" where NJBH=@NJBH");
 			SqlParameter[] parameters = {
 					new SqlParameter("@NJMC", SqlDbType.VarChar,50),
-					new SqlParameter("@NJBH", SqlDbType.Int,4)};
+					new SqlParameter("@NJBH", SqlDbType.Int,4),
+                    new SqlParameter("@RXNF",SqlDbType.DateTime)
+                                        };
 			parameters[0].Value = model.NJMC;
 			parameters[1].Value = model.NJBH;
+            parameters[2].Value = model.RXNF;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)

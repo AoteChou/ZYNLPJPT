@@ -23,7 +23,7 @@
                 </tr>
                 <tr style=" margin-top:10px;">
                     <td>年级入学年份:</td>
-                    <td><input class="easyui-datetimebox"  type="text" id="rxnf" name="rxnf" data-options="required:true"></input></td>
+                    <td><input class="easyui-datebox"  type="text" id="rxnf" name="rxnf" data-options="required:true"></input></td>
                 </tr>
             </table>
         </form>
@@ -35,7 +35,7 @@
     </div>
     </div>
     <script type="text/javascript">
-        function submitForm(data) {
+        function submitForm() {
 
             if ($('#njMc').attr('value') == undefined || $('#njMc').attr('value') == '' || $('#rxnf').datetimebox('getValue') == undefined || $('#rxnf').datetimebox('getValue') == '') {
                 $.messager.alert('结果', '所有字段必须填写！', 'info');
@@ -44,7 +44,6 @@
                     if (data == 'True') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
-
                     } else if (data == 'False') {
                         $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，已经存在该年级信息或者年份格式出错，请检查！', 'info');

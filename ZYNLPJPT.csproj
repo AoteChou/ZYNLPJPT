@@ -137,6 +137,8 @@
     <Content Include="processAspx\xgCpjdProc.aspx" />
     <Content Include="processAspx\xgejzbData.aspx" />
     <Content Include="processAspx\xgEjzbProc.aspx" />
+    <Content Include="processAspx\xgnjData.aspx" />
+    <Content Include="processAspx\xgNjProc.aspx" />
     <Content Include="processAspx\xgyjzbData.aspx" />
     <Content Include="processAspx\xgYjzbProc.aspx" />
     <Content Include="processAspx\xgzsdData.aspx" />
@@ -281,6 +283,7 @@
     </Content>
     <Content Include="xgcpjd.aspx" />
     <Content Include="xgejzb.aspx" />
+    <Content Include="xgnj.aspx" />
     <Content Include="xgyjzb.aspx" />
     <Content Include="xgzsd.aspx" />
     <Content Include="xgzsdy.aspx" />
@@ -894,6 +897,20 @@
     <Compile Include="processAspx\xgEjzbProc.aspx.designer.cs">
       <DependentUpon>xgEjzbProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\xgnjData.aspx.cs">
+      <DependentUpon>xgnjData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgnjData.aspx.designer.cs">
+      <DependentUpon>xgnjData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgNjProc.aspx.cs">
+      <DependentUpon>xgNjProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgNjProc.aspx.designer.cs">
+      <DependentUpon>xgNjProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\xgyjzbData.aspx.cs">
       <DependentUpon>xgyjzbData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1294,6 +1311,13 @@
     </Compile>
     <Compile Include="xgejzb.aspx.designer.cs">
       <DependentUpon>xgejzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgnj.aspx.cs">
+      <DependentUpon>xgnj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgnj.aspx.designer.cs">
+      <DependentUpon>xgnj.aspx</DependentUpon>
     </Compile>
     <Compile Include="xgyjzb.aspx.cs">
       <DependentUpon>xgyjzb.aspx</DependentUpon>
