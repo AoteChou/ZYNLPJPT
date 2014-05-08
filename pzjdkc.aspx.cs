@@ -41,7 +41,7 @@ namespace ZYNLPJPT
                     lists.Reverse();
                     allZyms = lists.ToArray();
                 }
-                cpjdViews = new CpjdView_DAL().getArray(xkbh, queryZym.Trim());
+                cpjdViews = new CpjdView_DAL().getRecentlyArray(xkbh, queryZym.Trim());
             }
         }
     }

@@ -42,7 +42,7 @@ namespace ZYNLPJPT
                     lists.Reverse();
                     allZyms = lists.ToArray();
                 }
-                cpjdViews = new CpjdView_DAL().getSCAndCKArray(xkbh, queryZym.Trim());
+                cpjdViews = new CpjdView_DAL().getRecentlySCAndCKArray(xkbh, queryZym.Trim());
             }
         }
     }
