@@ -11,6 +11,7 @@
     <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
+
         function getSelections(kcbh,zybh) {
             var ss = [];
             var rows = $('#mytable').datagrid('getSelections');
@@ -31,6 +32,7 @@
         function returnToUpPage() {
             window.location = "../pzctr.aspx";
         }
+		
     </script>
 </head>
 <body class="easyui-layout">

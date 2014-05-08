@@ -44,7 +44,7 @@
                  <th data-options="field:'button'" width="30">查看出题人</th>
     		</tr>
     	</thead>
-   		<tbody >
+   		<tbody>
               <%
                    for (int i = 0; i < this.zykcViews.Length; i++)
                    {
@@ -56,7 +56,8 @@
                        Response.Write("	<td >" + zykcViews[i].ZYFZR + "</td>");
                        Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\" showTeas('"+this.zykcViewsWrapper.CtTea[i].Trim()+"') \" >查看出题人</a></td>");
                        Response.Write("</tr>");
-                   } %>
+                   }
+              %>
     	</tbody>
    	</table>     
 </div>                
