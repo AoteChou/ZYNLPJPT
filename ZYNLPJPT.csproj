@@ -811,7 +811,7 @@
     </Compile>
     <Compile Include="processAspx\addXyProc.aspx.designer.cs">
       <DependentUpon>addXyProc.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\addGnProc.aspx.cs">
       <DependentUpon>addGnProc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -916,7 +916,7 @@
     </Compile>
     <Compile Include="processAspx\cpjdData.aspx.designer.cs">
       <DependentUpon>cpjdData.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\ct.aspx.cs">
       <DependentUpon>ct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1014,7 +1014,7 @@
     </Compile>
     <Compile Include="processAspx\DelZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>DelZsdyToEjzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.cs">
       <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1056,7 +1056,7 @@
     </Compile>
     <Compile Include="processAspx\getZSDByYHBH.aspx.designer.cs">
       <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="gt.aspx.cs">
       <DependentUpon>gt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1287,7 +1287,7 @@
     </Compile>
     <Compile Include="processAspx\zsdyToEjzbData.aspx.designer.cs">
       <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\Set_st_ZSD.aspx.cs">
       <DependentUpon>Set_st_ZSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1353,7 +1353,7 @@
     <Compile Include="DAL\JDKCView_DAL.cs" />
     <Compile Include="DAL\JDKCXSView_DAL.cs" />
     <Compile Include="DAL\JDKCXS_DAL.cs" />
-    <Compile Include="Properties\JDKC_DAL.cs" />
+    <Compile Include="DAL\JDKC_DAL.cs" />
     <Compile Include="DAL\JSGNB_DAL.cs" />
     <Compile Include="DAL\JSNJZYKC_DAL.cs" />
     <Compile Include="DAL\JSRole_DAL.cs" />
@@ -1487,7 +1487,7 @@
     </Compile>
     <Compile Include="pzZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>pzZsdyToEjzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="pzYhGn.aspx.cs">
       <DependentUpon>pzYhGn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1634,7 +1634,7 @@
     </Compile>
     <Compile Include="sczyejzb.aspx.designer.cs">
       <DependentUpon>sczyejzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="TeacherIndex.aspx.cs">
       <DependentUpon>TeacherIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
