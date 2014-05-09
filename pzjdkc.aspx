@@ -31,7 +31,7 @@
     		<tr>
     			<th data-options="field:'njbh'" width="12">年级编号</th>
                 <th data-options="field:'njmc',align:'center'" width="30">年级名称</th>
-                 <th data-options="field:'jdbh'" width="12">阶段编号</th>
+                 <th data-options="field:'jdbh'" width="12">阶段编号</th>  
                 <th data-options="field:'jdmc',align:'center'" width="40">阶段名称</th>
                 <th data-options="field:'xkmc',align:'center'" width="40">学科名称</th>
                 <th data-options="field:'qsxq',align:'center'" width="30">阶段起始学期</th>

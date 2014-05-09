@@ -268,7 +268,7 @@ namespace ZYNLPJPT.DAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select YJZBBH,YJZBMC,BZ,XKBH ");
+            strSql.Append("select YJZBBH,YJZBMC,BZ,XKBH,YJZBQZ ");
             strSql.Append(" FROM YJZB ");
             if (strWhere.Trim() != "")
             {

@@ -436,6 +436,137 @@ namespace ZYNLPJPT.DAL
             
             return stzsdList.ToArray();
         }
+        /// <summary>
+        /// 获取未做过的试题
+        /// </summary>
+        /// <param name="kcbh">课程编号</param>
+        /// <param name="xsbh">学生编号</param>
+        /// <returns>未完成试题对象数组</returns>
+        public ST_Undone[] getST_Undone(int kcbh, string xsbh)
+        {
+            string sqlString = "select * from stzsdview where kcbh=@kcbh and stbh not in (select stbh from pcjl where xsbh=@xsbh) order by stbh";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@kcbh",kcbh),
+                new SqlParameter("@xsbh",xsbh)
+                           };
+
+
+            List<ST_Undone> stundoneList = new List<ST_Undone>();
+
+
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            int stbh = -1;
+            ST_Undone st_undone=null;
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                if (stbh == -1) {  //第一次初始化
+
+                    st_undone = new ST_Undone();
+                    st_undone.Stbh = int.Parse(row["stbh"].ToString());
+                    st_undone.ZsdbhList.Add(int.Parse(row["zsdbh"].ToString()));
+                    stbh = st_undone.Stbh;
+
+                } else if (int.Parse(row["stbh"].ToString()) == stbh) {//如果还是一道题的情况下
+
+                    st_undone.ZsdbhList.Add(int.Parse(row["zsdbh"].ToString()));
+                }
+                else {
+                    stundoneList.Add(st_undone);//先将上一道题加入list
+                    st_undone = new ST_Undone();
+                    st_undone.Stbh=int.Parse(row["stbh"].ToString());
+                    st_undone.ZsdbhList.Add(int.Parse(row["zsdbh"].ToString()));
+                    stbh = st_undone.Stbh;
+                }
+                
+
+            }
+            if (ds.Tables[0].Rows.Count > 0) {
+                stundoneList.Add(st_undone);//最后一道题加入list
+            }
+            
+            return stundoneList.ToArray();
+        }
+        /// <summary>
+        /// 获取未下载过的知识点
+        /// </summary>
+        /// <param name="kcbh"></param>
+        /// <param name="xsbh"></param>
+        /// <returns></returns>
+        public int[] getZSD_Undone(int kcbh, string xsbh)
+        {
+            string sqlString = "select distinct zsdbh from stzsdview where kcbh=@kcbh and zsdbh not in (select distinct zsdbh from pcjlzsdview where xsbh=@xsbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@kcbh",kcbh),
+                new SqlParameter("@xsbh",xsbh)
+                           };
+
+
+            List<int> zsdundoneList = new List<int>();
+
+
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                zsdundoneList.Add(int.Parse(row["zsdbh"].ToString()));
+
+            }
+
+            return zsdundoneList.ToArray();
+        }
+        /// <summary>
+        /// 获取未完成的知识点（包括没有下载的和下载了的但是没有做的）
+        /// </summary>
+        /// <param name="kcbh"></param>
+        /// <param name="xsbh"></param>
+        /// <returns></returns>
+        public int[] getZSD_Unfinished(int kcbh, string xsbh)
+        {
+            string sqlString = "select distinct zsdbh from stzsdview where kcbh=@kcbh and zsdbh not in (select distinct zsdbh from pcjlzsdview where xsbh=@xsbh and xsstda IS NOT NULL)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@kcbh",kcbh),
+                new SqlParameter("@xsbh",xsbh)
+                           };
+
+
+            List<int> zsdundoneList = new List<int>();
+
+
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                zsdundoneList.Add(int.Parse(row["zsdbh"].ToString()));
+
+            }
+
+            return zsdundoneList.ToArray();
+        }
+        /// <summary>
+        /// 获取该门课程下的知识点总数
+        /// </summary>
+        /// <param name="kcbh">课程编号</param>
+        /// <returns>知识点数目</returns>
+        public int getZSDCountbyKCBH(int kcbh)
+        {
+            string sqlString = "select count( distinct zsdbh) as zsdcount from stzsdview where kcbh=@kcbh";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@kcbh",kcbh)
+                           };
+         
+
+            int zsdcount=-1;
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+            if(ds.Tables[0].Rows.Count>0)
+            {
+                zsdcount = int.Parse(ds.Tables[0].Rows[0]["zsdcount"].ToString());
+
+            }
+
+            return zsdcount;
+        }
 		#endregion  ExtensionMethod
 	}
 }

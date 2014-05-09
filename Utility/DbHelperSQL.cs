@@ -664,7 +664,41 @@ namespace ZYNLPJPT.Utility
                 }
             }
         }
-
+        
+       
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务。按顺序
+        /// </summary>
+        /// <param name="SQLStringList"></param>
+        public static void ExecuteSqlTran(List<string> SQLStringList, List<SqlParameter[]> SqlParameterList)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlTransaction trans = conn.BeginTransaction())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    try
+                    {
+                        //循环
+                        for (int i = 0; i < SQLStringList.Count;i++ )
+                        {
+                            string cmdText = SQLStringList[i];
+                            SqlParameter[] cmdParms = SqlParameterList[i];
+                            PrepareCommand(cmd, conn, trans, cmdText, cmdParms);
+                            int val = cmd.ExecuteNonQuery();
+                            cmd.Parameters.Clear();
+                        }
+                        trans.Commit();
+                    }
+                    catch
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
         #endregion
 
     }

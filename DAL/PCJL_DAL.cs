@@ -494,6 +494,25 @@ namespace ZYNLPJPT.DAL
             return pcjlList.ToArray();
         }
         /// <summary>
+        /// 获取某个学生特定课程是所有未完成的试题(分页)
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJL_Undone_ALLByPage(string xsbh, int kcbh,int startIndex, int endIndex)
+        {
+            List<ZYNLPJPT.Model.PCJL> pcjlList=new List<Model.PCJL>();
+            DataSet ds = GetListByPage("xsbh=" + xsbh + " and xsstda IS NULL and stbh in(select stbh from st where kcbh=" + kcbh, "", startIndex, endIndex);
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
+        /// <summary>
         /// 获取某个学生特定课程下所有有分数的试题
         /// </summary>
         /// <param name="xsbh"></param>
@@ -517,6 +536,48 @@ namespace ZYNLPJPT.DAL
 
             return pcjlList.ToArray();
         }
+        /// <summary>
+        /// 获取某个学生特定课程下所有有分数的试题总数
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <returns></returns>
+        public int getPCJLWithMark_ALL_Count(string xsbh, int kcbh)
+        {
+            string sqlString = "select * from pcjl where xsbh=@xsbh and pcfs IS NOT NULL and stbh in(select stbh from st where kcbh=@kcbh)";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+
+            List<ZYNLPJPT.Model.PCJL> pcjlList = new List<Model.PCJL>();
+            DataSet ds = DbHelperSQL.Query(sqlString, sqlparameters);
+
+
+            return ds.Tables[0].Rows.Count;
+        }
+        /// <summary>
+        /// 获取某个学生特定课程下所有有分数的试题（分页）
+        /// </summary>
+        /// <param name="xsbh"></param>
+        /// <param name="kcbh"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        public ZYNLPJPT.Model.PCJL[] getPCJLWithMark_ALLByPage(string xsbh, int kcbh, int startIndex, int endIndex)
+        {
+            List<ZYNLPJPT.Model.PCJL> pcjlList = new List<Model.PCJL>();
+            DataSet ds = GetListByPage("xsbh=" + xsbh + " and pcfs IS NOT NULL and stbh in(select stbh from st where kcbh=" + kcbh+")", "", startIndex, endIndex);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                pcjlList.Add(DataRowToModel(row));
+            }
+
+            return pcjlList.ToArray();
+        }
+        
+       
         /// <summary>
         /// 部分更新（更新条件上传时间以及评测记录编号）
         /// </summary>
@@ -552,6 +613,29 @@ namespace ZYNLPJPT.DAL
             {
                 return false;
             }
+        }
+        /// <summary>
+        /// 获取目前所有试题的最高分其中分数最低的试题
+        /// </summary>
+        /// <param name="xsbh">学生编号</param>
+        /// <param name="kcbh">课程编号</param>
+        /// <returns>评测记录</returns>
+        public ZYNLPJPT.Model.PCJL getPCJLWithLowestMark(string xsbh, int kcbh)
+        {
+            String sqlString ="select top 1 * from(select *, ROW_NUMBER() over(partition by stbh order by pcfs desc) as rowNum from pcjl) ranked where ranked.rowNum <= 1 and  xsbh=@xsbh and pcfs IS NOT NULL  and stbh in(select stbh from st where kcbh=@kcbh)order by ranked.pcfs asc";
+            SqlParameter[] sqlparameters =
+            {
+                new SqlParameter("@xsbh",xsbh),
+                new SqlParameter("@kcbh",kcbh)
+                       };
+            ZYNLPJPT.Model.PCJL pcjl = new ZYNLPJPT.Model.PCJL();
+            DataSet ds = DbHelperSQL.Query(sqlString , sqlparameters);
+            if(ds.Tables[0].Rows.Count>=0)
+            {
+               pcjl=DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+
+            return pcjl;
         }
 		#endregion  ExtensionMethod
 	}

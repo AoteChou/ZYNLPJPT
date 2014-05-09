@@ -16,7 +16,7 @@
 
 
 <div region="center" border="false">
-  <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+  <table id="mytable"   fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
     			<th data-options="field:'kcmc'" width="50">课程名称</th>
@@ -43,7 +43,7 @@
               Response.Write("  <td >"+testNum_done+"</td>");
               Response.Write("  <td >" + testNum_undone[i] + "</td>");
               Response.Write("  <td >"+jdkcxsviews[i].KCJJ+"</td>");
-              Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.location.href='processAspx/GetTest.aspx?kcbh="+jdkcxsviews[i].KCBH+"'\" >进入测试</a></td>");
+              Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.parent.addTab('" + jdkcxsviews[i].KCMC + "-课程评测','processAspx/GetTest.aspx?kcbh=" + jdkcxsviews[i].KCBH + "')\" >进入评测</a></td>");
               Response.Write("</tr>");
                  
               } %>
@@ -60,7 +60,7 @@
 <script type="text/javascript">
     $(function () {
         $('#mytable').datagrid({
-            pagination: true,
+            //pagination: true,
             //data:[{code:'1',price:'2',name:'dd'}],
             //url:'data.json',
             singleSelect: true

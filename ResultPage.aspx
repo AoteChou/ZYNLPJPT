@@ -16,7 +16,7 @@
 <form id="form1" runat="server">
 
 <div region="center" border="false">
-  <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+  <table id="mytable"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>
     		<tr>
     			<th data-options="field:'cpjlbh'" width="50">测评记录编号</th>
@@ -30,29 +30,7 @@
     			
     		</tr>
     	</thead>
-   		<tbody >
-           
-    		
-              <%
-              for (int i = 0; i <this.pcjls.Length; i++)
-              {  
-                  Response.Write("<tr >");
-                  Response.Write("	<td >" + pcjls[i].PCJLBH  + "</td>");
-    		      Response.Write("	<td >"+pcjls[i].STBH+"</td>");
-    		      Response.Write("	<td >"+pcjls[i].XZRQ+"</td>");
-                  Response.Write("	<td >" + pcjls[i].SCRQ  + "</td>");
-    		      Response.Write("	<td >"+yhxm[i]+"</td>");
-    		      Response.Write("	<td >"+pcjls[i].PCFS+"</td>");
-                  Response.Write("  <td><a  href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.location.href='processAspx/DownloadTest.aspx?stbh=" + pcjls[i].STBH + "'\" >下载题目</a></td>");
-                  Response.Write("  <td><a  href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/DownloadMyAnswer.aspx?pcjlbh=" + pcjls[i].PCJLBH + "'\" >下载我的答案</a></td>");
-                  Response.Write("</tr>");
-                 
-              } %>
-               
-          
-            
-            
-    	</tbody>
+   		
    	</table>     
 </div>
 <div id="win">
@@ -60,27 +38,32 @@
  
 </form>               
 <script type="text/javascript">
-    function uploadClick(objValue) {
-        $('#win').html("<iframe width='100%' height='100%' style='_border:none;'  class='myUploadIframe' frameborder='0' scrolling='no' src='UploadPage_Detail.aspx?" + objValue + "' ></iframe>")
-        //.attr('src', 'TestPage.aspx?teststate=2&pcjlbh=24&stbh=3')
-        $('#win').window({
-            title: '  请上传答案',
-            width: 600,
-            height: 400,
-            modal: true,
-            collapsible: false,
-            minimizable: false
-        });
-        $('#win').window({
-            onBeforeClose: function () {
-                window.location.reload();
-            }
-        });
-    }
+
+    
     $(function () {
         $('#mytable').datagrid({
             pagination: true,
-            singleSelect: true
+            singleSelect: true,
+            url: 'processAspx/getPCFSByKcbhAndYhbh.aspx',
+            queryParams:{
+                xsbh:<%=xsbh %>,
+                kcbh:<%=kcbh %>
+            },
+            method:"post",
+            onLoadSuccess:function(data){
+            if(data.total==0){
+             window.location.href="./ErrorPage.aspx?msg=同学...该课程下还没有成绩,请关闭此标签页&gb=true";
+            }
+            $('.easyui-linkbutton').linkbutton({
+                plain: false
+            });
+            },
+            onLoadError:function(){
+                $.messager.show({
+                    title:'加载失败',
+                    msg:'加载失败，请重试'
+                    });
+            }
         });
 
 

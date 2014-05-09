@@ -18,7 +18,8 @@ namespace ZYNLPJPT.processAspx
         {
             if (Session["yh"] == null)
             {
-                this.Response.Redirect("Default.htm");
+                this.Response.Write("<script type='text/javascript'>window.parent.location='../Default.htm'</script>");
+                this.Response.End();
             }
             else
             {
@@ -33,8 +34,11 @@ namespace ZYNLPJPT.processAspx
                 PCJL pcjl = pcjl_dal.getPCJL_Undone(xsbh, kcbh);
                 if (pcjl == null || Request["SFZJT"]!=null)//如果没有旧题就做新题  是否做旧题不是空的话就表示不出以前下的没有做的题目
                 {
-                   
-                    stbh = gettest_bll.getSTBH(xsbh, kcbh);
+                    string msg="";//获取试题的消息，如果出错看msg返回的是什么
+                    stbh = gettest_bll.getSTBH(xsbh, kcbh,ref msg);
+                    if (stbh == -1) { //获取试题失败的话
+                        Response.Redirect("../ErrorPage.aspx?msg="+msg+"&gb=true");
+                    }
                     teststate = TestState.NEWTEST;
                     pcjl = new PCJL();
                     pcjl.STBH = stbh;
@@ -51,7 +55,7 @@ namespace ZYNLPJPT.processAspx
                     pcjlbh = pcjl.PCJLBH;
                     teststate = TestState.UNDONETEST;
                 }
-                Response.Redirect("../TestPage.aspx?stbh=" + stbh + "&teststate=" + teststate+"&pcjlbh="+pcjlbh);
+                Response.Redirect("../TestPage_Loading.htm?stbh=" + stbh + "&teststate=" + teststate+"&pcjlbh="+pcjlbh+"&kcbh="+kcbh);
             }
         }
     }

@@ -3,6 +3,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using ZYNLPJPT.Model;
+using System.Collections.Generic;
 
 namespace ZYNLPJPT.DAL
 {
@@ -326,7 +328,7 @@ namespace ZYNLPJPT.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
-
+       
 		#endregion  ExtensionMethod
 	}
 }

@@ -3,13 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
-   <link rel="stylesheet" type="text/css" href="Styles/TestPage.css">
+
 	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
-     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="Styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Styles/TestPage.css"/> 
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    
 
 </head>
 
@@ -19,25 +23,27 @@
 <div region="center" border="false">
  	<div id="content">
     	<div id="ZSDList" >
-        	<h1><%=this.stzsdviews[0].KCMC%>•题<%=stbh %></h1>
+        	<h2><%=this.stzsdviews[0].KCMC%>•题<%=stbh %></h2>
         </div>
-    	<h2 style="color:#888888">涉及的知识点</h2>
-    	<ol style="color:#777777">
+    	<h4 style="color:#888888">涉及的知识点</h4>
+    	<ol style="color:#777777;list-style-position: inside;">
             <%for (int i = 0; i < stzsdviews.Length; i++)
               { %>
     		<li><%=stzsdviews[i].ZSDMC%>&nbsp<%=stzsdviews[i].ZSDBZ.ToString("p")%></li>
             <%} %>
     		
     	</ol>
-        <input type="button" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" />
+        <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >下载题目</a>
         <div id="uploadDiv">
-             <Upload:InputFile id="inputFileId" runat="server" />
-            <asp:Button id="submitButtonId" runat="server" Text="上传题目" OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  /><br />
+             <Upload:InputFile id="inputFileId" runat="server"  /> 
+            <asp:Button id="submitButtonId" runat="server" class="btn" Text="确认上传"  OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  /><br />
+            <font style="position: relative; top: -20px;">上传进度：</font>
             <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="500" Height="50" />
             <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?"> </Upload:UnloadConfirmer>
         </div>
        
-         <p id='opMsg'></p>
+         <p id='opMsg'class="badge badge-info" style="font-size: 13px; padding: 5px 20px; font-weight: normal;"></p>
+             
     </div>
    
     
@@ -98,11 +104,17 @@ function loadXML(filePath) {
           alert("请上传后缀名为： "+compString+"  的文件!");
           return false;
       }else{
-          $('#opMsg').text('正在上传...请勿关闭本窗口...');
+          $j('#opMsg').text('正在上传...请勿关闭本窗口...');
           return true;
       }
 
   }
+  function uploadSuccess(){
+    document.getElementById('opMsg').innerHTML= '成功提交答案！';
+    window.parent.window.location.reload();
+    }
+var $j = jQuery.noConflict();
+
  
 </script>
 
