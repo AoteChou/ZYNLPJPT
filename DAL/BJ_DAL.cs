@@ -54,6 +54,9 @@ namespace ZYNLPJPT.DAL
                     new SqlParameter("@ZYBH",SqlDbType.Int,4)
 			};
             parameters[0].Value = BJBH;
+            parameters[1].Value = BJMC;
+            parameters[2].Value = NJBH;
+            parameters[3].Value = ZYBH;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -97,11 +100,9 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update BJ set ");
-			strSql.Append("NJBH=@NJBH,");
-			strSql.Append("ZYBH=@ZYBH,");
 			strSql.Append("BJMC=@BJMC,");
 			strSql.Append("RXNF=@RXNF");
-			strSql.Append(" where BJBH=@BJBH");
+			strSql.Append(" where BJBH=@BJBH and NJBH=@NJBH and ZYBH=@ZYBH");
 			SqlParameter[] parameters = {
 					new SqlParameter("@NJBH", SqlDbType.Int,4),
 					new SqlParameter("@ZYBH", SqlDbType.Int,4),
