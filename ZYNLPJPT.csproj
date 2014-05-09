@@ -180,6 +180,8 @@
     <Content Include="processAspx\xgZsdyProc.aspx" />
     <Content Include="processAspx\xgzslyData.aspx" />
     <Content Include="processAspx\xgZslyProc.aspx" />
+    <Content Include="processAspx\xgzyData.aspx" />
+    <Content Include="processAspx\xgZyProc.aspx" />
     <Content Include="processAspx\zsdyToEjzbData.aspx" />
     <Content Include="processAspx\ct.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
@@ -1296,6 +1298,20 @@
     </Compile>
     <Compile Include="processAspx\xgZslyProc.aspx.designer.cs">
       <DependentUpon>xgZslyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgzyData.aspx.cs">
+      <DependentUpon>xgzyData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgzyData.aspx.designer.cs">
+      <DependentUpon>xgzyData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgZyProc.aspx.cs">
+      <DependentUpon>xgZyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgZyProc.aspx.designer.cs">
+      <DependentUpon>xgZyProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\zsdyToEjzbData.aspx.cs">
       <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>

@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace ZYNLPJPT {
+namespace ZYNLPJPT.processAspx {
     
     
-    public partial class xgzy {
+    public partial class xgzyData {
     }
 }
