@@ -168,6 +168,8 @@
     <Content Include="processAspx\xgEjzbProc.aspx" />
     <Content Include="processAspx\xgnjData.aspx" />
     <Content Include="processAspx\xgNjProc.aspx" />
+    <Content Include="processAspx\xgxkData.aspx" />
+    <Content Include="processAspx\xgXkProc.aspx" />
     <Content Include="processAspx\xgxyData.aspx" />
     <Content Include="processAspx\xgXyProc.aspx" />
     <Content Include="processAspx\xgyjzbData.aspx" />
@@ -1210,6 +1212,20 @@
     </Compile>
     <Compile Include="processAspx\xgNjProc.aspx.designer.cs">
       <DependentUpon>xgNjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgxkData.aspx.cs">
+      <DependentUpon>xgxkData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgxkData.aspx.designer.cs">
+      <DependentUpon>xgxkData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgXkProc.aspx.cs">
+      <DependentUpon>xgXkProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgXkProc.aspx.designer.cs">
+      <DependentUpon>xgXkProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\xgxyData.aspx.cs">
       <DependentUpon>xgxyData.aspx</DependentUpon>

@@ -10,7 +10,7 @@
     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
-    </head>
+ </head>
 <body class="easyui-layout">         
 <div region="center" border="false">
  <div id="ctTea" class="easyui-window" title="查看学科信息" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
