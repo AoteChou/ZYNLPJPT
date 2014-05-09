@@ -1,0 +1,982 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E3302CB-A053-4D42-A763-F5C8EB3E7ECA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZYNLPJPT</RootNamespace>
+    <AssemblyName>ZYNLPJPT</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Brettle.Web.NeatUpload, Version=1.3.4034.20191, Culture=neutral, PublicKeyToken=dd134ea1c3727369, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Brettle.Web.NeatUpload.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addcpjd.aspx" />
+    <Content Include="addEjzb.aspx" />
+    <Content Include="addYjzb.aspx" />
+    <Content Include="addZsd.aspx" />
+    <Content Include="addZsdy.aspx" />
+    <Content Include="addZsly.aspx" />
+    <Content Include="bin\Brettle.Web.NeatUpload.dll" />
+    <Content Include="cancel.png" />
+    <Content Include="ChooseResultCurriculum.aspx" />
+    <Content Include="ChooseTestCurriculum.aspx" />
+    <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="ckctr.aspx" />
+    <Content Include="getResult_EJZB.aspx" />
+    <Content Include="getResult_Final.aspx" />
+    <Content Include="getResult_YJZB.aspx" />
+    <Content Include="getResult_ZSD.aspx" />
+    <Content Include="getResult_ZSDY.aspx" />
+    <Content Include="ckjdkc.aspx" />
+    <Content Include="ckjsgt.aspx" />
+    <Content Include="ckkczsdy.aspx" />
+    <Content Include="ckZsly.aspx" />
+    <Content Include="ckzyejzb.aspx" />
+    <Content Include="getResult_ZSLY.aspx" />
+    <Content Include="processAspx\addCpjdProc.aspx" />
+    <Content Include="processAspx\addCtr.aspx" />
+    <Content Include="processAspx\addEjzbProc.aspx" />
+    <Content Include="processAspx\addJdKc.aspx" />
+    <Content Include="processAspx\addJdkcxsProc.aspx" />
+    <Content Include="processAspx\addKcZsdy.aspx" />
+    <Content Include="processAspx\addYjzbProc.aspx" />
+    <Content Include="processAspx\addZsdProc.aspx" />
+    <Content Include="processAspx\addZsdyProc.aspx" />
+    <Content Include="processAspx\addZslyProc.aspx" />
+    <Content Include="processAspx\addZyEjzb.aspx" />
+    <Content Include="processAspx\changeEjzbProc.aspx" />
+    <Content Include="processAspx\changeZsdyProc.aspx" />
+    <Content Include="processAspx\ckjdkcxsData.aspx" />
+    <Content Include="processAspx\cpjdData.aspx" />
+    <Content Include="processAspx\ctrData.aspx" />
+<<<<<<< HEAD
+    <Content Include="processAspx\getEJZBByYHBH.aspx" />
+    <Content Include="processAspx\getYJZBByYHBH.aspx" />
+    <Content Include="processAspx\getZSDByYHBH.aspx" />
+    <Content Include="processAspx\getZSDYByYHBH.aspx" />
+    <Content Include="processAspx\getZSLYByYHBH.aspx" />
+=======
+    <Content Include="processAspx\DelAllZyZjzb.aspx" />
+>>>>>>> 03a5be588b0981852d66e2fed708c3ff6bb07bba
+    <Content Include="processAspx\jdkcxsData.aspx" />
+    <Content Include="processAspx\pzEjzbProc.aspx" />
+    <Content Include="processAspx\pzkczsdyProc.aspx" />
+    <Content Include="processAspx\scEjzbProc.aspx" />
+    <Content Include="pzjdkc.aspx" />
+    <Content Include="pzjsgt.aspx" />
+    <Content Include="pzkczsdy.aspx" />
+    <Content Include="pzctr.aspx" />
+    <Content Include="Default.htm" />
+    <Content Include="processAspx\DownloadMyAnswer.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="NeatUpload\cancel.png" />
+    <Content Include="NeatUpload\default.css" />
+    <Content Include="NeatUpload\DONT_DELETE.txt" />
+    <Content Include="NeatUpload\Error413.aspx" />
+    <Content Include="NeatUpload\NeatUpload.js" />
+    <Content Include="NeatUpload\Progress.aspx" />
+    <Content Include="NeatUpload\Progress.js" />
+    <Content Include="NeatUpload\refresh.png" />
+    <Content Include="NeatUpload\SmoothProgress.aspx" />
+    <Content Include="NeatUpload\stop_refresh.png" />
+    <Content Include="NeatUpload\SWFUpload-license.txt" />
+    <Content Include="NeatUpload\SWFUpload.js" />
+    <Content Include="NeatUpload\SWFUpload.swf" />
+    <Content Include="processAspx\DownloadTest.aspx" />
+    <Content Include="processAspx\GetTest.aspx" />
+    <Content Include="processAspx\login_pro.aspx" />
+    <Content Include="processAspx\logout.aspx" />
+    <Content Include="pzzyejzb.aspx" />
+    <Content Include="ResultPage.aspx" />
+    <Content Include="Scripts\drilldown.js" />
+    <Content Include="Scripts\easyloader.js" />
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
+    <Content Include="sczyejzb.aspx" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\default\accordion.css" />
+    <Content Include="Styles\default\calendar.css" />
+    <Content Include="Styles\default\combo.css" />
+    <Content Include="Styles\default\combobox.css" />
+    <Content Include="Styles\default\datagrid.css" />
+    <Content Include="Styles\default\datebox.css" />
+    <Content Include="Styles\default\dialog.css" />
+    <Content Include="Styles\default\easyui.css" />
+    <Content Include="Styles\default\images\accordion_arrows.png" />
+    <Content Include="Styles\default\images\blank.gif" />
+    <Content Include="Styles\default\images\calendar_arrows.png" />
+    <Content Include="Styles\default\images\combo_arrow.png" />
+    <Content Include="Styles\default\images\datagrid_icons.png" />
+    <Content Include="Styles\default\images\datebox_arrow.png" />
+    <Content Include="Styles\default\images\layout_arrows.png" />
+    <Content Include="Styles\default\images\linkbutton_bg.png" />
+    <Content Include="Styles\default\images\loading.gif" />
+    <Content Include="Styles\default\images\menu_arrows.png" />
+    <Content Include="Styles\default\images\messager_icons.png" />
+    <Content Include="Styles\default\images\pagination_icons.png" />
+    <Content Include="Styles\default\images\panel_tools.png" />
+    <Content Include="Styles\default\images\searchbox_button.png" />
+    <Content Include="Styles\default\images\slider_handle.png" />
+    <Content Include="Styles\default\images\spinner_arrows.png" />
+    <Content Include="Styles\default\images\tabs_icons.png" />
+    <Content Include="Styles\default\images\tree_icons.png" />
+    <Content Include="Styles\default\images\validatebox_arrows.png" />
+    <Content Include="Styles\default\images\validatebox_warning.png" />
+    <Content Include="Styles\default\layout.css" />
+    <Content Include="Styles\default\linkbutton.css" />
+    <Content Include="Styles\default\menu.css" />
+    <Content Include="Styles\default\menubutton.css" />
+    <Content Include="Styles\default\messager.css" />
+    <Content Include="Styles\default\pagination.css" />
+    <Content Include="Styles\default\panel.css" />
+    <Content Include="Styles\default\progressbar.css" />
+    <Content Include="Styles\default\propertygrid.css" />
+    <Content Include="Styles\default\searchbox.css" />
+    <Content Include="Styles\default\slider.css" />
+    <Content Include="Styles\default\spinner.css" />
+    <Content Include="Styles\default\splitbutton.css" />
+    <Content Include="Styles\default\tabs.css" />
+    <Content Include="Styles\default\tree.css" />
+    <Content Include="Styles\default\validatebox.css" />
+    <Content Include="Styles\default\window.css" />
+    <Content Include="Styles\getResult_Final.css" />
+    <Content Include="Styles\icon.css" />
+    <Content Include="Styles\icons\back.png" />
+    <Content Include="Styles\icons\blank.gif" />
+    <Content Include="Styles\icons\cancel.png" />
+    <Content Include="Styles\icons\cut.png" />
+    <Content Include="Styles\icons\edit_add.png" />
+    <Content Include="Styles\icons\edit_remove.png" />
+    <Content Include="Styles\icons\filesave.png" />
+    <Content Include="Styles\icons\help.png" />
+    <Content Include="Styles\icons\mini_add.png" />
+    <Content Include="Styles\icons\mini_edit.png" />
+    <Content Include="Styles\icons\mini_refresh.png" />
+    <Content Include="Styles\icons\no.png" />
+    <Content Include="Styles\icons\ok.png" />
+    <Content Include="Styles\icons\pencil.png" />
+    <Content Include="Styles\icons\print.png" />
+    <Content Include="Styles\icons\redo.png" />
+    <Content Include="Styles\icons\reload.png" />
+    <Content Include="Styles\icons\search.png" />
+    <Content Include="Styles\icons\sum.png" />
+    <Content Include="Styles\icons\tip.png" />
+    <Content Include="Styles\icons\undo.png" />
+    <Content Include="Styles\TestPage.css" />
+    <Content Include="TestPage.aspx" />
+<<<<<<< HEAD
+    <Content Include="UploadPage.aspx" />
+=======
+<<<<<<< HEAD
+    <Content Include="UploadPage.aspx" />
+=======
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Brettle.Web.NeatUpload.dll" />
+    <Content Include="cancel.png" />
+    <Content Include="ChooseResultCurriculum.aspx" />
+    <Content Include="ChooseTestCurriculum.aspx" />
+    <Content Include="ChooseUploadCurriculum.aspx" />
+    <Content Include="Default.htm" />
+    <Content Include="processAspx\DownloadMyAnswer.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="NeatUpload\cancel.png" />
+    <Content Include="NeatUpload\default.css" />
+    <Content Include="NeatUpload\DONT_DELETE.txt" />
+    <Content Include="NeatUpload\Error413.aspx" />
+    <Content Include="NeatUpload\NeatUpload.js" />
+    <Content Include="NeatUpload\Progress.aspx" />
+    <Content Include="NeatUpload\Progress.js" />
+    <Content Include="NeatUpload\refresh.png" />
+    <Content Include="NeatUpload\SmoothProgress.aspx" />
+    <Content Include="NeatUpload\stop_refresh.png" />
+    <Content Include="NeatUpload\SWFUpload-license.txt" />
+    <Content Include="NeatUpload\SWFUpload.js" />
+    <Content Include="NeatUpload\SWFUpload.swf" />
+    <Content Include="processAspx\DownloadTest.aspx" />
+    <Content Include="processAspx\GetTest.aspx" />
+    <Content Include="processAspx\login_pro.aspx" />
+    <Content Include="processAspx\logout.aspx" />
+    <Content Include="ResultPage.aspx" />
+    <Content Include="Scripts\easyloader.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\default\accordion.css" />
+    <Content Include="Styles\default\calendar.css" />
+    <Content Include="Styles\default\combo.css" />
+    <Content Include="Styles\default\combobox.css" />
+    <Content Include="Styles\default\datagrid.css" />
+    <Content Include="Styles\default\datebox.css" />
+    <Content Include="Styles\default\dialog.css" />
+    <Content Include="Styles\default\easyui.css" />
+    <Content Include="Styles\default\images\accordion_arrows.png" />
+    <Content Include="Styles\default\images\blank.gif" />
+    <Content Include="Styles\default\images\calendar_arrows.png" />
+    <Content Include="Styles\default\images\combo_arrow.png" />
+    <Content Include="Styles\default\images\datagrid_icons.png" />
+    <Content Include="Styles\default\images\datebox_arrow.png" />
+    <Content Include="Styles\default\images\layout_arrows.png" />
+    <Content Include="Styles\default\images\linkbutton_bg.png" />
+    <Content Include="Styles\default\images\loading.gif" />
+    <Content Include="Styles\default\images\menu_arrows.png" />
+    <Content Include="Styles\default\images\messager_icons.png" />
+    <Content Include="Styles\default\images\pagination_icons.png" />
+    <Content Include="Styles\default\images\panel_tools.png" />
+    <Content Include="Styles\default\images\searchbox_button.png" />
+    <Content Include="Styles\default\images\slider_handle.png" />
+    <Content Include="Styles\default\images\spinner_arrows.png" />
+    <Content Include="Styles\default\images\tabs_icons.png" />
+    <Content Include="Styles\default\images\tree_icons.png" />
+    <Content Include="Styles\default\images\validatebox_arrows.png" />
+    <Content Include="Styles\default\images\validatebox_warning.png" />
+    <Content Include="Styles\default\layout.css" />
+    <Content Include="Styles\default\linkbutton.css" />
+    <Content Include="Styles\default\menu.css" />
+    <Content Include="Styles\default\menubutton.css" />
+    <Content Include="Styles\default\messager.css" />
+    <Content Include="Styles\default\pagination.css" />
+    <Content Include="Styles\default\panel.css" />
+    <Content Include="Styles\default\progressbar.css" />
+    <Content Include="Styles\default\propertygrid.css" />
+    <Content Include="Styles\default\searchbox.css" />
+    <Content Include="Styles\default\slider.css" />
+    <Content Include="Styles\default\spinner.css" />
+    <Content Include="Styles\default\splitbutton.css" />
+    <Content Include="Styles\default\tabs.css" />
+    <Content Include="Styles\default\tree.css" />
+    <Content Include="Styles\default\validatebox.css" />
+    <Content Include="Styles\default\window.css" />
+    <Content Include="Styles\icon.css" />
+    <Content Include="Styles\icons\back.png" />
+    <Content Include="Styles\icons\blank.gif" />
+    <Content Include="Styles\icons\cancel.png" />
+    <Content Include="Styles\icons\cut.png" />
+    <Content Include="Styles\icons\edit_add.png" />
+    <Content Include="Styles\icons\edit_remove.png" />
+    <Content Include="Styles\icons\filesave.png" />
+    <Content Include="Styles\icons\help.png" />
+    <Content Include="Styles\icons\mini_add.png" />
+    <Content Include="Styles\icons\mini_edit.png" />
+    <Content Include="Styles\icons\mini_refresh.png" />
+    <Content Include="Styles\icons\no.png" />
+    <Content Include="Styles\icons\ok.png" />
+    <Content Include="Styles\icons\pencil.png" />
+    <Content Include="Styles\icons\print.png" />
+    <Content Include="Styles\icons\redo.png" />
+    <Content Include="Styles\icons\reload.png" />
+    <Content Include="Styles\icons\search.png" />
+    <Content Include="Styles\icons\sum.png" />
+    <Content Include="Styles\icons\tip.png" />
+    <Content Include="Styles\icons\undo.png" />
+    <Content Include="Styles\TestPage.css" />
+    <Content Include="TestPage.aspx" />
+>>>>>>> 3d63e96b260c8c5b54bbb12733c40d9724b96bd9
+>>>>>>> 9e2be270020abe85d92983852612de29e091f7ca
+    <Content Include="Utility\validatedFileSuffix.xml" />
+    <Content Include="UploadPage_Detail.aspx" />
+    <Content Include="Utility\validatedFileSuffix.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addcpjd.aspx.cs">
+      <DependentUpon>addcpjd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addcpjd.aspx.designer.cs">
+      <DependentUpon>addcpjd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addEjzb.aspx.cs">
+      <DependentUpon>addEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addEjzb.aspx.designer.cs">
+      <DependentUpon>addEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addYjzb.aspx.cs">
+      <DependentUpon>addYjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYjzb.aspx.designer.cs">
+      <DependentUpon>addYjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsd.aspx.cs">
+      <DependentUpon>addZsd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsd.aspx.designer.cs">
+      <DependentUpon>addZsd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsdy.aspx.cs">
+      <DependentUpon>addZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsdy.aspx.designer.cs">
+      <DependentUpon>addZsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addZsly.aspx.cs">
+      <DependentUpon>addZsly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addZsly.aspx.designer.cs">
+      <DependentUpon>addZsly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\GetTestResult_BLL.cs" />
+    <Compile Include="BLL\GetTest_BLL.cs" />
+    <Compile Include="BLL\Login_BLL.cs" />
+    <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="ChooseResultCurriculum.aspx.cs">
+      <DependentUpon>ChooseResultCurriculum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseResultCurriculum.aspx.designer.cs">
+      <DependentUpon>ChooseResultCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseTestCurriculum.aspx.cs">
+      <DependentUpon>ChooseTestCurriculum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseTestCurriculum.aspx.designer.cs">
+      <DependentUpon>ChooseTestCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseUploadCurriculum.aspx.cs">
+      <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseUploadCurriculum.aspx.designer.cs">
+      <DependentUpon>ChooseUploadCurriculum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckctr.aspx.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctr.aspx.designer.cs">
+      <DependentUpon>ckctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckjdkc.aspx.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjdkc.aspx.designer.cs">
+      <DependentUpon>ckjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckjsgt.aspx.designer.cs">
+      <DependentUpon>ckjsgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckkczsdy.aspx.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckkczsdy.aspx.designer.cs">
+      <DependentUpon>ckkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckZsly.aspx.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckZsly.aspx.designer.cs">
+      <DependentUpon>ckZsly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckzyejzb.aspx.designer.cs">
+      <DependentUpon>ckzyejzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BjXsDetailView_DAL.cs" />
+    <Compile Include="DAL\CpjdView_DAL.cs" />
+    <Compile Include="DAL\JDKCXSNewView_DAL.cs" />
+    <Compile Include="DAL\JSRoleYHView_DAL.cs" />
+    <Compile Include="DAL\JsTeaDetailView_DAL.cs" />
+    <Compile Include="DAL\KCDetailView_DAL.cs" />
+    <Compile Include="DAL\KCZSDYView_DAL.cs" />
+    <Compile Include="DAL\NLZBView_DAL.cs" />
+    <Compile Include="DAL\PCJLZSDView_DAL.cs" />
+    <Compile Include="DAL\XKNLZBView_DAL.cs" />
+    <Compile Include="DAL\XKZSTXView_DAL.cs" />
+    <Compile Include="DAL\XSBJZYView_DAL.cs" />
+    <Compile Include="DAL\XyXkZyView_DAL.cs" />
+    <Compile Include="DAL\ZSNLView_DAL.cs" />
+    <Compile Include="DAL\ZSTXQZView_DAL.cs" />
+    <Compile Include="DAL\ZSTXView_DAL.cs" />
+    <Compile Include="DAL\ZYNLZBView_DAL.cs" />
+    <Compile Include="getResult_EJZB.aspx.cs">
+      <DependentUpon>getResult_EJZB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_EJZB.aspx.designer.cs">
+      <DependentUpon>getResult_EJZB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_Final.aspx.cs">
+      <DependentUpon>getResult_Final.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_Final.aspx.designer.cs">
+      <DependentUpon>getResult_Final.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_YJZB.aspx.cs">
+      <DependentUpon>getResult_YJZB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_YJZB.aspx.designer.cs">
+      <DependentUpon>getResult_YJZB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_ZSD.aspx.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSLY.aspx.cs">
+      <DependentUpon>getResult_ZSLY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSLY.aspx.designer.cs">
+      <DependentUpon>getResult_ZSLY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BjXsDetailView.cs" />
+    <Compile Include="Model\CpjdView.cs" />
+    <Compile Include="Model\JDKCXSNewView.cs" />
+    <Compile Include="getResult_ZSD.aspx.designer.cs">
+      <DependentUpon>getResult_ZSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getResult_ZSDY.aspx.designer.cs">
+      <DependentUpon>getResult_ZSDY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JSRoleYHView.cs" />
+    <Compile Include="Model\JsTeaDetailView.cs" />
+    <Compile Include="Model\KCDetailView.cs" />
+    <Compile Include="Model\KCZSDYView.cs" />
+    <Compile Include="Model\NLZBView.cs" />
+    <Compile Include="Model\PCJLZSDView.cs" />
+    <Compile Include="Model\XKNLZBView.cs" />
+    <Compile Include="Model\XKZSTXView.cs" />
+    <Compile Include="Model\XSBJZYView.cs" />
+    <Compile Include="Model\XyXkZyView.cs" />
+    <Compile Include="Model\ZSNLView.cs" />
+    <Compile Include="Model\ZSTXQZView.cs" />
+    <Compile Include="Model\ZSTXView.cs" />
+    <Compile Include="Model\ZYNLZBView.cs" />
+    <Compile Include="processAspx\addCpjdProc.aspx.cs">
+      <DependentUpon>addCpjdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addCpjdProc.aspx.designer.cs">
+      <DependentUpon>addCpjdProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addCtr.aspx.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addCtr.aspx.designer.cs">
+      <DependentUpon>addCtr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addEjzbProc.aspx.cs">
+      <DependentUpon>addEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addEjzbProc.aspx.designer.cs">
+      <DependentUpon>addEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addJdKc.aspx.cs">
+      <DependentUpon>addJdKc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addJdKc.aspx.designer.cs">
+      <DependentUpon>addJdKc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addJdkcxsProc.aspx.cs">
+      <DependentUpon>addJdkcxsProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addJdkcxsProc.aspx.designer.cs">
+      <DependentUpon>addJdkcxsProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addKcZsdy.aspx.cs">
+      <DependentUpon>addKcZsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addKcZsdy.aspx.designer.cs">
+      <DependentUpon>addKcZsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYjzbProc.aspx.cs">
+      <DependentUpon>addYjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYjzbProc.aspx.designer.cs">
+      <DependentUpon>addYjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZsdProc.aspx.cs">
+      <DependentUpon>addZsdProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZsdProc.aspx.designer.cs">
+      <DependentUpon>addZsdProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZsdyProc.aspx.cs">
+      <DependentUpon>addZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZsdyProc.aspx.designer.cs">
+      <DependentUpon>addZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZslyProc.aspx.cs">
+      <DependentUpon>addZslyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZslyProc.aspx.designer.cs">
+      <DependentUpon>addZslyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addZyEjzb.aspx.cs">
+      <DependentUpon>addZyEjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addZyEjzb.aspx.designer.cs">
+      <DependentUpon>addZyEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeEjzbProc.aspx.cs">
+      <DependentUpon>changeEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeEjzbProc.aspx.designer.cs">
+      <DependentUpon>changeEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\changeZsdyProc.aspx.cs">
+      <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\changeZsdyProc.aspx.designer.cs">
+      <DependentUpon>changeZsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ckjdkcxsData.aspx.designer.cs">
+      <DependentUpon>ckjdkcxsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\cpjdData.aspx.cs">
+      <DependentUpon>cpjdData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\cpjdData.aspx.designer.cs">
+      <DependentUpon>cpjdData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ctrData.aspx.designer.cs">
+      <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+    <Compile Include="processAspx\getEJZBByYHBH.aspx.cs">
+      <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getEJZBByYHBH.aspx.designer.cs">
+      <DependentUpon>getEJZBByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getYJZBByYHBH.aspx.cs">
+      <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getYJZBByYHBH.aspx.designer.cs">
+      <DependentUpon>getYJZBByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDYByYHBH.aspx.cs">
+      <DependentUpon>getZSDYByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDYByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSDYByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSLYByYHBH.aspx.cs">
+      <DependentUpon>getZSLYByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSLYByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSLYByYHBH.aspx</DependentUpon>
+=======
+    <Compile Include="processAspx\DelAllZyZjzb.aspx.cs">
+      <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DelAllZyZjzb.aspx.designer.cs">
+      <DependentUpon>DelAllZyZjzb.aspx</DependentUpon>
+>>>>>>> 03a5be588b0981852d66e2fed708c3ff6bb07bba
+    </Compile>
+    <Compile Include="processAspx\jdkcxsData.aspx.cs">
+      <DependentUpon>jdkcxsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\jdkcxsData.aspx.designer.cs">
+      <DependentUpon>jdkcxsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getZSDByYHBH.aspx.cs">
+      <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getZSDByYHBH.aspx.designer.cs">
+      <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\pzEjzbProc.aspx.designer.cs">
+      <DependentUpon>pzEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\pzkczsdyProc.aspx.cs">
+      <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\pzkczsdyProc.aspx.designer.cs">
+      <DependentUpon>pzkczsdyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\scEjzbProc.aspx.cs">
+      <DependentUpon>scEjzbProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\scEjzbProc.aspx.designer.cs">
+      <DependentUpon>scEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzjdkc.aspx.cs">
+      <DependentUpon>pzjdkc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzjdkc.aspx.designer.cs">
+      <DependentUpon>pzjdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzjsgt.aspx.cs">
+      <DependentUpon>pzjsgt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzjsgt.aspx.designer.cs">
+      <DependentUpon>pzjsgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzkczsdy.aspx.cs">
+      <DependentUpon>pzkczsdy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzkczsdy.aspx.designer.cs">
+      <DependentUpon>pzkczsdy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pzctr.aspx.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzctr.aspx.designer.cs">
+      <DependentUpon>pzctr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BJ_DAL.cs" />
+    <Compile Include="DAL\CPJD_DAL.cs" />
+    <Compile Include="DAL\CTView_DAL.cs" />
+    <Compile Include="DAL\CT_DAL.cs" />
+    <Compile Include="DAL\EJZB_DAL.cs" />
+    <Compile Include="DAL\GND_DAL.cs" />
+    <Compile Include="DAL\JDKCView_DAL.cs" />
+    <Compile Include="DAL\JDKCXSView_DAL.cs" />
+    <Compile Include="DAL\JDKCXS_DAL.cs" />
+    <Compile Include="DAL\JDKC_DAL.cs" />
+    <Compile Include="DAL\JSGNB_DAL.cs" />
+    <Compile Include="DAL\JSNJZYKC_DAL.cs" />
+    <Compile Include="DAL\JSRole_DAL.cs" />
+    <Compile Include="DAL\JSTea_DAL.cs" />
+    <Compile Include="DAL\KCXZ_DAL.cs" />
+    <Compile Include="DAL\KCZSDY_DAL.cs" />
+    <Compile Include="DAL\KC_DAL.cs" />
+    <Compile Include="DAL\NJZYKC_DAL.cs" />
+    <Compile Include="DAL\NJ_DAL.cs" />
+    <Compile Include="DAL\PCJL_DAL.cs" />
+    <Compile Include="DAL\STZSDB_DAL.cs" />
+    <Compile Include="DAL\STZSDView_DAL.cs" />
+    <Compile Include="DAL\ST_DAL.cs" />
+    <Compile Include="DAL\XK_DAL.cs" />
+    <Compile Include="DAL\XSKCB_DAL.cs" />
+    <Compile Include="DAL\XSKCView_DAL.cs" />
+    <Compile Include="DAL\XS_DAL.cs" />
+    <Compile Include="DAL\XY_DAL.cs" />
+    <Compile Include="DAL\YHGNB_DAL.cs" />
+    <Compile Include="DAL\YHGNView_DAL.cs" />
+    <Compile Include="DAL\YHJSB_DAL.cs" />
+    <Compile Include="DAL\YHJSView_DAL.cs" />
+    <Compile Include="DAL\YH_DAL.cs" />
+    <Compile Include="DAL\YJZB_DAL.cs" />
+    <Compile Include="DAL\ZSDY_DAL.cs" />
+    <Compile Include="DAL\ZSD_DAL.cs" />
+    <Compile Include="DAL\ZSLY_DAL.cs" />
+    <Compile Include="DAL\ZYEJZBView_DAL.cs" />
+    <Compile Include="DAL\ZYEJZB_DAL.cs" />
+    <Compile Include="DAL\ZYKCView_DAL.cs" />
+    <Compile Include="DAL\ZYKC_DAL.cs" />
+    <Compile Include="DAL\ZY_DAL.cs" />
+    <Compile Include="processAspx\DownloadMyAnswer.aspx.cs">
+      <DependentUpon>DownloadMyAnswer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DownloadMyAnswer.aspx.designer.cs">
+      <DependentUpon>DownloadMyAnswer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BJ.cs" />
+    <Compile Include="Model\CPJD.cs" />
+    <Compile Include="Model\CT.cs" />
+    <Compile Include="Model\CTView.cs" />
+    <Compile Include="Model\EJZB.cs" />
+    <Compile Include="Model\GND.cs" />
+    <Compile Include="Model\JDKC.cs" />
+    <Compile Include="Model\JDKCView.cs" />
+    <Compile Include="Model\JDKCXS.cs" />
+    <Compile Include="Model\JDKCXSView.cs" />
+    <Compile Include="Model\JS.cs" />
+    <Compile Include="Model\JS2.cs" />
+    <Compile Include="Model\JSGNB.cs" />
+    <Compile Include="Model\JSNJZYKC.cs" />
+    <Compile Include="Model\KC.cs" />
+    <Compile Include="Model\KCXZ.cs" />
+    <Compile Include="Model\KCZSDY.cs" />
+    <Compile Include="Model\NJ.cs" />
+    <Compile Include="Model\NJZYKC.cs" />
+    <Compile Include="Model\PCJL.cs" />
+    <Compile Include="Model\ST.cs" />
+    <Compile Include="Model\STZSDB.cs" />
+    <Compile Include="Model\STZSDView.cs" />
+    <Compile Include="Model\XK.cs" />
+    <Compile Include="Model\XS.cs" />
+    <Compile Include="Model\XSKCB.cs" />
+    <Compile Include="Model\XSKCView.cs" />
+    <Compile Include="Model\XY.cs" />
+    <Compile Include="Model\YH.cs" />
+    <Compile Include="Model\YHGNB.cs" />
+    <Compile Include="Model\YHGNView.cs" />
+    <Compile Include="Model\YHJSB.cs" />
+    <Compile Include="Model\YHJSView.cs" />
+    <Compile Include="Model\YJZB.cs" />
+    <Compile Include="Model\ZSD.cs" />
+    <Compile Include="Model\ZSDY.cs" />
+    <Compile Include="Model\ZSLY.cs" />
+    <Compile Include="Model\ZY.cs" />
+    <Compile Include="Model\ZYEJZB.cs" />
+    <Compile Include="Model\ZYEJZBView.cs" />
+    <Compile Include="Model\ZYKC.cs" />
+    <Compile Include="Model\ZYKCView.cs" />
+    <Compile Include="processAspx\DownloadTest.aspx.cs">
+      <DependentUpon>DownloadTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DownloadTest.aspx.designer.cs">
+      <DependentUpon>DownloadTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\GetTest.aspx.cs">
+      <DependentUpon>GetTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\GetTest.aspx.designer.cs">
+      <DependentUpon>GetTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\login_pro.aspx.cs">
+      <DependentUpon>login_pro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\login_pro.aspx.designer.cs">
+      <DependentUpon>login_pro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pzzyejzb.aspx.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pzzyejzb.aspx.designer.cs">
+      <DependentUpon>pzzyejzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResultPage.aspx.cs">
+      <DependentUpon>ResultPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResultPage.aspx.designer.cs">
+      <DependentUpon>ResultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sczyejzb.aspx.cs">
+      <DependentUpon>sczyejzb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sczyejzb.aspx.designer.cs">
+      <DependentUpon>sczyejzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadPage.aspx.cs">
+      <DependentUpon>UploadPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadPage.aspx.designer.cs">
+      <DependentUpon>UploadPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadPage_Detail.aspx.cs">
+      <DependentUpon>UploadPage_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadPage_Detail.aspx.designer.cs">
+      <DependentUpon>UploadPage_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\DbHelperSQL.cs" />
+    <Compile Include="Utility\FSAndQZ.cs" />
+    <Compile Include="Utility\ItemMenu.cs" />
+    <Compile Include="Utility\MainMenu.cs" />
+    <Compile Include="Model\ST_Undone.cs" />
+    <Compile Include="Utility\TestState.cs" />
+    <Compile Include="Utility\XS_Utility.cs" />
+    <Compile Include="Utility\ZBMCAndFS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\NeatUpload_Temp\" />
+    <Folder Include="uploadFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NeatUpload\MultiRequestUploadHandler.ashx" />
+    <None Include="NeatUpload\NeatUploadConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="NeatUpload\ProgressJsonHandler.ashx" />
+    <Content Include="NeatUpload\UploadStateStoreHandler.ashx" />
+    <Content Include="NeatUpload\Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4256</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

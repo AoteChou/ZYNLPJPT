@@ -29,7 +29,7 @@ namespace ZYNLPJPT
             else
             {
                 YH yh = (YH)Session["yh"];
-                njNames = new NJ_DAL().getArray();
+                njNames = new NJ_DAL().getRecentyArray();
                 xyNames = new XY_DAL().getAllArrayByStr();
                 if (xyNames.Length > 0)
                 {

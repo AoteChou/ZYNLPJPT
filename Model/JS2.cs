@@ -28,6 +28,7 @@ namespace ZYNLPJPT.Model
 		#region Model
 		private int _jsbh;
 		private string _jsm;
+        private string _jsjj;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -44,6 +45,14 @@ namespace ZYNLPJPT.Model
 			set{ _jsm=value;}
 			get{return _jsm;}
 		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string JSJJ
+        {
+            set { _jsjj = value; }
+            get { return _jsjj; }
+        }
 		#endregion Model
 
 	}

@@ -277,16 +277,16 @@ namespace ZYNLPJPT.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public ZYNLPJPT.Model.ZSD GetModel(int ZSLYBH)
+		public ZYNLPJPT.Model.ZSD GetModel(int ZSDBH)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 ZSLYBH,ZSDYBH,ZSDBH,ZSDMC,BZ from ZSD ");
-			strSql.Append(" where ZSLYBH=@ZSLYBH");
+			strSql.Append(" where ZSDBH=@ZSDBH");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ZSLYBH", SqlDbType.Int,4)
+					new SqlParameter("@ZSDBH", SqlDbType.Int,4)
 			};
-			parameters[0].Value = ZSLYBH;
+			parameters[0].Value = ZSDBH;
 
 			ZYNLPJPT.Model.ZSD model=new ZYNLPJPT.Model.ZSD();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
