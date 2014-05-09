@@ -162,6 +162,7 @@
     <Content Include="processAspx\scZsdProc.aspx" />
     <Content Include="processAspx\scZsdyProc.aspx" />
     <Content Include="processAspx\scZslyProc.aspx" />
+    <Content Include="processAspx\xgbjData.aspx" />
     <Content Include="processAspx\xgcpjdData.aspx" />
     <Content Include="processAspx\xgCpjdProc.aspx" />
     <Content Include="processAspx\xgejzbData.aspx" />
@@ -1172,6 +1173,13 @@
     </Compile>
     <Compile Include="processAspx\scZslyProc.aspx.designer.cs">
       <DependentUpon>scZslyProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\xgbjData.aspx.cs">
+      <DependentUpon>xgbjData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\xgbjData.aspx.designer.cs">
+      <DependentUpon>xgbjData.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\xgcpjdData.aspx.cs">
       <DependentUpon>xgcpjdData.aspx</DependentUpon>

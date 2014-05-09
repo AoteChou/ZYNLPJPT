@@ -15,7 +15,7 @@
 <div region="north" border="true" style="height:40px;">
 <form action="ckbj.aspx" method="post">
     <div id="content" name="content" style="padding:10px 10px 10px 400px">
-        <label for="choosedNjName" style="width:200px;">选择待产看班级所属年级:</label>
+        <label for="choosedNjName" style="width:200px;">选择待查看班级所属年级:</label>
         <select  id="choosedNjName" name="choosedNjName" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allNjNames.Length; i++) {
                    Response.Write("<option>"+allNjNames[i].ToString().Trim()+"</option>");
