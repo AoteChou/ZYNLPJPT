@@ -114,8 +114,6 @@
     <Content Include="df.aspx" />
     <Content Include="JsGn.aspx" />
     <Content Include="markst.aspx" />
-    <Content Include="processAspx\addCtr.aspx" />
-    <Content Include="processAspx\addEjzbProc.aspx" />
     <Content Include="processAspx\addGnProc.aspx" />
     <Content Include="processAspx\addJSProc.aspx" />
     <Content Include="processAspx\addYhGnProc.aspx" />
@@ -144,7 +142,6 @@
     <Content Include="processAspx\DelSingleZyZjzb.aspx" />
     <Content Include="processAspx\DelZsdyToEjzb.aspx" />
     <Content Include="processAspx\getEJZBByYHBH.aspx" />
-    <Content Include="processAspx\DelAllZyZjzb.aspx" />
     <Content Include="processAspx\getPCFSByKcbhAndYhbh.aspx" />
     <Content Include="processAspx\getYJZBByYHBH.aspx" />
     <Content Include="processAspx\getZSDByYHBH.aspx" />
@@ -186,13 +183,11 @@
     <Content Include="processAspx\xgZyProc.aspx" />
     <Content Include="processAspx\zsdyToEjzbData.aspx" />
     <Content Include="processAspx\ct.aspx" />
-    <Content Include="processAspx\ctrData.aspx" />
     <Content Include="gt.aspx" />
     <Content Include="processAspx\DelgnProc.aspx" />
     <Content Include="processAspx\DelyhgnProc.aspx" />
     <Content Include="processAspx\DelyhjsProc.aspx" />
     <Content Include="processAspx\gtData.aspx" />
-    <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\Set_st_ZSD.aspx" />
     <Content Include="processAspx\xgjsData.aspx" />
     <Content Include="processAspx\uploadst.aspx" />
