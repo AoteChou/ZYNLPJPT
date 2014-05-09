@@ -42,6 +42,25 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(int BJBH,string BJMC,int NJBH,int ZYBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from BJ");
+            strSql.Append(" where BJBH!=@BJBH and BJMC=@BJMC and NJBH=@NJBH and ZYBH=@ZYBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@BJBH", SqlDbType.Int,4),
+                    new SqlParameter("@BJMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@NJBH",SqlDbType.Int,4),
+                    new SqlParameter("@ZYBH",SqlDbType.Int,4)
+			};
+            parameters[0].Value = BJBH;
+            parameters[1].Value = BJMC;
+            parameters[2].Value = NJBH;
+            parameters[3].Value = ZYBH;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
 		/// <summary>
 		/// 增加一条数据
@@ -81,11 +100,9 @@ namespace ZYNLPJPT.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update BJ set ");
-			strSql.Append("NJBH=@NJBH,");
-			strSql.Append("ZYBH=@ZYBH,");
 			strSql.Append("BJMC=@BJMC,");
 			strSql.Append("RXNF=@RXNF");
-			strSql.Append(" where BJBH=@BJBH");
+			strSql.Append(" where BJBH=@BJBH and NJBH=@NJBH and ZYBH=@ZYBH");
 			SqlParameter[] parameters = {
 					new SqlParameter("@NJBH", SqlDbType.Int,4),
 					new SqlParameter("@ZYBH", SqlDbType.Int,4),

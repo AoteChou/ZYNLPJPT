@@ -48,21 +48,16 @@
                 $.post("processAspx/addXkProc.aspx", { 'xkMc': $('#xkMc').attr('value'), 'xyName': $('#xyName').attr('value') }, function (data) {
                     if (data == 'True') {
                         document.getElementById('xkMc').value = '';
-//                        $('#ff').form('clear');
                         $.messager.alert('结果', '添加成功！', 'info');
-
                     } else if (data == 'False') {
                         document.getElementById('xkMc').value = '';
-//                        $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，已经存在该学科信息！', 'info');
-
                     }
                 });
             }
         }
         function clearForm() {
             document.getElementById('xkMc').value = '';
-//            $('#ff').form('clear');
         }
     </script>
 </body>

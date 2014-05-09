@@ -37,6 +37,22 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        public bool Exists(int XKBH,string XKMC,int XYBH)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from XK");
+            strSql.Append(" where XKBH!=@XKBH and XKMC=@XKMC and XYBH=@XYBH");
+            SqlParameter[] parameters = {
+					new SqlParameter("@XKBH", SqlDbType.Int,4),
+                    new SqlParameter("@XKMC",SqlDbType.VarChar,50),
+                    new SqlParameter("@XYBH",SqlDbType.Int,4)};
+            parameters[0].Value = XKBH;
+            parameters[1].Value = XKMC;
+            parameters[2].Value = XYBH;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
         public bool Exists(string XKMC)
         {
             StringBuilder strSql = new StringBuilder();
@@ -108,6 +124,31 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
+        public bool UpdateForXG(ZYNLPJPT.Model.XK model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update XK set ");
+            strSql.Append("XKMC=@XKMC");
+            strSql.Append(" where XKBH=@XKBH and XYBH=@XYBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@XYBH", SqlDbType.Int,4),
+					new SqlParameter("@XKMC", SqlDbType.VarChar,50),
+					new SqlParameter("@XKBH", SqlDbType.Int,4)};
+            parameters[0].Value = model.XYBH;
+            parameters[1].Value = model.XKMC;
+            parameters[2].Value = model.XKBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		/// <summary>
 		/// 删除一条数据
