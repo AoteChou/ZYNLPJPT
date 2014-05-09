@@ -25,6 +25,10 @@ namespace ZYNLPJPT.processAspx
 
         protected string zymc;
 
+        protected int bjbh;
+
+        protected string bjmc;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
@@ -41,6 +45,8 @@ namespace ZYNLPJPT.processAspx
                 xymc = Request["xymc"].ToString();
                 xkmc = Request["xkmc"].ToString();
                 zymc = Request["zymc"].ToString();
+                bjbh = int.Parse(Request["bjbh"].ToString());
+                bjmc = Request["bjmc"].ToString();
             }
         }
     }

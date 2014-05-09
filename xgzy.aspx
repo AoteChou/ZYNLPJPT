@@ -13,7 +13,7 @@
 </head>
 <body class="easyui-layout">         
 <div region="north" border="true" style="height:40px;">
-<form action="ckzy.aspx" method="post">
+<form action="xgzy.aspx" method="post">
     <div id="content" name="content" style="padding:10px 10px 10px 400px">
         <label for="choosedXy" style="width:200px;">选择需要修改信息的学院:</label>
         <select  id="choosedXy" name="choosedXy" style="width:200px;"   onchange="return submit()" >

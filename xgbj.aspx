@@ -13,7 +13,7 @@
 </head>
 <body class="easyui-layout">         
 <div region="north" border="true" style="height:40px;">
-<form action="ckbj.aspx" method="post">
+<form action="xgbj.aspx" method="post">
     <div id="content" name="content" style="padding:10px 10px 10px 400px">
         <label for="choosedNjName" style="width:200px;">选择待修改班级所属年级:</label>
         <select  id="choosedNjName" name="choosedNjName" style="width:200px;"   onchange="return submit()" >
@@ -50,7 +50,7 @@
                       Response.Write("	<td >" + bjDetailViews[i].ZYM+ "</td>");
                       Response.Write("	<td >" + bjDetailViews[i].XKMC + "</td>");
                       Response.Write("	<td >" + bjDetailViews[i].XYMC + "</td>");
-                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgbjData.aspx?njbh=" + bjDetailViews[i].NJBH + "&njmc=" + bjDetailViews[i].NJMC + "&rxnf=" + bjDetailViews[i].RXNF.ToShortDateString() + "&zybh=" + bjDetailViews[i].ZYBH + "&xymc=" + bjDetailViews[i].XYMC + "&xkmc=" + bjDetailViews[i].XKMC+"&zymc="+bjDetailViews[i].ZYM + "'\" >修改班级信息</a></td>");
+                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgbjData.aspx?njbh=" + bjDetailViews[i].NJBH + "&bjbh="+bjDetailViews[i].BJBH+"&bjmc="+bjDetailViews[i].BJMC+"&njmc=" + bjDetailViews[i].NJMC + "&rxnf=" + bjDetailViews[i].RXNF.ToShortDateString() + "&zybh=" + bjDetailViews[i].ZYBH + "&xymc=" + bjDetailViews[i].XYMC + "&xkmc=" + bjDetailViews[i].XKMC+"&zymc="+bjDetailViews[i].ZYM + "'\" >修改班级信息</a></td>");
                       Response.Write("</tr>");
                    }
                  %>
