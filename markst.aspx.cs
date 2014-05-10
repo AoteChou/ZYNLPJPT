@@ -25,7 +25,7 @@ namespace ZYNLPJPT
         {
             if (Session["yh"] == null)
             {
-                Response.Redirect("../Default.htm");
+                Response.Redirect("Default.htm");
             }
            else
             {  
