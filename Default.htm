@@ -24,7 +24,7 @@
              }
 
             $.post("processAspx/login_pro.aspx", { 'inputId': inputID, 'inputPassword': inputPassword }, function (result) {
-                if (result == "false") {
+                if (result == 'False') {
                     $("#warnTxt").html("账号或密码出错,请重试！");
                     document.getElementById("alertDiv").style.visibility = "visible";
                 } else {

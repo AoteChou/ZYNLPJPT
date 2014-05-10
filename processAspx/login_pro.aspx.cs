@@ -26,7 +26,7 @@ namespace ZYNLPJPT.processAspx
             else
             {
                 //登录失败
-               Response.Write("false");
+               Response.Write(false);
             }
             Response.End();
 
