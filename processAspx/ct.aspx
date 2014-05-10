@@ -24,7 +24,10 @@
             for (var i = 0; i < rows.length; i++) 
             {
                 zsdbhs[i] = rows[i].zsdbh;
-                zsdbz[i] = $("#ctbz" + i.toString()).val();
+                var row = rows[i];
+                var  index=$('#mytable').datagrid('getRowIndex',row);
+                 alert(index);
+                zsdbz[i] = $("#ctbz" + index.toString()).val();
                
                 if (zsdbz[i] == null||zsdbz[i]==undefined)
                     flag2 = false;
@@ -44,6 +47,7 @@
              {
                  $.messager.alert('警告', '出题比重非法,请检查后重新设置!');
              }
+
 
             //知识点比重合理
             else
@@ -119,6 +123,7 @@
              $(function () {
                 $('#mytable').datagrid({
                  pagination: false,
+                 rownumbers:true,
                  pageList: [30],
                  pageSize: 30,
                  singleSelect: false,

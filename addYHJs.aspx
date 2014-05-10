@@ -15,7 +15,7 @@
        function getSelected(yhbh,jsbh) {
          //  var jsbh;                                                                     //选择的功能点编号(多个)    
           // var rows = $('#mytable').datagrid('getSelected');
-          // jsbh = rows.jsbh;
+           // jsbh = rows.jsbh;
            $.post("processAspx/addYHJsProc.aspx", { 'yhbh': yhbh, 'jsbh': jsbh },function (result) {
                if (result == 'False') {
                    $.messager.alert('警告', '配置新角色失败!');
@@ -71,7 +71,7 @@
            
                        Response.Write("	<td >" +this.js_list[i].JSBH.ToString()+ "</td>");                                           //角色编号
                        Response.Write("	<td >" +this.js_list[i].JSM.ToString()+ "</td>");                                          //角色名
-                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.yhbh +","+this.js_list[i].JSBH+ ")\" >添加</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.yhbh +"',"+this.js_list[i].JSBH+ ")\" >添加</a></td>");
                       Response.Write("</tr>");
                    } %>
     	</tbody>

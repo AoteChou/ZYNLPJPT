@@ -49,7 +49,7 @@ namespace ZYNLPJPT.processAspx
                 {
                     zsdbh[i] = int.Parse(zsds[i]);   //知识点编号(转化为整型)
                     zsdmc[i] = new ZSD_DAL().GetModel(zsdbh[i]).ZSDMC.Trim().ToString();
-                    ctbz[i] = Convert.ToDecimal(zsdbz[i]);//知识点比重
+                    ctbz[i] = Convert.ToDecimal(zsdbz[i])/100;//知识点比重
                 }
 
                 //生成新出试题编号并保存于Session中
