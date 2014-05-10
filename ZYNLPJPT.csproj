@@ -761,7 +761,6 @@
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXQZView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
-    <Compile Include="Exceldaoru.cs" />
     <Compile Include="Guanlijsyh.aspx.cs">
       <DependentUpon>Guanlijsyh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
