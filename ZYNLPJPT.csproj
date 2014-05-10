@@ -71,7 +71,10 @@
     <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="cancel.png" />
+    <Content Include="ckctjl.aspx" />
+    <Content Include="ckgtjl.aspx" />
     <Content Include="ckZsdyToEjzb.aspx" />
+    <Content Include="kcctRecord.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
     <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
@@ -473,12 +476,33 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="ckctjl.aspx.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctjl.aspx.designer.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.designer.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.designer.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
@@ -811,7 +835,7 @@
     </Compile>
     <Compile Include="processAspx\addXyProc.aspx.designer.cs">
       <DependentUpon>addXyProc.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\addGnProc.aspx.cs">
       <DependentUpon>addGnProc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -916,7 +940,7 @@
     </Compile>
     <Compile Include="processAspx\cpjdData.aspx.designer.cs">
       <DependentUpon>cpjdData.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\ct.aspx.cs">
       <DependentUpon>ct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1014,7 +1038,7 @@
     </Compile>
     <Compile Include="processAspx\DelZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>DelZsdyToEjzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\getPCFSByKcbhAndYhbh.aspx.cs">
       <DependentUpon>getPCFSByKcbhAndYhbh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1056,7 +1080,7 @@
     </Compile>
     <Compile Include="processAspx\getZSDByYHBH.aspx.designer.cs">
       <DependentUpon>getZSDByYHBH.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="gt.aspx.cs">
       <DependentUpon>gt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1287,7 +1311,7 @@
     </Compile>
     <Compile Include="processAspx\zsdyToEjzbData.aspx.designer.cs">
       <DependentUpon>zsdyToEjzbData.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="processAspx\Set_st_ZSD.aspx.cs">
       <DependentUpon>Set_st_ZSD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1487,7 +1511,7 @@
     </Compile>
     <Compile Include="pzZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>pzZsdyToEjzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="pzYhGn.aspx.cs">
       <DependentUpon>pzYhGn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1634,7 +1658,7 @@
     </Compile>
     <Compile Include="sczyejzb.aspx.designer.cs">
       <DependentUpon>sczyejzb.aspx</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="TeacherIndex.aspx.cs">
       <DependentUpon>TeacherIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

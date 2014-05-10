@@ -12,11 +12,11 @@
 
     <script type="text/javascript">
 
-        function getSelected() {
-            var yhbh;
-            var row = $('#mytable').datagrid('getSelected');
+        function getSelected(yhbh) {
+        //    var yhbh;
+         //   var row = $('#mytable').datagrid('getSelected');
        
-            yhbh = row.yhbh;    //用户编号
+          //  yhbh = row.yhbh;    //用户编号
 
             window.location.href = "yhjsRecord.aspx?yhbh="+yhbh.toString();
         }
@@ -46,7 +46,7 @@
                        Response.Write("<tr >");
                        Response.Write("	<td >" + this.yh_list[i].YHBH.ToString() + "</td>");                                    //用户编号
                        Response.Write("	<td >" +this.yh_list[i].XM.ToString()+ "</td>");                                          //用户姓名
-                       Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >配置角色</a></td>");                                                                                              
+                       Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected("+ this.yh_list[i].YHBH.ToString()+")\" >配置角色</a></td>");                                                                                              
                        Response.Write("</tr>");
                    }
                   
