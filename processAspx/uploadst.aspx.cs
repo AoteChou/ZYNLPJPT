@@ -161,7 +161,7 @@ namespace ZYNLPJPT.processAspx
            
                 st_model = (ST)Session["st_model"];
                 st_model.TMDA = (byte[])Session["stda"];
-                st_model.SFSC = true;
+                st_model.SFSC = false;                        //是否删除
                 bool num = st_dal.Update(st_model);
 
                 if (num == true)

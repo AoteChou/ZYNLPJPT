@@ -18,11 +18,11 @@
         }
 
         //删除选中角色
-        function getSelected(yhbh) {
-            var jsbh;
+        function getSelected(yhbh,jsbh) {
+         // var jsbh;
 
-            var row = $('#mytable').datagrid('getSelected');
-            jsbh = row.jsbh;                    //功能编号
+         //   var row = $('#mytable').datagrid('getSelected');
+         //  jsbh = row.jsbh;                    //功能编号
 
             $.post("processAspx/DelyhjsProc.aspx", { 'jsbh': jsbh, 'yhbh': yhbh }, function (result) {
                 if (result == 'False') {
@@ -54,7 +54,7 @@
       <div region="center" border="false">
       <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="window.location.href='pzYhJs.aspx'">返回上页</a>
-            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newJS(<%=this.yhbh%>)">配置新角色</a>
+            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newJS('<%=this.yhbh%>')">配置新角色</a>
       </div>
     </div>
      <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
@@ -74,7 +74,7 @@
            Response.Write("<tr >");
            Response.Write("	<td >" + this.js_list[i].JSBH.ToString() + "</td>");                                  //角色编号
            Response.Write("	<td >" + this.js_list[i].JSM.ToString() + "</td>");                                   //角色名  
-           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.yhbh.ToString() + ")\" >删除</a></td>");
+           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.yhbh.ToString() +","+this.js_list[i].JSBH+ ")\" >删除</a></td>");
           Response.Write("</tr>");
        }
 

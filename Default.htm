@@ -5,17 +5,39 @@
 	<title>学生能力评价系统</title>
 	<link rel="stylesheet" href="Styles/bootstrap.min.css" />
     <link rel="Stylesheet" href="Styles/default.css"/>
-    <script >
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
 
-        window.onunload = function () {
-            return "heh";
-        }
-    
         function closeAlert() {
             document.getElementById("alertDiv").style.visibility = "hidden";
         }
         function login() {
-            document.getElementById("alertDiv").style.visibility = "visible";
+            
+
+            var inputID=$('#inputId').val().trim();
+            var inputPassword = $('#inputPassword').val().trim();
+
+            if (inputID == "" || inputPassword == "") {
+                $("#warnTxt").html("账号名或密码不能为空,请重试！");
+                document.getElementById("alertDiv").style.visibility = "visible";
+                return false;
+             }
+
+            $.post("processAspx/login_pro.aspx", { 'inputId': inputID, 'inputPassword': inputPassword }, function (result) {
+                if (result == 'False') {
+                    $("#warnTxt").html("账号或密码出错,请重试！");
+                    document.getElementById("alertDiv").style.visibility = "visible";
+                } else {
+
+                    window.location.href = "index.aspx?visitedId=" + result;
+
+                }
+
+
+            });
+           
+
+
         }
 	</script>
 </head>
@@ -28,9 +50,9 @@
 			</div>
             <div class="alert" style="visibility:hidden" id="alertDiv">
 				 <button type="button" class="close" data-dismiss="alert" onclick="return closeAlert()">×</button>
-				<strong>警告!</strong> 账户密码不能为空.请完善!
+				<strong>警告!</strong> <span id="warnTxt"></span>
 			</div>
-			<form class="form-horizontal" action="processAspx/login_pro.aspx" method="post">
+			<form class="form-horizontal">
 				<div class="control-group">
 					 <label class="control-label" for="inputEmail">账号：</label>
 					<div class="controls">
@@ -43,11 +65,12 @@
 						<input id="inputPassword" name="inputPassword" placeholder="请输入密码" type="password" />
 					</div>
 				</div>
-                <button class="btn btn-primary btn-block btn-login" style="margin-top:50px;" type="submit" onclick="return login()">登录</button>
+                <a class="btn btn-primary btn-block btn-login" style="margin-top:50px;" onclick="login()">登录</a>
 			</form> 
             
 		</div>
 	</div>
 </div>
 </body>
+
 </html>

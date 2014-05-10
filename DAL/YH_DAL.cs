@@ -74,6 +74,7 @@ namespace ZYNLPJPT.DAL
 				return false;
 			}
 		}
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -343,7 +344,156 @@ namespace ZYNLPJPT.DAL
             return stringList.ToArray();
         }
 
+
+        public void AddXS(ZYNLPJPT.Model.YH yh,ZYNLPJPT.Model.XS xs, ZYNLPJPT.Model.YHJSB sb)
+        {
+            try
+            {
+                List<string> SQLStringList=new List<string>();
+                List<SqlParameter[]> SqlParameterList = new List<SqlParameter[]>();
+
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("insert into YH(");
+                strSql.Append("YHBH,MM,XM,XB)");
+                strSql.Append(" values (");
+                strSql.Append("@YHBH,@MM,@XM,@XB)");
+                SqlParameter[] parameters = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@MM", SqlDbType.VarChar,50),
+					new SqlParameter("@XM", SqlDbType.VarChar,50),
+					new SqlParameter("@XB", SqlDbType.Bit,1)};
+                parameters[0].Value = yh.YHBH;
+                parameters[1].Value = yh.MM;
+                parameters[2].Value = yh.XM;
+                parameters[3].Value = yh.XB;
+                SQLStringList.Add(strSql.ToString());
+                SqlParameterList.Add(parameters);
+
+                StringBuilder strSql1 = new StringBuilder();
+                strSql1.Append("insert into XS(");
+                strSql1.Append("BJBH,XSBH,RXNF)");
+                strSql1.Append(" values (");
+                strSql1.Append("@BJBH,@XSBH,@RXNF)");
+                SqlParameter[] parameters1 = {
+					new SqlParameter("@BJBH", SqlDbType.Int,4),
+					new SqlParameter("@XSBH", SqlDbType.VarChar,50),
+					new SqlParameter("@RXNF", SqlDbType.DateTime)};
+                parameters1[0].Value = xs.BJBH;
+                parameters1[1].Value = xs.XSBH;
+                parameters1[2].Value = xs.RXNF;
+                SQLStringList.Add(strSql1.ToString());
+                SqlParameterList.Add(parameters1);
+
+
+
+
+                StringBuilder strSql2 = new StringBuilder();
+                strSql2.Append("insert into YHJSB(");
+                strSql2.Append("YHBH,JSBH)");
+                strSql2.Append(" values (");
+                strSql2.Append("@YHBH,@JSBH)");
+                SqlParameter[] parameters2 = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@JSBH", SqlDbType.Int,4)};
+                parameters2[0].Value = sb.YHBH;
+                parameters2[1].Value = sb.JSBH;
+                SQLStringList.Add(strSql2.ToString());
+                SqlParameterList.Add(parameters2);
+
+                DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
+                
+                
+
+
+
+               
+            }
+            catch (Exception)
+            {
+                
+                throw;
+                
+            }
+        }
+        public void AddJS(ZYNLPJPT.Model.YH yh, ZYNLPJPT.Model.JS js, ZYNLPJPT.Model.YHJSB sb)
+        {
+            try
+            {
+                
+
+                List<string> SQLStringList = new List<string>();
+                List<SqlParameter[]> SqlParameterList = new List<SqlParameter[]>();
+
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("insert into YH(");
+                strSql.Append("YHBH,MM,XM,XB)");
+                strSql.Append(" values (");
+                strSql.Append("@YHBH,@MM,@XM,@XB)");
+                SqlParameter[] parameters = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@MM", SqlDbType.VarChar,50),
+					new SqlParameter("@XM", SqlDbType.VarChar,50),
+					new SqlParameter("@XB", SqlDbType.Bit,1)};
+                parameters[0].Value = yh.YHBH;
+                parameters[1].Value = yh.MM;
+                parameters[2].Value = yh.XM;
+                parameters[3].Value = yh.XB;
+                SQLStringList.Add(strSql.ToString());
+                SqlParameterList.Add(parameters);
+
+                StringBuilder strSql1 = new StringBuilder();
+                strSql1.Append("insert into JS(");
+                strSql1.Append("JSBH,SFSXKFZR,SFSKCFZR,SSXK)");
+                strSql1.Append(" values (");
+                strSql1.Append("@JSBH,@SFSXKFZR,@SFSKCFZR,@SSXK)");
+                SqlParameter[] parameters1 = {
+					new SqlParameter("@JSBH", SqlDbType.VarChar,50),
+					new SqlParameter("@SFSXKFZR", SqlDbType.Bit,1),
+					new SqlParameter("@SFSKCFZR", SqlDbType.Bit,1),
+					new SqlParameter("@SSXK", SqlDbType.Int,4)};
+                parameters1[0].Value = js.JSBH;
+                parameters1[1].Value = js.SFSXKFZR;
+                parameters1[2].Value = js.SFSKCFZR;
+                parameters1[3].Value = js.SSXK;
+                SQLStringList.Add(strSql1.ToString());
+                SqlParameterList.Add(parameters1);
+
+
+
+                StringBuilder strSql2 = new StringBuilder();
+                strSql2.Append("insert into YHJSB(");
+                strSql2.Append("YHBH,JSBH)");
+                strSql2.Append(" values (");
+                strSql2.Append("@YHBH,@JSBH)");
+                SqlParameter[] parameters2 = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@JSBH", SqlDbType.Int,4)};
+                parameters2[0].Value = sb.YHBH;
+                parameters2[1].Value = sb.JSBH;
+                SQLStringList.Add(strSql2.ToString());
+                SqlParameterList.Add(parameters2);
+
+                DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
+
+
+
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+        }
 		#endregion  ExtensionMethod
-	}
+
+        internal void GetModel()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

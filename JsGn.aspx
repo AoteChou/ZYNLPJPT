@@ -19,11 +19,11 @@
         }
 
         //删除选中功能
-        function getSelected(jsbh) {
-            var gnbh;
+        function getSelected(jsbh,gnbh) {
+       //      var gnbh;
 
-            var row = $('#mytable').datagrid('getSelected');
-            gnbh = row.gnbh;                    //功能编号
+       //      var row = $('#mytable').datagrid('getSelected');
+       //     gnbh = row.gnbh;                    //功能编号
          $.post("processAspx/DelgnProc.aspx", { 'gnbh': gnbh, 'jsbh': jsbh}, function (result) {
                 if (result == 'False') {
                     $.messager.alert('警告', '无法删除!');
@@ -77,7 +77,7 @@
            Response.Write("	<td >" + this.gnd_list[i].GNM.ToString() + "</td>");                               //功能名  
            Response.Write("	<td >" + this.gnd_list[i].GNLJ.ToString() + "</td>");                               //功能链接
            Response.Write("	<td >" + this.gnd_list[i].SSML.ToString() + "</td>");                              //所属目录
-           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.jsbh + ")\" >删除</a></td>");
+           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.jsbh + ","+this.gnd_list[i].GNBH+")\" >删除</a></td>");
           Response.Write("</tr>");
        }
 

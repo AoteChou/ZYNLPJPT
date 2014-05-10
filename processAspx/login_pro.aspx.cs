@@ -21,13 +21,15 @@ namespace ZYNLPJPT.processAspx
                 this.Session["yh"] = loginBll.getYH(inputId);
                 string visitedId=new Random().Next().ToString();
                 this.Session["visitedId"] = visitedId;
-                Response.Redirect("../index.aspx?visitedId="+visitedId);
+                Response.Write(visitedId);
             }
             else
             {
                 //登录失败
-                Response.Redirect("../Default.htm");
+               Response.Write(false);
             }
+            Response.End();
+
         }
     }
 }

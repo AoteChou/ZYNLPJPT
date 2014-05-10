@@ -70,6 +70,19 @@ namespace ZYNLPJPT.BLL
             int length = ds.Tables[0].Rows.Count;
             return length;
         }
-
+       
+        //判断某一角色功能是否已经在数据库JSGNB中
+        public bool IfExit_YHGN(YHGNB yhgn_model)
+        {
+           string yhbh=yhgn_model.YHBH.ToString();
+           int gnbh = yhgn_model.GNBH;
+           string sql = " yhbh=" + yhbh + " and gnbh=" + gnbh.ToString();
+           DataSet ds = new YHGNB_DAL().GetList(sql);
+           if (ds.Tables[0].Rows.Count > 0)
+               return true;
+           else
+               return false;
+           
+        }
     }
 }

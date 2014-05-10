@@ -12,13 +12,13 @@
 
     <script type="text/javascript">
 
-        function getSelected()
+        function getSelected(jsbh)
          {
-            var jsbh, jsmc;
+          //  var jsbh, jsmc;
 
-            var row = $('#mytable').datagrid('getSelected');
-            jsbh = row.jsbh;                       //角色编号
-            jsmc = row.jsmc;                     //角色名称
+          //  var row = $('#mytable').datagrid('getSelected');
+         //   jsbh = row.jsbh;                       //角色编号
+       //     jsmc = row.jsmc;                     //角色名称
 
             window.location.href = "JsGn.aspx?jsbh="+jsbh.toString();
         }
@@ -49,7 +49,7 @@
                        Response.Write("<tr >");
                        Response.Write("	<td >" + this.js[i].JSBH.ToString() + "</td>");                                            //角色编号
                        Response.Write("	<td >" + this.js[i].JSM.ToString() + "</td>");                                            //角色名  
-                       Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >进入配置</a></td>");                                                                                              
+                       Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected("+this.js[i].JSBH+")\" >进入配置</a></td>");                                                                                              
               
                        Response.Write("</tr>");
                    }

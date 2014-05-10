@@ -359,6 +359,11 @@ namespace ZYNLPJPT.DAL
 		#region  ExtensionMethod
 
 		#endregion  ExtensionMethod
-	}
+
+        internal void GetList()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

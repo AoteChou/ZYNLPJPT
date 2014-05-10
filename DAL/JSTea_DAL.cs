@@ -329,7 +329,31 @@ namespace ZYNLPJPT.DAL
 
 		#endregion  BasicMethod
 		#region  ExtensionMethod
+        /// <summary>
+        /// 更新(是否是课程负责人)
+        /// </summary>
+        public bool UpdateSFSKCFZR(bool sfskcfzr,string jsbh)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update JS set ");
+            strSql.Append("SFSKCFZR=@SFSKCFZR");
+            strSql.Append(" where JSBH=@JSBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@SFSKCFZR", SqlDbType.Bit,1),
+					new SqlParameter("@JSBH", SqlDbType.VarChar,50)};
+            parameters[0].Value =sfskcfzr;
+            parameters[1].Value = jsbh;
 
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 		#endregion  ExtensionMethod
 	}
 }

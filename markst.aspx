@@ -5,23 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
+   <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
-     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
-
     <script type="text/javascript">
 
         function getSelected() {
             var pcjlbh,stbh, xsbh, gtr, scrq, xzrq;
 
-            var row = $('#mytable').datagrid('getSelected');
-            pcjlbh = row.pcjlbh;  //评测记录编号
+              var row = $('#mytable').datagrid('getSelected');
+             pcjlbh = row.pcjlbh;  //评测记录编号
             stbh = row.stbh;      //试题编号
             xsbh = row.xsbh;    //学生编号
             gtr = row.gtr;         //改题人
             scrq = row.scrq;    //上传日期
-            xzrq = row.xzrq;   //下载日期
+           xzrq = row.xzrq;   //下载日期
 
             $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
 
@@ -42,37 +41,29 @@
                 }
             });
         }
-
     </script>
-
 </head>
-<body>
-    <form id="form1" runat="server">
-
-    <div>
+<body class="easyui-layout">    
+<div region="center" border="false">    
     <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
     		    <tr>
-                <th data-options="field:'pcjlbh'" width="50" align=center>评测记录编号</th>
-    	        <th data-options="field:'stbh'" width="50" align=center>试题编号</th>
-                <th data-options="field:'kcbh'"width="50" align=center>所属课程</th>
-                <th data-options="field:'xsbh'"width="50" align=center>做题学生</th>
-                <th data-options="field:'xzrq'" width="50" align=center>下载日期</th>
-                <th data-options="field:'scrq'" width="50" align=center>上传日期</th>
-                <th data-options="field:'gtr'"   width="50" align=center>改题人</th>
-                <th data-options="field:'fs'"     width="50" align=center>分数</th>  
-                <th data-options="field:'gt'"    width="50" align=center>改题</th>
+                <th data-options="field:'pcjlbh'" width="50" >评测记录编号</th>
+    	        <th data-options="field:'stbh'" width="50" >试题编号</th>
+                <th data-options="field:'kcbh'" width="50" >所属课程</th>
+                <th data-options="field:'xsbh'" width="50" >做题学生</th>
+                <th data-options="field:'xzrq'" width="50" >下载日期</th>
+                <th data-options="field:'scrq'" width="50" >上传日期</th>
+                <th data-options="field:'gtr'"   width="50" >改题人</th>
+                <th data-options="field:'fs'"     width="50" >分数</th>  
+                <th data-options="field:'gt'"    width="50" >改题</th>
                 </tr>
     	     </thead>
    	
       <tbody>
               <%
-                  
-                  
                    for (int i = 0; i <this.GTView_list.Length; i++)
                    {
-                       
-                       Session["GTView"] = GTView_list[i];
                        Response.Write("<tr >");
                        Response.Write("	<td >" + this.GTView_list[i].PCJLBH.ToString() + "</td>");                          //评测记录编号
                        Response.Write("	<td >" +this.GTView_list[i].STBH.ToString()+ "</td>");                               //试题编号
@@ -91,18 +82,12 @@
                        {
                            Response.Write("<td>未打分</td>");
                            Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >改题</a></td>");
-                    
                        }
                        Response.Write("</tr>");
-                       
                    }
-                  
                 %>
-
     	</tbody>
    	</table>     
-     
     </div>
-    </form>
 </body>
 </html>
