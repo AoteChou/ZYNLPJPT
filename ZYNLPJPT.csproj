@@ -78,7 +78,6 @@
     <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="bin\NPOI.dll" />
-    <Content Include="cancel.png" />
     <Content Include="chakanZYKC.aspx" />
     <Content Include="chakanZYKC1.aspx" />
     <Content Include="ckctjl.aspx" />
