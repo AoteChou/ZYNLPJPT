@@ -78,7 +78,6 @@
     <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="bin\NPOI.dll" />
-    <Content Include="cancel.png" />
     <Content Include="chakanZYKC.aspx" />
     <Content Include="chakanZYKC1.aspx" />
     <Content Include="ckctjl.aspx" />
@@ -761,7 +760,6 @@
     <Compile Include="DAL\ZSNLView_DAL.cs" />
     <Compile Include="DAL\ZSTXQZView_DAL.cs" />
     <Compile Include="DAL\ZSTXView_DAL.cs" />
-    <Compile Include="Exceldaoru.cs" />
     <Compile Include="Guanlijsyh.aspx.cs">
       <DependentUpon>Guanlijsyh.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
