@@ -27,7 +27,6 @@ namespace ZYNLPJPT
             {
                 Response.Redirect("../Default.htm");
             }
-
            else
             {  
                 YH yh = (YH)Session["yh"];
@@ -58,7 +57,6 @@ namespace ZYNLPJPT
 
             }
 
-
         }
 
         //获取GTView中改题人的姓名
@@ -73,7 +71,6 @@ namespace ZYNLPJPT
 
             return new gt_BLL().get_kcmc_Bykcbh(gtview.KCBH);
         }
-        
 
    }
 
