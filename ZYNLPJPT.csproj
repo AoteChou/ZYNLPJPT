@@ -71,7 +71,10 @@
     <Content Include="addzy.aspx" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="cancel.png" />
+    <Content Include="ckctjl.aspx" />
+    <Content Include="ckgtjl.aspx" />
     <Content Include="ckZsdyToEjzb.aspx" />
+    <Content Include="kcctRecord.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
     <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
@@ -474,12 +477,33 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="ckctjl.aspx.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctjl.aspx.designer.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.designer.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.designer.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
