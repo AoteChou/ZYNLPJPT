@@ -152,7 +152,7 @@ function loadXML(filePath) {
             plotShadow: false
         },
         title: {
-            text: '<font style="font-size:110px;font-family: \'华文细黑\',\'微软雅黑\',\'细明体\',\'黑体\';"><%=finishratio*100%></font><span style="font-size:20px;">%</span>',
+            text: '<font style="font-size:110px;font-family: \'华文细黑\',\'微软雅黑\',\'细明体\',\'黑体\';"><%=(int)(finishratio*100)%></font><span style="font-size:20px;">%</span>',
             align:'center',
             verticalAlign: 'middle',
             y:30

@@ -63,7 +63,7 @@
         function add() {
             $('#dlg').dialog('open').dialog('setTitle', '添加');
             $('#fm').form('clear');
-            url = 'save_user.php';
+          
         }
         function edit() {
             var row = $('#dg').datagrid('getSelected');
@@ -85,6 +85,7 @@
                     $.messager.alert('结果', '保存成功！', 'info');
                     $('#dlg').dialog('close');
                     $('#dg').datagrid('reload');
+                    window.location.reload();
                 } else if (data == 'False') {
                     document.getElementById('kcxzmc').value = '';
                     $.messager.alert('结果', '保存失败！', 'info');
