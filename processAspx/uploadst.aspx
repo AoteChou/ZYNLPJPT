@@ -30,7 +30,7 @@
 
             <%for (int i = 0; i < this.zsdbh.Length; i++)
               { %>
-    		<li><%=zsdbh[i].ToString()%>&nbsp<%=zsdmc[i].ToString()%>&nbsp 比重：<%=ctbz[i].ToString() %>%</li>
+    		<li><%=zsdbh[i].ToString()%>&nbsp<%=zsdmc[i].ToString()%>&nbsp 比重：<%=ctbz[i].ToString("p") %>%</li>
             <%} %>
     		
     	</ol>

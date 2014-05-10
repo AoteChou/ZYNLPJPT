@@ -22,7 +22,7 @@ namespace ZYNLPJPT
         protected void Page_Load(object sender, EventArgs e)
         {
             yhbh = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
-            string sql = " jsbh not in(select jsbh from YHJSB where yhbh="+yhbh+")";
+            string sql = " jsbh not in(select jsbh from YHJSB where yhbh='"+yhbh+"')";
             DataSet ds= new JSRole_DAL().GetList(sql);
             length = ds.Tables[0].Rows.Count;
             yhjs_list = new YHJSB[length];

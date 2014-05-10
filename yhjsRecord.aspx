@@ -54,7 +54,7 @@
       <div region="center" border="false">
       <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="window.location.href='pzYhJs.aspx'">返回上页</a>
-            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newJS(<%=this.yhbh%>)">配置新角色</a>
+            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newJS('<%=this.yhbh%>')">配置新角色</a>
       </div>
     </div>
      <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">

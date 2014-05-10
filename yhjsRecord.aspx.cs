@@ -14,21 +14,21 @@ namespace ZYNLPJPT
 {
     public partial class yhjsRecord : System.Web.UI.Page
     {
-       protected int yhbh;
+       protected string yhbh;
        protected int length;
        protected JS2[] js_list;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string yhbh_str = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
-            if (yhbh_str == "" || yhbh_str == null)
+           yhbh = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
+            if (yhbh == "" || yhbh == null)
             {
                 Response.Redirect("Default.htm");
             }
             else
             {
-                yhbh = int.Parse(yhbh_str);
-                DataSet ds = new YHJSB_DAL().GetList(" yhbh="+yhbh_str);
+                //yhbh = int.Parse(yhbh_str);
+                DataSet ds = new YHJSB_DAL().GetList(" yhbh='"+yhbh+"'");
                 length = ds.Tables[0].Rows.Count;
                 js_list = new JS2[length];
                 for (int i = 0; i < length; i++)
