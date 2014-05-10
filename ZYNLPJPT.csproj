@@ -81,7 +81,10 @@
     <Content Include="cancel.png" />
     <Content Include="chakanZYKC.aspx" />
     <Content Include="chakanZYKC1.aspx" />
+    <Content Include="ckctjl.aspx" />
+    <Content Include="ckgtjl.aspx" />
     <Content Include="ckZsdyToEjzb.aspx" />
+    <Content Include="kcctRecord.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
     <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
@@ -536,6 +539,20 @@
       <DependentUpon>chakanZYKC.aspx</DependentUpon>
        <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="ckctjl.aspx.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckctjl.aspx.designer.cs">
+      <DependentUpon>ckctjl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ckgtjl.aspx.designer.cs">
+      <DependentUpon>ckgtjl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -545,6 +562,13 @@
     </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kcctRecord.aspx.designer.cs">
+      <DependentUpon>kcctRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="chakanZYKC1.aspx.cs">
       <DependentUpon>chakanZYKC1.aspx</DependentUpon>

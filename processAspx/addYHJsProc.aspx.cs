@@ -22,9 +22,7 @@ namespace ZYNLPJPT.processAspx
             string jsbh_str = Request["jsbh"] == null ? null : Request["jsbh"].ToString();
             if (jsbh_str == null || jsbh_str == "" || yhbh == null || yhbh == "")
                 Response.Write(false);
-
-            
-            else
+        else
             {
                 //配置用户新角色
                 int jsbh=int.Parse(jsbh_str);
@@ -33,17 +31,39 @@ namespace ZYNLPJPT.processAspx
                 yhjs.YHBH = yhbh;
                 new YHJSB_DAL().Add(yhjs);
 
+                //以下代码有问题
+
                 //配置相应角色的用户功能
-                int length = new JSGN_BLL().get_GNcount(jsbh);
+                int length = new JSGN_BLL().getCountByJs(jsbh);
                 JSGNB[] jsgn_list = new JSGNB[length];
-                jsgn_list = new JSGN_BLL().get_GNListByJS(jsbh);
+                GND[] new_GN = new GND[length];
+                YHGNB[] yhgn_list=new YHGNB[length];
+                //初始化
                 for (int i = 0; i < length; i++)
                 {
-                    new JSGNB_DAL().Add(jsgn_list[i]);
+                    jsgn_list[i] = new JSGNB();
+                      new_GN[i] = new GND();
+                    yhgn_list[i]=new YHGNB();
+                }
+                
+                jsgn_list = new JSGN_BLL().get_GNListByJS(jsbh);
+                 for (int i = 0; i < length; i++)
+                 {
+                    new_GN[i] = new GND_DAL().GetModel(jsgn_list[i].GNBH);
+                    yhgn_list[i].YHBH=yhbh;
+                    yhgn_list[i].GNBH=new_GN[i].GNBH;
+                 }
+                
+                for (int i = 0; i < length; i++)
+                     
+                {
+                         //判断，不能插入重复功能
+                         if (new JSGN_BLL().IfExit_YHGN(yhgn_list[i])==false)
+                             new YHGNB_DAL().Add(yhgn_list[i]);
                 }
 
             }
-            Response.End();
+           Response.End();
         }
 
     }

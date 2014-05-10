@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="markst.aspx.cs" Inherits="ZYNLPJPT.markst" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ckgtjl.aspx.cs" Inherits="ZYNLPJPT.ckgtjl" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
@@ -13,15 +13,15 @@
     <script type="text/javascript">
 
         function getSelected() {
-            var pcjlbh,stbh, xsbh, gtr, scrq, xzrq;
+            var pcjlbh, stbh, xsbh, gtr, scrq, xzrq;
 
-              var row = $('#mytable').datagrid('getSelected');
-             pcjlbh = row.pcjlbh;  //评测记录编号
+            var row = $('#mytable').datagrid('getSelected');
+            pcjlbh = row.pcjlbh;  //评测记录编号
             stbh = row.stbh;      //试题编号
             xsbh = row.xsbh;    //学生编号
             gtr = row.gtr;         //改题人
             scrq = row.scrq;    //上传日期
-           xzrq = row.xzrq;   //下载日期
+            xzrq = row.xzrq;   //下载日期
 
             $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
 
@@ -46,6 +46,7 @@
     </script>
 
 </head>
+
 <body>
     <form id="form1" runat="server">
 
@@ -61,7 +62,6 @@
                 <th data-options="field:'scrq'" width="50" align=center>上传日期</th>
                 <th data-options="field:'gtr'"   width="50" align=center>改题人</th>
                 <th data-options="field:'fs'"     width="50" align=center>分数</th>  
-                <th data-options="field:'gt'"    width="50" align=center>改题</th>
                 </tr>
     	     </thead>
    	
@@ -85,13 +85,12 @@
                        if (GTView_list[i].PCFS != null)
                        {
                            Response.Write("<td>" + this.GTView_list[i].PCFS.ToString() + "</td>");                                    //分数
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >重改</a></td>");
-                     //   Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.GTView_list[i].PCJLBH.ToString() + "," + this.GTView_list[i].STBH.ToString() + "," + this.GTView_list[i].XSBH.ToString() + "," + this.GTView_list[i].GTR.ToString() + "," + this.GTView_list[i].SCRQ.ToString() + "," + this.GTView_list[i].XZRQ.ToString() + ")\" >重改</a></td>");
+                        //   Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >重改</a></td>");
                        }
                        else
                        {
                            Response.Write("<td>未打分</td>");
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >改题</a></td>");
+                         //Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >改题</a></td>");
                     
                        }
                        Response.Write("</tr>");

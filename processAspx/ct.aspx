@@ -26,7 +26,7 @@
                 zsdbhs[i] = rows[i].zsdbh;
                 zsdbz[i] = $("#ctbz" + i.toString()).val();
                
-                if (zsdbz[i] == null)
+                if (zsdbz[i] == null||zsdbz[i]==undefined)
                     flag2 = false;
                 if (parseFloat(zsdbz[i]) > 100 || parseFloat(zsdbz[i]) < 0)
                  {
