@@ -26,7 +26,7 @@
                 zsdbhs[i] = rows[i].zsdbh;
                 var row = rows[i];
                 var  index=$('#mytable').datagrid('getRowIndex',row);
-                 alert(index);
+                
                 zsdbz[i] = $("#ctbz" + index.toString()).val();
                
                 if (zsdbz[i] == null||zsdbz[i]==undefined)
