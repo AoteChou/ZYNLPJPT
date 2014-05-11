@@ -11,14 +11,15 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript">
 
-        function getSelected() {
+        function getSelected(GTRBH) {
             var pcjlbh,stbh, xsbh, gtr, scrq, xzrq;
 
               var row = $('#mytable').datagrid('getSelected');
              pcjlbh = row.pcjlbh;  //评测记录编号
             stbh = row.stbh;      //试题编号
             xsbh = row.xsbh;    //学生编号
-            gtr = row.gtr;         //改题人
+            //   gtr = row.gtr;         //改题人
+            gtr = GTRBH;
             scrq = row.scrq;    //上传日期
            xzrq = row.xzrq;   //下载日期
 
@@ -31,7 +32,7 @@
                 else {
                     $.messager.confirm('选择成功！', '点击确认进入改题 页面，点击取消返回上一页 ', function (r) {
                         if (r) {
-                            window.location.href = "gt.aspx?pcjlbh=" + pcjlbh.toString();
+                            window.location.href = "gt.aspx?pcjlbh=" + pcjlbh.toString()+"&gtr="+gtr.toString();
 
                         }
                         else {
@@ -81,7 +82,7 @@
                        else
                        {
                            Response.Write("<td>未打分</td>");
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >改题</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('"+this.GTView_list[i].GTR.ToString()+"')\" >改题</a></td>");
                        }
                        Response.Write("</tr>");
                    }

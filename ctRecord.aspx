@@ -55,12 +55,12 @@
            if (this.if_Set_ZSDBZ(st_list[i]))                                                                //已设比重
            {
                Response.Write("  <td >是</td>");
-        
-               if (this.st_list[i].SFSC==true)                                                                         //是否已经上传
+     
+               if (this.st_list[i].TMDA.Length!=0&&this.st_list[i].TMNR.Length!=0)                 //是否已经上传
                {
                    Response.Write("<td>是</td>");
                }
-               else                                                                                                    //设置比重但还未上传试题
+               else                                                                                                   //设置比重但还未上传试题
                {
                    Response.Write("  <td >否</td>");
                    Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/uploadst.aspx?stbh=" + this.st_list[i].STBH + "'\" >上传试题</a></td>");

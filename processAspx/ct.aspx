@@ -96,7 +96,8 @@
                 <th data-options="field:'zsd'" width="50" align=center>知识点</th>
                  <th data-options="field:'zsdbh'" width="50" align=center>知识点编号</th>
                  <th data-options="field:'zsdy'" width="50" align=center>所属知识单元</th>
-                 <th data-options="field:'ctbz'" width="50" align=center>出题比重</th>
+                 <th data-options="field:'sfyc'" width="50" align=center>是否已出</th>
+                 <th data-options="field:'ctbz'" width="50" align=center>出题比重(%)</th>
                 
     		</tr>
     	</thead>
@@ -107,10 +108,14 @@
                    for (int i = 0; i <this.num_zsd_list; i++)
                    {
                        Response.Write("<tr >");
-                       Response.Write("<td><</td>");
+                       Response.Write("<td></td>");
                        Response.Write("	<td >" + zsd_list_all[i].ZSDMC+ "</td>");                               //知识点
                        Response.Write("	<td >" + zsd_list_all[i].ZSDBH + "</td>");                               //知识点编号
                        Response.Write("  <td >"  +this.Get_ZSDYModel(zsd_list_all[i].ZSDYBH).ZSDYMC+ "</td>");  //所属知识单元
+                       if (this.if_zsd_exit(zsd_list_all[i].ZSDBH) == true)
+                           Response.Write("<td>是</td>");
+                       else
+                           Response.Write("<td>否</td>");
                        Response.Write(" <td ><input class= easyui-validatebox textbox  type=text  id=ctbz"+i.ToString()+"  name= ctbz  data-options=required:true></input></td>");//出题比重
                        Response.Write("</tr>");
                    } %>
