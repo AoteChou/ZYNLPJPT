@@ -64,5 +64,10 @@ namespace ZYNLPJPT.processAspx
          return  new ZSDY_DAL().GetModel(zsdybh);
        }
 
+        //知识点是否已出
+       protected bool if_zsd_exit(int zsdbh)
+       {
+           return new Get_ZSD_BLL().ZSD_Exit(zsdbh);
+       }
     }
 }

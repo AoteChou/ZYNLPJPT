@@ -84,5 +84,17 @@ namespace ZYNLPJPT.BLL
             return null;
         
         }
+
+        //知识点是否已出
+        public bool ZSD_Exit(int zsdbh)
+        {
+            string sql = " ZSDBH="+zsdbh.ToString();
+             int num = new STZSDB_DAL().GetRecordCount(sql);
+             if (num > 0)
+                 return true;
+             else
+                 return false;
+
+        }
     }
 }
