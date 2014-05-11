@@ -274,6 +274,7 @@
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Styles\index.css" />
     <Content Include="xgbj.aspx" />
     <Content Include="xgxk.aspx" />
     <Content Include="xgxy.aspx" />
