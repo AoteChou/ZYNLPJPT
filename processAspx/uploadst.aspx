@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-   <link rel="stylesheet" type="text/css" href="../Styles/TestPage.css">
+   <link rel="stylesheet" type="text/css" href="../Styles/TestPage.css" />
 	<link rel="Stylesheet" type="text/css" href="../Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="../Styles/icon.css" /> 
      <script type="text/javascript" src="../Scripts/jquery-1.8.0.min.js"></script>
@@ -47,6 +47,8 @@
              <asp:Button id="submitAnswer" runat="server" Text="上传答案" 
                  OnClientClick="return getFileExt(document.getElementById('inputFileId'))" onclick="submitAnswer_Click" 
                />
+
+               <input type="button" id="download" value="下载题目" onclick="window.location.href='DownloadTest.aspx?stbh=<%=stbh%>'" />   
                
                <br />
             <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="500" Height="50" />

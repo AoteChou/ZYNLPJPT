@@ -153,6 +153,7 @@
     <Content Include="processAspx\ckjdkcxsData.aspx" />
     <Content Include="processAspx\cpjdData.aspx" />
     <Content Include="processAspx\ctrData.aspx" />
+    <Content Include="processAspx\DownLoadDA.aspx" />
     <Content Include="processAspx\getKCXZ.aspx" />
     <Content Include="processAspx\Guanlijsyh1.aspx" />
     <Content Include="processAspx\Guanlixsyh1.aspx" />
@@ -1108,6 +1109,13 @@
     </Compile>
     <Compile Include="processAspx\ctrData.aspx.designer.cs">
       <DependentUpon>ctrData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\DownLoadDA.aspx.cs">
+      <DependentUpon>DownLoadDA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\DownLoadDA.aspx.designer.cs">
+      <DependentUpon>DownLoadDA.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\getKCXZ.aspx.cs">
       <DependentUpon>getKCXZ.aspx</DependentUpon>
