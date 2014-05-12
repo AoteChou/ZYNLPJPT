@@ -21,7 +21,7 @@
                <th data-options="field:'zybh'" width="32">专业编号</th>
                <th data-options="field:'ssxk'" width="32">所属学科</th>
                <th data-options="field:'zymc'" width="32">专业名称</th>
-               <th data-options="field:'button',align:'center'" width="20">配置专业课程</th>
+               <th data-options="field:'button',align:'center'" width="20">修改专业课程</th>
             </tr>
          </thead>
          <tbody>
@@ -32,7 +32,7 @@
                     Response.Write("<td>" + this.zykcViews[i].ZYBH + "</td>");
                     Response.Write("<td>" + this.zykcViews[i].XKMC + "</td>");
                     Response.Write("<td>" + this.zykcViews[i].ZYM + "</td>");
-                    Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='xiugaiZYKC1.aspx?zybh=" + this.zykcViews[i].ZYBH + "'\" >配置专业课程</a></td>");
+                    Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='xiugaiZYKC1.aspx?zybh=" + this.zykcViews[i].ZYBH + "'\" >修改专业课程</a></td>");
                     Response.Write("</tr>");
                 }
                 

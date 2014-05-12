@@ -116,7 +116,7 @@ namespace ZYNLPJPT
                         
 
                     }
-                    appendContent("导入成功，成功" + successNum + "条  失败：" + failNum + " 条<br/>");
+                    appendContent("导入完毕，成功" + successNum + "条  失败：" + failNum + " 条<br/>");
                    
 
             

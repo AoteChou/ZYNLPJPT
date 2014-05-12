@@ -103,7 +103,7 @@
                                 ],
                                 required:true
                             }
-                        }" width="55">开课学期编号</th>              
+                        }" width="55">开课学期编号(单击修改)</th>              
                  <th data-options="field:'kcxzbh',align:'center',
                         editor:{
                             type:'combobox',
@@ -113,7 +113,7 @@
                                 url:'processAspx/getKCXZ.aspx',
                                 required:true
                             }
-                        }" width="50">课程性质编号</th>       
+                        }" width="50">课程性质编号(单击修改)</th>       
                 <th data-options="field:'llxf',editor:{type:'numberbox',options:{precision:2}}" width="30">理论学分(单击修改)</th>
                 <th data-options="field:'sjxf',editor:{type:'numberbox',options:{precision:2}}" width="30">实践学分(单击修改)</th>
     		</tr>

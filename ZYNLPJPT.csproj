@@ -79,6 +79,7 @@
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="bin\NPOI.dll" />
+    <Content Include="ChaKanKC.aspx" />
     <Content Include="chakanZYKC.aspx" />
     <Content Include="chakanZYKC1.aspx" />
     <Content Include="ckctjl.aspx" />
@@ -178,6 +179,7 @@
     <Content Include="processAspx\pzEjzbProc.aspx" />
     <Content Include="processAspx\pzkczsdyProc.aspx" />
     <Content Include="processAspx\selectKCFZR.aspx" />
+    <Content Include="processAspx\ShanChuZYKC2.aspx" />
     <Content Include="processAspx\XiuGaiJiaoShi.aspx" />
     <Content Include="processAspx\XiuGaiJiaoShiMiMa.aspx" />
     <Content Include="processAspx\XiugaiKCXZ.aspx" />
@@ -276,6 +278,8 @@
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
+    <Content Include="ShanChuZYKC.aspx" />
+    <Content Include="ShanChuZYKC1.aspx" />
     <Content Include="Styles\index.css" />
     <Content Include="Styles\title.png" />
     <Content Include="xgbj.aspx" />
@@ -375,6 +379,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="XiuGaiJaoShi1.aspx" />
+    <Content Include="XiuGaiKC.aspx" />
     <Content Include="XiuGaiXS.aspx" />
     <Content Include="xiugaiZYKC.aspx" />
     <Content Include="xiugaiZYKC1.aspx" />
@@ -538,6 +543,13 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="ChaKanKC.aspx.cs">
+      <DependentUpon>ChaKanKC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChaKanKC.aspx.designer.cs">
+      <DependentUpon>ChaKanKC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="chakanZYKC.aspx.cs">
       <DependentUpon>chakanZYKC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1323,6 +1335,13 @@
     <Compile Include="processAspx\scCpjdProc.aspx.designer.cs">
       <DependentUpon>scCpjdProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\ShanChuZYKC2.aspx.cs">
+      <DependentUpon>ShanChuZYKC2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ShanChuZYKC2.aspx.designer.cs">
+      <DependentUpon>ShanChuZYKC2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\XiuGaiJiaoShi.aspx.cs">
       <DependentUpon>XiuGaiJiaoShi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1881,6 +1900,20 @@
     <Compile Include="processAspx\scKcZsdyProc.aspx.designer.cs">
       <DependentUpon>scKcZsdyProc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShanChuZYKC.aspx.cs">
+      <DependentUpon>ShanChuZYKC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShanChuZYKC.aspx.designer.cs">
+      <DependentUpon>ShanChuZYKC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShanChuZYKC1.aspx.cs">
+      <DependentUpon>ShanChuZYKC1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShanChuZYKC1.aspx.designer.cs">
+      <DependentUpon>ShanChuZYKC1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="xgbj.aspx.cs">
       <DependentUpon>xgbj.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1992,6 +2025,13 @@
     </Compile>
     <Compile Include="XiuGaiJaoShi1.aspx.designer.cs">
       <DependentUpon>XiuGaiJaoShi1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="XiuGaiKC.aspx.cs">
+      <DependentUpon>XiuGaiKC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XiuGaiKC.aspx.designer.cs">
+      <DependentUpon>XiuGaiKC.aspx</DependentUpon>
     </Compile>
     <Compile Include="XiuGaiXS.aspx.cs">
       <DependentUpon>XiuGaiXS.aspx</DependentUpon>
@@ -2107,12 +2147,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NeatUpload\MultiRequestUploadHandler.ashx" />
+    <None Include="cc.xls" />
     <None Include="NeatUpload\NeatUploadConfig.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="NeatUpload\ProgressJsonHandler.ashx" />
     <Content Include="NeatUpload\UploadStateStoreHandler.ashx" />
     <Content Include="NeatUpload\Web.config" />
+    <None Include="rr.xls" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

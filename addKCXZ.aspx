@@ -11,10 +11,10 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
-    <table id="dg" title="添加课程性质" class="easyui-datagrid" style="width:700px; height:250px"
+<body style=" background: black;">
+    <table id="dg" title="添加课程性质" class="easyui-datagrid" style=" width:700px; height:250px"
             toolbar="#toolbar"
-            rownumbers="true" fitColumns="true" singleSelect="true">
+            rownumbers="true" fitColumns="true" singleSelect="true"  fit="true">
             <thead>
                 <tr>
                    <th field="kcxzbh" width="150">课程性质编号</th>
@@ -63,7 +63,7 @@
         function add() {
             $('#dlg').dialog('open').dialog('setTitle', '添加');
             $('#fm').form('clear');
-            url = 'save_user.php';
+          
         }
         function edit() {
             var row = $('#dg').datagrid('getSelected');
@@ -85,6 +85,7 @@
                     $.messager.alert('结果', '保存成功！', 'info');
                     $('#dlg').dialog('close');
                     $('#dg').datagrid('reload');
+                    window.location.reload();
                 } else if (data == 'False') {
                     document.getElementById('kcxzmc').value = '';
                     $.messager.alert('结果', '保存失败！', 'info');
