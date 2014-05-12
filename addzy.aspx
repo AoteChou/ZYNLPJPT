@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addZY.aspx.cs" Inherits="ZYNLPJPT.addZY" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addzy.aspx.cs" Inherits="ZYNLPJPT.addzy" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -11,7 +11,8 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
+<body class="easyui-layout">  
+  <div data-options="region:'center',border:false">
     <form id="form1" runat="server">
     <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
     <div class="easyui-panel" title="添加专业" style="width:400px;  ">
@@ -70,5 +71,6 @@
     </div>
     </div>
     </form>
+    </div>
 </body>
 </html>

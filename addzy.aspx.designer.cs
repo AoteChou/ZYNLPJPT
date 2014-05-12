@@ -10,7 +10,7 @@
 namespace ZYNLPJPT {
     
     
-    public partial class addZY {
+    public partial class addzy {
         
         /// <summary>
         /// form1 控件。
