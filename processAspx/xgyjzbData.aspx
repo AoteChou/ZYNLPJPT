@@ -51,7 +51,6 @@
                         window.location = "../xgyjzb.aspx";
                     });
                 } else if (data == 'False') {
-                    $('#ff').form('clear');
                     $.messager.alert('结果', '修改失败,不能插入其他一级指标名称！', 'info', function () {
                         //do nothing
                     });
