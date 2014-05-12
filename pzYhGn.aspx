@@ -10,10 +10,9 @@
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
 </head>
-<body>
-    <form id="form1" runat="server">
-
-    <div>
+<body class="easyui-layout">
+      
+    <div  region="center" border="false">
    <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
     		    <tr>
@@ -42,6 +41,6 @@
    	</table>     
      
     </div>
-    </form>
+     
 </body>
 </html>

@@ -21,18 +21,21 @@ namespace ZYNLPJPT
         {
 
             if (Session["yh"] == null)
-                this.Response.Redirect("Default.htm");
+            {
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
+            }
             else
             {
-               YH yh=(YH)Session["yh"];
-               String jsbh = yh.YHBH;      //教师编号
-               GetTestCourse_BLL gettestcourse_bll = new GetTestCourse_BLL();
-               num = gettestcourse_bll.Get_CTinfo(jsbh).Count;
-               ctview=new CTView[num];
-               for (int i = 0; i <num; i++)
-               {
-                   ctview[i] = gettestcourse_bll.Get_CTinfo(jsbh).ElementAt(i);
-               }
+                YH yh = (YH)Session["yh"];
+                String jsbh = yh.YHBH;      //教师编号
+                GetTestCourse_BLL gettestcourse_bll = new GetTestCourse_BLL();
+                num = gettestcourse_bll.Get_CTinfo(jsbh).Count;
+                ctview = new CTView[num];
+                for (int i = 0; i < num; i++)
+                {
+                    ctview[i] = gettestcourse_bll.Get_CTinfo(jsbh).ElementAt(i);
+                }
             }
         
         }

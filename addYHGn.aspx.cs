@@ -24,11 +24,14 @@ namespace ZYNLPJPT
         {
             string yhbh_str = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
             if (yhbh_str == null || yhbh_str == "")
-                this.Response.Redirect("Default.htm");
+            {
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
+            }
             else
             {
                 yhbh = yhbh_str;
-                string sql = " yhbh!="+yhbh;
+                string sql = " yhbh!=" + yhbh;
                 length = new YHGN_BLL().get_GNcount(yhbh);
                 gn_list = new GND[length];
                 yhgn_list = new YHGNB[length];

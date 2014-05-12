@@ -78,7 +78,7 @@
             var dd=document.getElementById("jsID").value.toString();
             $.post("XiuGaiJiaoShiMiMa.aspx", { 'option': "xiuMIMA", 'JsID': dd, 'password': newpassword1 }, function (result) {
                 if (result == "SaveOK") {
-                    alert("保证成功！");
+                    alert("保存成功！");
                     window.location.reload();
                 }
                 else {
@@ -124,7 +124,7 @@
               window.location.reload();
           }
           else {
-              alert("删除失败！");
+              alert("删除操作失败！（全部或部分操作未成功）");
           }
       }
             );

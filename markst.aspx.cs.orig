@@ -25,8 +25,12 @@ namespace ZYNLPJPT
         {
             if (Session["yh"] == null)
             {
+<<<<<<< HEAD
+                Response.Redirect("Default.htm");
+=======
                 this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
                 this.Response.End();
+>>>>>>> dd5114e7098c8a6249834e85256161955d18fcd8
             }
            else
             {  

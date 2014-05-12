@@ -25,12 +25,16 @@ namespace ZYNLPJPT.processAspx
        protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
-                this.Response.Redirect("Default.htm");
-            
+            {
+
+                this.Response.Write("<script type='text/javascript'>window.parent.location='../Default.htm'</script>");
+                this.Response.End();
+            }
+
             else
             {
                 YH yh = (YH)Session["yh"];
-                 ctr = yh.YHBH;                                                                  //出题人编号
+                ctr = yh.YHBH;                                                                  //出题人编号
             }
 
             kcbh = Convert.ToInt32(Request["kcbh"].ToString().Trim());

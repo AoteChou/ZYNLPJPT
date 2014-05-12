@@ -41,30 +41,14 @@ namespace ZYNLPJPT.processAspx
             }
                 if (Session["yh"] == null)
                 {
-                    Response.Redirect("../Default.htm");
+                    this.Response.Write("<script type='text/javascript'>window.parent.location='../Default.htm'</script>");
+                    this.Response.End();
                 }
 
                 else
                 {
                   
-                    /*
-                       kcbh = Request["kcbh"] == null ? 0 : int.Parse(Request["kcbh"].ToString().Trim());
-                       kcmc = new KC_DAL().GetModel(kcbh).KCMC.ToString();
-                       ctr = Request["ctr"].Trim().ToString();
-                       string[] zsds = Request["zsds[]"].Trim().ToString().Split(',');
-                       string[] zsdbz = Request["zsdbz[]"].Trim().ToString().Split(',');
-                       int length = zsds.Length;
-                       zsdbh = new int[length];
-                       zsdmc = new string[length];
-                       ctbz = new float[length];
-                       for (int i = 0; i < zsds.Length; i++)
-                       {
-                           zsdbh[i] = int.Parse(zsds[i]);                                                                  //知识点编号(转化为整型)
-                           ctbz[i] = float.Parse(zsdbz[i]); //知识点出题比重(转化为浮点型)
-                           zsdmc[i] = new ZSD_DAL().GetModel(zsdbh[i]).ZSDMC.Trim().ToString();
-                       }
-                    */
-
+                
                     string stbh_str = Request["stbh"] == null ? null : Request["stbh"].ToString();
                     stbh = int.Parse(stbh_str);
                     st_model = st_dal.GetModel(stbh);
@@ -93,26 +77,24 @@ namespace ZYNLPJPT.processAspx
             {
                 string fileName = inputFileId.FileName;
                 hzm = fileName.Substring(fileName.LastIndexOf("."));
+                if (hzm != ".doc")
+                {
+                    Response.Write("<script type=text/javascript>alert('请上传后缀名为.doc的文件！')</script>");
+                }
 
-                string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
-                inputFileId.MoveTo(path, MoveToOptions.Overwrite);
-                FileStream filestream = new FileStream(path, FileMode.Open);
-                byte[] tempbyte = new byte[filestream.Length];
-                filestream.Write(tempbyte, 0, tempbyte.Length);
+                else
+                {
+                    string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
+                    inputFileId.MoveTo(path, MoveToOptions.Overwrite);
+                    FileStream filestream = new FileStream(path, FileMode.Open);
+                    byte[] tempbyte = new byte[filestream.Length];
+                    filestream.Write(tempbyte, 0, tempbyte.Length);
 
-               /*
-                st_model.CTR = ctr;
-                st_model.CTSJ = DateTime.Now;
-                st_model.KCBH = kcbh;
-                st_model.SFZDYJ = false;
-                st_model.SFSC = true;
-                st_model.STBH = int .Parse(Session["newstbh"].ToString());
-                st_model.TMNR = tempbyte;
-                st_model.HZM = hzm;
-                */
-                st_model.TMNR = tempbyte;
-                Session["st_model"] = st_model;
-                flag_tm = true;
+                    st_model.TMNR = tempbyte;
+                    //  Session["st_model"] = st_model;
+                    new ST_DAL().Update(st_model);
+                    flag_tm = true;
+                }
             }
         }
  
@@ -124,16 +106,24 @@ namespace ZYNLPJPT.processAspx
             {
                 string fileName = inputFileId.FileName;
                 hzm = fileName.Substring(fileName.LastIndexOf("."));
-
-                string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
-                inputFileId.MoveTo(path, MoveToOptions.Overwrite);
-                FileStream filestream = new FileStream(path, FileMode.Open);
-                byte[] tempbyte = new byte[filestream.Length];
-                filestream.Write(tempbyte, 0, tempbyte.Length);
-                st_model.TMDA = tempbyte;
-                Session["stda"] = st_model.TMDA;
-                flag_da = true;
-           }
+                if (hzm != ".doc")
+                {
+                    Response.Write("<script type=text/javascript>alert('请上传后缀名为.doc的文件！')</script>");
+                }
+                else
+                {
+                    string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
+                    inputFileId.MoveTo(path, MoveToOptions.Overwrite);
+                    FileStream filestream = new FileStream(path, FileMode.Open);
+                    byte[] tempbyte = new byte[filestream.Length];
+                    filestream.Write(tempbyte, 0, tempbyte.Length);
+                    st_model.TMDA = tempbyte;
+                    //    Session["stda"] = st_model.TMDA;
+                    new ST_DAL().Update(st_model);
+                    flag_da = true;
+                }
+                 
+            }
    
    }
 
