@@ -19,6 +19,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using ZYNLPJPT.Utility;
+using System.Collections.Generic;
 namespace ZYNLPJPT.DAL
 {
 	/// <summary>
@@ -326,6 +327,40 @@ namespace ZYNLPJPT.DAL
 			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
 		}*/
 
+
+
+
+
+        public int DeleteUser(string id)
+        {
+            try
+            {
+                List<string> SQLStringList = new List<string>();
+                List<SqlParameter[]> SqlParameterList = new List<SqlParameter[]>();
+
+                string sql = "delete from ZYKC where KCBH=@kcbh;";
+               
+                SqlParameter[] ps ={
+                                   new SqlParameter("@kcbh",SqlDbType.VarChar),
+                              };
+                ps[0].Value = id;
+                SQLStringList.Add(sql);
+                SqlParameterList.Add(ps);
+                
+
+                DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
+
+
+
+
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
 		#endregion  BasicMethod
 		#region  ExtensionMethod
 

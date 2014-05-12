@@ -11,10 +11,10 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
-    <table id="dg" title="添加课程性质" class="easyui-datagrid" style="width:700px; height:250px"
+<body style=" background: black;">
+    <table id="dg" title="添加课程性质" class="easyui-datagrid" style=" width:700px; height:250px"
             toolbar="#toolbar"
-            rownumbers="true" fitColumns="true" singleSelect="true">
+            rownumbers="true" fitColumns="true" singleSelect="true"  fit="true">
             <thead>
                 <tr>
                    <th field="kcxzbh" width="150">课程性质编号</th>

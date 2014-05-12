@@ -39,16 +39,21 @@ namespace ZYNLPJPT.processAspx
                 {
                     string str = Request["idlist"];
                     string[] IDList = str.Split(',');
+                    bool flag = true;
                     for (int i = 0; i < IDList.Length - 1; i++)
                     {
-                        if (js.DeleteUser(IDList[i]) == 1)
+                        if (js.DeleteUser(IDList[i]) != 1)
                         {
-                            Response.Write("DeleteOK");
-                        }
-                        else
-                        {
-                            Response.Write("DeleteNo");
-                        }
+                            flag = false;
+                        } 
+                    }
+                    if (flag)
+                    {
+                        Response.Write("DeleteOK");
+                    }
+                    else
+                    {
+                        Response.Write("DeleteNo");
                     }
                 }
         }
