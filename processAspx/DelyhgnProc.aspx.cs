@@ -25,7 +25,7 @@ namespace ZYNLPJPT.processAspx
             }
             else
             {
-                string jsbh = yh;
+                string yhbh = yh;
                 int gnbh = int.Parse(gnd);
                 bool del = new YHGNB_DAL().Delete(gnbh,yh);
                 if (del == false)

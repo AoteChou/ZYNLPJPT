@@ -17,28 +17,20 @@
               window.location.href = "addYHGn.aspx?yhbh=" + yhbh.toString();
           }
 
-          //删除选中角色
-          function getSelected(yhbh) {
-              var jsbh;
+          //删除选中功能
+          function getSelected(yhbh,gnbh) {
+            //  var jsbh;
 
-              var row = $('#mytable').datagrid('getSelected');
-             gnbh = row.gnbh;                    //功能编号
+            //  var row = $('#mytable').datagrid('getSelected');
+          //   gnbh = row.gnbh;                    //功能编号
            
              $.post("processAspx/DelyhgnProc.aspx", { 'gnbh': gnbh, 'yhbh': yhbh }, function (result) {
                   if (result == 'False') {
                       $.messager.alert('警告', '无法删除!');
                   }
-
-                  else {
-                      $.messager.confirm('信息', '删除成功!', function (r) {
-                          if (r) {
-                              //刷新当前页面
-                              location.reload(false);
-                          }
-                          else {
-                              //do nothing
-                          }
-                      });
+                  else
+                   {
+                       location.reload(false); 
                   }
               });
           }
@@ -76,7 +68,7 @@
            Response.Write("	<td >" + this.gnd_list[i].GNM.ToString() + "</td>");                               //功能名  
            Response.Write("	<td >" + this.gnd_list[i].GNLJ.ToString() + "</td>");                               //功能链接
            Response.Write("	<td >" + this.gnd_list[i].SSML.ToString() + "</td>");                              //所属目录
-           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" + this.yhbh + ")\" >删除</a></td>");
+           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected(" +"'"+ this.yhbh.ToString() +"'"+ "," + this.gnd_list[i].GNBH.ToString() + ")\" >删除</a></td>");
           Response.Write("</tr>");
        }
 
