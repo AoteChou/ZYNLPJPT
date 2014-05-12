@@ -9,6 +9,7 @@
     <title>专业能力评价系统</title>
     <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
+    <link rel="Stylesheet" type="text/css" href="Styles/index.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
    </head>
@@ -20,7 +21,7 @@
     </div>
 
 	<div data-options="region:'west',split:true,noheader:true" style="width:200px">
-    	    <div id="aa" class="easyui-accordion" data-options="fit:'true',border:'false'">
+    	    <div id="aa" class="easyui-accordion" data-options="fit:true,border:false">
             <%  for (int i = 0; i < this.menus.Length; i++) {
 
                     if (i == 0)
@@ -44,7 +45,7 @@
 	<div data-options="region:'south',border:false" style="height:20px;background:#E6EEF8;padding:10px;">
     </div>
 
-	<div data-options="region:'center',title:'Center',noheader:true">
+	<div data-options="region:'center',title:'Center',noheader:true,border:'false'">
     	<div id="tabs" class="easyui-tabs" data-options="fit:true,plain:true,border:false">
         	<div title="Tab1" style="padding:20px;display:none;">
 			tab1
@@ -92,7 +93,8 @@
     $(function () {
 
         tickTock();
-
+        $('body').layout({ resize: function () { alert("!!")} });
+        //$('#aa').accordion('getSelected');
     });
 
 

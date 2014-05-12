@@ -22,6 +22,8 @@ namespace ZYNLPJPT.processAspx
         protected STZSDB []stzsdb;                                              //试题知识点表列表
         protected int length;                                                        //试题知识点列表长度
         protected int stbh;                                                           //试题编号
+        protected string gtr;                                                        //改题人
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -30,7 +32,7 @@ namespace ZYNLPJPT.processAspx
             pcjl = new PCJL_DAL().GetModel(pcjlbh);
             kcmc = new ST_BLL().get_kcmc_Bystbh(pcjl.STBH).ToString().Trim();
             stbh = int.Parse(pcjl.STBH.ToString());
-
+            gtr = Request["gtr"].ToString();
             //试题知识点列表
             string sql = " stbh="+pcjl.STBH;
             DataSet ds = new STZSDB_DAL().GetList(sql);
@@ -63,6 +65,7 @@ namespace ZYNLPJPT.processAspx
                 else
                 {
                     pcjl.PCFS = score;
+                    pcjl.GTR = gtr;
                    bool update= new PCJL_DAL().Update(pcjl);
                     if(update==true)
                     Response.Write("<script language=javascript>history.go(-1);</script>");

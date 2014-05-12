@@ -76,6 +76,7 @@
     <Content Include="addZsdy.aspx" />
     <Content Include="addZsly.aspx" />
     <Content Include="addzy.aspx" />
+    <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="bin\NPOI.dll" />
     <Content Include="ChaKanKC.aspx" />
@@ -278,6 +279,8 @@
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
     <Content Include="ShanChuZYKC.aspx" />
     <Content Include="ShanChuZYKC1.aspx" />
+    <Content Include="Styles\index.css" />
+    <Content Include="Styles\title.png" />
     <Content Include="xgbj.aspx" />
     <Content Include="xgxk.aspx" />
     <Content Include="xgxy.aspx" />
