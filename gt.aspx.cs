@@ -68,7 +68,7 @@ namespace ZYNLPJPT.processAspx
                     pcjl.GTR = gtr;
                    bool update= new PCJL_DAL().Update(pcjl);
                     if(update==true)
-                    Response.Write("<script language=javascript>history.go(-1);</script>");
+                    Response.Write("<script language=javascript>window.location.href='markst.aspx'</script>"); 
                     else
                       Response.Write("<script>alert('打分失败！')</script>");
                 }
