@@ -7,14 +7,7 @@
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><%=this.stzsdviews[0].KCMC%>专业能力测评</title>
 
-	<link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
-    <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
-    <link rel="Stylesheet" type="text/css" href="Styles/bootstrap.min.css" /> 
-    <link rel="stylesheet" type="text/css" href="Styles/TestPage.css"/>
-     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="Scripts/highcharts.js"></script>
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+	
 
 </head>
 
@@ -152,7 +145,7 @@ function loadXML(filePath) {
             plotShadow: false
         },
         title: {
-            text: '<font style="font-size:110px;font-family: \'华文细黑\',\'微软雅黑\',\'细明体\',\'黑体\';"><%=finishratio*100%></font><span style="font-size:20px;">%</span>',
+            text: '<font style="font-size:110px;font-family: \'华文细黑\',\'微软雅黑\',\'细明体\',\'黑体\';"><%=(int)(Math.Round(finishratio*100))%></font><span style="font-size:20px;">%</span>',
             align:'center',
             verticalAlign: 'middle',
             y:30
