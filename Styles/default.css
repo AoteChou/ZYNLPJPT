@@ -1,6 +1,13 @@
-﻿body {
-			background-color: #eee;
+﻿html,body {
+			/*background-color: #eee;*/
+			width:100%;
+			height:100%;
+			 
 		}
+		body
+		{
+			background: url('./back2.jpg') no-repeat scroll center bottom;
+			}
 		.container{
 			width: 390px;
 			margin-top: 50px;
@@ -17,10 +24,14 @@
 			margin: 30px auto;
 		}
 		.form-horizontal .control-label {
-			width: 80px;
+			/*width: 80px;*/
+		}
+		.form-horizontal .control-group {
+			position: relative;
+			 left: -70px;
 		}
 		.form-horizontal .controls {
-			margin-left: 100px;
+			/*margin-left: 100px;*/
 		}
 		.alert {
 			margin: 20px 0 20px 15px;
@@ -37,3 +48,4 @@
 		[class*="span"] {
 			margin-left: 0;
 		}
+		
