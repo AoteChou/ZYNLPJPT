@@ -24,7 +24,11 @@ namespace ZYNLPJPT
         {
             string jsbh_str = Request["jsbh"] == null ? null : Request["jsbh"].ToString();
             if (jsbh_str == null || jsbh_str == "")
-                this.Response.Redirect("Default.htm");
+            {    
+                this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
+        
+            }
             else
             {
                 jsbh = int.Parse(jsbh_str);

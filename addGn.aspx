@@ -4,10 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>选择功能点新增</title>
-   <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
+    <link rel="Stylesheet" type="text/css" href="Styles/default/easyui.css" />
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
-     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
+
    <script type="text/javascript">
 
        function getSelections(jsbh) {
@@ -43,16 +45,17 @@
 </head>
 
  
-<body>
-
-  <div region="center" border="false">
-      <div style="padding:10px 10px 10px 400px" >
+<body class="easyui-layout">
+    <div region="center" border="false">
+  
+    <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="window.location.href='JsGn.aspx?jsbh=<%=this.jsbh %>'">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=jsbh%>)">完成选择</a>
       </div>
- </div>
 
-         <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
+  <div region="center" border="false">
+  
+  <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
     		    <tr>
     			
@@ -79,9 +82,8 @@
                    } %>
     	</tbody>
    	</table>     
-    
-    </div>
-
+     </div>
+     </div>
         <script type="text/javascript">
              $(function () {
                 $('#mytable').datagrid({

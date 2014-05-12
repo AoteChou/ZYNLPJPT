@@ -22,8 +22,8 @@
             gtr = GTRBH;
             scrq = row.scrq;    //上传日期
            xzrq = row.xzrq;   //下载日期
-
-            $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
+ 
+        $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
 
                 if (result == 'False') {
                     $.messager.alert('警告', '必须选择至少选择一道题批改!');
@@ -77,12 +77,12 @@
                        if (GTView_list[i].PCFS != null)
                        {
                            Response.Write("<td>" + this.GTView_list[i].PCFS.ToString() + "</td>");                                    //分数
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected()\" >重改</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "')\" >重改</a></td>");
                        }
                        else
                        {
                            Response.Write("<td>未打分</td>");
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('"+this.GTView_list[i].GTR.ToString()+"')\" >改题</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('"+this.gtrbh+"')\" >改题</a></td>");
                        }
                        Response.Write("</tr>");
                    }

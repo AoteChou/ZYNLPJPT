@@ -38,6 +38,8 @@
     		
     	</ol>
         <input type="button" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh%>'" />
+         &nbsp&nbsp 
+        <input type="button" id="downloadanswer" value="下载答案"  onclick="window.location.href='processAspx/DownloadDA.aspx?pcjlbh=<%=pcjlbh %>'">
        &nbsp&nbsp  
         <input type="button" id="goback" value="返回上页" onclick="window.location.href='markst.aspx'" />
         <br/>

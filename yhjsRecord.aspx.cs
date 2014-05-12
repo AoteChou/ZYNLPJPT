@@ -23,7 +23,8 @@ namespace ZYNLPJPT
            yhbh = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
             if (yhbh == "" || yhbh == null)
             {
-                Response.Redirect("Default.htm");
+               this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
+                this.Response.End();
             }
             else
             {
