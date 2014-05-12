@@ -11,7 +11,8 @@
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
-<body>
+<body class="easyui-layout">  
+  <div data-options="region:'center',border:false">
 <div style=" margin-left:auto; margin-right:auto; width:400px; margin-top:40px;" >
     <div class="easyui-panel" title="添加一级指标" style="width:400px;  ">
         <div style="padding:10px 60px 20px 60px">
@@ -38,6 +39,7 @@
         </div>    
     </div>
     </div>
+    </div>
     <script type="text/javascript">
         function submitForm(data) {
 
@@ -50,7 +52,6 @@
                         $.messager.alert('结果', '添加成功！', 'info');
 
                     } else if (data == 'False') {
-                        $('#ff').form('clear');
                         $.messager.alert('结果', '添加失败，一级指标名称不能为空或者存在该一级指标名称！', 'info');
                     }
                 });
