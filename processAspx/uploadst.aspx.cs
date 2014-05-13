@@ -65,8 +65,11 @@ namespace ZYNLPJPT.processAspx
                         zsdmc[i] = new ZSD_DAL().GetModel(zsdbh[i]).ZSDMC.Trim().ToString();
                         ctbz[i] = float.Parse(ds.Tables[0].Rows[i]["ZSDBZ"].ToString());
                     }
+                    submitButtonId.Click+=new System.EventHandler(submitButtonId_Click);
+                    submitAnswer.Click+=new System.EventHandler(submitAnswer_Click);
                 }
            
+            
 
         }
 
@@ -80,20 +83,19 @@ namespace ZYNLPJPT.processAspx
                 if (hzm != ".doc")
                 {
                     Response.Write("<script type=text/javascript>alert('请上传后缀名为.doc的文件！')</script>");
+                   // inputFileId.FileUploaded
                 }
 
                 else
                 {
-                    string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
-                    inputFileId.MoveTo(path, MoveToOptions.Overwrite);
-                    FileStream filestream = new FileStream(path, FileMode.Open);
-                    byte[] tempbyte = new byte[filestream.Length];
-                    filestream.Write(tempbyte, 0, tempbyte.Length);
-
-                    st_model.TMNR = tempbyte;
-                    //  Session["st_model"] = st_model;
+                    long fileLength=inputFileId.FileContent.Length;
+                    byte[] tempbyte = new byte[fileLength];
+                    inputFileId.FileContent.Read(tempbyte, 0, tempbyte.Length);
+                    inputFileId.FileContent.Dispose();
+                    inputFileId.FileContent.Close();
+                     st_model.TMNR = tempbyte;
                     new ST_DAL().Update(st_model);
-                    flag_tm = true;
+                     
                 }
             }
         }
@@ -112,15 +114,14 @@ namespace ZYNLPJPT.processAspx
                 }
                 else
                 {
-                    string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
-                    inputFileId.MoveTo(path, MoveToOptions.Overwrite);
-                    FileStream filestream = new FileStream(path, FileMode.Open);
-                    byte[] tempbyte = new byte[filestream.Length];
-                    filestream.Write(tempbyte, 0, tempbyte.Length);
+                    long fileLength = inputFileId.FileContent.Length;
+                    byte[] tempbyte = new byte[fileLength];
+                    inputFileId.FileContent.Read(tempbyte, 0, tempbyte.Length);
+                    inputFileId.FileContent.Dispose();
+                    inputFileId.FileContent.Close();
                     st_model.TMDA = tempbyte;
-                    //    Session["stda"] = st_model.TMDA;
                     new ST_DAL().Update(st_model);
-                    flag_da = true;
+                
                 }
                  
             }
@@ -130,6 +131,16 @@ namespace ZYNLPJPT.processAspx
         //完成上传
         protected void finishupload_Click(object sender, EventArgs e)
         {
+            if (st_model.TMNR != null && st_model.TMNR.Length > 0)
+                flag_tm = true;
+            else
+                flag_tm = false;
+
+            if (st_model.TMDA != null && st_model.TMDA.Length > 0)
+                flag_da = true;
+            else
+                flag_da = false;
+
             if (flag_tm == false && flag_da == false)
             {
                 Response.Write("<script type=text/javascript>alert('请上传题目和答案！')</script>");
@@ -144,13 +155,9 @@ namespace ZYNLPJPT.processAspx
                 Response.Write("<script type=text/javascript>alert('请上传答案！')</script>");
 
             }
-
             else
             {
 
-           
-                st_model = (ST)Session["st_model"];
-                st_model.TMDA = (byte[])Session["stda"];
                 st_model.SFSC = false;                        //是否删除
                 bool num = st_dal.Update(st_model);
 
