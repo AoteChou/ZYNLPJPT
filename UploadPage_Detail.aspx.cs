@@ -47,21 +47,32 @@ namespace ZYNLPJPT
             if (IsValid && inputFileId.HasFile)
             {
 
-                string fileName = inputFileId.FileName;
-                hzm = fileName.Substring(fileName.LastIndexOf("."));
+                //string fileName = inputFileId.FileName;
+                //hzm = fileName.Substring(fileName.LastIndexOf("."));
 
-                string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
-                inputFileId.MoveTo(path, MoveToOptions.Overwrite);
-                PCJL_DAL pcjl_dal = new PCJL_DAL();
+                //string path = Path.Combine(Request.PhysicalApplicationPath, "uploadFiles/" + new Random().Next().ToString() + fileName);
+                //inputFileId.MoveTo(path, MoveToOptions.Overwrite);
+                //PCJL_DAL pcjl_dal = new PCJL_DAL();
 
-                FileStream filestream = new FileStream(path, FileMode.Open);
-                byte[] tempbyte = new byte[filestream.Length];
-                filestream.Write(tempbyte, 0, tempbyte.Length);
-                bool opResult = pcjl_dal.Update(DateTime.Now, tempbyte, pcjlbh, hzm);
+                //FileStream filestream = new FileStream(path, FileMode.Open);
+                //byte[] tempbyte = new byte[filestream.Length];
+                //filestream.Write(tempbyte, 0, tempbyte.Length);
+                //bool opResult = pcjl_dal.Update(DateTime.Now, tempbyte, pcjlbh, hzm);
                 /* 如果马上删除 会显示被占用 待解决
                 if (opResult) {
                     File.Delete(path);
                 }*/
+                string fileName = inputFileId.FileName;
+                hzm = fileName.Substring(fileName.LastIndexOf("."));
+
+                long fileLength = inputFileId.FileContent.Length;
+                byte[] tempbyte = new byte[fileLength];
+                inputFileId.FileContent.Read(tempbyte, 0, tempbyte.Length);
+                inputFileId.FileContent.Dispose();
+                inputFileId.FileContent.Close();
+                PCJL_DAL pcjl_dal = new PCJL_DAL();
+
+                bool opResult = pcjl_dal.Update(DateTime.Now, tempbyte, pcjlbh, hzm);
             }
             else
             {
