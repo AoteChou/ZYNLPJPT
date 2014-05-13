@@ -107,6 +107,29 @@ namespace ZYNLPJPT.DAL
 			}
 		}
 
+        public bool UpdatePassword(ZYNLPJPT.Model.YH model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update YH set ");
+            strSql.Append("MM=@MM");
+            strSql.Append(" where YHBH=@YHBH ");
+            SqlParameter[] parameters = {
+					new SqlParameter("@MM", SqlDbType.VarChar,50),
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50)};
+            parameters[0].Value = model.MM;
+            parameters[1].Value = model.YHBH;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>

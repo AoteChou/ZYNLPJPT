@@ -76,6 +76,7 @@
     <Content Include="addZsdy.aspx" />
     <Content Include="addZsly.aspx" />
     <Content Include="addzy.aspx" />
+    <Content Include="processAspx\addMmProc.aspx" />
     <Content Include="Styles\back2.jpg" />
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
@@ -285,6 +286,7 @@
     <Content Include="Styles\sysTitle.png" />
     <Content Include="Styles\title.png" />
     <Content Include="xgbj.aspx" />
+    <Content Include="xgmm.aspx" />
     <Content Include="xgxk.aspx" />
     <Content Include="xgxy.aspx" />
     <Content Include="scyjzb.aspx" />
@@ -600,6 +602,13 @@
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.designer.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addMmProc.aspx.cs">
+      <DependentUpon>addMmProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addMmProc.aspx.designer.cs">
+      <DependentUpon>addMmProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addZsdyToEjzbProc.aspx.cs">
       <DependentUpon>addZsdyToEjzbProc.aspx</DependentUpon>
@@ -1922,6 +1931,13 @@
     </Compile>
     <Compile Include="xgbj.aspx.designer.cs">
       <DependentUpon>xgbj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xgmm.aspx.cs">
+      <DependentUpon>xgmm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xgmm.aspx.designer.cs">
+      <DependentUpon>xgmm.aspx</DependentUpon>
     </Compile>
     <Compile Include="xgxk.aspx.cs">
       <DependentUpon>xgxk.aspx</DependentUpon>
