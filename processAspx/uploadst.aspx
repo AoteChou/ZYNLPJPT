@@ -38,19 +38,15 @@
   
         <div id="uploadDiv">
              <Upload:InputFile id="inputFileId" runat="server" />
-              
-     <asp:Button id="submitButtonId" runat="server" Text="上传题目" 
-                 OnClientClick="return getFileExt(document.getElementById('inputFileId'))" 
-                 onclick="submitButtonId_Click"  /> 
-                  
-                
-             <asp:Button id="submitAnswer" runat="server" Text="上传答案" 
-                 OnClientClick="return getFileExt(document.getElementById('inputFileId'))" onclick="submitAnswer_Click" 
-               />
+               <asp:Button id="submitButtonId" runat="server" Text="上传题目" 
+                 OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  /> 
+                 <asp:Button id="submitAnswer" runat="server" Text="上传答案" 
+                 OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  />
 
-               <input type="button" id="download" value="下载题目" onclick="window.location.href='DownloadTest.aspx?stbh=<%=stbh%>'" />   
+               <input type="button" id="download" value="下载题目" onclick="window.location.href='DownloadTest.aspx?stbh=<%=stbh %>'" />   
                
                <br />
+                <font style="position: relative; top: -20px;">上传进度：</font>
             <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="500" Height="50" />
             <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?"> </Upload:UnloadConfirmer>
         </div>
