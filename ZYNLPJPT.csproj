@@ -282,6 +282,7 @@
     <Content Include="ShanChuZYKC.aspx" />
     <Content Include="ShanChuZYKC1.aspx" />
     <Content Include="Styles\index.css" />
+    <Content Include="Styles\sysTitle.png" />
     <Content Include="Styles\title.png" />
     <Content Include="xgbj.aspx" />
     <Content Include="xgxk.aspx" />
