@@ -33,8 +33,8 @@ namespace ZYNLPJPT.BLL
                 //step1：获取评测记录中 分数最低的题目
                 PCJL_DAL pcjl_dal = new PCJL_DAL();
                 PCJL pcjl=pcjl_dal.getPCJLWithLowestMark(xsbh, kcbh);
-                //step2：如果全部满分，则随机出题
-                if (pcjl.PCFS == 100)
+                //step2：如果全部满分或者所有试题都还没有分数的话，则随机出题
+                if (pcjl.PCFS==null||pcjl.PCFS == 100)
                 {
                     int STcount = allSTofThisKC.Count;
                     Random r = new Random();

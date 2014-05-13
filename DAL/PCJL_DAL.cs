@@ -630,7 +630,7 @@ namespace ZYNLPJPT.DAL
                        };
             ZYNLPJPT.Model.PCJL pcjl = new ZYNLPJPT.Model.PCJL();
             DataSet ds = DbHelperSQL.Query(sqlString , sqlparameters);
-            if(ds.Tables[0].Rows.Count>=0)
+            if(ds.Tables[0].Rows.Count>0)
             {
                pcjl=DataRowToModel(ds.Tables[0].Rows[0]);
             }
