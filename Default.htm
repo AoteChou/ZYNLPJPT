@@ -16,11 +16,9 @@
             document.getElementById("alertDiv").style.visibility = "hidden";
         }
         function login() {
-            
 
             var inputID=$('#inputId').val().trim();
             var inputPassword = $('#inputPassword').val().trim();
-
             if (inputID == "" || inputPassword == "") {
                 $("#warnTxt").html("账号名或密码不能为空,请重试！");
                 document.getElementById("alertDiv").style.visibility = "visible";
@@ -32,16 +30,9 @@
                     $("#warnTxt").html("账号或密码出错,请重试！");
                     document.getElementById("alertDiv").style.visibility = "visible";
                 } else {
-
                     window.location = "index.aspx?visitedId=" + result;
-
                 }
-
-
             });
-           
-
-
         }
 	</script>
 </head>
@@ -51,11 +42,12 @@
 		<div class="span5">
 			<div id="legend">
             <img src="Styles/title.png" alt="" />
-				<h2 style="font-family: 方正舒体; color: gray;">专业能力评价系统</h2>
+			<!--	<h2 style="font-family: 方正舒体; color: gray;">专业能力评价系统</h2>-->
+            <img id="sysTitle" src="Styles/sysTitle.png" alt="" />
 			</div>
             <div class="alert" style="visibility:hidden" id="alertDiv">
 				 <button type="button" class="close" data-dismiss="alert" onclick="return closeAlert()">×</button>
-				<strong>警告!</strong> <span id="warnTxt"></span>
+				<strong  style=" color:#DF1E25">警告:</strong> <span style="color:#DF1E25" id="warnTxt"></span>
 			</div>
 			<form class="form-horizontal">
 				<div class="control-group">
