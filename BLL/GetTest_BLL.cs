@@ -66,7 +66,7 @@ namespace ZYNLPJPT.BLL
         private int getbestST(ST_Undone[] st_undoneArray, int[] zsd_undoneArray)
         {
             int beststbh = 0;
-            float bestundoneratio=0;
+            float bestundoneratio = -1;//不能为零（有undoneRatio都为0的情况）
             int listCount=0;
             int undoneCount=0;
             foreach (ST_Undone st_undone in st_undoneArray) {

@@ -44,8 +44,8 @@ namespace ZYNLPJPT
                     GTView_list[i].GTR =ds.Tables[0].Rows[i]["GTR"].ToString();
                     GTView_list[i].KCBH = int.Parse(ds.Tables[0].Rows[i]["KCBH"].ToString());
                     GTView_list[i].STBH = int.Parse(ds.Tables[0].Rows[i]["STBH"].ToString());
-                    GTView_list[i].SCRQ = Convert.ToDateTime(ds.Tables[0].Rows[i]["SCRQ"].ToString());
-                    GTView_list[i].XZRQ = Convert.ToDateTime(ds.Tables[0].Rows[i]["XZRQ"].ToString());
+                    GTView_list[i].SCRQ = DateTime.Parse(ds.Tables[0].Rows[i]["SCRQ"].ToString());
+                    GTView_list[i].XZRQ = DateTime.Parse(ds.Tables[0].Rows[i]["XZRQ"].ToString());
                     GTView_list[i].XSBH = ds.Tables[0].Rows[i]["XSBH"].ToString();
 
                    if(ds.Tables[0].Rows[i]["PCFS"].ToString()!="")
