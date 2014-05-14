@@ -35,7 +35,7 @@
                 <th data-options="field:'sszy'" width="50" align=center>是否自动阅卷</th>
                 <th data-options="field:'kcxz'" width="50" align=center>是否已设比重</th>
                 <th data-options="field:'ctr'" width="50" align=center>是否已上传</th>
-    			<th data-options="field:'ct',align:'center'" width="50" align=center>开始出题</th>
+    			<th data-options="field:'ct',align:'center'" width="50" align=center>上传试题</th>
         	</tr>
     	</thead>
    		<tbody >

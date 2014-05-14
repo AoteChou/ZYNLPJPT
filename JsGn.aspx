@@ -28,18 +28,8 @@
                 if (result == 'False') {
                     $.messager.alert('警告', '无法删除!');
                 }
-
-                else {
-                    $.messager.confirm('信息', '删除成功!', function (r) {
-                        if (r)
-                         {
-                             //刷新当前页面
-                             location.reload(false);   
-                         }
-                        else {
-                            //do nothing
-                        }
-                    });
+                 else {
+                    location.reload(false);   
                 }
             });
           }
