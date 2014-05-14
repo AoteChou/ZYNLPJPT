@@ -26,9 +26,7 @@
                     if (result == 'False') {
                         $.messager.alert('警告', '知识单元对应二级指标配置失败!');
                     } else if (result == 'True') {
-                        $.messager.alert('信息', '知识单元对应二级指标配置成功!', 'info', function () {
-                            window.location = "../pzZsdyToEjzb.aspx";
-                        });
+                        window.location = "../pzZsdyToEjzb.aspx";
                     }
                 });
             }
