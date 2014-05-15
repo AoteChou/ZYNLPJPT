@@ -65,7 +65,7 @@
                         window.location = "../xgbj.aspx";
                     });
                 } else if (data == 'False') {
-                    $.messager.alert('结果', '修改失败，班级名称不能为空或者存在该班级信息！', 'info');
+                    $.messager.alert('结果', '修改失败，请检查是否班级名称为空，有重名班级信息或者时间格式出错！', 'info');
                 }
             });
             }

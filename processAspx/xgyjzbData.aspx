@@ -24,8 +24,8 @@
                     <td><input class="easyui-validatebox textbox" type="text" id="yjzbMc" value="<%=yjzbmc %>" name="yjzbMc" data-options="required:true"></input></td>
                 </tr>
                  <tr style=" margin-top:10px;">
-                    <td>一级指标权重值:</td>
-                    <td><input class="easyui-numberbox" type="text" id="sYjzbqz" name="sYjzbqz" value="<%=yjzbqz %>" data-options="required:true,min:0"></input></td>
+                    <td>一级指标权重值(0~10):</td>
+                    <td><input class="easyui-numberbox" type="text" id="sYjzbqz" name="sYjzbqz" value="<%=yjzbqz %>" data-options="required:true,min:0,max:10"></input></td>
                 </tr>
                 <tr style=" margin-top:10px;">
                     <td>一级指标简介:</td>

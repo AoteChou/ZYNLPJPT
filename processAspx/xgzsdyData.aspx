@@ -27,8 +27,8 @@
                     <td><input class="easyui-validatebox textbox" value="<%=zsdymc %>" type="text" id="zsdyMc" name="zsdyMc" data-options="required:true"></input></td>
                 </tr>
                  <tr style=" margin-top:10px;">
-                    <td>知识单元权重值:</td>
-                    <td><input class="easyui-numberbox" type="text" value="<%=zsdyqz %>" id="sZsdyQz" name="sZsdyQz" data-options="required:true,min:0"></input></td>
+                    <td>知识单元权重值(0~10):</td>
+                    <td><input class="easyui-numberbox" type="text" value="<%=zsdyqz %>" id="sZsdyQz" name="sZsdyQz" data-options="required:true,min:0,max:10"></input></td>
                 </tr>
                 <tr>
                     <td>知识单元备注：</td>
