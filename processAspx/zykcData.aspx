@@ -99,7 +99,9 @@
                                     {kkxqbh:'5',kkxq:'第五学期'},
                                     {kkxqbh:'6',kkxq:'第六学期'},
                                     {kkxqbh:'7',kkxq:'第七学期 '},
-                                    {kkxqbh:'8',kkxq:'第八学期 '}
+                                    {kkxqbh:'8',kkxq:'第八学期 '},
+                                    {kkxqbh:'9',kkxq:'第九学期 '},
+                                    {kkxqbh:'10',kkxq:'第十学期 '}
                                 ],
                                 required:true
                             }

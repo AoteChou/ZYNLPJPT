@@ -113,7 +113,7 @@
         var str = "";
         var rows = $('#mytable').datagrid('getSelections');
         if (rows.length < 1)
-            alert("木有");
+            alert("请选择要删除项");
       for (var i = 0; i < rows.length; i++) {
           var row = rows[i];
           str += row.yhbh + ",";
