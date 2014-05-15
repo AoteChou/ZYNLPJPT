@@ -22,6 +22,7 @@
     			<th data-options="field:'zslymc',align:'center'" width="15">知识领域名称</th>
                 <th data-options="field:'zsdybh',align:'center'" width="8">知识单元编号</th>
     			<th data-options="field:'zsdymc',align:'center'" width="15">知识单元名称</th>
+                <th data-options="field:'zsdyqz',align:'center'" width="15">知识单元权重值</th>
                 <th data-options="field:'zsdybz'" width="50">知识单元备注</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
                 <th data-options="field:'button',align:'center'" width="20">修改知识单元</th>
@@ -36,9 +37,10 @@
                        Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSLYMC + "</td>");
                        Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSDYBH + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.ZSDYMC + "</td>");
+                       Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.ZSDYQZ + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.BZ + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].Xkmc + "</td>");
-                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgzsdyData.aspx?zsdybh=" + zsnlViewWrappers[i].ZsnlView.ZSDYBH+ "&zslymc=" + zsnlViewWrappers[i].ZsnlView.ZSLYMC + "&zsdymc=" + zsnlViewWrappers[i].ZsnlView.ZSDYMC+"&bz="+zsnlViewWrappers[i].ZsnlView.BZ+ "'\" >修改知识单元</a></td>");
+                       Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/xgzsdyData.aspx?zsdybh=" + zsnlViewWrappers[i].ZsnlView.ZSDYBH+ "&zslymc=" + zsnlViewWrappers[i].ZsnlView.ZSLYMC + "&zsdymc=" + zsnlViewWrappers[i].ZsnlView.ZSDYMC+"&bz="+zsnlViewWrappers[i].ZsnlView.BZ+"&zsdyqz="+zsnlViewWrappers[i].ZsnlView.ZSDYQZ+ "'\" >修改知识单元</a></td>");
                        Response.Write("</tr>");
                    }
                    %>

@@ -230,7 +230,7 @@ namespace ZYNLPJPT.DAL
         public ZsnlViewWrapper[] getArrayByXkbhForWrapper(int xkbh)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select A.ZSLYBH,A.ZSDYBH,A.EJZBBH,A.ZSDYMC,A.BZ,A.ZSLYMC,A.XKBH,xk.xkmc ");
+            strSql.Append("select A.ZSLYBH,A.ZSDYBH,A.EJZBBH,A.ZSDYMC,A.BZ,A.ZSLYMC,A.XKBH,A.ZSDYQZ,xk.xkmc ");
             strSql.Append(" FROM ZSNLView as A,xk ");
             strSql.Append(" where A.xkbh=" + xkbh);
             strSql.Append(" and A.xkbh=xk.xkbh");
@@ -256,6 +256,7 @@ namespace ZYNLPJPT.DAL
                 zsnlViewsWrapper[i].ZsnlView.ZSLYMC = row["zslymc"].ToString();
                 zsnlViewsWrapper[i].ZsnlView.XKBH = int.Parse(row["xkbh"].ToString());
                 zsnlViewsWrapper[i].Xkmc = row["xkmc"].ToString();
+                zsnlViewsWrapper[i].ZsnlView.ZSDYQZ = int.Parse(row["ZSDYQZ"].ToString());
             }
             return zsnlViewsWrapper;
         }
