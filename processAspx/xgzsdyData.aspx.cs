@@ -21,6 +21,8 @@ namespace ZYNLPJPT.processAspx
 
         protected string bz;
 
+        protected int zsdyqz;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["yh"] == null)
@@ -36,6 +38,7 @@ namespace ZYNLPJPT.processAspx
                 bz = Request["bz"] == null ? "" : (Request["bz"].ToString() == "暂无" ? "" : Request["bz"].ToString());
                 zsdybh = int.Parse(szsdybh);
                 YH yh = (YH)Session["yh"];
+                zsdyqz = int.Parse(Request["zsdyqz"].ToString());
                 xkbh = new JSTea_DAL().GetModel(yh.YHBH.Trim()).SSXK;
             }
         }

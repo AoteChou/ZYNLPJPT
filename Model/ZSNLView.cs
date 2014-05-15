@@ -33,6 +33,7 @@ namespace ZYNLPJPT.Model
 		private string _bz;
 		private string _zslymc;
 		private int _xkbh;
+        private int _zsdyqz;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -89,6 +90,14 @@ namespace ZYNLPJPT.Model
 			set{ _xkbh=value;}
 			get{return _xkbh;}
 		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public int ZSDYQZ
+        {
+            set { _zsdyqz = value; }
+            get { return _zsdyqz; }
+        }
 		#endregion Model
 
 	}
