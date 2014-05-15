@@ -17,7 +17,7 @@
 
 	<div data-options="region:'north',border:false" style="height:80px;background:#666;padding:10px;overflow:hidden;">
       		<h1 style="color:#ECFEFF;display:inline-block; font-family: '华文细黑','微软雅黑', '造字工房悦黑体验版纤细体', 'Times New Roman'; float:left;">专业能力评价系统</h1>
-         	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆   <span id="time">2013/3/3 12:00:21 </span> <a href="processAspx/logout.aspx">退出</a></h3>
+         	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆! 当前时间：<span id="time">2013/3/3 12:00:21 </span> <a href="processAspx/logout.aspx">退出</a></h3>
     </div>
 
 	<div data-options="region:'west',split:true,noheader:true" style="width:200px">
@@ -83,21 +83,38 @@
         $('#tabs').tabs('close', title);
     }
 
+    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+    // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+    Date.prototype.format = function (fmt) { 
+        var o = {
+            "M+": this.getMonth() + 1,                 //月份 
+            "d+": this.getDate(),                    //日 
+            "h+": this.getHours(),                   //小时 
+            "m+": this.getMinutes(),                 //分 
+            "s+": this.getSeconds(),                 //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds()             //毫秒 
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
     function tickTock(time) {
-        var date = new Date().toLocaleString();
+        var date = new Date().format("yyyy/MM/dd hh:mm:ss"); 
         $("#time").html(date);
         setTimeout("tickTock()", 1000);
-       
-
     }
+
     $(function () {
 
         tickTock();
         $('body').layout({ resize: function () { alert("!!")} });
         //$('#aa').accordion('getSelected');
     });
-
-
 </script>
 </body>
 </html>
