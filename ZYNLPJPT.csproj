@@ -38,9 +38,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Brettle.Web.NeatUpload.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -77,6 +93,7 @@
     <Content Include="addZsly.aspx" />
     <Content Include="addzy.aspx" />
     <Content Include="processAspx\addMmProc.aspx" />
+    <Content Include="processAspx\updateKcxz.aspx" />
     <Content Include="Styles\back2.jpg" />
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
@@ -1352,6 +1369,13 @@
     </Compile>
     <Compile Include="processAspx\ShanChuZYKC2.aspx.designer.cs">
       <DependentUpon>ShanChuZYKC2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\updateKcxz.aspx.cs">
+      <DependentUpon>updateKcxz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\updateKcxz.aspx.designer.cs">
+      <DependentUpon>updateKcxz.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\XiuGaiJiaoShi.aspx.cs">
       <DependentUpon>XiuGaiJiaoShi.aspx</DependentUpon>

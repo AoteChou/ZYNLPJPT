@@ -18,9 +18,9 @@
     <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true,onClickCell: onClickCell" style="border:none;" border="false">
          <thead>
             <tr>
-               <th data-options="field:'kcmc',editor:{type:'numberbox',options:{precision:2}}" width="32">课程名称(单击修改)</th>
-               <th data-options="field:'kkxk',editor:{type:'numberbox',options:{precision:2}}" width="32">开课学科(单击修改)</th>
-               <th data-options="field:'kxfzr',editor:{type:'numberbox',options:{precision:2}}" width="32">课程负责人(单击修改)</th> 
+               <th data-options="field:'kcmc'" width="32">课程名称</th>
+               <th data-options="field:'kkxk'" width="32">开课学科</th>
+               <th data-options="field:'kxfzr',editor:'text'" width="32">课程负责人(单击修改)</th> 
                 <th data-options="field:'kcjj',editor:'text'" width="32">课程简介(单击修改)</th>           
     
             </tr>

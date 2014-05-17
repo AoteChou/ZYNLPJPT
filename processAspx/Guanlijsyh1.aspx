@@ -28,7 +28,6 @@
     	    <thead>
     		    <tr>
                  <th data-options="field:'yhbh',align:'center'" width="30">用户编号 </th>
-                 <th data-options="field:'mm',align:'center'" width="50">密码</th>
                  <th data-options="field:'xm',align:'center'" width="55">姓名</th>
                  <th data-options="field:'xb',align:'center'" width="50">性别</th>
                  <th data-options="field:'sfsxkfzr',align:'center'" width="55">是否是学科负责人</th>  
@@ -43,7 +42,6 @@
                    {
                        Response.Write("<tr >");
                        Response.Write("	<td >" + yhbh[i]+ "</td>");
-                       Response.Write("	<td >" + mm[i] + "</td>");
                        Response.Write("  <td >" +xm[i] + "</td>");
                        Response.Write("	<td >"+xb[i]+"</td>");
                        Response.Write("	<td >"+sfsxkfzr[i]+"</td>");

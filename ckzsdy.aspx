@@ -22,6 +22,7 @@
     			<th data-options="field:'zslymc',align:'center'" width="15">知识领域名称</th>
                 <th data-options="field:'zsdybh',align:'center'" width="8">知识单元编号</th>
     			<th data-options="field:'zsdymc',align:'center'" width="15">知识单元名称</th>
+                <th data-options="field:'zsdyqz',align:'center'" width="15">知识单元权重值</th>
                 <th data-options="field:'zsdybz'" width="50">知识单元备注</th>
                 <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
     		</tr>
@@ -35,6 +36,7 @@
                        Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSLYMC + "</td>");
                        Response.Write("	<td >" + zsnlViewWrappers[i].ZsnlView.ZSDYBH + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.ZSDYMC + "</td>");
+                       Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.ZSDYQZ + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].ZsnlView.BZ + "</td>");
                        Response.Write("  <td >" + zsnlViewWrappers[i].Xkmc + "</td>");
                        Response.Write("</tr>");
