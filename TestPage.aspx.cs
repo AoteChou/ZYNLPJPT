@@ -95,15 +95,25 @@ namespace ZYNLPJPT
                }*/
                 string fileName = inputFileId.FileName;
                 hzm = fileName.Substring(fileName.LastIndexOf("."));
+                if (hzm != ".doc" || hzm != ".docx")
+                {
+                    Response.Write("<script type=text/javascript>alert('请上传后缀名为.doc或.docx的文件！')</script>");
 
-                long fileLength = inputFileId.FileContent.Length;
-                byte[] tempbyte = new byte[fileLength];
-                inputFileId.FileContent.Read(tempbyte, 0, tempbyte.Length);
-                inputFileId.FileContent.Dispose();
-                inputFileId.FileContent.Close();
-                PCJL_DAL pcjl_dal = new PCJL_DAL();
+                }
+                else
+                {
+                    long fileLength = inputFileId.FileContent.Length;
+                    byte[] tempbyte = new byte[fileLength];
+                    inputFileId.FileContent.Read(tempbyte, 0, tempbyte.Length);
+                    inputFileId.FileContent.Dispose();
+                    inputFileId.FileContent.Close();
+                    PCJL_DAL pcjl_dal = new PCJL_DAL();
 
-                bool opResult = pcjl_dal.Update(DateTime.Now, tempbyte, pcjlbh, hzm);
+                    bool opResult = pcjl_dal.Update(DateTime.Now, tempbyte, pcjlbh, hzm);
+                }
+                
+
+                
                
             }
             else {

@@ -33,7 +33,7 @@
             <%} %>
     		
     	</ol>
-        <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >下载题目</a>
+        <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >查看题目</a>
         <div id="uploadDiv">
              <Upload:InputFile id="inputFileId" runat="server"  /> 
             <asp:Button id="submitButtonId" runat="server" class="btn" Text="确认上传"  OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  /><br />
