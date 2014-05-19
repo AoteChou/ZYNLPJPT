@@ -34,8 +34,8 @@
                     Response.Write("<td>" + kcbh[i] + "</td>");
                     Response.Write("<td>" + kcmc[i] + "</td>");
                     Response.Write("<td>" +kkxk[i] + "</td>");
-                    Response.Write("<td>" + kcfzr[i] + "</td>");
-                    Response.Write("<td>" + kcjj[i] + "</td>");
+                    Response.Write("<td> 暂无</td>");
+                    Response.Write("<td>暂无</td>");
 
                    // Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/XiuGaiKC1.aspx?kcbh=" + kcbh[i] + "'\" >进入修改</a></td>");
                     Response.Write("</tr>");

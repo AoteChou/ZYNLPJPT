@@ -9,6 +9,7 @@ using NPOI.SS.UserModel;
 using System.IO;
 using ZYNLPJPT.Model;
 using ZYNLPJPT.DAL;
+using NPOI.XSSF.UserModel;
 
 namespace ZYNLPJPT
 {
@@ -30,8 +31,19 @@ namespace ZYNLPJPT
             if (IsValid && fileInput.HasFile)
             {
 
+                string fileName = fileInput.FileName;
+                string fileExt = fileName.Substring(fileName.LastIndexOf("."));
                 Stream s = fileInput.FileContent;
-                IWorkbook workbook = new HSSFWorkbook(s);//从流内容创建Workbook对象
+                IWorkbook workbook = null;
+                if (fileExt == ".xls")
+                {
+                    workbook = new HSSFWorkbook(s);//从流内容创建Workbook对象
+                    // workbook = new HSSFWorkbook(file);
+                }
+                else if (fileExt == ".xlsx")
+                {
+                    workbook = new XSSFWorkbook(s);
+                }
                 ISheet sheet = workbook.GetSheetAt(0);//获取第一个工作表
                 IRow headerRow = sheet.GetRow(0);//读取表头
                 int cellCount = headerRow.LastCellNum;//读取列数

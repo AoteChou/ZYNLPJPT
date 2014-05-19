@@ -25,7 +25,6 @@
     		    <tr>
                  <th data-options="field:'ck',checkbox:true" width="50">是否提交</th>
                  <th data-options="field:'yhbh',align:'center'" width="50">用户编号 </th>
-                 <th data-options="field:'llxf',editor:{type:'numberbox',options:{precision:2}}" width="50">密码</th>
                  <th data-options="field:'xm',align:'center'" width="55">姓名</th>
                  <th data-options="field:'xb',align:'center'" width="50">性别</th>
                  <th data-options="field:'rxnf',align:'center'" width="55">入学年份</th>  
@@ -40,45 +39,30 @@
                       Response.Write("<tr >");
                       Response.Write("	<td ></td>");
                       Response.Write("	<td >" + yhbh[i] + "</td>");
-                      Response.Write("	<td >" + mm[i] + "</td>");
                       Response.Write("  <td >" + xm[i] + "</td>");
                       Response.Write("	<td >" + xb[i] + "</td>");
                       Response.Write("	<td >" + rxnf[i] + "</td>");
                       
-                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"xgButtonClick('" + yhbh[i] + "')\" >修改</a></td>");                                           
+                      Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"xgButtonClick('" + yhbh[i] + "')\" >重置密码</a></td>");                                           
                       Response.Write("</tr>");
                       
                   }
                    %>
     	</tbody>
     </div>
-     <div id="win" class="easyui-window" data-options="title: ' 修改密码',width:'600',
-            height: '400',
-            modal:' true',
-            collapsible:' false',
-            minimizable:' false'" style="text-align:center;">
-  
-            输入新密码<input id="newpassword1" type="password" /><br/>
-            确认新密码 <input id="newpassword2" type="password" /><br/>
-            <input type="button" value="提交" onclick="contrast()" /><br/>
-            <input id="xsID" type="hidden" />
-
-    </div>
+     
     </form>
 
    
 </body>
 <script type="text/javascript">
-    function contrast() {
-        newpassword1 = document.getElementById("newpassword1").value.toString().trim();
-        newpassword2 = document.getElementById("newpassword2").value.toString().trim();
-        if (newpassword1 == null || newpassword1 == "") {
-            $.messager.alert('警告', "密码不能为空！");
-        } else if (newpassword1 == newpassword2) {
-            var dd = document.getElementById("xsID").value.toString();
-            $.post("XiuGaiXSMiMa.aspx", { 'option': "xiuMIMA", 'XsID': dd, 'password': newpassword1 }, function (result) {
+    function xgButtonClick(objValue) {
+        //$('#win').html("<iframe width='100%' height='100%' style='_border:none;'  class='myUploadIframe' frameborder='0' src='Importjs1.aspx?xkbh=" + objValue + "' ></iframe>")
+        //  $('#win').html(objValue);
+
+        $.post("XiuGaiXSMiMa.aspx", { 'option': "xiuMIMA", 'XsID': objValue }, function (result) {
                 if (result == "SaveOK") {
-                    alert("保证成功！");
+                    alert("保存成功！");
                     window.location.reload();
                 }
                 else {
@@ -86,21 +70,9 @@
                 }
             }
             );
-
-
-
-
-        } else {
-            alert("密码不一致！");
-            return false;
-        }
-    }
-    function xgButtonClick(objValue) {
-        //$('#win').html("<iframe width='100%' height='100%' style='_border:none;'  class='myUploadIframe' frameborder='0' src='Importjs1.aspx?xkbh=" + objValue + "' ></iframe>")
-        //  $('#win').html(objValue);
-        $('#win').window("open");
-        document.getElementById("xsID").value = objValue;
-    }
+        } 
+    
+    
     $(function () {
         $('#win').window("close");
         // $('#win').window({ onBeforeClose: function () { window.location.reload() } });

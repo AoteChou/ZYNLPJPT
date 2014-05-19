@@ -28,8 +28,7 @@ namespace ZYNLPJPT
             else
             {
 
-                KC_DAL kc_dal = new KC_DAL();
-                DataSet ds = kc_dal.GetList("");
+                
                 XK_DAL xk_dal = new XK_DAL();
                 DataSet ds1 = xk_dal.GetList("");
 
