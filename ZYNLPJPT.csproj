@@ -92,7 +92,10 @@
     <Content Include="addZsdy.aspx" />
     <Content Include="addZsly.aspx" />
     <Content Include="addzy.aspx" />
+    <Content Include="Export_Result_Excel.aspx" />
     <Content Include="processAspx\addMmProc.aspx" />
+    <Content Include="processAspx\export_Result.aspx" />
+    <Content Include="processAspx\getExportState.aspx" />
     <Content Include="processAspx\updateKcxz.aspx" />
     <Content Include="processAspx\XiuGaiKC1.aspx" />
     <Content Include="processAspx\XiuGaiKC2.aspx" />
@@ -301,6 +304,7 @@
     <Content Include="Scripts\locale\easyui-lang-zh_CN.js" />
     <Content Include="ShanChuZYKC.aspx" />
     <Content Include="ShanChuZYKC1.aspx" />
+    <Content Include="Styles\exp_rel_excel.css" />
     <Content Include="Styles\index.css" />
     <Content Include="Styles\sysTitle.png" />
     <Content Include="Styles\title.png" />
@@ -600,6 +604,13 @@
     </Compile>
     <Compile Include="ckZsdyToEjzb.aspx.designer.cs">
       <DependentUpon>ckZsdyToEjzb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Result_Excel.aspx.cs">
+      <DependentUpon>Export_Result_Excel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Export_Result_Excel.aspx.designer.cs">
+      <DependentUpon>Export_Result_Excel.aspx</DependentUpon>
     </Compile>
     <Compile Include="kcctRecord.aspx.cs">
       <DependentUpon>kcctRecord.aspx</DependentUpon>
@@ -1146,6 +1157,20 @@
     </Compile>
     <Compile Include="processAspx\DownLoadDA.aspx.designer.cs">
       <DependentUpon>DownLoadDA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\export_Result.aspx.cs">
+      <DependentUpon>export_Result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\export_Result.aspx.designer.cs">
+      <DependentUpon>export_Result.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\getExportState.aspx.cs">
+      <DependentUpon>getExportState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\getExportState.aspx.designer.cs">
+      <DependentUpon>getExportState.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\getKCXZ.aspx.cs">
       <DependentUpon>getKCXZ.aspx</DependentUpon>
@@ -1965,6 +1990,8 @@
     <Compile Include="ShanChuZYKC1.aspx.designer.cs">
       <DependentUpon>ShanChuZYKC1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\ExcelOutputHelper.cs" />
+    <Compile Include="Utility\ExcelSheet.cs" />
     <Compile Include="xgbj.aspx.cs">
       <DependentUpon>xgbj.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
