@@ -41,8 +41,8 @@
     <div id="right">
         <div id="content">
             <div id="container1" style=" height:300px; width: 100%; margin: 0 auto;z-index:-1"></div>
-            <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >下载题目</a>
-            <a class="btn" id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'">暂且跳过，以后再做</a><br />
+            <a  class="btn btn-info" id="download" value="下载题目" onclick="window.location.href='processAspx/DownloadTest.aspx?stbh=<%=stbh %>'" >查看题目</a>
+            <a class="btn" id="skip"   value="暂且跳过，以后再做" onclick="window.location.href='processAspx/GetTest.aspx?kcbh=<%=stzsdviews[0].KCBH%>&SFZJT=false'">暂且跳过，以后再做（做新题）</a><br />
             <div id="uploadDiv">
                  <Upload:InputFile id="inputFileId" runat="server"  />
                 

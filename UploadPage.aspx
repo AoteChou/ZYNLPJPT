@@ -37,7 +37,7 @@
               Response.Write("	<td >" + pcjls[i].PCJLBH  + "</td>");
     		  Response.Write("	<td >"+pcjls[i].STBH+"</td>");
     		  Response.Write("	<td >"+pcjls[i].XZRQ+"</td>");
-              Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.location.href='processAspx/DownloadTest.aspx?stbh=" + pcjls[i].STBH + "'\" >下载题目</a></td>");
+              Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\"onclick=\"window.location.href='processAspx/DownloadTest.aspx?stbh=" + pcjls[i].STBH + "'\" >查看题目</a></td>");
               Response.Write("  <td><a id=\"A1\" href=\"#\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" value=\"pcjlbh=" + pcjls[i].PCJLBH + "&stbh=" + pcjls[i].STBH + "\" onclick=\" uploadClick(this.getAttribute('value'))\" >上传答案</a></td>");
               Response.Write("</tr>");
                  
