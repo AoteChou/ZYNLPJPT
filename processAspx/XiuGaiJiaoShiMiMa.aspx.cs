@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ZYNLPJPT.DAL;
+using ZYNLPJPT.Model;
 
 namespace ZYNLPJPT.processAspx
 {
@@ -12,11 +13,12 @@ namespace ZYNLPJPT.processAspx
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+          
             JSTeaYHView_DAL js=new JSTeaYHView_DAL();
             if (Request["option"] != null && Request["option"] == "xiuMIMA")
             {
                 string id = Request["JsID"];
-                string mima = Request["password"];
+                string mima =id;
                 if (id != null && mima != null)
                 {
                     if (js.UpdateMiMa(id, mima) > 0)

@@ -52,48 +52,64 @@ namespace ZYNLPJPT
                 int rowCount = sheet.LastRowNum;//读取行数
                 //Response.Write(cellCount + "=============" + rowCount);
                 List<Object> rlist = new List<Object>();
-                for (int i = 1; i <= rowCount; i++)
-                {
-                    IRow row = sheet.GetRow(i);//获取工作表第i行
-                    List<Object> list = new List<Object>();
-                    for (int j = 0; j < cellCount; j++)
+               // for (int m = 0; m <= rowCount; m++)
+               // {
+               //   IRow row = sheet.GetRow(m);//获取工作表第m行
+               //   List<Object> list = new List<Object>();
+               //   string value = "";
+               //     if (row != null)
+               //     {
+               //         value = row.ToString();
+               //     }
+               //     if (m == 0)
+               //     {
+               //         checkHR(value, m);
+               //         list.Add(value);
+               //     }
+               // }
+                    for (int i = 1; i <= rowCount; i++)
                     {
-                        ICell cell = row.GetCell(j);//获取行的第j列
-                        string value = "";
-                        if (cell != null)
-                        {
-                            value = cell.ToString();//获取列的值
+                        IRow row = sheet.GetRow(i);//获取工作表第i行
+                        List<Object> list = new List<Object>();
 
-                        }
-                        if (j == 0)
+                        for (int j = 0; j < cellCount; j++)
                         {
-                            checkYHBH(value, i);
-                            list.Add(value);
-                        }
-                        else if (j == 1)
-                        {
+                            ICell cell = row.GetCell(j);//获取行的第j列
+                            string value = "";
+                            if (cell != null)
+                            {
+                                value = cell.ToString();//获取列的值
 
-                            checkXM(value, i);
-                            list.Add(value);
-                        }
-                        else if (j == 2)
-                        {
-                            list.Add(checkXB(value, i));
-                        }
-                        else if (j == 3)
-                        {
-                            list.Add(checkSFSXKFZR(value, i));
-                        }
-                        else if (j == 4)
-                        {
-                            list.Add(checkSFSKCFZR(value, i));
-                        }
+                            }
+                            if (j == 0)
+                            {
+                                checkYHBH(value, i);
+                                list.Add(value);
+                            }
+                            else if (j == 1)
+                            {
+
+                                checkXM(value, i);
+                                list.Add(value);
+                            }
+                            else if (j == 2)
+                            {
+                                list.Add(checkXB(value, i));
+                            }
+                            else if (j == 3)
+                            {
+                                list.Add(checkSFSXKFZR(value, i));
+                            }
+                            else if (j == 4)
+                            {
+                                list.Add(checkSFSKCFZR(value, i));
+                            }
 
 
-                        //Response.Write(value);
+                            //Response.Write(value);
+                        }
+                        rlist.Add(list);
                     }
-                    rlist.Add(list);
-                }
                 int failNum = 0;
                 int successNum = rlist.Count;
                 if (flag)
@@ -152,6 +168,7 @@ namespace ZYNLPJPT
             //ClientScript.RegisterStartupScript(Page.GetType(), "myjs", "<script type='text/javascript'>$(\"#ResultDiv\").append('" + addString + "')</script>");
             Response.Write(addString);
         }
+       
         public void checkYHBH(string value, int rowID)
         {
             if (value.Length != 7)

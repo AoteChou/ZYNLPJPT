@@ -94,6 +94,8 @@
     <Content Include="addzy.aspx" />
     <Content Include="processAspx\addMmProc.aspx" />
     <Content Include="processAspx\updateKcxz.aspx" />
+    <Content Include="processAspx\XiuGaiKC1.aspx" />
+    <Content Include="processAspx\XiuGaiKC2.aspx" />
     <Content Include="Styles\back2.jpg" />
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
@@ -1404,6 +1406,20 @@
     </Compile>
     <Compile Include="processAspx\scEjzbProc.aspx.designer.cs">
       <DependentUpon>scEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC1.aspx.cs">
+      <DependentUpon>XiuGaiKC1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC1.aspx.designer.cs">
+      <DependentUpon>XiuGaiKC1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC2.aspx.cs">
+      <DependentUpon>XiuGaiKC2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC2.aspx.designer.cs">
+      <DependentUpon>XiuGaiKC2.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\XiugaiKCXZ.aspx.cs">
       <DependentUpon>XiugaiKCXZ.aspx</DependentUpon>
