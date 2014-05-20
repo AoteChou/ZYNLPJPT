@@ -1,0 +1,29 @@
+﻿body 
+{
+
+	font-family:'ff-tisa-web-pro-1','ff-tisa-web-pro-2','Lucida Grande','Helvetica Neue',Helvetica,Arial,'Hiragino Sans GB','Hiragino Sans GB W3','Microsoft YaHei UI','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+}
+.checkbox {
+    background-color: #F9F9F9;
+    border-radius: 3px;
+    color: #555555;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 6px 10px 6px 25px;
+    min-height: 20px;
+}
+.checkbox:hover {
+    background-color: #F5F5F5;
+    color: #333333;
+}
+#cc
+{
+	bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding:30px;
+	} 

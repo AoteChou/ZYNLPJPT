@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>学生能力评价系统</title>
+	<link rel="stylesheet" href="Styles/bootstrap.min.css" />
+    <link rel="Stylesheet" href="Styles/default.css"/>
+    <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^\s+|\s+$/g, '');
+            };
+        }
+        function closeAlert() {
+            document.getElementById("alertDiv").style.visibility = "hidden";
+        }
+        function login() {
+
+            var inputID=$('#inputId').val().trim();
+            var inputPassword = $('#inputPassword').val().trim();
+            if (inputID == "" || inputPassword == "") {
+                $("#warnTxt").html("账号名或密码不能为空,请重试！");
+                document.getElementById("alertDiv").style.visibility = "visible";
+                return false;
+             }
+
+            $.post("processAspx/login_pro.aspx", { 'inputId': inputID, 'inputPassword': inputPassword }, function (result) {
+                if (result == 'False') {
+                    $("#warnTxt").html("账号或密码出错,请重试！");
+                    document.getElementById("alertDiv").style.visibility = "visible";
+                } else {
+                    window.location = "index.aspx?visitedId=" + result;
+                }
+            });
+        }
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="span5">
+			<div id="legend">
+            <img src="Styles/title.png" alt="" />
+			<!--	<h2 style="font-family: 方正舒体; color: gray;">专业能力评价系统</h2>-->
+            <img id="sysTitle" src="Styles/sysTitle.png" alt="" />
+			</div>
+            <div class="alert" style="visibility:hidden" id="alertDiv">
+				 <button type="button" class="close" data-dismiss="alert" onclick="return closeAlert()">×</button>
+				<strong  style=" color:#DF1E25">警告:</strong> <span style="color:#DF1E25" id="warnTxt"></span>
+			</div>
+			<form class="form-horizontal">
+				<div class="control-group">
+					 <label class="control-label" for="inputEmail">账号：</label>
+					<div class="controls">
+						<input id="inputId" name="inputId" placeholder="请输入号码" type="text" />
+					</div>
+				</div>
+				<div class="control-group">
+					 <label class="control-label" for="inputPassword">密码：</label>
+					<div class="controls">
+						<input id="inputPassword" name="inputPassword" placeholder="请输入密码" type="password" />
+					</div>
+				</div>
+                <a class="btn btn-primary btn-block btn-login" style="margin-top:50px;" onclick="login()">登录</a>
+			</form> 
+            
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
