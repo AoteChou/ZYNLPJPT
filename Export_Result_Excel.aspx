@@ -54,6 +54,7 @@
     function getExportState() {
         $.ajax({ url: "processAspx/getExportState.aspx",
             type: "post",
+            async: false,
             success: function (data) {
                 if (data != "True") {
                     setTimeout("getExportState()", 1000);
@@ -86,6 +87,7 @@
         //var checkedArray = new Array();
 
         $('#download').click(function () {
+           
             getExportState();
             $('#download').attr("class", "btn btn-primary disabled");
             $('#download').attr("disabled", "disabled");
