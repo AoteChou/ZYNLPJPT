@@ -19,6 +19,7 @@ namespace ZYNLPJPT
         protected string[] kcbh;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             DataSet ds = new KC_DAL().GetList("");
             int alength = ds.Tables[0].Rows.Count;
             kcbh = new string[alength];
@@ -33,7 +34,16 @@ namespace ZYNLPJPT
                 kcmc[i] = ds.Tables[0].Rows[i]["KCMC"].ToString();
                 kkxk[i] = ds.Tables[0].Rows[i]["KKXK"].ToString();
                 kcfzr[i] = ds.Tables[0].Rows[i]["KCFZR"].ToString();
+                if (string.IsNullOrEmpty(kcfzr[i]))
+                {
+                    kcfzr[i] = " 暂无";
+                }
+                
                 kcjj[i] = ds.Tables[0].Rows[i]["KCJJ"].ToString();
+                if (string.IsNullOrEmpty(kcjj[i]))
+                {
+                    kcjj[i] = "暂无";
+                }
                 
 
 

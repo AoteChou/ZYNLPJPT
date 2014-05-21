@@ -45,28 +45,28 @@ namespace ZYNLPJPT
                 {
                     workbook = new XSSFWorkbook(s);
                 }
-                
-                ISheet sheet = workbook.GetSheetAt(0);//获取第一个工作表
-                IRow headerRow = sheet.GetRow(0);//读取表头
-                int cellCount = headerRow.LastCellNum;//读取列数
-                int rowCount = sheet.LastRowNum;//读取行数
+                ISheet sheet=null;  
+                IRow headerRow=null;
+                int cellCount=0;
+                int rowCount=0;  
+                try
+                {
+                    sheet = workbook.GetSheetAt(0);//获取第一个工作表
+                    headerRow = sheet.GetRow(0);//读取表头
+                    cellCount = headerRow.LastCellNum;//读取列数
+                    rowCount = sheet.LastRowNum;//读取行数
+                }
+                catch (Exception)
+                {
+
+                    Response.Write("表格读取错误请检查后重试！！！");
+                    return;
+                    //Response.End();
+                }
+               
                 //Response.Write(cellCount + "=============" + rowCount);
                 List<Object> rlist = new List<Object>();
-               // for (int m = 0; m <= rowCount; m++)
-               // {
-               //   IRow row = sheet.GetRow(m);//获取工作表第m行
-               //   List<Object> list = new List<Object>();
-               //   string value = "";
-               //     if (row != null)
-               //     {
-               //         value = row.ToString();
-               //     }
-               //     if (m == 0)
-               //     {
-               //         checkHR(value, m);
-               //         list.Add(value);
-               //     }
-               // }
+               
                     for (int i = 1; i <= rowCount; i++)
                     {
                         IRow row = sheet.GetRow(i);//获取工作表第i行
@@ -74,7 +74,22 @@ namespace ZYNLPJPT
 
                         for (int j = 0; j < cellCount; j++)
                         {
-                            ICell cell = row.GetCell(j);//获取行的第j列
+                            ICell cell = null;
+                            try
+                            {
+                                cell = row.GetCell(j);//获取行的第j列
+                            }
+                            catch (NullReferenceException)
+                            {
+
+                               
+                            }
+                            catch (Exception)
+                            {
+                                
+                                throw;
+                            }
+                           
                             string value = "";
                             if (cell != null)
                             {
