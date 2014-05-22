@@ -28,7 +28,7 @@ namespace ZYNLPJPT
                 YH yh = (YH)(Session["yh"]);
                 //获取用户的阶段课程
                 JDKCXSView_DAL jdkcxsview_dal = new JDKCXSView_DAL();
-                jdkcxsviews = jdkcxsview_dal.getByXSBH(yh.YHBH, XS_Utility.getSemNum(yh.YHBH));
+                jdkcxsviews = jdkcxsview_dal.getByXSBH(yh.YHBH);
                 //获取每门课程的历史测评次数
                 int[] kcbhs = new int[jdkcxsviews.Length];
                 for (int i = 0; i < jdkcxsviews.Length; i++)
