@@ -62,10 +62,40 @@ namespace ZYNLPJPT.BLL
             return jsgn_list;
         }
 
+        //获取某一角色对应的默认角色功能点
+        public JSGNB[] get_MRGNListByJS(int jsbh)
+        {
+            string sql = "jsbh=" + jsbh.ToString()+" and sfmrgn=1";
+            DataSet ds = new JSGNB_DAL().GetList(sql);
+            int length = ds.Tables[0].Rows.Count;
+            JSGNB[] jsgn_list = new JSGNB[length];
+            //GND[]gnd_list=new GND[length];
+            for (int i = 0; i < length; i++)
+            {
+                jsgn_list[i] = new JSGNB();
+                jsgn_list[i].JSBH = jsbh;
+                jsgn_list[i].GNBH = int.Parse(ds.Tables[0].Rows[i]["GNBH"].ToString());
+
+                //   gnd_list[i] = new GND();
+                //  gnd_list[i] = new GND_DAL().GetModel(jsgn_list[i].GNBH);
+            }
+
+            return jsgn_list;
+        }
+
         //获取某一角色对应的角色功能点数
         public int getCountByJs(int jsbh)
         {
             string sql = "jsbh=" + jsbh.ToString();
+            DataSet ds = new JSGNB_DAL().GetList(sql);
+            int length = ds.Tables[0].Rows.Count;
+            return length;
+        }
+
+        //获取某一角色对应默认功能数
+        public int getMRCountByJs(int jsbh)
+        {
+            string sql = "jsbh=" + jsbh.ToString()+" and sfmrgn=1";
             DataSet ds = new JSGNB_DAL().GetList(sql);
             int length = ds.Tables[0].Rows.Count;
             return length;

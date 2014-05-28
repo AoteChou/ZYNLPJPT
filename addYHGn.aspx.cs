@@ -23,6 +23,7 @@ namespace ZYNLPJPT
         protected void Page_Load(object sender, EventArgs e)
         {
             string yhbh_str = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
+
             if (yhbh_str == null || yhbh_str == "")
             {
                 this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");

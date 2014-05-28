@@ -13,10 +13,20 @@ namespace ZYNLPJPT.BLL
 {
     public class YHGN_BLL
     {
+
+
         //获取某一用户现有功能外的其他功能
         public GND[] get_addGN(string yhbh)
         {
             string sql = "  gnbh not in(select gnbh from YHGNB where yhbh=" + yhbh.ToString() + ")";
+            string sql2 = " and gnbh in(select gnbh from JSGNB where jsbh=";
+            int js_count = new YHJS_BLL().getJSCount_byYH(yhbh);
+            for (int i = 0; i < js_count-1; i++)
+            {
+                sql2 += new YHJS_BLL().getJS_byYH(yhbh)[i].JSBH.ToString()+"or jsbh=";
+            }
+               sql2 += new YHJS_BLL().getJS_byYH(yhbh)[js_count-1].JSBH.ToString()+")";
+               sql += sql2;
             DataSet ds = new GND_DAL().GetList(sql);
             int length = ds.Tables[0].Rows.Count;
             GND[] gn_list;
@@ -34,7 +44,15 @@ namespace ZYNLPJPT.BLL
         //获取某一用户现有功能外的其他功能数
         public int get_GNcount(string yhbh)
         {
-            string sql = "  gnbh not in(select gnbh from YHGNB where yhbh=" + yhbh.ToString()+")";
+            string sql = "  gnbh not in(select gnbh from YHGNB where yhbh=" + yhbh.ToString() + ")";
+            string sql2 = " and gnbh in(select gnbh from JSGNB where jsbh=";
+            int js_count = new YHJS_BLL().getJSCount_byYH(yhbh);
+            for (int i = 0; i < js_count - 1; i++)
+            {
+                sql2 += new YHJS_BLL().getJS_byYH(yhbh)[i].JSBH.ToString() + "or jsbh=";
+            }
+            sql2 += new YHJS_BLL().getJS_byYH(yhbh)[js_count - 1].JSBH.ToString() + ")";
+            sql += sql2;
             DataSet ds = new GND_DAL().GetList(sql);
             int length = ds.Tables[0].Rows.Count;
             return length;
