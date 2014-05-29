@@ -43,8 +43,7 @@
                  <asp:Button id="submitAnswer" runat="server" Text="上传答案" 
                  OnClientClick="return getFileExt(document.getElementById('inputFileId'))"  />
 
-               <input type="button" id="download" value="下载题目" onclick="window.location.href='DownloadTest.aspx?stbh=<%=stbh %>'" />   
-               
+             
                <br />
                 <font style="position: relative; top: -20px;">上传进度：</font>
             <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="500" Height="50" />

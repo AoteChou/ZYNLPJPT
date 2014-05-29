@@ -23,6 +23,7 @@ namespace ZYNLPJPT
         protected void Page_Load(object sender, EventArgs e)
         {
             string yhbh_str = Request["yhbh"] == null ? null : Request["yhbh"].ToString();
+
             if (yhbh_str == null || yhbh_str == "")
             {
                 this.Response.Write("<script type='text/javascript'>window.parent.location='Default.htm'</script>");
@@ -33,9 +34,18 @@ namespace ZYNLPJPT
                 yhbh = yhbh_str;
                 string sql = " yhbh!=" + yhbh;
                 length = new YHGN_BLL().get_GNcount(yhbh);
-                gn_list = new GND[length];
-                yhgn_list = new YHGNB[length];
-                gn_list = new YHGN_BLL().get_addGN(yhbh);
+                if (length == 0)
+                {
+                    Response.Write("<script language=javascript>alert('请先为该用户配置角色！')</script>");
+                    Response.Redirect("addYHJs.aspx?yhbh="+yhbh.ToString().Trim());
+                }
+                else
+                {
+                    gn_list = new GND[length];
+                    yhgn_list = new YHGNB[length];
+                    gn_list = new YHGN_BLL().get_addGN(yhbh);
+                }
+                
             }
         }
     }

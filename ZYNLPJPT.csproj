@@ -85,6 +85,7 @@
     <Content Include="addGn.aspx" />
     <Content Include="addJS.aspx" />
     <Content Include="addst.aspx" />
+    <Content Include="addYH.aspx" />
     <Content Include="addYHGn.aspx" />
     <Content Include="addYHJs.aspx" />
     <Content Include="addYjzb.aspx" />
@@ -111,6 +112,7 @@
     <Content Include="ckZsdyToEjzb.aspx" />
     <Content Include="kcctRecord.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
+    <Content Include="processAspx\addYhProc.aspx" />
     <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
     <Content Include="ChooseResultCurriculum.aspx" />
@@ -456,6 +458,13 @@
     <Compile Include="addst.aspx.designer.cs">
       <DependentUpon>addst.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addYH.aspx.cs">
+      <DependentUpon>addYH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYH.aspx.designer.cs">
+      <DependentUpon>addYH.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addYHGn.aspx.cs">
       <DependentUpon>addYHGn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -571,6 +580,7 @@
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
     <Compile Include="ChaKanKC.aspx.cs">
+    <Compile Include="BLL\YHJS_BLL.cs" />
       <DependentUpon>ChaKanKC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -632,6 +642,13 @@
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.designer.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYhProc.aspx.cs">
+      <DependentUpon>addYhProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYhProc.aspx.designer.cs">
+      <DependentUpon>addYhProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addMmProc.aspx.cs">
       <DependentUpon>addMmProc.aspx</DependentUpon>

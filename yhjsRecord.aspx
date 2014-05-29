@@ -9,6 +9,7 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" >
 
         //为用户添加角色

@@ -22,6 +22,7 @@ namespace ZYNLPJPT.processAspx
         protected void Page_Load(object sender, EventArgs e)
         {
             string jsbh_str = Request["jsbh"] == null ? null : Request["jsbh"].ToString().Trim();
+            
             if (jsbh_str == null || jsbh_str == "")
             {
                 Response.Write(false);
@@ -31,12 +32,14 @@ namespace ZYNLPJPT.processAspx
             {
                 jsbh = int.Parse(jsbh_str);
                 string[] gnds = Request["gnbh[]"].ToString().Trim().Split(',');
+                string[] sfmrgn = Request["sfmrgn[]"].ToString().Trim().Split(',');
                 int length = gnds.Length;
                 for (int i = 0; i < length; i++)
                 {
                     JSGNB jsgnb = new JSGNB();
                     jsgnb.JSBH = jsbh;
                     jsgnb.GNBH = int.Parse(gnds[i]);
+                    jsgnb.SFMRGN = bool.Parse(sfmrgn[i]);
                     new JSGNB_DAL().Add(jsgnb);
                 }
             

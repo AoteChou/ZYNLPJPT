@@ -22,7 +22,7 @@
                 <th data-options="field:'sszy'" width="50" align=center>所属专业</th>
                 <th data-options="field:'kcxz'" width="50" align=center>课程性质</th>
                 <th data-options="field:'ctr'" width="50" align=center>出题人</th>
-    			<th data-options="field:'ct',align:'center'" width="50" align=center>出题记录</th>
+    			<th data-options="field:'ct',align:'center'" width="50" align=center>出题</th>
               
     		</tr>
     	</thead>

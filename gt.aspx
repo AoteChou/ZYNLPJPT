@@ -33,7 +33,7 @@
     	<ol style="color:#777777">
             <%for (int i = 0; i <this.length; i++)
               { %>
-    		<li><%=stzsdb[i].ZSDBH%>&nbsp<%=new ZYNLPJPT.DAL.ZSD_DAL().GetModel(stzsdb[i].ZSDBH).ZSDMC.ToString()%>&nbsp比重：<%=stzsdb[i].ZSDBZ.ToString()+"%" %></li>
+    		<li><%=stzsdb[i].ZSDBH%>&nbsp<%=new ZYNLPJPT.DAL.ZSD_DAL().GetModel(stzsdb[i].ZSDBH).ZSDMC.ToString()%>&nbsp比重：<%=(100*stzsdb[i].ZSDBZ).ToString()+"%" %></li>
             <%} %>
     		
     	</ol>
