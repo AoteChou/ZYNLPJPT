@@ -579,8 +579,8 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
-    <Compile Include="ChaKanKC.aspx.cs">
     <Compile Include="BLL\YHJS_BLL.cs" />
+    <Compile Include="ChaKanKC.aspx.cs">
       <DependentUpon>ChaKanKC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
