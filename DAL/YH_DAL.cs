@@ -423,6 +423,18 @@ namespace ZYNLPJPT.DAL
                 SQLStringList.Add(strSql2.ToString());
                 SqlParameterList.Add(parameters2);
 
+                StringBuilder strSql3 = new StringBuilder();
+                strSql3.Append("insert into YHGNB(");
+                strSql3.Append("YHBH,GNBH) ");
+                strSql3.Append("select @YHBH,GNBH from JSGNB where jsbh=@JSBH and sfmrgn='true'");
+                SqlParameter[] parameters3 = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@JSBH", SqlDbType.Int,4)};
+                parameters3[0].Value = sb.YHBH;
+                parameters3[1].Value = sb.JSBH;
+                SQLStringList.Add(strSql3.ToString());
+                SqlParameterList.Add(parameters3);
+
                 DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
                 
                 
@@ -495,6 +507,21 @@ namespace ZYNLPJPT.DAL
                 parameters2[1].Value = sb.JSBH;
                 SQLStringList.Add(strSql2.ToString());
                 SqlParameterList.Add(parameters2);
+
+                StringBuilder strSql3=new StringBuilder();
+                strSql3.Append("insert into YHGNB(");
+                strSql3.Append("YHBH,GNBH) ");
+                strSql3.Append("select @YHBH,GNBH from JSGNB where jsbh=@JSBH and sfmrgn='true'");
+                SqlParameter[] parameters3 = {
+					new SqlParameter("@YHBH", SqlDbType.VarChar,50),
+					new SqlParameter("@JSBH", SqlDbType.Int,4)};
+                parameters3[0].Value = sb.YHBH;
+                parameters3[1].Value = sb.JSBH;
+                SQLStringList.Add(strSql3.ToString());
+                SqlParameterList.Add(parameters3);
+
+                
+
 
                 DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
 
