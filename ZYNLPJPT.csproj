@@ -97,6 +97,7 @@
     <Content Include="processAspx\addMmProc.aspx" />
     <Content Include="processAspx\export_Result.aspx" />
     <Content Include="processAspx\getExportState.aspx" />
+    <Content Include="processAspx\ifPzJSProc.aspx" />
     <Content Include="processAspx\updateKcxz.aspx" />
     <Content Include="processAspx\XiuGaiKC1.aspx" />
     <Content Include="processAspx\XiuGaiKC2.aspx" />
@@ -1230,6 +1231,13 @@
     </Compile>
     <Compile Include="processAspx\DelAllJdkc.aspx.designer.cs">
       <DependentUpon>DelAllJdkc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\ifPzJSProc.aspx.cs">
+      <DependentUpon>ifPzJSProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ifPzJSProc.aspx.designer.cs">
+      <DependentUpon>ifPzJSProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\Importxs2.aspx.cs">
       <DependentUpon>Importxs2.aspx</DependentUpon>

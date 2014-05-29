@@ -24,7 +24,8 @@
        //      var gnbh;
 
        //      var row = $('#mytable').datagrid('getSelected');
-       //     gnbh = row.gnbh;                    //功能编号
+            //     gnbh = row.gnbh;                    //功能编号
+
          $.post("processAspx/DelgnProc.aspx", { 'gnbh': gnbh, 'jsbh': jsbh}, function (result) {
                 if (result == 'False') {
                     $.messager.alert('警告', '无法删除!');

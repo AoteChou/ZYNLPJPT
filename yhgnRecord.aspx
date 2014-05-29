@@ -14,7 +14,18 @@
           //为用户添加新功能
           function newGN(yhbh) {
 
-              window.location.href = "addYHGn.aspx?yhbh=" + yhbh.toString();
+              $.post("processAspx/ifPzJSProc.aspx", { 'yhbh': yhbh }, function (result) {
+                  if (result == 'False') {
+                      $.messager.alert('警告', '请先配置此用户的角色!');
+                      setTimeout(function () { location.href = 'addYHJs.aspx?yhbh=' + yhbh.toString(); }, 2000);
+                      //window.location.href = 'addYHJs.aspx?yhbh=' + yhbh.toString();
+
+                  }
+                  else {
+                      window.location.href = "addYHGn.aspx?yhbh=" + yhbh.toString();
+                  }
+              });
+             // window.location.href = "addYHGn.aspx?yhbh=" + yhbh.toString();
           }
 
           //删除选中功能
@@ -44,7 +55,7 @@
       <div region="center" border="false">
       <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="window.location.href='pzYhGn.aspx'">返回上页</a>
-            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newGN(<%=this.yhbh%>)">配置新功能点</a>
+            <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="newGN('<%=this.yhbh%>')">配置新功能点</a>
       </div>
    <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	<thead>

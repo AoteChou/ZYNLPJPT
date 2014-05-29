@@ -10,7 +10,7 @@ using ZYNLPJPT.Model;
 using ZYNLPJPT.processAspx;
 using ZYNLPJPT.Utility;
 using System.Data;
-
+using System.Threading;
 namespace ZYNLPJPT
 {
     public partial class addYHGn : System.Web.UI.Page
@@ -36,8 +36,10 @@ namespace ZYNLPJPT
                 length = new YHGN_BLL().get_GNcount(yhbh);
                 if (length == 0)
                 {
-                    Response.Write("<script language=javascript>alert('请先为该用户配置角色！')</script>");
-                    Response.Redirect("addYHJs.aspx?yhbh="+yhbh.ToString().Trim());
+
+                  //  Response.Write("<script language=javascript>alert('请先为该用户配置角色！')</script>");
+                  //  Thread.Sleep(10000);
+                  //  Response.Redirect("addYHJs.aspx?yhbh="+yhbh.ToString().Trim());
                 }
                 else
                 {

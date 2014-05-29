@@ -48,15 +48,20 @@ namespace ZYNLPJPT.BLL
             string sql = "  gnbh not in(select gnbh from YHGNB where yhbh=" + yhbh.ToString() + ")";
             string sql2 = " and gnbh in(select gnbh from JSGNB where jsbh=";
             int js_count = new YHJS_BLL().getJSCount_byYH(yhbh);
-            for (int i = 0; i < js_count - 1; i++)
+            if (js_count == 0)
+                return 0;
+            else
             {
-                sql2 += new YHJS_BLL().getJS_byYH(yhbh)[i].JSBH.ToString() + "or jsbh=";
+                for (int i = 0; i < js_count - 1; i++)
+                {
+                    sql2 += new YHJS_BLL().getJS_byYH(yhbh)[i].JSBH.ToString() + "or jsbh=";
+                }
+                sql2 += new YHJS_BLL().getJS_byYH(yhbh)[js_count - 1].JSBH.ToString() + ")";
+                sql += sql2;
+                DataSet ds = new GND_DAL().GetList(sql);
+                int length = ds.Tables[0].Rows.Count;
+                return length;
             }
-            sql2 += new YHJS_BLL().getJS_byYH(yhbh)[js_count - 1].JSBH.ToString() + ")";
-            sql += sql2;
-            DataSet ds = new GND_DAL().GetList(sql);
-            int length = ds.Tables[0].Rows.Count;
-            return length;
         }
 
         //获取某一用户对应的用户功能点

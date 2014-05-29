@@ -23,7 +23,7 @@
                   var row = rows[i];
                   var index = $('#mytable').datagrid('getRowIndex', row);
                   sfmrgn[i] = mrgn[index].checked;
-                  alert(index.toString()+sfmrgn[i].toString());
+                  
 
               }
 
