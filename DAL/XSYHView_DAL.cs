@@ -326,19 +326,24 @@ namespace ZYNLPJPT.DAL
                 List<string> SQLStringList = new List<string>();
                 List<SqlParameter[]> SqlParameterList = new List<SqlParameter[]>();
 
+                string sql3 = "delete from yhgnb where yhbh=@xsbh;";
                 string sql = "delete from XS where XSBH=@xsbh;";
                 string sql1 = "delete from YHJSB where YHBH=@xsbh;";
                 string sql2 = "delete from YH where YHBH=@xsbh;";
+                
                 SqlParameter[] ps ={
                                    new SqlParameter("@xsbh",SqlDbType.VarChar),
                               };
                 ps[0].Value = id;
+                SQLStringList.Add(sql3);
+                SqlParameterList.Add(ps);
                 SQLStringList.Add(sql);
                 SqlParameterList.Add(ps);
                 SQLStringList.Add(sql1);
                 SqlParameterList.Add(ps);
                 SQLStringList.Add(sql2);
                 SqlParameterList.Add(ps);
+                
 
                 DbHelperSQL.ExecuteSqlTran(SQLStringList, SqlParameterList);
 
