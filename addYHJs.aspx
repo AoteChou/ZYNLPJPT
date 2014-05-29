@@ -9,18 +9,23 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
      <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
-
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
    <script type="text/javascript">
 
        function getSelected(yhbh,jsbh) {
          //  var jsbh;                                                                     //选择的功能点编号(多个)    
           // var rows = $('#mytable').datagrid('getSelected');
            // jsbh = rows.jsbh;
-           $.post("processAspx/addYHJsProc.aspx", { 'yhbh': yhbh, 'jsbh': jsbh },function (result) {
+           $.post("processAspx/addYHJsProc.aspx", { 'yhbh': yhbh, 'jsbh': jsbh }, function (result) {
                if (result == 'False') {
                    $.messager.alert('警告', '配置新角色失败!');
                }
-
+               else if (result == 1) {
+                   $.messager.alert('警告', '学生不能再配置教师角色!');
+               }
+               else if (result == 2) {
+                   $.messager.alert('警告', '教师不能再配置学生角色!');
+               }
                else {
                    $.messager.confirm('信息', '为此用户配置新角色成功!', function (r) {
                        if (r) {

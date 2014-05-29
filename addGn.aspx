@@ -11,15 +11,23 @@
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 
    <script type="text/javascript">
-
+     
        function getSelections(jsbh) {
-           var gnbh = [];                                                            //选择的功能点编号(多个)    
+           var gnbh = [];                                                            //选择的功能点编号(多个)
+           var sfmrgn = [];
            var rows = $('#mytable').datagrid('getSelections');
-           for (var i = 0; i < rows.length; i++) {
-               gnbh[i] = rows[i].gnbh;
-        }
+           var k=0;
+          mrgn=document.getElementsByName('mrgn');
+            for (var i = 0; i < rows.length; i++) {
+                  gnbh[i] = rows[i].gnbh;
+                  var row = rows[i];
+                  var index = $('#mytable').datagrid('getRowIndex', row);
+                  sfmrgn[i] = mrgn[index].checked;
+                  
 
-            $.post("processAspx/addGnProc.aspx", { 'gnbh': gnbh, 'jsbh': jsbh}, function (result) {
+              }
+
+        $.post("processAspx/addGnProc.aspx", { 'gnbh': gnbh, 'jsbh': jsbh,'sfmrgn':sfmrgn}, function (result) {
                 if (result == 'False') {
                     $.messager.alert('警告', '必须选择至少选择一个功能点!');
                 }
@@ -59,27 +67,34 @@
     	    <thead>
     		    <tr>
     			
-                <th data-options="field:'sfxzgnd',checkbox:true" width="50" align=center> 是否选择功能点</th>
-                <th data-options="field:'gnbh'" width="50" align=center>功能点编号</th>
+                  <th data-options="field:'sfxzgnd',checkbox:true" width="50" align=center> 是否选择功能点</th>
+                 <th data-options="field:'gnbh'" width="50" align=center>功能点编号</th>
                  <th data-options="field:'gnm'" width="50" align=center>功能点</th>
+                 <th data-options="field:'sfmrgn'" width="50" align=center>是否默认功能</th>
                  <th data-options="field:'gnlj'" width="50" align=center>功能点链接</th>
                  <th data-options="field:'ssml'" width="50" align=center>所属目录</th>
                 
+                  
     		</tr>
     	</thead>
    		
         <tbody >
               <%
+                  Response.Write("<form>");
                    for (int i = 0; i <this.length; i++)
                    {
                        Response.Write("<tr >");
-                       Response.Write("<td><</td>");
+                       Response.Write("<td></td>");
                        Response.Write("	<td >" +this.gn_list[i].GNBH.ToString()+ "</td>");                                         //功能点编号
                        Response.Write("	<td >" +this.gn_list[i].GNM.ToString() + "</td>");                                        //功能点名
-                       Response.Write("  <td >"  +this.gn_list[i].GNLJ.ToString()+ "</td>");                                          //功能链接
+                       Response.Write("<td><input type=checkbox name=mrgn  id=sfmrgn"+i.ToString()+"/></td>"); //是否默认功能                   
+                      Response.Write("  <td >"  +this.gn_list[i].GNLJ.ToString()+ "</td>");                                         //功能链接
                        Response.Write("<td>"+this.gn_list[i].SSML.ToString()+"</td>");                                              //所属目录
                        Response.Write("</tr>");
-                   } %>
+                   }
+                     Response.Write("</form>");
+                   %>
+                  
     	</tbody>
    	</table>     
      </div>

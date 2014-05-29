@@ -35,7 +35,7 @@ namespace ZYNLPJPT
                 jsgn_list[i] = new JSGNB();
                 jsgn_list[i].JSBH = int.Parse(ds.Tables[0].Rows[i]["JSBH"].ToString());
                 jsgn_list[i].GNBH = int.Parse(ds.Tables[0].Rows[i]["GNBH"].ToString());
-
+                jsgn_list[i].SFMRGN = bool.Parse(ds.Tables[0].Rows[i]["SFMRGN"].ToString());
                 gnd_list[i] = new GND();
                 gnd_list[i] = new GND_DAL().GetModel(jsgn_list[i].GNBH);
             }

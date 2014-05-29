@@ -85,6 +85,7 @@
     <Content Include="addGn.aspx" />
     <Content Include="addJS.aspx" />
     <Content Include="addst.aspx" />
+    <Content Include="addYH.aspx" />
     <Content Include="addYHGn.aspx" />
     <Content Include="addYHJs.aspx" />
     <Content Include="addYjzb.aspx" />
@@ -96,7 +97,10 @@
     <Content Include="processAspx\addMmProc.aspx" />
     <Content Include="processAspx\export_Result.aspx" />
     <Content Include="processAspx\getExportState.aspx" />
+    <Content Include="processAspx\ifPzJSProc.aspx" />
     <Content Include="processAspx\updateKcxz.aspx" />
+    <Content Include="processAspx\XiuGaiKC1.aspx" />
+    <Content Include="processAspx\XiuGaiKC2.aspx" />
     <Content Include="Styles\back2.jpg" />
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
@@ -109,6 +113,7 @@
     <Content Include="ckZsdyToEjzb.aspx" />
     <Content Include="kcctRecord.aspx" />
     <Content Include="processAspx\addBjProc.aspx" />
+    <Content Include="processAspx\addYhProc.aspx" />
     <Content Include="processAspx\addZsdyToEjzbProc.aspx" />
     <Content Include="processAspx\changeZyProc.aspx" />
     <Content Include="ChooseResultCurriculum.aspx" />
@@ -454,6 +459,13 @@
     <Compile Include="addst.aspx.designer.cs">
       <DependentUpon>addst.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addYH.aspx.cs">
+      <DependentUpon>addYH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addYH.aspx.designer.cs">
+      <DependentUpon>addYH.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addYHGn.aspx.cs">
       <DependentUpon>addYHGn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -568,6 +580,7 @@
     <Compile Include="BLL\Login_BLL.cs" />
     <Compile Include="BLL\ST_BLL.cs" />
     <Compile Include="BLL\UploadSTDA.cs" />
+    <Compile Include="BLL\YHJS_BLL.cs" />
     <Compile Include="ChaKanKC.aspx.cs">
       <DependentUpon>ChaKanKC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -630,6 +643,13 @@
     </Compile>
     <Compile Include="processAspx\addBjProc.aspx.designer.cs">
       <DependentUpon>addBjProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\addYhProc.aspx.cs">
+      <DependentUpon>addYhProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\addYhProc.aspx.designer.cs">
+      <DependentUpon>addYhProc.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\addMmProc.aspx.cs">
       <DependentUpon>addMmProc.aspx</DependentUpon>
@@ -1212,6 +1232,13 @@
     <Compile Include="processAspx\DelAllJdkc.aspx.designer.cs">
       <DependentUpon>DelAllJdkc.aspx</DependentUpon>
     </Compile>
+    <Compile Include="processAspx\ifPzJSProc.aspx.cs">
+      <DependentUpon>ifPzJSProc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\ifPzJSProc.aspx.designer.cs">
+      <DependentUpon>ifPzJSProc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="processAspx\Importxs2.aspx.cs">
       <DependentUpon>Importxs2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1429,6 +1456,20 @@
     </Compile>
     <Compile Include="processAspx\scEjzbProc.aspx.designer.cs">
       <DependentUpon>scEjzbProc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC1.aspx.cs">
+      <DependentUpon>XiuGaiKC1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC1.aspx.designer.cs">
+      <DependentUpon>XiuGaiKC1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC2.aspx.cs">
+      <DependentUpon>XiuGaiKC2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="processAspx\XiuGaiKC2.aspx.designer.cs">
+      <DependentUpon>XiuGaiKC2.aspx</DependentUpon>
     </Compile>
     <Compile Include="processAspx\XiugaiKCXZ.aspx.cs">
       <DependentUpon>XiugaiKCXZ.aspx</DependentUpon>

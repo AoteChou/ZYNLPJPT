@@ -16,7 +16,7 @@ namespace ZYNLPJPT.processAspx
             if (Request["option"] != null && Request["option"] == "xiuMIMA")
             {
                 string id = Request["XsID"];
-                string mima = Request["password"];
+                string mima = id;
                 if (id != null && mima != null)
                 {
                     if (xs.UpdateMiMa(id, mima) > 0)

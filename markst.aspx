@@ -9,38 +9,40 @@
     <link rel="Stylesheet" type="text/css" href="Styles/icon.css" /> 
     <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
 
-        function getSelected(GTRBH) {
-            var pcjlbh,stbh, xsbh, gtr, scrq, xzrq;
+        function getSelected(gtrbh,pcjlbh) {
+          //  var pcjlbh,stbh, xsbh, gtr, scrq, xzrq;
 
-              var row = $('#mytable').datagrid('getSelected');
-             pcjlbh = row.pcjlbh;  //评测记录编号
-            stbh = row.stbh;      //试题编号
-            xsbh = row.xsbh;    //学生编号
-            //   gtr = row.gtr;         //改题人
-            gtr = GTRBH;
-            scrq = row.scrq;    //上传日期
-           xzrq = row.xzrq;   //下载日期
- 
-        $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
+//              var row = $('#mytable').datagrid('getSelected');
+//             pcjlbh = row.pcjlbh;  //评测记录编号
+//            stbh = row.stbh;      //试题编号
+//            xsbh = row.xsbh;    //学生编号
+//            //   gtr = row.gtr;         //改题人
+//            gtr = GTRBH;
+//            scrq = row.scrq;    //上传日期
+//           xzrq = row.xzrq;   //下载日期
+            window.location.href = "gt.aspx?pcjlbh=" + pcjlbh.toString() + "&gtr=" + gtrbh.toString();
 
-                if (result == 'False') {
-                    $.messager.alert('警告', '必须选择至少选择一道题批改!');
-                }
+//        $.post("processAspx/gtData.aspx", { 'pcjlbh': pcjlbh, 'stbh': stbh, 'xsbh': xsbh, 'gtr': gtr, 'scrq': scrq, 'xzrq': xzrq }, function (result) {
 
-                else {
-                    $.messager.confirm('选择成功！', '点击确认进入改题 页面，点击取消返回上一页 ', function (r) {
-                        if (r) {
-                            window.location.href = "gt.aspx?pcjlbh=" + pcjlbh.toString()+"&gtr="+gtr.toString();
+//                if (result == 'False') {
+//                    $.messager.alert('警告', '必须选择至少选择一道题批改!');
+//                }
 
-                        }
-                        else {
-                            history.back(-1);
-                        }
-                    });
-                }
-            });
+//                else {
+//                    $.messager.confirm('选择成功！', '点击确认进入改题 页面，点击取消返回上一页 ', function (r) {
+//                        if (r) {
+//                            window.location.href = "gt.aspx?pcjlbh=" + pcjlbh.toString()+"&gtr="+gtr.toString();
+
+//                        }
+//                        else {
+//                            history.back(-1);
+//                        }
+//                    });
+//                }
+//            });
         }
     </script>
 </head>
@@ -77,12 +79,12 @@
                        if (GTView_list[i].PCFS != null)
                        {
                            Response.Write("<td>" + this.GTView_list[i].PCFS.ToString() + "</td>");                                    //分数
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "')\" >重改</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "'" + "," + this.GTView_list[i].PCJLBH + ")\" >重改</a></td>");
                        }
                        else
                        {
                            Response.Write("<td>未打分</td>");
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('"+this.gtrbh+"')\" >改题</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "'" + "," + this.pcjl_list[i].PCJLBH + ")\" >改题</a></td>");
                        }
                        Response.Write("</tr>");
                    }

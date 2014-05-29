@@ -18,7 +18,7 @@
         </div>
         <asp:FileUpload id="fileInput" runat="server" />
        <asp:Button id="import" runat="server" Text="导入" Height="21px" OnClick="Import_Clicked" />
-       <a href="rr.xls">下载导入模版</a>
+       <a href="rr.xls">请先下载导入模版</a>
     </div>
     </form>
 </body>

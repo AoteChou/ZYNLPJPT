@@ -20,8 +20,9 @@
             <tr>
                <th data-options="field:'kcmc'" width="32">课程名称</th>
                <th data-options="field:'kkxk'" width="32">开课学科</th>
-               <th data-options="field:'kxfzr',editor:'text'" width="32">课程负责人(单击修改)</th> 
-                <th data-options="field:'kcjj',editor:'text'" width="32">课程简介(单击修改)</th>           
+               <th data-options="field:'kxfzr'" width="32">课程负责人</th> 
+                <th data-options="field:'kcjj'" width="32">课程简介</th>   
+                <th data-options="field:'button',align:'center'" width="30">修改课程</th>        
     
             </tr>
          </thead>
@@ -33,10 +34,9 @@
                     Response.Write("<tr>");
                     Response.Write("<td>" + kcmc[i] + "</td>");
                     Response.Write("<td>" +kkxk[i] + "</td>");
-                    Response.Write("<td>" + kcfzr[i] + "</td>");
-                    Response.Write("<td>" + kcjj[i] + "</td>");
-
-                   // Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/XiuGaiKC1.aspx?kcbh=" + kcbh[i] + "'\" >进入修改</a></td>");
+                    Response.Write("<td>"+kcfzr[i]+"  </td>");
+                    Response.Write("<td>"+kcjj[i]+"</td>");
+                    Response.Write("  <td><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"window.location.href='processAspx/XiuGaiKC1.aspx?kcbh=" + kcbh[i] + "'\" >进入修改</a></td>");
                     Response.Write("</tr>");
                 }
                 
