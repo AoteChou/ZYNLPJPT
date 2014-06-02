@@ -171,9 +171,9 @@ namespace ZYNLPJPT
             Response.Write(addString);
         } 
         public void checkYHBH(string value,int rowID) {
-            if (value.Length != 8)
+            if (value.Length != 8 && value.Length !=7)
             {
-                appendContent("数据错误-----第" + rowID + "行导入出错,学生学号需为8位<br/>");
+                appendContent("数据错误-----第" + rowID + "行导入出错,学生学号需为8位或7位<br/>");
                 flag = false;
             }
         }
