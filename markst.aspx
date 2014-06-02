@@ -84,7 +84,7 @@
                        else
                        {
                            Response.Write("<td>未打分</td>");
-                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "'" + "," + this.pcjl_list[i].PCJLBH + ")\" >改题</a></td>");
+                           Response.Write(" <td ><a id=\"A1\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" style=\"margin-top:10px; margin-bottom:10px;\" onclick=\"getSelected('" + this.gtrbh + "'" + "," + this.GTView_list[i].PCJLBH + ")\" >改题</a></td>");
                        }
                        Response.Write("</tr>");
                    }

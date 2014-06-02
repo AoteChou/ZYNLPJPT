@@ -79,14 +79,16 @@
 </head>
 
  
-<body>
+<body class="easyui-layout">
 
-  <div region="center" border="false">
+ <div region="center" border="false">
+       
+      <div region="center" border="false">
       <div style="padding:10px 10px 10px 400px" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="window.location.href='../ctRecord.aspx?kcbh=<%=kcbh %>'">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=kcbh%>,'<%=ctr %>')">完成设置</a>
       </div>
- </div>
+
 
          <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
@@ -121,7 +123,7 @@
                    } %>
     	</tbody>
    	</table>     
-    
+    </div>
     </div>
 
         <script type="text/javascript">

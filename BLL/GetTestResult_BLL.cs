@@ -233,21 +233,22 @@ namespace ZYNLPJPT.BLL
                 return 0;
             }
             ZYNLPJPT.Utility.FSAndQZ fsandqz = new Utility.FSAndQZ();
+            //获取每个一级指标下面的分数和权重
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 ZBMCAndFS zbmcandfs = new ZBMCAndFS(true);
                 zbmcandfs.Zbmc = row["YJZBMC"].ToString();
                 List<ZBMCAndFS> ejzbmcandfsList = new List<ZBMCAndFS>();
                 int fs = getTestResult_YJZB(xsbh, int.Parse(row["yjzbbh"].ToString()), zybh,ref ejzbmcandfsList);
-                zbmcandfs.Fs = fs;
-                zbmcandfs.MCandFS_child = ejzbmcandfsList;
+                zbmcandfs.Fs = fs; //一级指标分数
+                zbmcandfs.MCandFS_child = ejzbmcandfsList; //一级指标下面的二级指标列表
 
                 mcandfs.Add(zbmcandfs);
 
                 fsandqz.FsList.Add(fs);
                 fsandqz.QzList.Add(int.Parse(row["yjzbqz"].ToString()));
             }
-            result = fsandqz.getweightedaverage();
+            result = fsandqz.getweightedaverage(); //获取加权平均结果
             return result;
 
         }

@@ -95,7 +95,7 @@ namespace ZYNLPJPT
                }*/
                 string fileName = inputFileId.FileName;
                 hzm = fileName.Substring(fileName.LastIndexOf("."));
-                if (hzm != ".doc" || hzm != ".docx")
+                if (hzm != ".doc" && hzm != ".docx")
                 {
                     Response.Write("<script type=text/javascript>alert('请上传后缀名为.doc或.docx的文件！')</script>");
 
