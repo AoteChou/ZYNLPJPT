@@ -12,9 +12,9 @@
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="ckcpjd.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedMajor" style="width:200px;">选择需要查看的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length; i++) {

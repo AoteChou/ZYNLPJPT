@@ -11,9 +11,9 @@
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="pzjdkc.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedMajor" style="width:200px;">选择需要设置的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length; i++) {
@@ -34,10 +34,10 @@
                  <th data-options="field:'jdbh'" width="12">阶段编号</th>  
                 <th data-options="field:'jdmc',align:'center'" width="40">阶段名称</th>
                 <th data-options="field:'xkmc',align:'center'" width="40">学科名称</th>
-                <th data-options="field:'qsxq',align:'center'" width="30">阶段起始学期</th>
-                <th data-options="field:'jzxq',align:'center'" width="30">阶段截止学期</th>
+                <th data-options="field:'qsxq',align:'center'" width="20">阶段起始学期</th>
+                <th data-options="field:'jzxq',align:'center'" width="20">阶段截止学期</th>
                 <th data-options="field:'cpjdbz'" width="30">测评阶段备注</th>
-                <th data-options="field:'button',align:'center'" width="50">配置阶段下设课程</th>
+                <th data-options="field:'button',align:'center'" width="60">配置阶段下设课程</th>
     		</tr>
     	</thead>
    		<tbody >

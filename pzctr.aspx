@@ -12,9 +12,9 @@
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="pzctr.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedMajor" style="width:200px;">选择需要配置出题人的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length; i++) {
@@ -33,9 +33,9 @@
     			<th data-options="field:'kcmc'" width="50">课程名称</th>
                 <th data-options="field:'zym'" width="50">所属专业</th>
                  <th data-options="field:'xkmc'" width="50">所属学科</th>
-                <th data-options="field:'kcxzmc'" width="50">课程性质</th>
+                <th data-options="field:'kcxzmc'" width="35">课程性质</th>
                 <th data-options="field:'zyfzr'" width="50">专业负责人</th>
-                <th data-options="field:'button'" width="30">配置出题人</th>
+                <th data-options="field:'button'" width="45">配置出题人</th>
     		</tr>
     	</thead>
    		<tbody >

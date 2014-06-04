@@ -31,11 +31,11 @@
     		<tr>
                 <th data-options="field:'kcbh'" width="13">课程编号</th>
                  <th data-options="field:'kcmc'" width="50">课程名称</th>
-                <th data-options="field:'kcfzr'" width="50">课程负责人</th>
+                <th data-options="field:'kcfzr'" width="30">课程负责人</th>
                 <th data-options="field:'kkxk'" width="50">开课学科</th>
                 <th data-options="field:'kkxy'" width="50">开课学院</th>
-                <th data-options="field:'buttonAll',align:'center'" width="50">删除所有知识单元</th>
-                <th data-options="field:'buttonSingle',align:'center'" width="50">删除单个知识单元</th>
+                <th data-options="field:'buttonAll',align:'center'" width="60">删除所有知识单元</th>
+                <th data-options="field:'buttonSingle',align:'center'" width="60">删除单个知识单元</th>
     		</tr>
     	</thead>
    		<tbody >

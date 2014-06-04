@@ -17,9 +17,9 @@
     </script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="ckctr.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedMajor" style="width:200px;">选择需要查看出题人的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length ;i++) {
@@ -39,9 +39,9 @@
     			<th data-options="field:'kcmc'" width="50">课程名称</th>
                 <th data-options="field:'zym'" width="50">所属专业</th>
                  <th data-options="field:'xkmc'" width="50">所属学科</th>
-                <th data-options="field:'kcxzmc'" width="50">课程性质</th>
-                <th data-options="field:'zyfzr'" width="50">专业负责人</th>
-                 <th data-options="field:'button'" width="30">查看出题人</th>
+                <th data-options="field:'kcxzmc'" width="40">课程性质</th>
+                <th data-options="field:'zyfzr'" width="40">专业负责人</th>
+                 <th data-options="field:'button'" width="50">查看出题人</th>
     		</tr>
     	</thead>
    		<tbody>

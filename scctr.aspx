@@ -26,9 +26,9 @@
     </script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="scctr.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedMajor" style="width:200px;">选择需要删除出题人的专业:</label>
         <select  id="choosedMajor" name="choosedMajor" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allZyms.Length ;i++) {
@@ -46,12 +46,12 @@
     		<tr>
                
     			<th data-options="field:'kcmc'" width="50">课程名称</th>
-                <th data-options="field:'zym'" width="50">所属专业</th>
+                <th data-options="field:'zym'" width="40">所属专业</th>
                  <th data-options="field:'xkmc'" width="50">所属学科</th>
                 <th data-options="field:'kcxzmc'" width="20">课程性质</th>
-                <th data-options="field:'zyfzr'" width="30">专业负责人</th>
-                 <th data-options="field:'buttonAll',align:'center'" width="60">删除专业课程所有出题人</th>
-                 <th data-options="field:'buttonSingle',align:'center'" width="60">删除专业课程单个出题人</th>
+                <th data-options="field:'zyfzr'" width="20">专业负责人</th>
+                 <th data-options="field:'buttonAll',align:'center'" width="70">删除专业课程所有出题人</th>
+                 <th data-options="field:'buttonSingle',align:'center'" width="70">删除专业课程单个出题人</th>
     		</tr>
     	</thead>
    		<tbody >

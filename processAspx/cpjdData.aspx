@@ -35,8 +35,8 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-    <div region="north" border="true"  >
-        <div style="padding:10px 10px 10px 400px" >
+    <div region="north" border="true" style=" overflow:hidden;" >
+        <div style="padding-top:10px; padding-bottom:10px; text-align:center;" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回上页</a>
             <a href="javascript:void(0)" style=" margin-left:50px;" class="easyui-linkbutton"  onclick="getSelections(<%=jdbh %>,<%=zybh %>,<%=njbh %>)">提交修改</a>
         </div>

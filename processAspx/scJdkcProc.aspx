@@ -29,8 +29,8 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-    <div region="north" border="true"  >
-        <div style="padding:10px 10px 10px 400px" >
+    <div region="north" border="true"  style=" overflow:hidden;" >
+        <div style="padding-top:10px; padding-bottom:10px; text-align:center;" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnUpPage()">返回上页</a>
         </div>
     </div>
@@ -42,10 +42,10 @@
                  <th data-options="field:'kcmc',align:'center'" width="50">课程名称</th>
                  <th data-options="field:'sszy',align:'center'" width="55">所属专业</th>
                  <th data-options="field:'ssxk',align:'center'" width="55">所属学科</th>
-                <th data-options="field:'kcxz'" width="50">课程性质</th>
-                <th data-options="field:'llxf'" width="30">理论学分</th>
-                <th data-options="field:'sjxf'" width="30">实践学分</th>
-                <th data-options="field:'scButton',align:'center'" width="40">删除该阶段课程</th>
+                <th data-options="field:'kcxz'" width="30">课程性质</th>
+                <th data-options="field:'llxf'" width="25">理论学分</th>
+                <th data-options="field:'sjxf'" width="25">实践学分</th>
+                <th data-options="field:'scButton',align:'center'" width="60">删除该阶段课程</th>
     		</tr>
     	</thead>
    		<tbody >

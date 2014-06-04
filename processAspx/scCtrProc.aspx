@@ -29,8 +29,8 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-    <div region="north" border="true"  >
-        <div style="padding:10px 10px 10px 400px" >
+    <div region="north" border="true" style=" overflow:hidden;"  >
+        <div style="padding-top:10px; padding-bottom:10px; text-align:center;" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnUpPage()">返回上页</a>
         </div>
     </div>
@@ -42,10 +42,10 @@
                 <th data-options="field:'yhbh'" width="50">教师编号</th>
                  <th data-options="field:'xm'" width="50">姓名</th>
                  <th data-options="field:'xb'" width="20">性别</th>
-                <th data-options="field:'sfsxkfzr'" width="50">是否是学科负责人</th>
-                <th data-options="field:'sfskcfzr'" width="50">是否是课程负责人</th>
+                <th data-options="field:'sfsxkfzr'" width="40">是否是学科负责人</th>
+                <th data-options="field:'sfskcfzr'" width="40">是否是课程负责人</th>
                 <th data-options="field:'ssxk'" width="30">所属学科</th>
-                 <th data-options="field:'scButton',align:'center'" width="40">删除该出题人</th>
+                 <th data-options="field:'scButton',align:'center'" width="50">删除该出题人</th>
     		</tr>
     	</thead>
    		<tbody >
