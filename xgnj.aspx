@@ -21,7 +21,7 @@
     			<th data-options="field:'xybh'" width="50">年级编号</th>
                 <th data-options="field:'xymc'" width="50">年级名称</th>
                 <th data-options="field:'rxnf'" width="50">入学年份</th>
-                <th data-options="field:'button',align:'center'" width="20">修改年级信息</th>
+                <th data-options="field:'button',align:'center'" width="80">修改年级信息</th>
     		</tr>
     	</thead>
    		<tbody >

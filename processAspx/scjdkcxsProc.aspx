@@ -29,8 +29,8 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-    <div region="north" border="true"  >
-        <div style="padding:10px 10px 10px 400px" >
+    <div region="north" border="true" style=" overflow:hidden;" >
+        <div style="padding-top:10px; padding-bottom:10px; text-align:center;" >
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnUpPage()">返回上页</a>
         </div>
     </div>
@@ -38,10 +38,10 @@
          <table id="mytable" class="easyui-datagrid"  fit="true" data-options="fitColumns:true" style="border:none;" border="false">
     	    <thead>
     		    <tr>
-                <th data-options="field:'jsbh'" width="12">教师编号</th>
+                <th data-options="field:'jsbh',align:'center'" width="20">教师编号</th>
                  <th data-options="field:'jsxm',align:'center'" width="50">教师姓名</th>
-                 <th data-options="field:'xsbh',align:'center'" width="55">学生编号</th>
-                 <th data-options="field:'xsxm',align:'center'" width="55">学生姓名</th>
+                 <th data-options="field:'xsbh',align:'center'" width="40">学生编号</th>
+                 <th data-options="field:'xsxm',align:'center'" width="40">学生姓名</th>
                 <th data-options="field:'scButton',align:'center'" width="40">删除该改题人</th>
     		</tr>
     	</thead>

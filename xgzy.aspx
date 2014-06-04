@@ -12,9 +12,9 @@
     <script type="text/javascript" src="Scripts/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px;overflow:hidden;">
 <form action="xgzy.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedXy" style="width:200px;">选择需要修改信息的学院:</label>
         <select  id="choosedXy" name="choosedXy" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allXyNames.Length; i++) {

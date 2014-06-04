@@ -25,9 +25,9 @@
     </script>
 </head>
 <body class="easyui-layout">         
-<div region="north" border="true" style="height:40px;">
+<div region="north" border="true" style="height:40px; overflow:hidden;">
 <form action="scjsgt.aspx" method="post">
-    <div id="content" name="content" style="padding:10px 10px 10px 400px">
+    <div id="content" name="content" style="padding-top:10px; text-align:center;">
         <label for="choosedNjName" style="width:200px;">选择需要删除改题人的年级:</label>
         <select  id="choosedNjName" name="choosedNjName" style="width:200px;"   onchange="return submit()" >
             <% for (int i = 0; i < this.allNjNames.Length; i++) {
@@ -44,7 +44,7 @@
     	<thead>
     		<tr>
     			<th data-options="field:'jdbh'" width="11">阶段编号</th>
-                <th data-options="field:'jdmc',align:'center'" width="50">阶段名称</th>
+                <th data-options="field:'jdmc',align:'center'" width="30">阶段名称</th>
                  <th data-options="field:'kcbh'" width="11">课程编号</th>
                 <th data-options="field:'kcmc',align:'center'" width="50">课程名称</th>
                 <th data-options="field:'zybh'" width="11">专业编号</th>

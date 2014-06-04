@@ -21,7 +21,7 @@
                
     			<th data-options="field:'xybh'" width="50">学院编号</th>
                 <th data-options="field:'xymc'" width="50">学院名称</th>
-                 <th data-options="field:'button',align:'center'" width="20">修改学院信息</th>
+                 <th data-options="field:'button',align:'center'" width="40">修改学院信息</th>
     		</tr>
     	</thead>
    		<tbody >

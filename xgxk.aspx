@@ -22,7 +22,7 @@
                 <th data-options="field:'xkmc'" width="50">学科名称</th>
                 <th data-options="field:'xkfzr'" width="30">学科负责人</th>
                 <th data-options="field:'xymc'" width="40">所属学院</th>
-                <th data-options="field:'button',align:'center'" width="30">修改学科信息</th>
+                <th data-options="field:'button',align:'center'" width="60">修改学科信息</th>
     		</tr>
     	</thead>
    		<tbody >

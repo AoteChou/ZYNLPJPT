@@ -18,8 +18,8 @@
 </head>
 <body class="easyui-layout">
     <form id="form" action="../Default.htm" method="post">
-         <div region="north" border="true"  >
-            <div style="padding:10px 10px 10px 400px" >
+         <div region="north" border="true"  style=" overflow:hidden;" >
+            <div style="padding-top:10px; padding-bottom:10px; text-align:center;" >
                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="returnToUpPage()">返回上页</a>
             </div>
         </div>
