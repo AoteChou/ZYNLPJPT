@@ -18,9 +18,9 @@
     		<tr>
                 <th data-options="field:'xymc'" width="50">学院名称</th>
                  <th data-options="field:'xkmc'" width="50">学科名称</th>
-                <th data-options="field:'xkfzr'" width="50">学科负责人</th>
+                <th data-options="field:'xkfzr'" width="40">学科负责人</th>
                 <th data-options="field:'zym'" width="50">专业名称</th>
-                <th data-options="field:'button'" width="30">配置专业能力指标</th>
+                <th data-options="field:'button'" width="40">配置专业能力指标</th>
     		</tr>
     	</thead>
    		<tbody >

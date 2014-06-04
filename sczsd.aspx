@@ -25,7 +25,7 @@
                 <th data-options="field:'zsdbh',align:'center'" width="8">知识点编号</th>
     			<th data-options="field:'zsdmc',align:'center'" width="15">知识点名称</th>
                  <th data-options="field:'zsdqz',align:'center'" width="8">知识点权重值</th>
-                <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
+                <th data-options="field:'xkmc',align:'center'" width="25">所属学科</th>
                 <th data-options="field:'button',align:'center'" width="20">删除知识点</th>
     		</tr>
     	</thead>

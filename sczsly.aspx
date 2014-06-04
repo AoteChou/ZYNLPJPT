@@ -20,8 +20,8 @@
     		<tr>
                 <th data-options="field:'zslybh',align:'center'" width="8">知识领域编号</th>
     			<th data-options="field:'zslymc',align:'center'" width="15">知识领域名称</th>
-                <th data-options="field:'zslybz'" width="50">知识领域备注</th>
-                <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
+                <th data-options="field:'zslybz'" width="40">知识领域备注</th>
+                <th data-options="field:'xkmc',align:'center'" width="25">所属学科</th>
                 <th data-options="field:'button',align:'center'" width="30">删除知识领域</th>
     		</tr>
     	</thead>

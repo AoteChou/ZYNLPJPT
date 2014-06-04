@@ -23,8 +23,8 @@
                 <th data-options="field:'zsdybh',align:'center'" width="8">知识单元编号</th>
     			<th data-options="field:'zsdymc',align:'center'" width="15">知识单元名称</th>
                 <th data-options="field:'zsdyqz',align:'center'" width="15">知识单元权重值</th>
-                <th data-options="field:'zsdybz'" width="50">知识单元备注</th>
-                <th data-options="field:'xkmc',align:'center'" width="15">所属学科</th>
+                <th data-options="field:'zsdybz'" width="40">知识单元备注</th>
+                <th data-options="field:'xkmc',align:'center'" width="25">所属学科</th>
                 <th data-options="field:'button',align:'center'" width="20">删除知识单元</th>
     		</tr>
     	</thead>
