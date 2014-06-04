@@ -25,7 +25,7 @@
                 <th data-options="field:'ywcts'" width="50">已完成题数</th>
                 <th data-options="field:'wwcts'" width="50">未完成题数</th>
     			<th data-options="field:'kcjj'" width="50">课程简介</th>
-                <th data-options="field:'button'" width="30"></th>
+                <th data-options="field:'button',align:'center'" width="40"></th>
     			
     		</tr>
     	</thead>

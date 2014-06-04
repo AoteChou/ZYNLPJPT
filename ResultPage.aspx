@@ -21,13 +21,13 @@
     	<thead>
     		<tr>
     			<th data-options="field:'cpjlbh'" width="50">测评记录编号</th>
-                <th data-options="field:'stbh'" width="50">试题编号</th>
+                <th data-options="field:'stbh'" width="30">试题编号</th>
                 <th data-options="field:'xzrq'" width="50">下载日期</th>
                 <th data-options="field:'scrq'" width="50">上传日期</th>
                 <th data-options="field:'gtr'" width="50">改题人</th>
-                <th data-options="field:'pfcs'" width="20">评测分数</th>
-                <th data-options="field:'xzst'" width="40"></th>
-                <th data-options="field:'xzwdda'" width="50"></th>
+                <th data-options="field:'pfcs'" width="25">评测分数</th>
+                <th data-options="field:'xzst',align:'center'" width="40"></th>
+                <th data-options="field:'xzwdda',align:'center'" width="50"></th>
     			
     		</tr>
     	</thead>

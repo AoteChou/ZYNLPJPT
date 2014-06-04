@@ -24,7 +24,7 @@
                 <th data-options="field:'qsxq'" width="50">起始学期</th>
                 <th data-options="field:'jzxq'" width="50">截止学期</th>
                 <th data-options="field:'ywcts'" width="50">完成题数</th>
-                <th data-options="field:'button'" width="30"></th>
+                <th data-options="field:'button',align:'center'" width="40"></th>
     			
     		</tr>
     	</thead>

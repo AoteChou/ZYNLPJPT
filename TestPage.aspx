@@ -48,7 +48,7 @@
                 
                 <asp:Button id="submitButtonId" class="btn"  runat="server" Text="确认上传"  OnClientClick="return getFileExt(document.getElementById('inputFileId'))" /><br />
                 <font style="position: relative; top: -20px;">上传进度：</font>
-                <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="600" Height="50" />
+                <Upload:ProgressBar id="progressBarId"   runat="server" inline="true" Width="60%" Height="50" />
              </div>
              <Upload:UnloadConfirmer ID="UnloadConfirmer1" runat="server" Text="正在上传文件,确定要离开吗?" EnableViewState="True" Visible="False"> </Upload:UnloadConfirmer>
 
