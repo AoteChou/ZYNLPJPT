@@ -15,7 +15,7 @@
    </head>
 <body class="easyui-layout">
 
-	<div data-options="region:'north',border:false" style="height:80px;background:url('./Styles/bar4.jpg');padding:10px;overflow:hidden;">
+	<div data-options="region:'north',border:false" style="height:80px;background:url('./Styles/bar4.jpg') no-repeat scroll 0 0 #0E4466;padding:10px;overflow:hidden;">
       		<h1 style="color:#ECFEFF;display:inline-block; font-family: '华文细黑','微软雅黑', '造字工房悦黑体验版纤细体', 'Times New Roman'; float:left;"></h1>
          	<h3 style="float:right;color:white;"><%= ((ZYNLPJPT.Model.YH)Session["yh"]).XM.Trim() %> 欢迎登陆! 当前时间：<span id="time">2013/3/3 12:00:21 </span> <a href="processAspx/logout.aspx" class="easyui-linkbutton" >退出</a></h3>
     </div>
