@@ -102,6 +102,7 @@
     <Content Include="processAspx\XiuGaiKC1.aspx" />
     <Content Include="processAspx\XiuGaiKC2.aspx" />
     <Content Include="Styles\back2.jpg" />
+    <Content Include="Styles\bar4.jpg" />
     <Content Include="Styles\bg.jpg" />
     <Content Include="bin\Brettle.Web.NeatUpload.dll" />
     <Content Include="bin\NPOI.dll" />
