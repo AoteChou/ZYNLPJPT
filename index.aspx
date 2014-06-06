@@ -47,9 +47,9 @@
 
 	<div data-options="region:'center',title:'Center',noheader:true,border:'false'">
     	<div id="tabs" class="easyui-tabs" data-options="fit:true,plain:true,border:false">
-        	<div title="Tab1" style="padding:20px;display:none;">
+        	<!--<div title="Tab1" style="padding:20px;display:none;">
 			tab1
-			</div>
+			</div>-->
     	</div>
     </div>
 <script type="text/javascript">
